@@ -38,6 +38,67 @@ html.dark body {
   animation: pulse-soft 1.6s infinite;
 }
 
+@keyframes float-orb-1 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  33% {
+    transform: translate3d(45px, -35px, 0) scale(1.08);
+  }
+  66% {
+    transform: translate3d(-30px, 25px, 0) scale(0.95);
+  }
+}
+
+@keyframes float-orb-2 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-55px, 40px, 0) scale(1.1);
+  }
+}
+
+@keyframes float-orb-3 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(35px, 45px, 0) scale(1.06);
+  }
+}
+
+@keyframes grid-pan {
+  0% {
+    background-position: 0px 0px;
+  }
+  100% {
+    background-position: 48px 48px;
+  }
+}
+
+.haq-orb-1 {
+  animation: float-orb-1 18s ease-in-out infinite;
+}
+
+.haq-orb-2 {
+  animation: float-orb-2 22s ease-in-out infinite;
+}
+
+.haq-orb-3 {
+  animation: float-orb-3 26s ease-in-out infinite;
+}
+
+.haq-animated-grid {
+  background-image: radial-gradient(rgba(13, 148, 136, 0.16) 1px, transparent 1px);
+  background-size: 32px 32px;
+  animation: grid-pan 24s linear infinite;
+}
+
+html.dark .haq-animated-grid {
+  background-image: radial-gradient(rgba(45, 212, 191, 0.14) 1px, transparent 1px);
+}
+
 .soft-card {
   background: #ffffff;
   border: 1px solid rgba(226, 232, 240, 0.85);

@@ -112,16 +112,27 @@ export async function POST(req: NextRequest) {
       await saveCase(existingCase);
     }
 
+    const cleanAuthorityEmail = authorityEmail || "complaints@hec.gov.pk";
+    const cleanSubject =
+      subject || `[Formal Citizen Complaint - ${caseId || dispatchId}]`;
+
     const mailtoUrl = `mailto:${encodeURIComponent(
-      authorityEmail || "complaints@hec.gov.pk"
-    )}?subject=${encodeURIComponent(
-      subject || `[Formal Citizen Complaint - ${caseId || dispatchId}]`
-    )}&body=${encodeURIComponent(finalComplaintText)}`;
+      cleanAuthorityEmail
+    )}?subject=${encodeURIComponent(cleanSubject)}&body=${encodeURIComponent(
+      finalComplaintText
+    )}`;
+
+    const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(
+      cleanAuthorityEmail
+    )}&su=${encodeURIComponent(cleanSubject)}&body=${encodeURIComponent(
+      finalComplaintText
+    )}`;
 
     return NextResponse.json({
       success: true,
       dispatchRecord: record,
       mailtoUrl,
+      gmailComposeUrl,
       officialPortalUrl: portalUrl,
     });
   } catch (err) {

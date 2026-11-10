@@ -12,6 +12,7 @@ import {
   BookOpen,
 } from "lucide-react";
 import { ALL_LEGAL_CATEGORIES } from "@/lib/legal-knowledge";
+import AvailabilitySwitchCard from "@/components/AvailabilitySwitchCard";
 
 export default function HomePage() {
   return (
@@ -109,7 +110,7 @@ export default function HomePage() {
             </h3>
             <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
               Speak or type your problem in Urdu, Punjabi, Roman Urdu, or
-              English on the website or via WhatsApp.
+              English directly on the website.
             </p>
           </div>
 
@@ -203,6 +204,11 @@ export default function HomePage() {
             </Link>
           ))}
         </div>
+      </section>
+
+      {/* TECHSOC Card 9: The Availability Switch Section */}
+      <section className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <AvailabilitySwitchCard compact />
       </section>
     </div>
   );

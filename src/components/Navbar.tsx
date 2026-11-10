@@ -8,6 +8,7 @@ import {
   Mic,
   FileCheck2,
   BookOpen,
+  HeartHandshake,
   UserCheck,
   Menu,
   X,
@@ -23,6 +24,12 @@ const NAV_ITEMS = [
     label: "1-Click Complaint",
     sub: "شکایت بھیجیں",
     icon: FileCheck2,
+  },
+  {
+    href: "/volunteer",
+    label: "Availability Switch",
+    sub: "قانونی مددگار",
+    icon: HeartHandshake,
   },
   {
     href: "/rights",

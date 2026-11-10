@@ -17,10 +17,20 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="flex min-h-screen flex-col bg-[#f8faf9] text-slate-900 antialiased">
+      <body className="relative flex min-h-screen flex-col bg-[#f8faf9] text-slate-900 antialiased overflow-x-hidden">
+        {/* Global Animated Background */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none fixed inset-0 -z-10 overflow-hidden"
+        >
+          <div className="haq-animated-grid absolute inset-0 opacity-75" />
+          <div className="haq-orb-1 absolute -top-24 -left-24 h-96 w-96 rounded-full bg-teal-400/20 dark:bg-teal-500/15 blur-3xl" />
+          <div className="haq-orb-2 absolute top-1/3 -right-24 h-[28rem] w-[28rem] rounded-full bg-emerald-400/20 dark:bg-emerald-500/15 blur-3xl" />
+          <div className="haq-orb-3 absolute -bottom-28 left-1/4 h-96 w-96 rounded-full bg-amber-300/15 dark:bg-cyan-500/10 blur-3xl" />
+        </div>
         <RegistrationModal />
         <Navbar />
-        <main className="flex-1">{children}</main>
+        <main className="relative z-10 flex-1">{children}</main>
         <Footer />
       </body>
     </html>

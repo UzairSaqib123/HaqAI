@@ -61,8 +61,10 @@ function AssistantContent() {
   const [dispatchResult, setDispatchResult] = useState<{
     dispatchId: string;
     authorityName: string;
+    authorityEmail: string;
     portalUrl: string;
     mailtoUrl: string;
+    gmailComposeUrl: string;
   } | null>(null);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -265,11 +267,18 @@ function AssistantContent() {
     });
     const data = await res.json();
     if (data.success) {
+      try {
+        navigator.clipboard.writeText(editableComplaint);
+      } catch {
+        // ignore clipboard errors
+      }
       setDispatchResult({
         dispatchId: data.dispatchRecord.dispatchId,
         authorityName: currentCase.primaryAuthority.name,
+        authorityEmail: currentCase.primaryAuthority.email,
         portalUrl: data.officialPortalUrl,
         mailtoUrl: data.mailtoUrl,
+        gmailComposeUrl: data.gmailComposeUrl,
       });
     }
   }
@@ -590,21 +599,54 @@ function AssistantContent() {
 
               {dispatchResult && (
                 <div className="rounded-2xl border border-emerald-300 bg-emerald-50/70 p-5 space-y-3">
-                  <div className="flex items-center justify-between">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
                     <span className="inline-flex items-center gap-2 text-sm font-bold text-emerald-900">
                       <CheckCircle2 className="h-5 w-5 text-emerald-600" />
-                      آپ کی شکایت فارورڈ ہو گئی ہے (Complaint Dispatched!)
+                      آپ کی شکایت فارورڈ ہو گئی ہے (Complaint Logged &amp; Ready to Send!)
                     </span>
                     <span className="rounded-md bg-white px-2.5 py-0.5 text-xs font-mono font-semibold text-emerald-800 border border-emerald-200">
                       ID: {dispatchResult.dispatchId}
                     </span>
                   </div>
+
+                  <div className="rounded-xl bg-white/90 border border-emerald-200 p-3.5 text-xs space-y-1 text-slate-700">
+                    <p>
+                      <strong>Receiving Authority:</strong>{" "}
+                      {dispatchResult.authorityName}
+                    </p>
+                    <p>
+                      <strong>Official Grievance Email:</strong>{" "}
+                      <span className="font-mono font-semibold text-teal-700">
+                        {dispatchResult.authorityEmail}
+                      </span>
+                    </p>
+                    <p>
+                      <strong>Official Portal URL:</strong>{" "}
+                      <a
+                        href={dispatchResult.portalUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline text-teal-700 font-semibold"
+                      >
+                        {dispatchResult.portalUrl}
+                      </a>
+                    </p>
+                  </div>
+
                   <div className="flex flex-wrap gap-2.5 pt-1">
                     <a
-                      href={dispatchResult.mailtoUrl}
+                      href={dispatchResult.gmailComposeUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 rounded-xl bg-teal-600 px-4 py-2.5 text-xs font-bold text-white hover:bg-teal-700"
                     >
-                      <Mail className="h-4 w-4" /> سرکاری ای میل بھیجیں (Send Email)
+                      <Mail className="h-4 w-4" /> جی میل سے بھیجیں (Send via Gmail Web)
+                    </a>
+                    <a
+                      href={dispatchResult.mailtoUrl}
+                      className="inline-flex items-center gap-1.5 rounded-xl bg-slate-900 px-4 py-2.5 text-xs font-bold text-white hover:bg-slate-800"
+                    >
+                      <Mail className="h-4 w-4" /> ای میل ایپ کھولیں (Default Email App)
                     </a>
                     <a
                       href={dispatchResult.portalUrl}

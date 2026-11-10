@@ -67,6 +67,7 @@ function ComplaintStudioContent() {
     authorityEmail: string;
     portalUrl: string;
     mailtoUrl: string;
+    gmailComposeUrl: string;
   } | null>(null);
 
   const activeCategory = LEGAL_KNOWLEDGE_BASE[categoryId];
@@ -209,6 +210,13 @@ function ComplaintStudioContent() {
       });
       const data = await res.json();
       if (data.success) {
+        try {
+          navigator.clipboard.writeText(complaintText);
+          setCopied(true);
+          setTimeout(() => setCopied(false), 3000);
+        } catch {
+          // ignore clipboard permission errors
+        }
         setDispatchReceipt({
           dispatchId: data.dispatchRecord.dispatchId,
           dispatchedAt: data.dispatchRecord.dispatchedAt,
@@ -216,6 +224,7 @@ function ComplaintStudioContent() {
           authorityEmail: primaryAuthority.email,
           portalUrl: primaryAuthority.portalUrl,
           mailtoUrl: data.mailtoUrl,
+          gmailComposeUrl: data.gmailComposeUrl,
         });
       }
     } catch (e) {
@@ -586,20 +595,67 @@ function ComplaintStudioContent() {
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <div className="flex items-center gap-2 text-emerald-900 font-extrabold text-base">
                     <CheckCircle2 className="h-6 w-6 text-emerald-600" />
-                    <span>1-Click Dispatch Completed!</span>
+                    <span>1-Click Dispatch Logged &amp; Ready to Send!</span>
                   </div>
                   <span className="rounded-lg bg-white border border-emerald-200 px-3 py-1 text-xs font-mono font-bold text-emerald-900">
                     Dispatch ID: {dispatchReceipt.dispatchId}
                   </span>
                 </div>
 
+                {/* Clear Destination Breakdown */}
+                <div className="rounded-xl bg-white/90 border border-emerald-200 p-4 text-xs space-y-1.5 text-slate-700">
+                  <p>
+                    <strong className="text-slate-900">
+                      Receiving Institution:
+                    </strong>{" "}
+                    {dispatchReceipt.authorityName}
+                  </p>
+                  <p>
+                    <strong className="text-slate-900">
+                      Official Grievance Email:
+                    </strong>{" "}
+                    <span className="font-mono font-semibold text-teal-700">
+                      {dispatchReceipt.authorityEmail}
+                    </span>
+                  </p>
+                  <p>
+                    <strong className="text-slate-900">
+                      Official Portal URL:
+                    </strong>{" "}
+                    <a
+                      href={dispatchReceipt.portalUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline text-teal-700 font-semibold"
+                    >
+                      {dispatchReceipt.portalUrl}
+                    </a>
+                  </p>
+                  <p className="text-[11px] text-emerald-800 font-medium pt-1">
+                    ✓ Your formal complaint has been logged in HaqAI &amp;
+                    copied to your clipboard. Choose your preferred dispatch
+                    channel below:
+                  </p>
+                </div>
+
                 <div className="flex flex-wrap gap-3">
                   <a
-                    href={dispatchReceipt.mailtoUrl}
+                    href={dispatchReceipt.gmailComposeUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 rounded-xl bg-teal-600 px-4 py-2.5 text-xs font-extrabold text-white shadow hover:bg-teal-700"
                   >
                     <Mail className="h-4 w-4" />
-                    <span>Open Pre-Addressed Email Client</span>
+                    <span>
+                      Send via Gmail Web ({dispatchReceipt.authorityEmail})
+                    </span>
+                  </a>
+                  <a
+                    href={dispatchReceipt.mailtoUrl}
+                    className="inline-flex items-center gap-2 rounded-xl bg-slate-900 px-4 py-2.5 text-xs font-extrabold text-white shadow hover:bg-slate-800"
+                  >
+                    <Mail className="h-4 w-4" />
+                    <span>Open Default Email App</span>
                   </a>
                   <a
                     href={dispatchReceipt.portalUrl}

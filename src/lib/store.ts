@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import { HaqAIAnalysisResult } from "./ai-engine";
+import { LegalCategoryId } from "./legal-knowledge";
 import { CitizenProfile, isSupabaseConfigured, supabase } from "./supabase";
 
 export interface DispatchRecord {
@@ -20,10 +21,39 @@ export interface DispatchRecord {
   finalComplaintText: string;
 }
 
+export type AvailabilityTimeSlot =
+  | "immediate"
+  | "morning"
+  | "evening"
+  | "weekends";
+
+export type HelpTypeOption =
+  | "drafting"
+  | "consultation"
+  | "representation"
+  | "verification";
+
+export interface LegalHelperAvailability {
+  helperId: string;
+  haqId: string;
+  fullName: string;
+  roleTitle: string;
+  phone: string;
+  email: string;
+  city: string;
+  isAvailable: boolean;
+  timeSlot: AvailabilityTimeSlot;
+  helpTypes: HelpTypeOption[];
+  legalCategories: LegalCategoryId[];
+  matchedCaseIds: string[];
+  updatedAt: string;
+}
+
 interface StoreShape {
   profiles: Record<string, CitizenProfile>;
   cases: Record<string, HaqAIAnalysisResult>;
   dispatches: DispatchRecord[];
+  helpers: Record<string, LegalHelperAvailability>;
 }
 
 const DATA_DIR = path.join(process.cwd(), "data");
@@ -34,6 +64,7 @@ function getInitialStore(): StoreShape {
     profiles: {},
     cases: {},
     dispatches: [],
+    helpers: {},
   };
 }
 
@@ -52,6 +83,7 @@ export function readStore(): StoreShape {
     if (!parsed.profiles) parsed.profiles = {};
     if (!parsed.cases) parsed.cases = {};
     if (!parsed.dispatches) parsed.dispatches = [];
+    if (!parsed.helpers) parsed.helpers = {};
     return parsed;
   } catch {
     return getInitialStore();
@@ -230,6 +262,22 @@ export async function recordDispatch(
 export function getAllDispatches(): DispatchRecord[] {
   const store = readStore();
   return store.dispatches;
+}
+
+export function saveHelperAvailability(
+  helper: LegalHelperAvailability
+): LegalHelperAvailability {
+  const store = readStore();
+  store.helpers[helper.helperId] = helper;
+  writeStore(store);
+  return helper;
+}
+
+export function getAllHelpers(): LegalHelperAvailability[] {
+  const store = readStore();
+  return Object.values(store.helpers).sort(
+    (a, b) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime()
+  );
 }
 
 export function updateCaseOrDispatchStatus(params: {
