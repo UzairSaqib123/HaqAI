@@ -17,14 +17,17 @@ export interface CitizenProfile {
   updatedAt: string;
 }
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "";
+const supabaseUrl = (process.env.NEXT_PUBLIC_SUPABASE_URL || "").trim();
+const supabaseAnonKey = (process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "").trim();
 
 export const isSupabaseConfigured = Boolean(
   supabaseUrl &&
     supabaseAnonKey &&
     supabaseUrl.startsWith("http") &&
-    !supabaseUrl.includes("your-project-id")
+    !supabaseUrl.includes("your-project-id") &&
+    !supabaseUrl.includes("your_supabase") &&
+    !supabaseAnonKey.startsWith("http") &&
+    !supabaseAnonKey.includes("your_")
 );
 
 export const supabase: SupabaseClient | null = isSupabaseConfigured

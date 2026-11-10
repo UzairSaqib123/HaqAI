@@ -3,8 +3,8 @@
  *
  * Supports multiple 100% FREE LLM providers in priority order:
  *   1. Google Gemini (GEMINI_API_KEY)
- *   2. Groq Cloud (GROQ_API_KEY) - Llama 3.3 70B Versatile (Free Tier)
- *   3. OpenRouter (OPENROUTER_API_KEY) - Free Open Models
+ *   2. Groq Cloud (GROQ_API_KEY) - openai/gpt-oss-120b, qwen/qwen3.8-27b, openai/gpt-oss-20b
+ *   3. OpenRouter (OPENROUTER_API_KEY)
  *
  * Zero hardcoded answers: if every configured provider fails, throws LLMUnavailableError.
  */
@@ -31,6 +31,12 @@ const DEFAULT_GEMINI_CHAIN = [
   "gemini-3.5-flash",
 ];
 
+const DEFAULT_GROQ_CHAIN = [
+  "openai/gpt-oss-120b",
+  "qwen/qwen3.8-27b",
+  "openai/gpt-oss-20b",
+];
+
 function isRealKey(value?: string): value is string {
   const v = value?.trim();
   return Boolean(v && !v.toLowerCase().startsWith("your_"));
@@ -41,6 +47,14 @@ export function getGeminiModelChain(): string[] {
   const chain = preferred
     ? [preferred, ...DEFAULT_GEMINI_CHAIN]
     : DEFAULT_GEMINI_CHAIN;
+  return Array.from(new Set(chain));
+}
+
+export function getGroqModelChain(): string[] {
+  const preferred = process.env.GROQ_MODEL?.trim();
+  const chain = preferred
+    ? [preferred, ...DEFAULT_GROQ_CHAIN]
+    : DEFAULT_GROQ_CHAIN;
   return Array.from(new Set(chain));
 }
 
@@ -112,12 +126,12 @@ async function callGemini(
 }
 
 async function callGroq(
+  model: string,
   apiKey: string,
   systemPrompt: string | undefined,
   userPrompt: string,
   json: boolean
-): Promise<{ text: string; model: string }> {
-  const model = process.env.GROQ_MODEL?.trim() || "llama-3.3-70b-versatile";
+): Promise<string> {
   const res = await fetchWithTimeout(
     "https://api.groq.com/openai/v1/chat/completions",
     {
@@ -146,7 +160,7 @@ async function callGroq(
   }
   const text = data?.choices?.[0]?.message?.content?.trim();
   if (!text) throw new Error(`Groq ${model} returned an empty response`);
-  return { text, model };
+  return text;
 }
 
 async function callOpenRouter(
@@ -223,18 +237,22 @@ export async function generateText(opts: {
   }
 
   if (isRealKey(groqKey)) {
-    try {
-      const { text, model } = await callGroq(
-        groqKey,
-        opts.systemPrompt,
-        opts.prompt,
-        Boolean(opts.json)
-      );
-      return { text, provider: "groq", model };
-    } catch (e) {
-      const msg = e instanceof Error ? e.message : String(e);
-      errors.push(msg);
-      console.warn("[HaqAI LLM]", msg);
+    for (const model of getGroqModelChain()) {
+      try {
+        const text = await callGroq(
+          model,
+          groqKey,
+          opts.systemPrompt,
+          opts.prompt,
+          Boolean(opts.json)
+        );
+        return { text, provider: "groq", model };
+      } catch (e) {
+        const msg = e instanceof Error ? e.message : String(e);
+        errors.push(msg);
+        console.warn("[HaqAI LLM]", msg);
+        if (/ 401:| 403:/i.test(msg)) break;
+      }
     }
   }
 
@@ -260,7 +278,7 @@ export async function generateText(opts: {
     !isRealKey(openRouterKey)
   ) {
     throw new LLMUnavailableError(
-      "No AI API key configured in .env.local. Please add GEMINI_API_KEY (or GROQ_API_KEY / OPENROUTER_API_KEY) to .env.local."
+      "No AI API key configured in .env.local. Please add GEMINI_API_KEY or GROQ_API_KEY to .env.local."
     );
   }
   throw new LLMUnavailableError(
