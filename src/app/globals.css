@@ -14,6 +14,12 @@ body {
   font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, "Noto Nastaliq Urdu", sans-serif;
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+html.dark body {
+  background-color: #0b1120 !important;
+  color: #f1f5f9 !important;
 }
 
 @keyframes pulse-soft {
@@ -36,4 +42,122 @@ body {
   background: #ffffff;
   border: 1px solid rgba(226, 232, 240, 0.85);
   box-shadow: 0 4px 24px -4px rgba(15, 23, 42, 0.05);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Comprehensive Dark Mode Theme Adaptation */
+html.dark .soft-card {
+  background: #111827 !important;
+  border-color: rgba(51, 65, 85, 0.8) !important;
+  box-shadow: 0 10px 30px -6px rgba(0, 0, 0, 0.5) !important;
+}
+
+html.dark .bg-white,
+html.dark .bg-white\/85,
+html.dark .bg-white\/90 {
+  background-color: #111827 !important;
+}
+
+html.dark .bg-slate-50,
+html.dark .bg-slate-50\/50,
+html.dark .bg-slate-50\/60,
+html.dark .bg-slate-50\/70,
+html.dark .bg-slate-50\/80 {
+  background-color: #1e293b !important;
+}
+
+html.dark .bg-slate-100,
+html.dark .bg-slate-100\/80 {
+  background-color: #0f172a !important;
+}
+
+html.dark .bg-teal-50,
+html.dark .bg-teal-50\/30,
+html.dark .bg-teal-50\/40,
+html.dark .bg-teal-50\/50,
+html.dark .bg-teal-50\/60,
+html.dark .bg-teal-50\/70,
+html.dark .bg-emerald-50,
+html.dark .bg-emerald-50\/60,
+html.dark .bg-emerald-50\/70 {
+  background-color: rgba(13, 148, 136, 0.14) !important;
+}
+
+html.dark .bg-indigo-50,
+html.dark .bg-indigo-50\/40 {
+  background-color: rgba(79, 70, 229, 0.15) !important;
+}
+
+html.dark .from-teal-50\/80,
+html.dark .from-teal-50 {
+  --tw-gradient-from: rgba(13, 148, 136, 0.16) var(--tw-gradient-from-position) !important;
+}
+
+html.dark .via-white {
+  --tw-gradient-via: #111827 var(--tw-gradient-via-position) !important;
+}
+
+html.dark .to-emerald-50\/60,
+html.dark .to-emerald-50 {
+  --tw-gradient-to: rgba(16, 185, 129, 0.12) var(--tw-gradient-to-position) !important;
+}
+
+html.dark .text-slate-900,
+html.dark .text-slate-800 {
+  color: #f8fafc !important;
+}
+
+html.dark .text-slate-700,
+html.dark .text-slate-600 {
+  color: #cbd5e1 !important;
+}
+
+html.dark .text-slate-500,
+html.dark .text-slate-400 {
+  color: #94a3b8 !important;
+}
+
+html.dark .text-teal-900,
+html.dark .text-teal-800,
+html.dark .text-teal-700 {
+  color: #2dd4bf !important;
+}
+
+html.dark .text-emerald-900,
+html.dark .text-emerald-800 {
+  color: #34d399 !important;
+}
+
+html.dark .text-indigo-900,
+html.dark .text-indigo-800 {
+  color: #a5b4fc !important;
+}
+
+html.dark .border-slate-200,
+html.dark .border-slate-200\/80,
+html.dark .border-slate-200\/60,
+html.dark .border-slate-100,
+html.dark .border-slate-300 {
+  border-color: #334155 !important;
+}
+
+html.dark .border-teal-200,
+html.dark .border-teal-200\/60,
+html.dark .border-teal-200\/70,
+html.dark .border-teal-100,
+html.dark .border-teal-300 {
+  border-color: rgba(45, 212, 191, 0.3) !important;
+}
+
+html.dark input,
+html.dark textarea,
+html.dark select {
+  background-color: #0f172a !important;
+  color: #f8fafc !important;
+  border-color: #334155 !important;
+}
+
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+  color: #64748b !important;
 }

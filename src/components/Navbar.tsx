@@ -11,6 +11,8 @@ import {
   UserCheck,
   Menu,
   X,
+  Moon,
+  Sun,
 } from "lucide-react";
 
 const NAV_ITEMS = [
@@ -35,8 +37,22 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeHaqId, setActiveHaqId] = useState("Register");
   const [citizenName, setCitizenName] = useState("My Profile");
+  const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
+    try {
+      const savedTheme = localStorage.getItem("haqai_theme");
+      if (savedTheme === "dark") {
+        setIsDark(true);
+        document.documentElement.classList.add("dark");
+      } else {
+        setIsDark(false);
+        document.documentElement.classList.remove("dark");
+      }
+    } catch {
+      // ignore
+    }
+
     function syncProfile() {
       try {
         const raw = localStorage.getItem("haqai_active_profile");
@@ -54,6 +70,22 @@ export default function Navbar() {
     return () =>
       window.removeEventListener("haqai-profile-updated", syncProfile);
   }, []);
+
+  function toggleDarkMode() {
+    const nextDark = !isDark;
+    setIsDark(nextDark);
+    try {
+      if (nextDark) {
+        document.documentElement.classList.add("dark");
+        localStorage.setItem("haqai_theme", "dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+        localStorage.setItem("haqai_theme", "light");
+      }
+    } catch {
+      // ignore
+    }
+  }
 
   function openProfileModal() {
     window.dispatchEvent(new Event("haqai-open-registration-modal"));
@@ -114,8 +146,27 @@ export default function Navbar() {
           })}
         </nav>
 
-        {/* Citizen Profile Pill */}
+        {/* Right Controls: Dark Mode Toggle + Citizen Profile Pill */}
         <div className="hidden sm:flex items-center gap-2.5">
+          <button
+            type="button"
+            onClick={toggleDarkMode}
+            title={isDark ? "Switch to Light Mode" : "Switch to Dark Mode"}
+            className="flex items-center gap-1.5 rounded-xl border border-slate-200 bg-slate-50/80 px-3 py-2 text-xs font-semibold text-slate-700 hover:border-teal-300 hover:bg-teal-50/40 transition"
+          >
+            {isDark ? (
+              <>
+                <Sun className="h-4 w-4 text-amber-400" />
+                <span>Light</span>
+              </>
+            ) : (
+              <>
+                <Moon className="h-4 w-4 text-teal-600" />
+                <span>Dark</span>
+              </>
+            )}
+          </button>
+
           <button
             type="button"
             onClick={openProfileModal}
@@ -135,15 +186,34 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          type="button"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className="inline-flex items-center justify-center rounded-xl p-2 text-slate-600 hover:bg-slate-100 lg:hidden"
-          aria-label="Toggle Menu"
-        >
-          {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
+        {/* Mobile Controls */}
+        <div className="flex items-center gap-2 lg:hidden">
+          <button
+            type="button"
+            onClick={toggleDarkMode}
+            aria-label="Toggle Dark Mode"
+            className="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-slate-50 p-2 text-slate-700 sm:hidden"
+          >
+            {isDark ? (
+              <Sun className="h-5 w-5 text-amber-400" />
+            ) : (
+              <Moon className="h-5 w-5 text-teal-600" />
+            )}
+          </button>
+
+          <button
+            type="button"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="inline-flex items-center justify-center rounded-xl p-2 text-slate-600 hover:bg-slate-100"
+            aria-label="Toggle Menu"
+          >
+            {mobileOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Drawer */}
