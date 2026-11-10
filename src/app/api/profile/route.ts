@@ -21,7 +21,7 @@ export async function GET(req: NextRequest) {
 
   const profiles = getAllProfiles();
   return NextResponse.json({
-    profile: profiles[0] || null,
+    profile: null,
     profiles,
   });
 }
@@ -60,7 +60,7 @@ export async function POST(req: NextRequest) {
       id: existing?.id || `prof-${Date.now()}`,
       userId: userId || existing?.userId,
       haqId: finalHaqId,
-      email: email || existing?.email || "citizen@haqai.pk",
+      email: email || existing?.email || "",
       fullName: fullName.trim(),
       cnic: cnic.trim(),
       phone: phone.trim(),

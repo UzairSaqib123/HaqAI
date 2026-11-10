@@ -32,50 +32,10 @@ const LANGUAGE_OPTIONS: {
   { id: "en", label: "English", speechLang: "en-US" },
 ];
 
-const QUICK_SCENARIOS = [
-  {
-    key: "degree_ur",
-    badge: "🎓 یونیورسٹی ڈگری کا مسئلہ (University Degree)",
-    lang: "ur" as SupportedLanguage,
-    text: "میری یونیورسٹی میری اصل ڈگری اور تعلیمی اسناد واپس نہیں کر رہی حالانکہ میری تمام کلیئرنس مکمل ہے۔ میں کیا کر سکتا ہوں؟",
-  },
-  {
-    key: "police_fir",
-    badge: "🚓 پولیس ایف آئی آر درج نہیں کر رہی (Police FIR)",
-    lang: "ur" as SupportedLanguage,
-    text: "میرے ساتھ چوری اور فراڈ ہوا ہے لیکن پولیس اسٹیشن کا ایس ایچ او میری ایف آئی آر درج کرنے سے انکار کر رہا ہے۔",
-  },
-  {
-    key: "inheritance",
-    badge: "🏠 وراثت اور جائیداد میں حصہ (Inheritance / Wirasat)",
-    lang: "ur" as SupportedLanguage,
-    text: "والد کے انتقال کے بعد میرے رشتہ دار مجھے اور میری والدہ کو وراثت کی جائیداد میں سے قانونی حصہ نہیں دے رہے۔",
-  },
-  {
-    key: "salary",
-    badge: "💼 تنخواہ روک لی گئی ہے (Unpaid Salary)",
-    lang: "ur" as SupportedLanguage,
-    text: "میری کمپنی نے پچھلے 3 مہینے سے میری تنخواہ روکی ہوئی ہے اور مانگنے پر نوکری سے نکالنے کی دھمکی دے رہے ہیں۔",
-  },
-  {
-    key: "family_ur",
-    badge: "👨‍👩‍👧 خلع، حق مہر اور بچوں کا خرچہ (Family Law)",
-    lang: "ur" as SupportedLanguage,
-    text: "میرا شوہر مجھے اور بچوں کو خرچہ نہیں دیتا اور نہ ہی حق مہر ادا کر رہا ہے۔ میں فیملی کورٹ سے اپنا حق کیسے لوں؟",
-  },
-  {
-    key: "cheque_ur",
-    badge: "💳 چیک باؤنس اور ادھار کی واپسی (Cheque / Fraud)",
-    lang: "ur" as SupportedLanguage,
-    text: "ایک شخص نے مجھ سے کاروبار کے نام پر پیسے لیے اور جو چیک دیا وہ بینک سے باؤنس (Dishonour) ہو گیا ہے۔ اب کیا قانونی کارروائی ہو سکتی ہے؟",
-  },
-];
-
 function AssistantContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const caseIdParam = searchParams.get("caseId");
-  const demoParam = searchParams.get("demo");
   const qParam = searchParams.get("q");
 
   const [citizenProfile, setCitizenProfile] = useState<CitizenProfile | null>(
@@ -119,12 +79,6 @@ function AssistantContent() {
       } catch {
         // ignore
       }
-      fetch("/api/profile")
-        .then((r) => r.json())
-        .then((d) => {
-          if (d.profile) setCitizenProfile(d.profile);
-        })
-        .catch(() => {});
     }
     loadProfile();
     window.addEventListener("haqai-profile-updated", loadProfile);
@@ -149,14 +103,9 @@ function AssistantContent() {
     } else if (qParam) {
       setInputText(qParam);
       handleAnalyze(qParam, language);
-    } else if (demoParam === "degree") {
-      const demoScenario = QUICK_SCENARIOS[0];
-      setLanguage(demoScenario.lang);
-      setInputText(demoScenario.text);
-      handleAnalyze(demoScenario.text, demoScenario.lang);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [caseIdParam, demoParam, qParam]);
+  }, [caseIdParam, qParam]);
 
   function speakCaseAloud(caseObj: HaqAIAnalysisResult) {
     playHaqAITTS({
@@ -232,22 +181,9 @@ function AssistantContent() {
         : null;
 
     if (!SpeechRecognitionAPI) {
-      setVoiceStatus("آپ کی آواز سنی جا رہی ہے... (Listening...)");
-      setIsRecording(true);
-      setTimeout(async () => {
-        const res = await fetch("/api/transcribe", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({}),
-        });
-        const data = await res.json();
-        setIsRecording(false);
-        if (data.transcript) {
-          setInputText(data.transcript);
-          setVoiceStatus("آواز لکھ لی گئی ہے! جواب تیار ہو رہا ہے...");
-          handleAnalyze(data.transcript, language);
-        }
-      }, 1200);
+      setVoiceStatus(
+        "آپ کا براؤزر وائس ریکگنیشن سپورٹ نہیں کرتا۔ براہ کرم اپنا مسئلہ نیچے باکس میں لکھیں۔"
+      );
       return;
     }
 
@@ -270,7 +206,7 @@ function AssistantContent() {
       recognition.onerror = () => {
         setIsRecording(false);
         setVoiceStatus(
-          "مائیک دستیاب نہیں ہے — نیچے دیے گئے بٹن دبائیں یا اپنا مسئلہ لکھیں۔"
+          "مائیکروفون تک رسائی ممکن نہیں — براہ کرم اپنا مسئلہ نیچے لکھیں۔"
         );
       };
 
@@ -340,19 +276,19 @@ function AssistantContent() {
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-8 sm:px-6 lg:px-8 space-y-8">
-      {/* Clean, Moderate Header Card */}
       <div className="soft-card rounded-3xl p-6 sm:p-8 bg-gradient-to-r from-teal-50/80 via-white to-emerald-50/60">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="space-y-1">
             <span className="inline-block rounded-full bg-teal-100/80 px-3 py-0.5 text-xs font-semibold text-teal-800">
-              AI Voice &amp; Legal Assistant
+              Live AI Voice &amp; Legal Assistant
             </span>
             <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
               بول کر یا لکھ کر اپنا مسئلہ بتائیں
             </h1>
             <p className="text-sm text-slate-600">
-              Speak or type your issue—listen to the legal answer in clear Urdu
-              voice and forward your pre-filled complaint in 1 click.
+              Speak or type any legal question in Urdu, Roman Urdu, Punjabi, or
+              English—listen to the live AI response and forward your complaint
+              in 1 click.
             </p>
           </div>
 
@@ -368,10 +304,10 @@ function AssistantContent() {
             </div>
             <div className="text-left">
               <span className="block font-semibold text-slate-800">
-                {citizenProfile?.fullName || "Citizen Profile"}
+                {citizenProfile?.fullName || "Register Citizen Profile"}
               </span>
               <span className="block font-mono text-[11px] text-teal-600">
-                {citizenProfile?.haqId || "HAQ-PK-104829"}
+                {citizenProfile?.haqId || "Click to Register"}
               </span>
             </div>
           </button>
@@ -441,13 +377,13 @@ function AssistantContent() {
         {/* Text Input */}
         <div className="space-y-3">
           <label className="block text-sm font-bold text-slate-700">
-            یا یہاں اپنا مسئلہ لکھیں (Or Type Your Problem Below):
+            یا یہاں اپنا سوال یا مسئلہ لکھیں (Or Type Your Question Below):
           </label>
           <textarea
-            rows={3}
+            rows={4}
             value={inputText}
             onChange={(e) => setInputText(e.target.value)}
-            placeholder="مثلاً: میری یونیورسٹی میری اصل ڈگری واپس نہیں کر رہی۔ میں کیا کروں؟"
+            placeholder="اپنا قانونی سوال یا مسئلہ یہاں لکھیں..."
             className="w-full rounded-2xl border border-slate-200 bg-slate-50/60 p-4 text-sm sm:text-base text-slate-900 focus:border-teal-500 focus:bg-white focus:outline-none transition"
           />
 
@@ -460,45 +396,16 @@ function AssistantContent() {
             <Send className="h-4 w-4 text-teal-400" />
             <span>
               {isLoading
-                ? "قانون چیک کیا جا رہا ہے اور شکایت لکھی جا رہی ہے..."
+                ? "قانونی تجزیہ کیا جا رہا ہے اور شکایت لکھی جا رہی ہے..."
                 : "قانونی حل سنیں اور تیار شکایت حاصل کریں (Get Solution & Complaint)"}
             </span>
           </button>
-        </div>
-
-        {/* Quick 1-Tap Scenarios */}
-        <div className="pt-3 border-t border-slate-100">
-          <p className="text-xs font-semibold text-slate-400 mb-2.5">
-            Common Problems — Click any card to test immediately:
-          </p>
-          <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
-            {QUICK_SCENARIOS.map((item) => (
-              <button
-                key={item.key}
-                type="button"
-                onClick={() => {
-                  setLanguage(item.lang);
-                  setInputText(item.text);
-                  handleAnalyze(item.text, item.lang);
-                }}
-                className="text-left rounded-xl border border-slate-200/80 bg-slate-50/50 p-3.5 hover:border-teal-300 hover:bg-teal-50/30 transition"
-              >
-                <span className="block text-xs sm:text-sm font-bold text-slate-800">
-                  {item.badge}
-                </span>
-                <span className="mt-1 block text-xs text-slate-500 line-clamp-1">
-                  {item.text}
-                </span>
-              </button>
-            ))}
-          </div>
         </div>
       </div>
 
       {/* Results Area */}
       {currentCase && (
         <div className="space-y-6">
-          {/* Audio Summary + 2 Action Cards */}
           <div className="soft-card rounded-3xl p-6 sm:p-8 space-y-6">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-5">
               <div>
@@ -510,7 +417,6 @@ function AssistantContent() {
                 </h2>
               </div>
 
-              {/* Clear Audio Speaker Button */}
               <button
                 type="button"
                 onClick={toggleSpeakSummary}

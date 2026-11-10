@@ -8,11 +8,9 @@ import {
   CreditCard,
   Save,
   CheckCircle2,
-  ArrowRight,
   Mic,
   FileCheck2,
   LogIn,
-  Sparkles,
   ExternalLink,
 } from "lucide-react";
 import {
@@ -33,19 +31,15 @@ const PROVINCES = [
 ];
 
 export default function CitizenProfilePage() {
-  const [haqId, setHaqId] = useState("HAQ-PK-104829");
-  const [email, setEmail] = useState("uzair.citizen@gmail.com");
-  const [fullName, setFullName] = useState("Muhammad Uzair");
-  const [cnic, setCnic] = useState("35202-4829104-1");
-  const [phone, setPhone] = useState("+923001234567");
-  const [city, setCity] = useState("Islamabad");
-  const [province, setProvince] = useState("Islamabad Capital Territory (ICT)");
-  const [address, setAddress] = useState(
-    "House 14, Street 8, Sector G-10/2, Islamabad"
-  );
-  const [occupation, setOccupation] = useState(
-    "University Student / Citizen"
-  );
+  const [haqId, setHaqId] = useState("");
+  const [email, setEmail] = useState("");
+  const [fullName, setFullName] = useState("");
+  const [cnic, setCnic] = useState("");
+  const [phone, setPhone] = useState("");
+  const [city, setCity] = useState("");
+  const [province, setProvince] = useState("Punjab");
+  const [address, setAddress] = useState("");
+  const [occupation, setOccupation] = useState("");
   const [role, setRole] = useState<"citizen" | "admin">("citizen");
 
   const [isGoogleAuthenticated, setIsGoogleAuthenticated] = useState(false);
@@ -54,29 +48,29 @@ export default function CitizenProfilePage() {
   const [errorMsg, setErrorMsg] = useState("");
 
   useEffect(() => {
-    // 1. Check localStorage for active citizen profile
     try {
       const stored = localStorage.getItem("haqai_active_profile");
       if (stored) {
         const p: CitizenProfile = JSON.parse(stored);
-        setHaqId(p.haqId);
-        setEmail(p.email);
-        setFullName(p.fullName);
-        setCnic(p.cnic);
-        setPhone(p.phone);
-        setCity(p.city);
-        setProvince(p.province);
-        setAddress(p.address);
+        setHaqId(p.haqId || generateHaqCitizenId());
+        setEmail(p.email || "");
+        setFullName(p.fullName || "");
+        setCnic(p.cnic || "");
+        setPhone(p.phone || "");
+        setCity(p.city || "");
+        setProvince(p.province || "Punjab");
+        setAddress(p.address || "");
         setOccupation(p.occupation || "");
         setRole(p.role || "citizen");
         setIsGoogleAuthenticated(true);
         return;
+      } else {
+        setHaqId(generateHaqCitizenId());
       }
     } catch {
-      // ignore
+      setHaqId(generateHaqCitizenId());
     }
 
-    // 2. Check Supabase Auth session if configured
     if (isSupabaseConfigured && supabase) {
       supabase.auth.getUser().then(({ data }) => {
         if (data?.user) {
@@ -88,26 +82,6 @@ export default function CitizenProfilePage() {
         }
       });
     }
-
-    // 3. Load default/existing profile from backend
-    fetch("/api/profile")
-      .then((r) => r.json())
-      .then((data) => {
-        if (data.profile) {
-          const p: CitizenProfile = data.profile;
-          setHaqId(p.haqId);
-          setEmail(p.email);
-          setFullName(p.fullName);
-          setCnic(p.cnic);
-          setPhone(p.phone);
-          setCity(p.city);
-          setProvince(p.province);
-          setAddress(p.address);
-          setOccupation(p.occupation || "");
-          setRole(p.role || "citizen");
-        }
-      })
-      .catch(() => {});
   }, []);
 
   async function handleGoogleSignIn() {
@@ -125,7 +99,6 @@ export default function CitizenProfilePage() {
       return;
     }
 
-    // Instant Google Sign-In session for local dev before Supabase keys are pasted
     setIsGoogleAuthenticated(true);
     if (!haqId) {
       setHaqId(generateHaqCitizenId());
@@ -142,28 +115,35 @@ export default function CitizenProfilePage() {
     setErrorMsg("");
     setSavedSuccess(false);
 
-    if (!fullName.trim() || !cnic.trim() || !phone.trim() || !city.trim()) {
+    if (
+      !fullName.trim() ||
+      !email.trim() ||
+      !cnic.trim() ||
+      !phone.trim() ||
+      !city.trim()
+    ) {
       setErrorMsg(
-        "Please fill in your Full Name, CNIC, Mobile/WhatsApp Number, and City."
+        "Please fill in your Full Name, Email, CNIC, Mobile/WhatsApp Number, and City."
       );
       return;
     }
 
     setIsSaving(true);
     try {
+      const finalHaqId = haqId || generateHaqCitizenId();
       const res = await fetch("/api/profile", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          haqId,
-          email,
-          fullName,
-          cnic,
-          phone,
-          city,
+          haqId: finalHaqId,
+          email: email.trim(),
+          fullName: fullName.trim(),
+          cnic: cnic.trim(),
+          phone: phone.trim(),
+          city: city.trim(),
           province,
-          address,
-          occupation,
+          address: address.trim() || city.trim(),
+          occupation: occupation.trim(),
           role,
         }),
       });
@@ -173,6 +153,7 @@ export default function CitizenProfilePage() {
           "haqai_active_profile",
           JSON.stringify(data.profile)
         );
+        localStorage.setItem("haqai_registered_citizen", "true");
         window.dispatchEvent(new Event("haqai-profile-updated"));
         setIsGoogleAuthenticated(true);
         setSavedSuccess(true);
@@ -186,210 +167,199 @@ export default function CitizenProfilePage() {
     }
   }
 
-  const whatsappNum =
-    process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "923001234567";
-  const realWhatsappUrl = `https://wa.me/${whatsappNum}?text=${encodeURIComponent(
-    `Assalam-o-Alaikum HaqAI! Meri Citizen ID ${haqId} hai (${fullName}). Mujhe qanooni madad aur online complaint darj karni hai.`
-  )}`;
+  const whatsappNum = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "";
+  const realWhatsappUrl = whatsappNum
+    ? `https://wa.me/${whatsappNum}?text=${encodeURIComponent(
+        `Assalam-o-Alaikum HaqAI! Meri Citizen ID ${haqId} hai (${fullName}). Mujhe qanooni madad aur online complaint darj karni hai.`
+      )}`
+    : "https://wa.me/";
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 space-y-8">
-      {/* Top Banner */}
-      <div className="rounded-2xl bg-gradient-to-r from-[#01411C] to-[#045d2a] p-6 sm:p-8 text-white shadow-lg">
+      <div className="soft-card rounded-3xl bg-gradient-to-r from-teal-50/80 via-white to-emerald-50/60 p-6 sm:p-8">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-400/20 px-3 py-1 text-xs font-bold text-amber-300">
-              <UserCheck className="h-3.5 w-3.5" /> Google Auth + Unique HaqAI Citizen ID (ہر شہری کی اپنی آئی ڈی)
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-teal-100/80 px-3 py-1 text-xs font-bold text-teal-800">
+              <UserCheck className="h-3.5 w-3.5" /> Citizen Profile &amp; Unique HaqAI ID
             </span>
-            <h1 className="mt-2 text-2xl sm:text-3xl font-extrabold">
-              Citizen Login, Unique HaqAI ID &amp; One-Time Profile Setup
+            <h1 className="mt-2 text-2xl sm:text-3xl font-extrabold text-slate-900">
+              Citizen Login, Unique HaqAI ID &amp; Profile Setup
             </h1>
-            <p className="mt-1 text-sm text-emerald-100/90 max-w-2xl">
-              Sign in with Google and save your details (Name, CNIC, WhatsApp
-              Number, City, Address) <strong>once</strong>. HaqAI assigns you a
-              unique <strong>Citizen ID (`{haqId}`)</strong> and automatically
-              pre-fills all your details into every formal complaint and links
-              your real WhatsApp number!
+            <p className="mt-1 text-sm text-slate-600 max-w-2xl">
+              Save your details (Name, CNIC, WhatsApp Number, City, Address) so
+              HaqAI can automatically populate your formal legal complaints.
             </p>
           </div>
         </div>
       </div>
 
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 items-start">
-        {/* Left: Digital HaqAI Citizen Identity Card + Google Auth Button */}
         <div className="lg:col-span-5 space-y-6">
-          {/* Google Sign-In Card */}
-          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm space-y-4">
-            <div className="flex items-center justify-between">
-              <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
-                Step 1 • Google Authentication (Supabase Auth)
-              </span>
-              {isGoogleAuthenticated && (
-                <span className="inline-flex items-center gap-1 rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-bold text-green-800">
-                  <CheckCircle2 className="h-3.5 w-3.5" /> Verified
+          {isSupabaseConfigured && (
+            <div className="soft-card rounded-2xl p-6 space-y-4">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
+                  Google Authentication (Supabase Auth)
                 </span>
-              )}
+                {isGoogleAuthenticated && (
+                  <span className="inline-flex items-center gap-1 rounded-full bg-teal-100 px-2.5 py-0.5 text-xs font-bold text-teal-800">
+                    <CheckCircle2 className="h-3.5 w-3.5" /> Verified
+                  </span>
+                )}
+              </div>
+
+              <button
+                type="button"
+                onClick={handleGoogleSignIn}
+                className="w-full flex items-center justify-center gap-3 rounded-xl border border-slate-200 bg-white px-5 py-3.5 text-sm font-bold text-slate-900 shadow-sm hover:border-teal-500 transition"
+              >
+                <LogIn className="h-5 w-5 text-teal-600" />
+                <span>
+                  {isGoogleAuthenticated && email
+                    ? `Signed in (${email})`
+                    : "Continue with Google"}
+                </span>
+              </button>
             </div>
+          )}
 
-            <button
-              type="button"
-              onClick={handleGoogleSignIn}
-              className="w-full flex items-center justify-center gap-3 rounded-xl border-2 border-slate-300 bg-white px-5 py-3.5 text-sm font-extrabold text-slate-900 shadow-sm hover:border-[#01411C] hover:bg-slate-50 transition"
-            >
-              <LogIn className="h-5 w-5 text-[#01411C]" />
-              <span>
-                {isGoogleAuthenticated
-                  ? `Signed in with Google (${email})`
-                  : "Continue with Google (Sign In / Sign Up)"}
-              </span>
-            </button>
-
-            <p className="text-[11px] text-slate-500 leading-relaxed">
-              {isSupabaseConfigured
-                ? "✅ Connected to live Supabase Google OAuth."
-                : "💡 Local Mode Active: Add NEXT_PUBLIC_SUPABASE_URL & NEXT_PUBLIC_SUPABASE_ANON_KEY in .env.local to enable live Supabase OAuth redirect."}
-            </p>
-          </div>
-
-          {/* Digital HaqAI Citizen Identity Card */}
-          <div className="rounded-3xl bg-gradient-to-br from-[#01411C] via-[#035426] to-[#012911] p-6 text-white shadow-2xl border border-amber-400/30 space-y-5">
-            <div className="flex items-center justify-between border-b border-emerald-800/80 pb-4">
+          <div className="soft-card rounded-3xl p-6 space-y-5">
+            <div className="flex items-center justify-between border-b border-slate-100 pb-4">
               <div className="flex items-center gap-2.5">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#D4AF37] text-[#01411C] font-extrabold">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-600 text-white font-extrabold">
                   <CreditCard className="h-5 w-5" />
                 </div>
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-wider text-[#D4AF37]">
+                  <p className="text-xs font-bold uppercase tracking-wider text-teal-700">
                     HaqAI Citizen Pass
                   </p>
-                  <p className="text-[11px] text-emerald-200">
-                    Islamic Republic of Pakistan • Verified Profile
+                  <p className="text-[11px] text-slate-500">
+                    Registered Citizen Identity
                   </p>
                 </div>
               </div>
               <button
                 type="button"
                 onClick={handleGenerateNewId}
-                className="rounded-lg bg-emerald-900/90 border border-emerald-600 px-2.5 py-1 text-[11px] font-semibold text-amber-300 hover:bg-emerald-800"
+                className="rounded-lg border border-slate-200 bg-slate-50 px-2.5 py-1 text-[11px] font-semibold text-teal-700 hover:bg-slate-100"
               >
                 New ID
               </button>
             </div>
 
             <div className="space-y-3">
-              <div className="rounded-xl bg-black/25 p-3 border border-emerald-800/60 flex items-center justify-between">
-                <span className="text-xs text-emerald-200">
+              <div className="rounded-xl bg-slate-50 p-3 border border-slate-200 flex items-center justify-between">
+                <span className="text-xs text-slate-600">
                   Unique HaqAI Citizen ID:
                 </span>
-                <span className="font-mono text-base font-extrabold text-[#D4AF37]">
-                  {haqId}
+                <span className="font-mono text-base font-extrabold text-teal-700">
+                  {haqId || "Not Assigned"}
                 </span>
               </div>
 
               <div className="grid grid-cols-2 gap-3 text-xs">
                 <div>
-                  <span className="text-emerald-300/80 block text-[10px] uppercase">
+                  <span className="text-slate-400 block text-[10px] uppercase">
                     Full Name
                   </span>
-                  <span className="font-bold text-sm">{fullName}</span>
+                  <span className="font-bold text-sm text-slate-900">
+                    {fullName || "—"}
+                  </span>
                 </div>
                 <div>
-                  <span className="text-emerald-300/80 block text-[10px] uppercase">
+                  <span className="text-slate-400 block text-[10px] uppercase">
                     CNIC Number
                   </span>
-                  <span className="font-mono font-bold text-sm">{cnic}</span>
+                  <span className="font-mono font-bold text-sm text-slate-900">
+                    {cnic || "—"}
+                  </span>
                 </div>
                 <div>
-                  <span className="text-emerald-300/80 block text-[10px] uppercase">
+                  <span className="text-slate-400 block text-[10px] uppercase">
                     WhatsApp / Mobile
                   </span>
-                  <span className="font-mono font-bold">{phone}</span>
+                  <span className="font-mono font-bold text-slate-900">
+                    {phone || "—"}
+                  </span>
                 </div>
                 <div>
-                  <span className="text-emerald-300/80 block text-[10px] uppercase">
-                    City &amp; Province
+                  <span className="text-slate-400 block text-[10px] uppercase">
+                    City
                   </span>
-                  <span className="font-bold">{city}</span>
+                  <span className="font-bold text-slate-900">
+                    {city || "—"}
+                  </span>
                 </div>
               </div>
 
               <div className="text-xs pt-1">
-                <span className="text-emerald-300/80 block text-[10px] uppercase">
+                <span className="text-slate-400 block text-[10px] uppercase">
                   Registered Address
                 </span>
-                <span className="text-emerald-50">{address}</span>
+                <span className="text-slate-700">{address || "—"}</span>
               </div>
             </div>
 
-            {/* Direct Link to Real WhatsApp App */}
-            <div className="pt-3 border-t border-emerald-800/80 space-y-2">
-              <a
-                href={realWhatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 rounded-xl bg-green-500 px-4 py-3 text-xs font-extrabold text-slate-950 shadow hover:bg-green-400 transition"
-              >
-                <span>Open Real WhatsApp with My HaqAI ID ({haqId})</span>
-                <ExternalLink className="h-3.5 w-3.5" />
-              </a>
-            </div>
+            {whatsappNum && (
+              <div className="pt-3 border-t border-slate-100">
+                <a
+                  href={realWhatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full flex items-center justify-center gap-2 rounded-xl bg-teal-600 px-4 py-3 text-xs font-bold text-white shadow hover:bg-teal-700 transition"
+                >
+                  <span>Open WhatsApp ({haqId})</span>
+                  <ExternalLink className="h-3.5 w-3.5" />
+                </a>
+              </div>
+            )}
           </div>
         </div>
 
-        {/* Right: One-Time Citizen Details Form */}
         <div className="lg:col-span-7">
           <form
             onSubmit={handleSaveProfile}
-            className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm space-y-5"
+            className="soft-card rounded-3xl p-6 sm:p-8 space-y-5"
           >
             <div className="flex items-center justify-between border-b border-slate-100 pb-4">
               <div>
-                <span className="text-xs font-bold uppercase tracking-wider text-[#01411C]">
-                  Step 2 • Complete Your Citizen Profile Once
+                <span className="text-xs font-bold uppercase tracking-wider text-teal-600">
+                  Citizen Profile
                 </span>
                 <h2 className="text-xl font-extrabold text-slate-900">
-                  Personal &amp; Contact Information (ایک بار اپنی تفصیلات درج کریں)
+                  Personal &amp; Contact Information (اپنی تفصیلات درج کریں)
                 </h2>
-                <p className="text-xs text-slate-500 mt-0.5">
-                  These details will be automatically filled into all your
-                  formal complaints and linked to your WhatsApp number.
-                </p>
               </div>
-              <ShieldCheck className="h-8 w-8 text-[#01411C] shrink-0" />
+              <ShieldCheck className="h-8 w-8 text-teal-600 shrink-0" />
             </div>
 
             {errorMsg && (
-              <div className="rounded-xl bg-red-50 border border-red-200 p-3 text-xs font-semibold text-red-800">
+              <div className="rounded-xl bg-rose-50 border border-rose-200 p-3 text-xs font-semibold text-rose-800">
                 {errorMsg}
               </div>
             )}
 
             {savedSuccess && (
-              <div className="rounded-xl bg-green-50 border-2 border-green-500 p-4 space-y-2">
-                <div className="flex items-center gap-2 text-sm font-extrabold text-green-900">
-                  <CheckCircle2 className="h-5 w-5 text-green-600" />
+              <div className="rounded-xl bg-teal-50 border border-teal-300 p-4 space-y-2">
+                <div className="flex items-center gap-2 text-sm font-extrabold text-teal-900">
+                  <CheckCircle2 className="h-5 w-5 text-teal-600" />
                   <span>
                     Profile Saved! Your HaqAI Citizen ID is{" "}
                     <span className="font-mono underline">{haqId}</span>
                   </span>
                 </div>
-                <p className="text-xs text-green-800">
-                  Your details are now active across HaqAI. Whenever you ask a
-                  question or generate a complaint, your Name, CNIC, Phone,
-                  Email, and Address will be pre-filled automatically!
-                </p>
                 <div className="flex flex-wrap gap-2.5 pt-1">
                   <Link
                     href="/assistant"
-                    className="inline-flex items-center gap-1.5 rounded-lg bg-[#01411C] px-3.5 py-2 text-xs font-bold text-[#D4AF37]"
+                    className="inline-flex items-center gap-1.5 rounded-xl bg-teal-600 px-3.5 py-2 text-xs font-bold text-white"
                   >
                     <Mic className="h-3.5 w-3.5" /> Go to AI Legal Assistant →
                   </Link>
                   <Link
                     href="/complaint"
-                    className="inline-flex items-center gap-1.5 rounded-lg bg-green-700 px-3.5 py-2 text-xs font-bold text-white"
+                    className="inline-flex items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-3.5 py-2 text-xs font-bold text-slate-800"
                   >
-                    <FileCheck2 className="h-3.5 w-3.5" /> Go to Pre-Filled 1-Click Complaint →
+                    <FileCheck2 className="h-3.5 w-3.5" /> Go to 1-Click Complaint →
                   </Link>
                 </div>
               </div>
@@ -404,19 +374,20 @@ export default function CitizenProfilePage() {
                   type="text"
                   readOnly
                   value={haqId}
-                  className="w-full rounded-xl border border-slate-300 bg-emerald-50/70 px-3.5 py-2.5 font-mono text-xs font-extrabold text-[#01411C]"
+                  className="w-full rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2.5 font-mono text-xs font-extrabold text-teal-700"
                 />
               </div>
               <div>
                 <label className="block text-xs font-bold text-slate-700 mb-1">
-                  Google Account Email:
+                  Email Address *
                 </label>
                 <input
                   type="email"
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-xs text-slate-900 focus:border-[#01411C] focus:outline-none"
+                  placeholder="Enter your email"
+                  className="w-full rounded-xl border border-slate-200 px-3.5 py-2.5 text-xs text-slate-900 focus:border-teal-500 focus:outline-none"
                 />
               </div>
             </div>
@@ -424,20 +395,20 @@ export default function CitizenProfilePage() {
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div>
                 <label className="block text-xs font-bold text-slate-700 mb-1">
-                  Full Name (پورا نام بمطابق شناختی کارڈ) *
+                  Full Name (پورا نام) *
                 </label>
                 <input
                   type="text"
                   required
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
-                  placeholder="e.g. Muhammad Uzair"
-                  className="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-xs text-slate-900 focus:border-[#01411C] focus:outline-none"
+                  placeholder="Enter your full name"
+                  className="w-full rounded-xl border border-slate-200 px-3.5 py-2.5 text-xs text-slate-900 focus:border-teal-500 focus:outline-none"
                 />
               </div>
               <div>
                 <label className="block text-xs font-bold text-slate-700 mb-1">
-                  CNIC Number (قومی شناختی کارڈ نمبر) *
+                  CNIC Number (شناختی کارڈ نمبر) *
                 </label>
                 <input
                   type="text"
@@ -445,7 +416,7 @@ export default function CitizenProfilePage() {
                   value={cnic}
                   onChange={(e) => setCnic(e.target.value)}
                   placeholder="XXXXX-XXXXXXX-X"
-                  className="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 font-mono text-xs text-slate-900 focus:border-[#01411C] focus:outline-none"
+                  className="w-full rounded-xl border border-slate-200 px-3.5 py-2.5 font-mono text-xs text-slate-900 focus:border-teal-500 focus:outline-none"
                 />
               </div>
             </div>
@@ -453,15 +424,15 @@ export default function CitizenProfilePage() {
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div>
                 <label className="block text-xs font-bold text-slate-700 mb-1">
-                  WhatsApp / Mobile Number (واٹس ایپ نمبر) *
+                  WhatsApp / Mobile Number (موبائل نمبر) *
                 </label>
                 <input
                   type="text"
                   required
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
-                  placeholder="+923001234567"
-                  className="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 font-mono text-xs text-slate-900 focus:border-[#01411C] focus:outline-none"
+                  placeholder="03XX-XXXXXXX"
+                  className="w-full rounded-xl border border-slate-200 px-3.5 py-2.5 font-mono text-xs text-slate-900 focus:border-teal-500 focus:outline-none"
                 />
               </div>
               <div>
@@ -471,7 +442,7 @@ export default function CitizenProfilePage() {
                 <select
                   value={province}
                   onChange={(e) => setProvince(e.target.value)}
-                  className="w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-xs text-slate-900 focus:border-[#01411C] focus:outline-none"
+                  className="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-xs text-slate-900 focus:border-teal-500 focus:outline-none"
                 >
                   {PROVINCES.map((p) => (
                     <option key={p} value={p}>
@@ -492,48 +463,48 @@ export default function CitizenProfilePage() {
                   required
                   value={city}
                   onChange={(e) => setCity(e.target.value)}
-                  placeholder="e.g. Islamabad / Lahore / Karachi"
-                  className="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-xs text-slate-900 focus:border-[#01411C] focus:outline-none"
+                  placeholder="Enter your city"
+                  className="w-full rounded-xl border border-slate-200 px-3.5 py-2.5 text-xs text-slate-900 focus:border-teal-500 focus:outline-none"
                 />
               </div>
               <div>
                 <label className="block text-xs font-bold text-slate-700 mb-1">
-                  Occupation / Student / Organization:
+                  Occupation / Organization:
                 </label>
                 <input
                   type="text"
                   value={occupation}
                   onChange={(e) => setOccupation(e.target.value)}
-                  placeholder="e.g. University Student / Private Employee"
-                  className="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-xs text-slate-900 focus:border-[#01411C] focus:outline-none"
+                  placeholder="Optional"
+                  className="w-full rounded-xl border border-slate-200 px-3.5 py-2.5 text-xs text-slate-900 focus:border-teal-500 focus:outline-none"
                 />
               </div>
             </div>
 
             <div>
               <label className="block text-xs font-bold text-slate-700 mb-1">
-                Complete Residential / Mailing Address (مکمل پتہ برائے سرکاری خط و کتابت) *
+                Complete Residential / Mailing Address (مکمل پتہ) *
               </label>
               <textarea
                 rows={2}
                 required
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
-                placeholder="House #, Street #, Sector/Mohalla, City"
-                className="w-full rounded-xl border border-slate-300 p-3 text-xs text-slate-900 focus:border-[#01411C] focus:outline-none"
+                placeholder="Enter your full residential address"
+                className="w-full rounded-xl border border-slate-200 p-3 text-xs text-slate-900 focus:border-teal-500 focus:outline-none"
               />
             </div>
 
             <button
               type="submit"
               disabled={isSaving}
-              className="w-full flex items-center justify-center gap-2 rounded-2xl bg-[#01411C] px-6 py-4 text-sm font-extrabold text-[#D4AF37] shadow-lg hover:bg-emerald-900 disabled:opacity-50 transition"
+              className="w-full flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-teal-600 to-emerald-600 px-6 py-4 text-sm font-bold text-white shadow-md hover:from-teal-700 hover:to-emerald-700 disabled:opacity-50 transition"
             >
               <Save className="h-4 w-4" />
               <span>
                 {isSaving
-                  ? "Saving Citizen Profile to Supabase..."
-                  : `Save My Profile & Activate HaqAI ID (${haqId})`}
+                  ? "Saving Citizen Profile..."
+                  : `Save My Profile (${haqId})`}
               </span>
             </button>
           </form>

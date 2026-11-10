@@ -58,6 +58,18 @@ export default function RegistrationModal() {
       setIsOpen(true);
     }
 
+    if (isSupabaseConfigured && supabase) {
+      supabase.auth.getUser().then(({ data }) => {
+        if (data?.user) {
+          setGoogleConnected(true);
+          if (data.user.email) setEmail(data.user.email);
+          if (data.user.user_metadata?.full_name) {
+            setFullName(data.user.user_metadata.full_name);
+          }
+        }
+      });
+    }
+
     function handleOpenModal() {
       setCanClose(true);
       setIsOpen(true);
@@ -84,16 +96,21 @@ export default function RegistrationModal() {
     }
 
     setGoogleConnected(true);
-    if (!email) setEmail("citizen.user@gmail.com");
   }
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setErrorMsg("");
 
-    if (!fullName.trim() || !cnic.trim() || !phone.trim() || !city.trim()) {
+    if (
+      !fullName.trim() ||
+      !email.trim() ||
+      !cnic.trim() ||
+      !phone.trim() ||
+      !city.trim()
+    ) {
       setErrorMsg(
-        "Please enter your Name, CNIC, Mobile Number, and City (اپنا نام، شناختی کارڈ نمبر، موبائل نمبر اور شہر درج کریں)"
+        "Please enter your Name, Email, CNIC, Mobile Number, and City (اپنا نام، ای میل، شناختی کارڈ، موبائل نمبر اور شہر درج کریں)"
       );
       return;
     }
@@ -106,14 +123,14 @@ export default function RegistrationModal() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           haqId: finalHaqId,
-          email: email || "citizen.user@gmail.com",
+          email: email.trim(),
           fullName: fullName.trim(),
           cnic: cnic.trim(),
           phone: phone.trim(),
           city: city.trim(),
           province,
           address: address.trim() || city.trim(),
-          occupation: "Citizen of Pakistan",
+          occupation: "",
           role: "citizen",
         }),
       });
@@ -143,7 +160,6 @@ export default function RegistrationModal() {
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/50 p-4 backdrop-blur-sm overflow-y-auto">
       <div className="relative w-full max-w-lg rounded-3xl border border-slate-200 bg-white shadow-2xl overflow-hidden my-8">
-        {/* Clean Modern Header */}
         <div className="bg-gradient-to-r from-teal-600 to-emerald-600 px-6 py-5 text-white">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -171,29 +187,29 @@ export default function RegistrationModal() {
           </div>
         </div>
 
-        {/* Form Body */}
         <form onSubmit={handleSubmit} className="p-6 space-y-4">
-          {/* Google Auth Step */}
-          <button
-            type="button"
-            onClick={handleGoogleConnect}
-            className={`w-full flex items-center justify-center gap-2.5 rounded-xl border py-3 px-4 text-xs sm:text-sm font-semibold transition ${
-              googleConnected
-                ? "border-teal-500 bg-teal-50/70 text-teal-900"
-                : "border-slate-200 bg-slate-50 text-slate-800 hover:bg-slate-100"
-            }`}
-          >
-            {googleConnected ? (
-              <CheckCircle2 className="h-4 w-4 text-teal-600" />
-            ) : (
-              <LogIn className="h-4 w-4 text-teal-600" />
-            )}
-            <span>
-              {googleConnected
-                ? `Google Account Linked (${email || "Verified"})`
-                : "Continue with Google (گوگل سے لاگ ان کریں)"}
-            </span>
-          </button>
+          {isSupabaseConfigured && (
+            <button
+              type="button"
+              onClick={handleGoogleConnect}
+              className={`w-full flex items-center justify-center gap-2.5 rounded-xl border py-3 px-4 text-xs sm:text-sm font-semibold transition ${
+                googleConnected
+                  ? "border-teal-500 bg-teal-50/70 text-teal-900"
+                  : "border-slate-200 bg-slate-50 text-slate-800 hover:bg-slate-100"
+              }`}
+            >
+              {googleConnected ? (
+                <CheckCircle2 className="h-4 w-4 text-teal-600" />
+              ) : (
+                <LogIn className="h-4 w-4 text-teal-600" />
+              )}
+              <span>
+                {googleConnected
+                  ? `Google Account Linked (${email})`
+                  : "Continue with Google (گوگل سے لاگ ان کریں)"}
+              </span>
+            </button>
+          )}
 
           {errorMsg && (
             <div className="rounded-xl bg-rose-50 border border-rose-200 p-3 text-xs font-medium text-rose-700">
@@ -201,7 +217,6 @@ export default function RegistrationModal() {
             </div>
           )}
 
-          {/* Citizen ID Badge */}
           <div className="flex items-center justify-between rounded-xl bg-slate-50 border border-slate-200/80 px-4 py-2.5 text-xs">
             <span className="font-medium text-slate-600">
               Your Unique HaqAI ID (آپ کا مخصوص نمبر):
@@ -221,11 +236,27 @@ export default function RegistrationModal() {
                 required
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
-                placeholder="e.g. Muhammad Uzair"
+                placeholder="Enter your full name"
                 className="w-full rounded-xl border border-slate-200 bg-slate-50/50 px-3.5 py-2.5 text-sm text-slate-900 focus:border-teal-500 focus:bg-white focus:outline-none transition"
               />
             </div>
 
+            <div>
+              <label className="block text-xs font-semibold text-slate-700 mb-1">
+                Email Address (ای میل) *
+              </label>
+              <input
+                type="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="you@example.com"
+                className="w-full rounded-xl border border-slate-200 bg-slate-50/50 px-3.5 py-2.5 text-sm text-slate-900 focus:border-teal-500 focus:bg-white focus:outline-none transition"
+              />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2">
             <div>
               <label className="block text-xs font-semibold text-slate-700 mb-1">
                 CNIC Number (شناختی کارڈ) *
@@ -235,13 +266,11 @@ export default function RegistrationModal() {
                 required
                 value={cnic}
                 onChange={(e) => setCnic(e.target.value)}
-                placeholder="35202-1234567-1"
+                placeholder="XXXXX-XXXXXXX-X"
                 className="w-full rounded-xl border border-slate-200 bg-slate-50/50 px-3.5 py-2.5 font-mono text-sm text-slate-900 focus:border-teal-500 focus:bg-white focus:outline-none transition"
               />
             </div>
-          </div>
 
-          <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2">
             <div>
               <label className="block text-xs font-semibold text-slate-700 mb-1">
                 WhatsApp / Mobile (موبائل نمبر) *
@@ -251,11 +280,13 @@ export default function RegistrationModal() {
                 required
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-                placeholder="0300-1234567"
+                placeholder="03XX-XXXXXXX"
                 className="w-full rounded-xl border border-slate-200 bg-slate-50/50 px-3.5 py-2.5 font-mono text-sm text-slate-900 focus:border-teal-500 focus:bg-white focus:outline-none transition"
               />
             </div>
+          </div>
 
+          <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2">
             <div>
               <label className="block text-xs font-semibold text-slate-700 mb-1">
                 City (شہر) *
@@ -265,24 +296,24 @@ export default function RegistrationModal() {
                 required
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
-                placeholder="Lahore / Islamabad / Karachi"
+                placeholder="Enter your city"
                 className="w-full rounded-xl border border-slate-200 bg-slate-50/50 px-3.5 py-2.5 text-sm text-slate-900 focus:border-teal-500 focus:bg-white focus:outline-none transition"
               />
             </div>
-          </div>
 
-          <div>
-            <label className="block text-xs font-semibold text-slate-700 mb-1">
-              Home Address (مکمل پتہ) *
-            </label>
-            <input
-              type="text"
-              required
-              value={address}
-              onChange={(e) => setAddress(e.target.value)}
-              placeholder="House #, Street #, Sector/Area, City"
-              className="w-full rounded-xl border border-slate-200 bg-slate-50/50 px-3.5 py-2.5 text-sm text-slate-900 focus:border-teal-500 focus:bg-white focus:outline-none transition"
-            />
+            <div>
+              <label className="block text-xs font-semibold text-slate-700 mb-1">
+                Home Address (مکمل پتہ) *
+              </label>
+              <input
+                type="text"
+                required
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
+                placeholder="Enter your residential address"
+                className="w-full rounded-xl border border-slate-200 bg-slate-50/50 px-3.5 py-2.5 text-sm text-slate-900 focus:border-teal-500 focus:bg-white focus:outline-none transition"
+              />
+            </div>
           </div>
 
           <button

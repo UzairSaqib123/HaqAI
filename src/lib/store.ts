@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import { generateHaqAIAnalysis, HaqAIAnalysisResult } from "./ai-engine";
+import { HaqAIAnalysisResult } from "./ai-engine";
 import { CitizenProfile, isSupabaseConfigured, supabase } from "./supabase";
 
 export interface DispatchRecord {
@@ -30,50 +30,9 @@ const DATA_DIR = path.join(process.cwd(), "data");
 const STORE_PATH = path.join(DATA_DIR, "haqai-store.json");
 
 function getInitialStore(): StoreShape {
-  const defaultProfile: CitizenProfile = {
-    id: "prof-demo-01",
-    haqId: "HAQ-PK-104829",
-    email: "uzair.citizen@gmail.com",
-    fullName: "Muhammad Uzair",
-    cnic: "35202-4829104-1",
-    phone: "+923001234567",
-    city: "Islamabad",
-    province: "Islamabad Capital Territory (ICT)",
-    address: "House 14, Street 8, Sector G-10/2, Islamabad",
-    occupation: "University Graduate / Software Engineer",
-    role: "admin",
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
-  };
-
-  const flagshipCase = generateHaqAIAnalysis({
-    query:
-      "Meri university meri original degree aur educational documents wapas nahi kar rahi jabke meri clearance mukammal hai. Main kya kar sakta hoon?",
-    language: "roman_ur",
-    channel: "whatsapp",
-    existingCaseId: "HAQ-DEMO01",
-    citizenProfile: defaultProfile,
-    factOverrides: {
-      haqId: defaultProfile.haqId,
-      applicantName: defaultProfile.fullName,
-      cnic: defaultProfile.cnic,
-      city: defaultProfile.city,
-      address: defaultProfile.address,
-      contactPhone: defaultProfile.phone,
-      contactEmail: defaultProfile.email,
-      institutionOrRespondent:
-        "Department of Student Affairs / University Registrar",
-      referenceOrRollNo: "FA22-BCS-049",
-    },
-  });
-
   return {
-    profiles: {
-      [defaultProfile.haqId]: defaultProfile,
-    },
-    cases: {
-      [flagshipCase.caseId]: flagshipCase,
-    },
+    profiles: {},
+    cases: {},
     dispatches: [],
   };
 }
@@ -90,10 +49,9 @@ export function readStore(): StoreShape {
     }
     const raw = fs.readFileSync(STORE_PATH, "utf-8");
     const parsed = JSON.parse(raw) as StoreShape;
-    if (!parsed.profiles) {
-      const init = getInitialStore();
-      parsed.profiles = init.profiles;
-    }
+    if (!parsed.profiles) parsed.profiles = {};
+    if (!parsed.cases) parsed.cases = {};
+    if (!parsed.dispatches) parsed.dispatches = [];
     return parsed;
   } catch {
     return getInitialStore();
@@ -162,12 +120,14 @@ export function findCitizenProfile(query: {
   }
   if (query.phone) {
     const cleanPhone = query.phone.replace(/\D/g, "").slice(-10);
-    const byPhone = all.find((p) =>
-      p.phone.replace(/\D/g, "").endsWith(cleanPhone)
-    );
-    if (byPhone) return byPhone;
+    if (cleanPhone.length >= 7) {
+      const byPhone = all.find((p) =>
+        p.phone.replace(/\D/g, "").endsWith(cleanPhone)
+      );
+      if (byPhone) return byPhone;
+    }
   }
-  return all[0] || null;
+  return null;
 }
 
 export function getAllProfiles(): CitizenProfile[] {
@@ -189,7 +149,7 @@ export async function saveCase(
       await supabase.from("legal_cases").upsert(
         {
           case_id: result.caseId,
-          haq_id: result.haqId || "HAQ-PK-GUEST",
+          haq_id: result.haqId || "UNREGISTERED",
           channel: result.channel,
           language: result.language,
           user_query: result.userQuery,

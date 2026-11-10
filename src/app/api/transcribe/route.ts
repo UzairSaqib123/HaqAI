@@ -42,12 +42,13 @@ export async function POST(req: NextRequest) {
       }
     }
 
-    return NextResponse.json({
-      success: true,
-      transcript:
-        "Meri university meri original degree aur educational documents wapas nahi kar rahi jabke meri tamam fees aur clearance mukammal hai. Main kya kar sakta hoon?",
-      engine: "HaqAI Speech Fallback",
-    });
+    return NextResponse.json(
+      {
+        success: false,
+        error: "No audio input or speech transcript provided.",
+      },
+      { status: 400 }
+    );
   } catch (err) {
     console.error("Error in /api/transcribe:", err);
     return NextResponse.json(
