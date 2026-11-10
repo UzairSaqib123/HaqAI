@@ -58,7 +58,6 @@ export default function RegistrationModal() {
       setIsOpen(true);
     }
 
-    // Allow reopening from Navbar button
     function handleOpenModal() {
       setCanClose(true);
       setIsOpen(true);
@@ -84,7 +83,6 @@ export default function RegistrationModal() {
       return;
     }
 
-    // Immediate Google Sign-in prefill for smooth onboarding
     setGoogleConnected(true);
     if (!email) setEmail("citizen.user@gmail.com");
   }
@@ -95,7 +93,7 @@ export default function RegistrationModal() {
 
     if (!fullName.trim() || !cnic.trim() || !phone.trim() || !city.trim()) {
       setErrorMsg(
-        "براہِ کرم اپنا نام، شناختی کارڈ نمبر، موبائل نمبر اور شہر درج کریں۔ (Please enter your Name, CNIC, Mobile Number, and City.)"
+        "Please enter your Name, CNIC, Mobile Number, and City (اپنا نام، شناختی کارڈ نمبر، موبائل نمبر اور شہر درج کریں)"
       );
       return;
     }
@@ -143,21 +141,21 @@ export default function RegistrationModal() {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/75 p-4 backdrop-blur-sm overflow-y-auto">
-      <div className="relative w-full max-w-xl rounded-3xl border-2 border-[#D4AF37] bg-white shadow-2xl overflow-hidden my-8">
-        {/* Top Green Header */}
-        <div className="bg-gradient-to-r from-[#01411C] to-[#045d2a] px-6 py-5 text-white">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/50 p-4 backdrop-blur-sm overflow-y-auto">
+      <div className="relative w-full max-w-lg rounded-3xl border border-slate-200 bg-white shadow-2xl overflow-hidden my-8">
+        {/* Clean Modern Header */}
+        <div className="bg-gradient-to-r from-teal-600 to-emerald-600 px-6 py-5 text-white">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#D4AF37] text-[#01411C]">
-                <UserCheck className="h-6 w-6" />
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/20 backdrop-blur text-white">
+                <UserCheck className="h-5 w-5" />
               </div>
               <div>
-                <h2 className="text-xl font-extrabold">
-                  خوش آمدید! اپنی معلومات درج کریں
+                <h2 className="text-lg font-extrabold">
+                  Welcome to HaqAI • خوش آمدید
                 </h2>
-                <p className="text-xs text-amber-200">
-                  One-Time Citizen Registration • آپ کی شکایت میں یہ معلومات خود بخود شامل ہو جائیں گی
+                <p className="text-xs text-teal-100">
+                  Save your details once — auto-fills every complaint
                 </p>
               </div>
             </div>
@@ -165,9 +163,9 @@ export default function RegistrationModal() {
               <button
                 type="button"
                 onClick={() => setIsOpen(false)}
-                className="rounded-full bg-white/15 p-1.5 text-white hover:bg-white/25"
+                className="rounded-full bg-white/15 p-1.5 text-white hover:bg-white/25 transition"
               >
-                <X className="h-5 w-5" />
+                <X className="h-4 w-4" />
               </button>
             )}
           </div>
@@ -175,72 +173,62 @@ export default function RegistrationModal() {
 
         {/* Form Body */}
         <form onSubmit={handleSubmit} className="p-6 space-y-4">
-          {/* Step 1: Google Auth Button */}
-          <div className="rounded-2xl bg-slate-50 border border-slate-200 p-4 space-y-2">
-            <div className="flex items-center justify-between">
-              <span className="text-xs font-extrabold text-slate-700">
-                1. گوگل اکاؤنٹ سے جڑیں (Connect Google Account)
-              </span>
-              {googleConnected && (
-                <span className="inline-flex items-center gap-1 text-xs font-bold text-green-700">
-                  <CheckCircle2 className="h-4 w-4" /> Connected
-                </span>
-              )}
-            </div>
-
-            <button
-              type="button"
-              onClick={handleGoogleConnect}
-              className={`w-full flex items-center justify-center gap-2.5 rounded-xl border-2 py-3 px-4 text-sm font-extrabold transition ${
-                googleConnected
-                  ? "border-green-600 bg-green-50 text-green-900"
-                  : "border-slate-300 bg-white text-slate-900 hover:border-[#01411C]"
-              }`}
-            >
-              <LogIn className="h-5 w-5 text-[#01411C]" />
-              <span>
-                {googleConnected
-                  ? `Google Connected (${email || "Verified"})`
-                  : "Continue with Google (گوگل سے لاگ ان کریں)"}
-              </span>
-            </button>
-          </div>
+          {/* Google Auth Step */}
+          <button
+            type="button"
+            onClick={handleGoogleConnect}
+            className={`w-full flex items-center justify-center gap-2.5 rounded-xl border py-3 px-4 text-xs sm:text-sm font-semibold transition ${
+              googleConnected
+                ? "border-teal-500 bg-teal-50/70 text-teal-900"
+                : "border-slate-200 bg-slate-50 text-slate-800 hover:bg-slate-100"
+            }`}
+          >
+            {googleConnected ? (
+              <CheckCircle2 className="h-4 w-4 text-teal-600" />
+            ) : (
+              <LogIn className="h-4 w-4 text-teal-600" />
+            )}
+            <span>
+              {googleConnected
+                ? `Google Account Linked (${email || "Verified"})`
+                : "Continue with Google (گوگل سے لاگ ان کریں)"}
+            </span>
+          </button>
 
           {errorMsg && (
-            <div className="rounded-xl bg-red-50 border border-red-300 p-3 text-xs font-bold text-red-800">
+            <div className="rounded-xl bg-rose-50 border border-rose-200 p-3 text-xs font-medium text-rose-700">
               {errorMsg}
             </div>
           )}
 
-          {/* Assigned Citizen ID Display */}
-          <div className="flex items-center justify-between rounded-xl bg-emerald-50 border border-emerald-200 px-4 py-2.5 text-xs">
-            <span className="font-bold text-slate-700">
-              آپ کا مخصوص حق اے آئی نمبر (Your HaqAI ID):
+          {/* Citizen ID Badge */}
+          <div className="flex items-center justify-between rounded-xl bg-slate-50 border border-slate-200/80 px-4 py-2.5 text-xs">
+            <span className="font-medium text-slate-600">
+              Your Unique HaqAI ID (آپ کا مخصوص نمبر):
             </span>
-            <span className="font-mono text-sm font-extrabold text-[#01411C]">
+            <span className="font-mono text-sm font-bold text-teal-700">
               {haqId}
             </span>
           </div>
 
-          {/* Simple Large Input Fields */}
           <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2">
             <div>
-              <label className="block text-sm font-extrabold text-slate-800 mb-1">
-                پورا نام (Your Full Name) *
+              <label className="block text-xs font-semibold text-slate-700 mb-1">
+                Full Name (پورا نام) *
               </label>
               <input
                 type="text"
                 required
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
-                placeholder="مثلاً: محمد عزیر (Muhammad Uzair)"
-                className="w-full rounded-xl border-2 border-slate-300 px-3.5 py-2.5 text-sm text-slate-900 focus:border-[#01411C] focus:outline-none"
+                placeholder="e.g. Muhammad Uzair"
+                className="w-full rounded-xl border border-slate-200 bg-slate-50/50 px-3.5 py-2.5 text-sm text-slate-900 focus:border-teal-500 focus:bg-white focus:outline-none transition"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-extrabold text-slate-800 mb-1">
-                شناختی کارڈ نمبر (CNIC Number) *
+              <label className="block text-xs font-semibold text-slate-700 mb-1">
+                CNIC Number (شناختی کارڈ) *
               </label>
               <input
                 type="text"
@@ -248,15 +236,15 @@ export default function RegistrationModal() {
                 value={cnic}
                 onChange={(e) => setCnic(e.target.value)}
                 placeholder="35202-1234567-1"
-                className="w-full rounded-xl border-2 border-slate-300 px-3.5 py-2.5 font-mono text-sm text-slate-900 focus:border-[#01411C] focus:outline-none"
+                className="w-full rounded-xl border border-slate-200 bg-slate-50/50 px-3.5 py-2.5 font-mono text-sm text-slate-900 focus:border-teal-500 focus:bg-white focus:outline-none transition"
               />
             </div>
           </div>
 
           <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2">
             <div>
-              <label className="block text-sm font-extrabold text-slate-800 mb-1">
-                واٹس ایپ / موبائل نمبر (WhatsApp No.) *
+              <label className="block text-xs font-semibold text-slate-700 mb-1">
+                WhatsApp / Mobile (موبائل نمبر) *
               </label>
               <input
                 type="text"
@@ -264,49 +252,49 @@ export default function RegistrationModal() {
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 placeholder="0300-1234567"
-                className="w-full rounded-xl border-2 border-slate-300 px-3.5 py-2.5 font-mono text-sm text-slate-900 focus:border-[#01411C] focus:outline-none"
+                className="w-full rounded-xl border border-slate-200 bg-slate-50/50 px-3.5 py-2.5 font-mono text-sm text-slate-900 focus:border-teal-500 focus:bg-white focus:outline-none transition"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-extrabold text-slate-800 mb-1">
-                شہر کا نام (Your City) *
+              <label className="block text-xs font-semibold text-slate-700 mb-1">
+                City (شہر) *
               </label>
               <input
                 type="text"
                 required
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
-                placeholder="مثلاً: لاہور / اسلام آباد / کراچی"
-                className="w-full rounded-xl border-2 border-slate-300 px-3.5 py-2.5 text-sm text-slate-900 focus:border-[#01411C] focus:outline-none"
+                placeholder="Lahore / Islamabad / Karachi"
+                className="w-full rounded-xl border border-slate-200 bg-slate-50/50 px-3.5 py-2.5 text-sm text-slate-900 focus:border-teal-500 focus:bg-white focus:outline-none transition"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-sm font-extrabold text-slate-800 mb-1">
-              مکمل پتہ (Complete Home Address) *
+            <label className="block text-xs font-semibold text-slate-700 mb-1">
+              Home Address (مکمل پتہ) *
             </label>
             <input
               type="text"
               required
               value={address}
               onChange={(e) => setAddress(e.target.value)}
-              placeholder="مکان نمبر، گلی، محلہ / سیکٹر، شہر"
-              className="w-full rounded-xl border-2 border-slate-300 px-3.5 py-2.5 text-sm text-slate-900 focus:border-[#01411C] focus:outline-none"
+              placeholder="House #, Street #, Sector/Area, City"
+              className="w-full rounded-xl border border-slate-200 bg-slate-50/50 px-3.5 py-2.5 text-sm text-slate-900 focus:border-teal-500 focus:bg-white focus:outline-none transition"
             />
           </div>
 
           <button
             type="submit"
             disabled={isSaving}
-            className="w-full flex items-center justify-center gap-2 rounded-2xl bg-[#01411C] py-4 px-6 text-base font-extrabold text-[#D4AF37] shadow-xl hover:bg-emerald-900 transition"
+            className="w-full flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-teal-600 to-emerald-600 py-3.5 px-6 text-sm font-bold text-white shadow-md hover:from-teal-700 hover:to-emerald-700 transition"
           >
-            <ShieldCheck className="h-5 w-5" />
+            <ShieldCheck className="h-4 w-4" />
             <span>
               {isSaving
-                ? "محفوظ ہو رہا ہے (Saving)..."
-                : "محفوظ کریں اور شروع کریں (Save & Start HaqAI)"}
+                ? "Saving Profile..."
+                : "Save & Continue (محفوظ کریں اور شروع کریں)"}
             </span>
           </button>
         </form>

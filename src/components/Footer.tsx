@@ -10,48 +10,52 @@ export default function Footer() {
   )}`;
 
   return (
-    <footer className="border-t border-slate-200 bg-[#0a1f13] text-emerald-50">
-      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+    <footer className="border-t border-slate-200/80 bg-white text-slate-600">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           <div>
             <div className="flex items-center gap-2.5">
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#D4AF37] text-[#01411C]">
-                <Scale className="h-5 w-5" />
+              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-teal-600 to-emerald-600 text-white">
+                <Scale className="h-4 w-4" />
               </div>
-              <span className="text-xl font-extrabold text-white">
-                Haq<span className="text-[#D4AF37]">AI</span> (حق اے آئی)
+              <span className="text-lg font-extrabold text-slate-900">
+                Haq<span className="text-teal-600">AI</span>{" "}
+                <span className="text-sm font-medium text-slate-500">
+                  (حق اے آئی)
+                </span>
               </span>
             </div>
-            <p className="mt-3 text-sm text-emerald-100/85 leading-relaxed">
-              عام پاکستانی شہریوں کے لیے آسان قانونی مددگار۔ اپنی زبان میں بول
-              کر اپنا مسئلہ بتائیں، اپنے قانونی حقوق جانیں اور صرف ایک کلک پر
-              سرکاری ادارے کو شکایت بھیجیں۔
+            <p className="mt-3 text-xs sm:text-sm text-slate-500 leading-relaxed">
+              Your Rights. Your Voice. Your Action. Speak in Urdu, Punjabi,
+              Roman Urdu, or English to understand your Pakistani constitutional
+              rights and forward formal complaints in 1 click.
             </p>
-            <div className="mt-4 flex flex-wrap gap-2 text-xs text-amber-300">
-              <span className="inline-flex items-center gap-1 rounded-md bg-emerald-900/70 px-2.5 py-1 border border-emerald-700">
-                <PhoneCall className="h-3.5 w-3.5" /> ہیلپ لائنز: انسانی حقوق 1099 | محتسب 1055 | پولیس 1787 | ایف آئی اے 1991
+            <div className="mt-4 inline-flex items-center gap-1.5 rounded-lg bg-slate-100 px-3 py-1.5 text-xs font-medium text-slate-700">
+              <PhoneCall className="h-3.5 w-3.5 text-teal-600" />
+              <span>
+                Helplines: Human Rights 1099 • Ombudsman 1055 • Police 1787 • FIA 1991
               </span>
             </div>
           </div>
 
           <div>
-            <h3 className="text-sm font-bold text-[#D4AF37]">
-              آسان لنکس (Quick Links)
+            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-900">
+              Quick Navigation
             </h3>
-            <ul className="mt-3 space-y-2 text-sm text-emerald-100/90">
+            <ul className="mt-3 space-y-2 text-xs sm:text-sm text-slate-600">
               <li>
-                <Link href="/assistant" className="hover:text-[#D4AF37] transition">
-                  🎤 بول کر مسئلہ بتائیں (Talk to AI)
+                <Link href="/assistant" className="hover:text-teal-600 transition">
+                  Ask AI Voice &amp; Legal Assistant (بول کر پوچھیں)
                 </Link>
               </li>
               <li>
-                <Link href="/complaint" className="hover:text-[#D4AF37] transition">
-                  📝 شکایت جمع کروائیں (1-Click Complaint)
+                <Link href="/complaint" className="hover:text-teal-600 transition">
+                  1-Click Complaint Studio (شکایت بھیجیں)
                 </Link>
               </li>
               <li>
-                <Link href="/rights" className="hover:text-[#D4AF37] transition">
-                  📖 پاکستان کے قوانین (Constitution &amp; Laws)
+                <Link href="/rights" className="hover:text-teal-600 transition">
+                  1973 Constitution &amp; Pakistan Laws (قوانین)
                 </Link>
               </li>
               <li>
@@ -59,27 +63,27 @@ export default function Footer() {
                   href={realWhatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-green-400 font-bold hover:underline"
+                  className="inline-flex items-center gap-1 text-teal-600 font-semibold hover:underline"
                 >
-                  💬 واٹس ایپ پر بات کریں (Real WhatsApp) <ExternalLink className="h-3 w-3" />
+                  Connect on Official WhatsApp <ExternalLink className="h-3 w-3" />
                 </a>
               </li>
             </ul>
           </div>
 
           <div>
-            <h3 className="text-sm font-bold text-[#D4AF37]">
-              سرکاری شکایت پورٹلز (Official Portals)
+            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-900">
+              Official Portals
             </h3>
-            <ul className="mt-3 space-y-2 text-xs text-emerald-100/85">
+            <ul className="mt-3 space-y-2 text-xs text-slate-500">
               <li>
                 <a
                   href="https://onlinehelp.hec.gov.pk"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 hover:text-[#D4AF37]"
+                  className="inline-flex items-center gap-1 hover:text-teal-600"
                 >
-                  ایچ ای سی (HEC Portal) <ExternalLink className="h-3 w-3" />
+                  HEC Grievance Portal <ExternalLink className="h-3 w-3" />
                 </a>
               </li>
               <li>
@@ -87,9 +91,9 @@ export default function Footer() {
                   href="https://www.mohtasib.gov.pk"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 hover:text-[#D4AF37]"
+                  className="inline-flex items-center gap-1 hover:text-teal-600"
                 >
-                  وفاقی محتسب (Wafaqi Mohtasib) <ExternalLink className="h-3 w-3" />
+                  Wafaqi Mohtasib (Federal Ombudsman) <ExternalLink className="h-3 w-3" />
                 </a>
               </li>
               <li>
@@ -97,9 +101,9 @@ export default function Footer() {
                   href="https://citizenportal.gov.pk"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 hover:text-[#D4AF37]"
+                  className="inline-flex items-center gap-1 hover:text-teal-600"
                 >
-                  پاکستان سٹیزن پورٹل (Citizen Portal) <ExternalLink className="h-3 w-3" />
+                  Pakistan Citizen Portal <ExternalLink className="h-3 w-3" />
                 </a>
               </li>
               <li>
@@ -107,21 +111,22 @@ export default function Footer() {
                   href="https://fospah.gov.pk"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 hover:text-[#D4AF37]"
+                  className="inline-flex items-center gap-1 hover:text-teal-600"
                 >
-                  خواتین جائیداد و ہراسانی محتسب (FOSPAH) <ExternalLink className="h-3 w-3" />
+                  FOSPAH (Property &amp; Workplace Rights) <ExternalLink className="h-3 w-3" />
                 </a>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-8 border-t border-emerald-900/80 pt-5 text-xs text-emerald-200/75">
+        <div className="mt-8 border-t border-slate-100 pt-5 text-xs text-slate-400">
           <p>
-            <strong>قانونی وضاحت (Disclaimer):</strong> حق اے آئی (HaqAI) آئینِ
-            پاکستان 1973 اور پاکستانی قوانین کی بنیاد پر شہریوں کو معلومات اور
-            درخواست لکھنے میں مدد فراہم کرتا ہے۔ آپ کی منظوری کے بغیر کوئی شکایت
-            آگے نہیں بھیجی جاتی۔
+            <strong>Disclaimer:</strong> HaqAI provides public legal information
+            grounded in the Constitution of Pakistan (1973) and Pakistan Code
+            statutes to help citizens understand their rights and draft formal
+            applications. No complaint is ever forwarded without explicit
+            citizen review and approval.
           </p>
         </div>
       </div>

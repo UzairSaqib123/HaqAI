@@ -13,6 +13,7 @@ import {
   ExternalLink,
   ArrowRight,
   CheckCircle2,
+  Sparkles,
 } from "lucide-react";
 
 const COMMON_PROBLEMS = [
@@ -21,6 +22,8 @@ const COMMON_PROBLEMS = [
     titleRoman: "University original degree ya documents wapas nahi kar rahi",
     titleEn: "University withholding degree or original documents",
     icon: GraduationCap,
+    badgeColor: "bg-teal-50 text-teal-700 border-teal-200/60",
+    iconBg: "bg-teal-100/80 text-teal-700",
     query:
       "Meri university meri original degree aur educational documents wapas nahi kar rahi jabke meri tamam fees aur clearance mukammal hai. Main kya kar sakta hoon?",
   },
@@ -29,6 +32,8 @@ const COMMON_PROBLEMS = [
     titleRoman: "Police Station (Thana) FIR darj nahi kar raha",
     titleEn: "Police refusing to register FIR",
     icon: ShieldAlert,
+    badgeColor: "bg-rose-50 text-rose-700 border-rose-200/60",
+    iconBg: "bg-rose-100/80 text-rose-600",
     query:
       "Mere sath wardat hui hai lekin Police Station ka SHO meri FIR darj karne se inkar kar raha hai. Main kya karoon?",
   },
@@ -37,6 +42,8 @@ const COMMON_PROBLEMS = [
     titleRoman: "Wirasat mein hissa nahi mil raha ya zameen par qabza hai",
     titleEn: "Denial of inheritance share (Wirasat) or property dispute",
     icon: HomeIcon,
+    badgeColor: "bg-indigo-50 text-indigo-700 border-indigo-200/60",
+    iconBg: "bg-indigo-100/80 text-indigo-600",
     query:
       "Walid ke intiqal ke baad mere rishtedar mujhe aur meri walida ko wirasat ki jaidad mein se qanooni hissa nahi de rahe.",
   },
@@ -45,6 +52,8 @@ const COMMON_PROBLEMS = [
     titleRoman: "Company tankhwah (salary) nahi de rahi ya nokri se nikal diya",
     titleEn: "Unpaid salary or unlawful job termination",
     icon: Briefcase,
+    badgeColor: "bg-sky-50 text-sky-700 border-sky-200/60",
+    iconBg: "bg-sky-100/80 text-sky-600",
     query:
       "Meri company ne pichle 3 mahinay se meri tankhwah (salary) roki hui hai aur maangne par nokri se nikalne ki dhamki de rahe hain.",
   },
@@ -53,6 +62,8 @@ const COMMON_PROBLEMS = [
     titleRoman: "Haq Mehr, bachon ka kharcha (maintenance) ya family masla",
     titleEn: "Haq Mehr, child maintenance, or family law issue",
     icon: HeartHandshake,
+    badgeColor: "bg-violet-50 text-violet-700 border-violet-200/60",
+    iconBg: "bg-violet-100/80 text-violet-600",
     query:
       "Mere shohar ne mujhe ghar se nikal diya hai aur na Haq Mehr de rahe hain na bachon ka kharcha. Qanoon meri kya madad kar sakta hai?",
   },
@@ -61,6 +72,8 @@ const COMMON_PROBLEMS = [
     titleRoman: "Online fraud, blackmailing, bank katoti ya ghalat bijli bill",
     titleEn: "Online fraud, cyber blackmail, bank or utility overbilling",
     icon: Smartphone,
+    badgeColor: "bg-amber-50 text-amber-800 border-amber-200/60",
+    iconBg: "bg-amber-100/80 text-amber-700",
     query:
       "Mere sath online fraud aur blackmailing ho rahi hai aur mere account se paise nikal liye gaye hain. Main kahan shikayat karoon?",
   },
@@ -74,56 +87,72 @@ export default function HomePage() {
   )}`;
 
   return (
-    <div className="space-y-14 pb-16">
-      {/* Ultra-Clear, Citizen-Friendly Hero Section */}
-      <section className="bg-gradient-to-br from-[#01411C] via-[#035327] to-[#012911] text-white py-14 sm:py-20">
+    <div className="space-y-16 pb-20">
+      {/* Modern, Airy Mesh-Gradient Hero Section */}
+      <section className="relative overflow-hidden border-b border-slate-200/70 bg-gradient-to-b from-teal-50/70 via-white to-slate-50/60 pt-14 pb-20">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          <div className="inline-flex items-center gap-2 rounded-full bg-amber-400/20 border border-amber-300/40 px-4 py-1.5 text-sm font-bold text-amber-300">
-            <span>🇵🇰 ہر پاکستانی شہری کا آسان قانونی مددگار (HaqAI)</span>
+          <div className="inline-flex items-center gap-2 rounded-full bg-teal-50 border border-teal-200/80 px-4 py-1.5 text-xs font-semibold text-teal-800 shadow-sm">
+            <Sparkles className="h-3.5 w-3.5 text-teal-600" />
+            <span>
+              AI Citizen Rights &amp; Complaint Assistant • ہر پاکستانی شہری کا آسان قانونی مددگار
+            </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold leading-tight">
-            اپنا مسئلہ بول کر بتائیں — اپنے قانونی حقوق جانیں اور{" "}
-            <span className="text-[#D4AF37]">ایک کلک</span> پر شکایت بھیجیں
+          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
+            Speak Your Problem.{" "}
+            <span className="bg-gradient-to-r from-teal-600 to-emerald-600 bg-clip-text text-transparent">
+              Know Your Rights.
+            </span>{" "}
+            Send Complaints in 1 Click.
           </h1>
 
-          <p className="text-lg sm:text-xl text-emerald-100 max-w-3xl mx-auto leading-relaxed">
-            پڑھنا لکھنا مشکل ہے یا قانونی الفاظ سمجھ نہیں آتے؟ پریشان نہ ہوں!
-            مائیک کا بٹن دبا کر <strong>اردو، پنجابی یا آسان الفاظ</strong> میں
-            اپنا مسئلہ بولیں۔ حق اے آئی آپ کو صاف اردو آواز میں جواب سنائے گا
-            اور آپ کی تیار درخواست متعلقہ سرکاری ادارے کو بھیج دے گا۔
+          <p className="text-lg sm:text-xl font-semibold text-slate-700 max-w-3xl mx-auto">
+            اپنا مسئلہ اپنی زبان (اردو، پنجابی یا رومن اردو) میں بول کر بتائیں —
+            صاف اردو آواز میں اپنے قانونی حقوق سنیں اور ایک کلک پر شکایت بھیجیں۔
           </p>
 
-          {/* 2 Giant Action Buttons */}
-          <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <p className="text-sm sm:text-base text-slate-500 max-w-2xl mx-auto leading-relaxed">
+            No complex legal terms or lengthy paperwork. Press the microphone,
+            explain what happened, listen to HaqAI explain your rights under the
+            1973 Constitution &amp; Pakistani laws, and forward a pre-filled
+            application to the right department.
+          </p>
+
+          {/* 2 Clean, Modern Action Buttons */}
+          <div className="pt-3 flex flex-col sm:flex-row items-center justify-center gap-3.5">
             <Link
               href="/assistant"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-2xl bg-[#D4AF37] px-8 py-5 text-lg font-extrabold text-[#01411C] shadow-2xl hover:bg-amber-400 transition transform hover:scale-[1.02]"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-teal-600 to-emerald-600 px-8 py-4 text-base font-bold text-white shadow-lg shadow-teal-600/20 hover:from-teal-700 hover:to-emerald-700 transition-all hover:-translate-y-0.5"
             >
-              <Mic className="h-7 w-7" />
-              <span>🎤 یہاں دبا کر اپنا مسئلہ بولیں (Speak Now)</span>
+              <Mic className="h-5 w-5" />
+              <span>Speak or Type Your Problem (مسئلہ بولیں)</span>
+              <ArrowRight className="h-4 w-4" />
             </Link>
 
             <a
               href={realWhatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-2xl bg-green-500 px-8 py-5 text-lg font-extrabold text-slate-950 shadow-2xl hover:bg-green-400 transition"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-2xl border border-slate-200 bg-white px-7 py-4 text-base font-semibold text-slate-800 shadow-sm hover:border-teal-300 hover:bg-teal-50/40 transition-all"
             >
-              <span>💬 واٹس ایپ پر وائس نوٹ بھیجیں (WhatsApp)</span>
-              <ExternalLink className="h-5 w-5" />
+              <span>Voice Note on WhatsApp (واٹس ایپ)</span>
+              <ExternalLink className="h-4 w-4 text-teal-600" />
             </a>
           </div>
 
-          <div className="pt-4 flex flex-wrap items-center justify-center gap-6 text-sm text-emerald-100/90">
+          {/* Subtle Trust Pills */}
+          <div className="pt-4 flex flex-wrap items-center justify-center gap-5 text-xs font-medium text-slate-500">
             <span className="inline-flex items-center gap-1.5">
-              <CheckCircle2 className="h-4 w-4 text-[#D4AF37]" /> صاف اردو آواز میں جواب سنیں
+              <CheckCircle2 className="h-4 w-4 text-teal-600" /> Clear Urdu Voice
+              Playback (صاف اردو آواز)
             </span>
             <span className="inline-flex items-center gap-1.5">
-              <CheckCircle2 className="h-4 w-4 text-[#D4AF37]" /> آئینِ پاکستان 1973 اور تمام قوانین شامل
+              <CheckCircle2 className="h-4 w-4 text-teal-600" /> Complete 1973
+              Constitution &amp; Laws
             </span>
             <span className="inline-flex items-center gap-1.5">
-              <CheckCircle2 className="h-4 w-4 text-[#D4AF37]" /> خودکار تیار شدہ درخواست (1-Click Complaint)
+              <CheckCircle2 className="h-4 w-4 text-teal-600" /> Pre-Filled
+              1-Click Complaint
             </span>
           </div>
         </div>
@@ -131,111 +160,119 @@ export default function HomePage() {
 
       {/* Simple 3-Step Visual Guide */}
       <section className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center space-y-2">
+        <div className="text-center space-y-1.5">
+          <span className="text-xs font-bold uppercase tracking-wider text-teal-600">
+            Simple 3-Step Process
+          </span>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-            صرف 3 آسان مراحل میں اپنا حق حاصل کریں (How It Works in 3 Easy Steps)
+            صرف 3 آسان مراحل میں اپنا حق حاصل کریں
           </h2>
-          <p className="text-sm text-slate-600">
-            کسی وکیل یا مشکل فارم کی ضرورت نہیں — سب کچھ آپ کی اپنی زبان میں:
+          <p className="text-sm text-slate-500">
+            Designed so anyone can use it effortlessly without legal knowledge
           </p>
         </div>
 
         <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
-          <div className="rounded-3xl border-2 border-emerald-200 bg-white p-6 text-center shadow-sm space-y-3">
-            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-[#01411C] text-[#D4AF37]">
-              <Mic className="h-8 w-8" />
+          <div className="soft-card rounded-2xl p-6 text-center space-y-3 hover:-translate-y-0.5 transition-all">
+            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-teal-50 text-teal-600 border border-teal-100">
+              <Mic className="h-6 w-6" />
             </div>
-            <span className="inline-block rounded-full bg-emerald-100 px-3 py-1 text-xs font-extrabold text-[#01411C]">
-              پہلا قدم (Step 1)
+            <span className="inline-block rounded-full bg-slate-100 px-3 py-0.5 text-[11px] font-bold text-slate-600">
+              Step 1 • پہلا قدم
             </span>
-            <h3 className="text-xl font-extrabold text-slate-900">
+            <h3 className="text-lg font-bold text-slate-900">
               مائیک دبا کر مسئلہ بولیں
             </h3>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              ویب سائٹ یا واٹس ایپ پر اپنی زبان (اردو، پنجابی، رومن اردو یا
-              انگریزی) میں بول کر یا لکھ کر اپنا مسئلہ بتائیں۔
+            <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
+              Speak or type your problem in Urdu, Punjabi, Roman Urdu, or
+              English on the website or via WhatsApp.
             </p>
           </div>
 
-          <div className="rounded-3xl border-2 border-amber-300 bg-white p-6 text-center shadow-sm space-y-3">
-            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-[#D4AF37] text-[#01411C]">
-              <Volume2 className="h-8 w-8" />
+          <div className="soft-card rounded-2xl p-6 text-center space-y-3 hover:-translate-y-0.5 transition-all">
+            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-indigo-50 text-indigo-600 border border-indigo-100">
+              <Volume2 className="h-6 w-6" />
             </div>
-            <span className="inline-block rounded-full bg-amber-100 px-3 py-1 text-xs font-extrabold text-amber-900">
-              دوسرا قدم (Step 2)
+            <span className="inline-block rounded-full bg-slate-100 px-3 py-0.5 text-[11px] font-bold text-slate-600">
+              Step 2 • دوسرا قدم
             </span>
-            <h3 className="text-xl font-extrabold text-slate-900">
+            <h3 className="text-lg font-bold text-slate-900">
               صاف اردو آواز میں اپنا حق سنیں
             </h3>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              حق اے آئی آئینِ پاکستان اور قوانین چیک کر کے آپ کو صاف اور آسان
-              اردو آواز میں بتائے گا کہ آپ کا قانونی حق کیا ہے اور کون سا ادارہ
-              مدد کرے گا۔
+            <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
+              Listen to HaqAI explain your Constitutional rights and the exact
+              government authority in clear, natural Urdu speech.
             </p>
           </div>
 
-          <div className="rounded-3xl border-2 border-[#01411C] bg-emerald-50/60 p-6 text-center shadow-md space-y-3">
-            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-[#01411C] text-white">
-              <Send className="h-8 w-8 text-[#D4AF37]" />
+          <div className="soft-card rounded-2xl p-6 text-center space-y-3 hover:-translate-y-0.5 transition-all">
+            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600 border border-emerald-100">
+              <Send className="h-6 w-6" />
             </div>
-            <span className="inline-block rounded-full bg-[#01411C] px-3 py-1 text-xs font-extrabold text-[#D4AF37]">
-              تیسرا قدم (Step 3)
+            <span className="inline-block rounded-full bg-slate-100 px-3 py-0.5 text-[11px] font-bold text-slate-600">
+              Step 3 • تیسرا قدم
             </span>
-            <h3 className="text-xl font-extrabold text-slate-900">
+            <h3 className="text-lg font-bold text-slate-900">
               1-کلک پر شکایت آگے بھیجیں
             </h3>
-            <p className="text-sm text-slate-700 leading-relaxed">
-              آپ کے نام، شناختی کارڈ اور پتے کے ساتھ تیار شدہ قانونی درخواست
-              چیک کریں اور صرف <strong>ایک کلک</strong> پر متعلقہ سرکاری ادارے
-              کو بھیج دیں۔
+            <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
+              Review your pre-filled application (with your Name, CNIC &amp;
+              Address) and forward it in 1 click to the relevant department.
             </p>
           </div>
         </div>
       </section>
 
-      {/* 1-Tap Everyday Citizen Problems */}
+      {/* 6 Everyday Citizen Problem Cards with Soft Attractive Accents */}
       <section className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 space-y-6">
-        <div className="text-center space-y-2">
+        <div className="text-center space-y-1.5">
+          <span className="text-xs font-bold uppercase tracking-wider text-teal-600">
+            Instant Legal Help
+          </span>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
             آپ کو کیا مسئلہ درپیش ہے؟ نیچے اپنے مسئلے پر کلک کریں
           </h2>
-          <p className="text-sm text-slate-600">
-            Click on your problem below to immediately hear your rights and get
-            your ready-made complaint:
+          <p className="text-sm text-slate-500">
+            Tap any common issue below to immediately hear your rights and get
+            your ready-made complaint
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {COMMON_PROBLEMS.map((item, idx) => {
             const Icon = item.icon;
             return (
               <Link
                 key={idx}
                 href={`/assistant?q=${encodeURIComponent(item.query)}`}
-                className="group flex flex-col justify-between rounded-3xl border-2 border-slate-200 bg-white p-6 shadow-sm hover:border-[#01411C] hover:shadow-lg transition"
+                className="group soft-card flex flex-col justify-between rounded-2xl p-6 hover:border-teal-300 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
               >
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-50 text-[#01411C] group-hover:bg-[#01411C] group-hover:text-[#D4AF37] transition">
-                      <Icon className="h-6 w-6" />
+                    <div
+                      className={`flex h-11 w-11 items-center justify-center rounded-xl ${item.iconBg} transition`}
+                    >
+                      <Icon className="h-5 w-5" />
                     </div>
-                    <span className="rounded-full bg-amber-100 px-3 py-1 text-xs font-extrabold text-amber-900">
-                      فوری مدد حاصل کریں →
+                    <span
+                      className={`rounded-full border px-2.5 py-0.5 text-[11px] font-semibold ${item.badgeColor}`}
+                    >
+                      فوری مدد →
                     </span>
                   </div>
 
-                  <h3 className="text-lg font-extrabold text-slate-900 leading-snug">
+                  <h3 className="text-base font-bold text-slate-900 leading-snug">
                     {item.titleUr}
                   </h3>
-                  <p className="text-xs font-semibold text-emerald-800">
+                  <p className="text-xs font-medium text-slate-600">
                     {item.titleRoman}
                   </p>
-                  <p className="text-xs text-slate-500">{item.titleEn}</p>
+                  <p className="text-xs text-slate-400">{item.titleEn}</p>
                 </div>
 
-                <div className="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-extrabold text-[#01411C]">
+                <div className="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-teal-600">
                   <span>جواب سنیں اور شکایت بھیجیں</span>
-                  <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition" />
+                  <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
                 </div>
               </Link>
             );

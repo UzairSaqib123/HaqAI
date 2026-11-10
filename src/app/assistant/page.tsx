@@ -264,9 +264,7 @@ function AssistantContent() {
 
       recognition.onend = () => {
         setIsRecording(false);
-        setVoiceStatus(
-          "آواز ریکارڈ ہو گئی! اب پیلے بٹن پر کلک کریں۔"
-        );
+        setVoiceStatus("آواز ریکارڈ ہو گئی! اب نیچے بٹن پر کلک کریں۔");
       };
 
       recognitionRef.current = recognition;
@@ -329,17 +327,20 @@ function AssistantContent() {
   }
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8 space-y-8">
-      {/* Simple Citizen Header */}
-      <div className="rounded-3xl bg-gradient-to-r from-[#01411C] to-[#045d2a] p-6 sm:p-8 text-white shadow-xl">
+    <div className="mx-auto max-w-5xl px-4 py-8 sm:px-6 lg:px-8 space-y-8">
+      {/* Clean, Moderate Header Card */}
+      <div className="soft-card rounded-3xl p-6 sm:p-8 bg-gradient-to-r from-teal-50/80 via-white to-emerald-50/60">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="space-y-1">
-            <h1 className="text-2xl sm:text-3xl font-extrabold">
-              🎤 بول کر یا لکھ کر اپنا مسئلہ بتائیں
+            <span className="inline-block rounded-full bg-teal-100/80 px-3 py-0.5 text-xs font-semibold text-teal-800">
+              AI Voice &amp; Legal Assistant
+            </span>
+            <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+              بول کر یا لکھ کر اپنا مسئلہ بتائیں
             </h1>
-            <p className="text-sm sm:text-base text-emerald-100">
-              حق اے آئی آپ کو صاف اردو آواز میں قانونی حل سنائے گا اور آپ کی
-              تیار درخواست متعلقہ ادارے کو بھیج دے گا۔
+            <p className="text-sm text-slate-600">
+              Speak or type your issue—listen to the legal answer in clear Urdu
+              voice and forward your pre-filled complaint in 1 click.
             </p>
           </div>
 
@@ -348,34 +349,36 @@ function AssistantContent() {
             onClick={() =>
               window.dispatchEvent(new Event("haqai-open-registration-modal"))
             }
-            className="flex items-center gap-3 rounded-2xl bg-black/25 border border-amber-400/40 px-4 py-3 text-xs hover:bg-black/35 transition shrink-0"
+            className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-2.5 text-xs shadow-sm hover:border-teal-300 transition shrink-0"
           >
-            <UserCheck className="h-5 w-5 text-[#D4AF37]" />
+            <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-teal-50 text-teal-600">
+              <UserCheck className="h-4 w-4" />
+            </div>
             <div className="text-left">
-              <span className="block font-mono font-extrabold text-[#D4AF37]">
-                {citizenProfile?.haqId || "HAQ-PK-104829"}
+              <span className="block font-semibold text-slate-800">
+                {citizenProfile?.fullName || "Citizen Profile"}
               </span>
-              <span className="block text-emerald-100">
-                {citizenProfile?.fullName || "پروفائل اپڈیٹ کریں"}
+              <span className="block font-mono text-[11px] text-teal-600">
+                {citizenProfile?.haqId || "HAQ-PK-104829"}
               </span>
             </div>
           </button>
         </div>
       </div>
 
-      {/* Main Step 1 Box: Big Microphone + Big Textarea */}
-      <div className="rounded-3xl border-2 border-slate-200 bg-white p-6 sm:p-8 shadow-md space-y-6">
+      {/* Main Composer Card */}
+      <div className="soft-card rounded-3xl p-6 sm:p-8 space-y-6">
         <div className="flex flex-wrap items-center justify-between gap-3">
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-1.5 rounded-2xl bg-slate-100 p-1.5">
             {LANGUAGE_OPTIONS.map((lang) => (
               <button
                 key={lang.id}
                 type="button"
                 onClick={() => setLanguage(lang.id)}
-                className={`rounded-xl px-4 py-2.5 text-sm font-extrabold border-2 transition ${
+                className={`rounded-xl px-3.5 py-2 text-xs sm:text-sm font-semibold transition ${
                   language === lang.id
-                    ? "border-[#01411C] bg-[#01411C] text-[#D4AF37]"
-                    : "border-slate-200 bg-slate-50 text-slate-700 hover:bg-slate-100"
+                    ? "bg-white text-teal-700 shadow-sm font-bold"
+                    : "text-slate-600 hover:text-slate-900"
                 }`}
               >
                 {lang.label}
@@ -383,66 +386,66 @@ function AssistantContent() {
             ))}
           </div>
 
-          <label className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#01411C] cursor-pointer bg-emerald-50 px-3.5 py-2 rounded-xl border border-emerald-200">
+          <label className="inline-flex items-center gap-2 text-xs font-semibold text-teal-800 cursor-pointer bg-teal-50/70 px-3.5 py-2 rounded-xl border border-teal-200/60">
             <input
               type="checkbox"
               checked={autoSpeak}
               onChange={(e) => setAutoSpeak(e.target.checked)}
-              className="h-4 w-4 rounded text-[#01411C]"
+              className="h-4 w-4 rounded text-teal-600"
             />
-            <span>🔊 جواب خودکار آواز میں سنائیں (Auto-Play Clear Urdu Voice)</span>
+            <span>🔊 جواب خودکار آواز میں سنائیں (Auto-Play Voice)</span>
           </label>
         </div>
 
-        {/* Giant Mic Button */}
+        {/* Sleek Microphone Button */}
         <button
           type="button"
           onClick={toggleMicrophone}
-          className={`w-full flex flex-col sm:flex-row items-center justify-center gap-3 rounded-3xl py-6 px-6 text-lg sm:text-xl font-extrabold transition shadow-lg ${
+          className={`w-full flex flex-col sm:flex-row items-center justify-center gap-3 rounded-2xl py-5 px-6 text-base sm:text-lg font-bold transition-all shadow-md ${
             isRecording
-              ? "bg-red-600 text-white mic-recording"
-              : "bg-gradient-to-r from-[#01411C] to-emerald-800 text-white hover:brightness-110"
+              ? "bg-rose-600 text-white mic-recording"
+              : "bg-gradient-to-r from-teal-600 to-emerald-600 text-white hover:from-teal-700 hover:to-emerald-700"
           }`}
         >
           {isRecording ? (
             <>
-              <MicOff className="h-8 w-8" />
+              <MicOff className="h-6 w-6" />
               <span>آواز ریکارڈ ہو رہی ہے... روکنے کے لیے دبائیں (Tap to Stop)</span>
             </>
           ) : (
             <>
-              <Mic className="h-8 w-8 text-[#D4AF37]" />
+              <Mic className="h-6 w-6" />
               <span>🎤 یہاں دبا کر اپنا مسئلہ بولیں (Tap Here to Speak)</span>
             </>
           )}
         </button>
 
         {voiceStatus && (
-          <p className="text-center text-sm font-bold text-emerald-900 bg-emerald-50 rounded-xl py-2.5 px-4 border border-emerald-200">
+          <p className="text-center text-xs sm:text-sm font-semibold text-teal-800 bg-teal-50 rounded-xl py-2.5 px-4 border border-teal-100">
             {voiceStatus}
           </p>
         )}
 
-        {/* Or Type Box */}
+        {/* Text Input */}
         <div className="space-y-3">
-          <label className="block text-base font-extrabold text-slate-800">
-            یا یہاں اپنا مسئلہ لکھیں (Or Type Your Problem Here):
+          <label className="block text-sm font-bold text-slate-700">
+            یا یہاں اپنا مسئلہ لکھیں (Or Type Your Problem Below):
           </label>
           <textarea
             rows={3}
             value={inputText}
             onChange={(e) => setInputText(e.target.value)}
             placeholder="مثلاً: میری یونیورسٹی میری اصل ڈگری واپس نہیں کر رہی۔ میں کیا کروں؟"
-            className="w-full rounded-2xl border-2 border-slate-300 bg-slate-50 p-4 text-base text-slate-900 focus:border-[#01411C] focus:bg-white focus:outline-none"
+            className="w-full rounded-2xl border border-slate-200 bg-slate-50/60 p-4 text-sm sm:text-base text-slate-900 focus:border-teal-500 focus:bg-white focus:outline-none transition"
           />
 
           <button
             type="button"
             disabled={isLoading || !inputText.trim()}
             onClick={() => handleAnalyze()}
-            className="w-full flex items-center justify-center gap-3 rounded-2xl bg-[#D4AF37] py-4 px-6 text-lg font-extrabold text-[#01411C] shadow-lg hover:bg-amber-400 disabled:opacity-50 transition"
+            className="w-full flex items-center justify-center gap-2.5 rounded-2xl bg-slate-900 py-4 px-6 text-sm sm:text-base font-bold text-white shadow-md hover:bg-slate-800 disabled:opacity-50 transition"
           >
-            <Send className="h-5 w-5" />
+            <Send className="h-4 w-4 text-teal-400" />
             <span>
               {isLoading
                 ? "قانون چیک کیا جا رہا ہے اور شکایت لکھی جا رہی ہے..."
@@ -451,10 +454,10 @@ function AssistantContent() {
           </button>
         </div>
 
-        {/* Quick 1-Tap Buttons for Non-Technical Users */}
-        <div className="pt-2 border-t border-slate-100">
-          <p className="text-xs font-extrabold text-slate-500 mb-2.5">
-            یا نیچے دیے گئے کسی عام مسئلے پر ایک کلک کریں (Or Click Any Common Problem):
+        {/* Quick 1-Tap Scenarios */}
+        <div className="pt-3 border-t border-slate-100">
+          <p className="text-xs font-semibold text-slate-400 mb-2.5">
+            Common Problems — Click any card to test immediately:
           </p>
           <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
             {QUICK_SCENARIOS.map((item) => (
@@ -466,12 +469,12 @@ function AssistantContent() {
                   setInputText(item.text);
                   handleAnalyze(item.text, item.lang);
                 }}
-                className="text-left rounded-2xl border-2 border-slate-200 p-3.5 hover:border-[#01411C] hover:bg-emerald-50/50 transition"
+                className="text-left rounded-xl border border-slate-200/80 bg-slate-50/50 p-3.5 hover:border-teal-300 hover:bg-teal-50/30 transition"
               >
-                <span className="block text-sm font-extrabold text-[#01411C]">
+                <span className="block text-xs sm:text-sm font-bold text-slate-800">
                   {item.badge}
                 </span>
-                <span className="mt-1 block text-xs text-slate-600 line-clamp-1">
+                <span className="mt-1 block text-xs text-slate-500 line-clamp-1">
                   {item.text}
                 </span>
               </button>
@@ -480,131 +483,131 @@ function AssistantContent() {
         </div>
       </div>
 
-      {/* Results Area: Huge Speaker Button + 2 Unmistakable Options */}
+      {/* Results Area */}
       {currentCase && (
         <div className="space-y-6">
-          {/* Big Audio Player Bar + 2 Giant Action Buttons */}
-          <div className="rounded-3xl border-4 border-[#01411C] bg-white p-6 sm:p-8 shadow-xl space-y-6">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 pb-5">
+          {/* Audio Summary + 2 Action Cards */}
+          <div className="soft-card rounded-3xl p-6 sm:p-8 space-y-6">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-5">
               <div>
-                <span className="rounded-lg bg-emerald-100 px-3 py-1 text-xs font-extrabold text-[#01411C]">
-                  کیس نمبر: {currentCase.caseId}
+                <span className="rounded-full bg-teal-50 border border-teal-200 px-3 py-0.5 text-xs font-semibold text-teal-700">
+                  Case ID: {currentCase.caseId}
                 </span>
-                <h2 className="mt-2 text-2xl font-extrabold text-slate-900">
+                <h2 className="mt-2 text-xl sm:text-2xl font-extrabold text-slate-900">
                   {currentCase.categoryTitle}
                 </h2>
               </div>
 
-              {/* HUGE CLEAR URDU AUDIO SPEAKER BUTTON */}
+              {/* Clear Audio Speaker Button */}
               <button
                 type="button"
                 onClick={toggleSpeakSummary}
-                className={`inline-flex items-center justify-center gap-3 rounded-2xl px-6 py-4 text-base font-extrabold shadow-lg transition ${
+                className={`inline-flex items-center justify-center gap-2.5 rounded-2xl px-5 py-3.5 text-sm font-bold shadow-sm transition ${
                   isSpeaking
-                    ? "bg-red-600 text-white animate-pulse"
-                    : "bg-[#D4AF37] text-[#01411C] hover:bg-amber-400"
+                    ? "bg-rose-600 text-white animate-pulse"
+                    : "bg-teal-600 text-white hover:bg-teal-700"
                 }`}
               >
                 {isSpeaking ? (
                   <>
-                    <VolumeX className="h-6 w-6" />
+                    <VolumeX className="h-5 w-5" />
                     <span>آواز روکیں (Stop Voice)</span>
                   </>
                 ) : (
                   <>
-                    <Volume2 className="h-6 w-6" />
+                    <Volume2 className="h-5 w-5" />
                     <span>🔊 جواب صاف اردو آواز میں سنیں (Listen Aloud)</span>
                   </>
                 )}
               </button>
             </div>
 
-            {/* Spoken Urdu Summary Box (Easy to read & hear) */}
-            <div className="rounded-2xl bg-emerald-50 border-2 border-emerald-200 p-5 space-y-2">
-              <p className="text-xs font-extrabold text-[#01411C]">
-                🔊 آسان خلاصہ (Simple Summary):
+            {/* Spoken Summary Box */}
+            <div className="rounded-2xl bg-teal-50/60 border border-teal-200/70 p-5 space-y-1.5">
+              <p className="text-xs font-bold text-teal-800">
+                🔊 آسان خلاصہ (Spoken Summary):
               </p>
-              <p className="text-lg font-bold text-slate-900 leading-relaxed">
+              <p className="text-base sm:text-lg font-medium text-slate-800 leading-relaxed">
                 {currentCase.voiceSummaryText}
               </p>
             </div>
 
-            {/* THE 2 HUGE CITIZEN CHOICE BUTTONS */}
-            <div className="space-y-3">
-              <p className="text-base font-extrabold text-slate-900">
-                اب آپ کیا کرنا چاہتے ہیں؟ نیچے دو میں سے ایک بٹن دبائیں:
+            {/* 2 Balanced Option Cards */}
+            <div className="space-y-2.5">
+              <p className="text-sm font-bold text-slate-700">
+                اب آپ کیا کرنا چاہتے ہیں؟ (Choose Your Next Step):
               </p>
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <button
                   type="button"
                   onClick={() => setActiveTab("complaint")}
-                  className={`flex flex-col justify-between rounded-2xl p-5 text-left border-4 transition ${
+                  className={`flex flex-col justify-between rounded-2xl p-5 text-left border-2 transition-all ${
                     activeTab === "complaint"
-                      ? "border-[#01411C] bg-[#01411C] text-white shadow-xl"
-                      : "border-emerald-600 bg-emerald-50 text-slate-900 hover:bg-emerald-100"
+                      ? "border-teal-600 bg-teal-600 text-white shadow-md"
+                      : "border-slate-200 bg-slate-50/70 text-slate-900 hover:border-teal-300 hover:bg-teal-50/30"
                   }`}
                 >
-                  <div className="flex items-center gap-2 text-sm font-extrabold text-[#D4AF37]">
-                    <FileCheck2 className="h-6 w-6" />
-                    <span>آپشن 1 (Option 1)</span>
+                  <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider opacity-90">
+                    <FileCheck2 className="h-5 w-5" />
+                    <span>Option 1 • آپشن 1</span>
                   </div>
-                  <p className="mt-2 text-xl font-extrabold">
+                  <p className="mt-2 text-lg font-extrabold">
                     📝 آن لائن شکایت بھیجیں (1-Click Complaint)
                   </p>
                   <p
                     className={`mt-1 text-xs ${
                       activeTab === "complaint"
-                        ? "text-emerald-100"
-                        : "text-slate-700"
+                        ? "text-teal-50"
+                        : "text-slate-500"
                     }`}
                   >
-                    آپ کی تیار شدہ درخواست کو ایک کلک پر{" "}
-                    <strong>{currentCase.primaryAuthority.shortName}</strong> کو
-                    فارورڈ کریں۔
+                    Forward your pre-filled application in 1 click to{" "}
+                    <strong>{currentCase.primaryAuthority.shortName}</strong>.
                   </p>
                 </button>
 
                 <button
                   type="button"
                   onClick={() => setActiveTab("guidance")}
-                  className={`flex flex-col justify-between rounded-2xl p-5 text-left border-4 transition ${
+                  className={`flex flex-col justify-between rounded-2xl p-5 text-left border-2 transition-all ${
                     activeTab === "guidance"
-                      ? "border-[#01411C] bg-[#01411C] text-white shadow-xl"
-                      : "border-slate-300 bg-slate-50 text-slate-900 hover:bg-slate-100"
+                      ? "border-teal-600 bg-teal-600 text-white shadow-md"
+                      : "border-slate-200 bg-slate-50/70 text-slate-900 hover:border-teal-300 hover:bg-teal-50/30"
                   }`}
                 >
-                  <div className="flex items-center gap-2 text-sm font-extrabold text-amber-400">
-                    <Scale className="h-6 w-6" />
-                    <span>آپشن 2 (Option 2)</span>
+                  <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider opacity-90">
+                    <Scale className="h-5 w-5" />
+                    <span>Option 2 • آپشن 2</span>
                   </div>
-                  <p className="mt-2 text-xl font-extrabold">
+                  <p className="mt-2 text-lg font-extrabold">
                     📖 مکمل قانونی رہنمائی دیکھیں (Legal Guidance)
                   </p>
                   <p
                     className={`mt-1 text-xs ${
                       activeTab === "guidance"
-                        ? "text-emerald-100"
-                        : "text-slate-700"
+                        ? "text-teal-50"
+                        : "text-slate-500"
                     }`}
                   >
-                    آئینِ پاکستان کی دفعات، قوانین اور طریقہ کار تفصیل سے دیکھیں۔
+                    View applicable 1973 Constitutional Articles, laws &amp;
+                    step-by-step instructions.
                   </p>
                 </button>
               </div>
             </div>
           </div>
 
-          {/* OPTION 1 VIEW: SIMPLE 1-CLICK COMPLAINT */}
+          {/* OPTION 1: 1-CLICK COMPLAINT */}
           {activeTab === "complaint" ? (
-            <div className="rounded-3xl border-2 border-slate-200 bg-white p-6 sm:p-8 shadow-md space-y-5">
+            <div className="soft-card rounded-3xl p-6 sm:p-8 space-y-5">
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <div>
-                  <h3 className="text-xl font-extrabold text-slate-900">
+                  <h3 className="text-lg font-bold text-slate-900">
                     📝 آپ کی تیار شدہ قانونی درخواست ({currentCase.primaryAuthority.shortName})
                   </h3>
-                  <p className="text-xs text-slate-600 mt-1">
-                    اس میں آپ کا نام، شناختی کارڈ اور پتہ شامل کر دیا گیا ہے۔ آپ
-                    اس میں کوئی بھی تبدیلی کر سکتے ہیں۔
+                  <p className="text-xs text-slate-500 mt-0.5">
+                    Pre-filled with your Citizen Profile. You can edit any text
+                    below before sending.
                   </p>
                 </div>
                 <button
@@ -612,10 +615,10 @@ function AssistantContent() {
                   onClick={() =>
                     router.push(`/complaint?caseId=${currentCase.caseId}`)
                   }
-                  className="inline-flex items-center gap-1.5 rounded-xl border-2 border-[#01411C] px-4 py-2 text-xs font-extrabold text-[#01411C] hover:bg-emerald-50"
+                  className="inline-flex items-center gap-1.5 rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-100"
                 >
-                  <span>فل اسکرین میں کھولیں / ڈاؤن لوڈ کریں</span>
-                  <ExternalLink className="h-4 w-4" />
+                  <span>Open Full Studio / Download</span>
+                  <ExternalLink className="h-3.5 w-3.5" />
                 </button>
               </div>
 
@@ -623,17 +626,17 @@ function AssistantContent() {
                 rows={14}
                 value={editableComplaint}
                 onChange={(e) => setEditableComplaint(e.target.value)}
-                className="w-full rounded-2xl border-2 border-slate-300 bg-slate-50 p-4 font-mono text-xs leading-relaxed text-slate-900 focus:border-[#01411C] focus:bg-white focus:outline-none"
+                className="w-full rounded-2xl border border-slate-200 bg-slate-50/70 p-4 font-mono text-xs leading-relaxed text-slate-800 focus:border-teal-500 focus:bg-white focus:outline-none"
               />
 
-              <label className="flex items-start gap-3 rounded-2xl border-2 border-amber-400 bg-amber-50 p-4 cursor-pointer">
+              <label className="flex items-start gap-3 rounded-2xl border border-teal-200 bg-teal-50/50 p-4 cursor-pointer">
                 <input
                   type="checkbox"
                   checked={userApproved}
                   onChange={(e) => setUserApproved(e.target.checked)}
-                  className="mt-1 h-5 w-5 rounded border-slate-300 text-[#01411C]"
+                  className="mt-1 h-4 w-4 rounded border-slate-300 text-teal-600"
                 />
-                <span className="text-sm font-bold text-slate-900 leading-relaxed">
+                <span className="text-xs sm:text-sm font-medium text-slate-800 leading-relaxed">
                   ✅ میں نے اپنی درخواست چیک کر لی ہے اور میں اجازت دیتا/دیتی ہوں
                   کہ اسے <strong>{currentCase.primaryAuthority.name}</strong> کو
                   بھیج دیا جائے۔ (I approve forwarding this complaint)
@@ -644,29 +647,29 @@ function AssistantContent() {
                 type="button"
                 disabled={!userApproved}
                 onClick={handleOneClickForward}
-                className="w-full flex items-center justify-center gap-3 rounded-2xl bg-[#01411C] px-6 py-5 text-lg font-extrabold text-[#D4AF37] shadow-xl hover:bg-emerald-900 disabled:opacity-40 transition"
+                className="w-full flex items-center justify-center gap-2.5 rounded-2xl bg-gradient-to-r from-teal-600 to-emerald-600 px-6 py-4 text-base font-bold text-white shadow-md hover:from-teal-700 hover:to-emerald-700 disabled:opacity-40 transition"
               >
-                <Send className="h-6 w-6" />
+                <Send className="h-5 w-5" />
                 <span>
-                  🚀 1-کلک پر شکایت {currentCase.primaryAuthority.shortName} کو بھیجیں (1-Click Forward)
+                  1-کلک پر شکایت {currentCase.primaryAuthority.shortName} کو بھیجیں (1-Click Forward)
                 </span>
               </button>
 
               {dispatchResult && (
-                <div className="rounded-2xl border-2 border-green-600 bg-green-50 p-6 space-y-3">
+                <div className="rounded-2xl border border-emerald-300 bg-emerald-50/70 p-5 space-y-3">
                   <div className="flex items-center justify-between">
-                    <span className="inline-flex items-center gap-2 text-base font-extrabold text-green-900">
-                      <CheckCircle2 className="h-6 w-6 text-green-600" />
-                      مبارک ہو! آپ کی شکایت فارورڈ ہو گئی ہے (Dispatched!)
+                    <span className="inline-flex items-center gap-2 text-sm font-bold text-emerald-900">
+                      <CheckCircle2 className="h-5 w-5 text-emerald-600" />
+                      آپ کی شکایت فارورڈ ہو گئی ہے (Complaint Dispatched!)
                     </span>
-                    <span className="rounded-md bg-green-200 px-3 py-1 text-xs font-mono font-bold text-green-900">
-                      رسید نمبر: {dispatchResult.dispatchId}
+                    <span className="rounded-md bg-white px-2.5 py-0.5 text-xs font-mono font-semibold text-emerald-800 border border-emerald-200">
+                      ID: {dispatchResult.dispatchId}
                     </span>
                   </div>
-                  <div className="flex flex-wrap gap-3 pt-2">
+                  <div className="flex flex-wrap gap-2.5 pt-1">
                     <a
                       href={dispatchResult.mailtoUrl}
-                      className="inline-flex items-center gap-2 rounded-xl bg-green-700 px-5 py-3 text-sm font-extrabold text-white hover:bg-green-800"
+                      className="inline-flex items-center gap-1.5 rounded-xl bg-teal-600 px-4 py-2.5 text-xs font-bold text-white hover:bg-teal-700"
                     >
                       <Mail className="h-4 w-4" /> سرکاری ای میل بھیجیں (Send Email)
                     </a>
@@ -674,7 +677,7 @@ function AssistantContent() {
                       href={dispatchResult.portalUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-xl bg-[#01411C] px-5 py-3 text-sm font-extrabold text-[#D4AF37]"
+                      className="inline-flex items-center gap-1.5 rounded-xl bg-white border border-slate-200 px-4 py-2.5 text-xs font-bold text-slate-800 hover:bg-slate-50"
                     >
                       <ExternalLink className="h-4 w-4" /> سرکاری پورٹل کھولیں ({currentCase.primaryAuthority.shortName})
                     </a>
@@ -683,34 +686,33 @@ function AssistantContent() {
               )}
             </div>
           ) : (
-            /* OPTION 2 VIEW: CLEAR LEGAL GUIDANCE */
+            /* OPTION 2: LEGAL GUIDANCE */
             <div className="space-y-6">
-              {/* Relevant Government Authority Card */}
-              <div className="rounded-3xl border-2 border-[#01411C] bg-emerald-50/70 p-6 space-y-3">
-                <span className="text-xs font-extrabold uppercase text-[#01411C]">
-                  🏛️ متعلقہ سرکاری ادارہ (Where to Complain)
+              <div className="soft-card rounded-3xl p-6 space-y-3">
+                <span className="text-xs font-bold uppercase text-teal-600">
+                  🏛️ متعلقہ سرکاری ادارہ (Relevant Institution)
                 </span>
-                <h3 className="text-xl font-extrabold text-slate-900">
+                <h3 className="text-lg font-bold text-slate-900">
                   {currentCase.primaryAuthority.name}
                 </h3>
-                <p className="text-sm text-slate-700">
+                <p className="text-xs sm:text-sm text-slate-600">
                   {currentCase.primaryAuthority.role}
                 </p>
-                <div className="flex flex-wrap gap-4 pt-2 text-sm font-bold text-slate-900">
-                  <span className="inline-flex items-center gap-1.5 bg-white px-3.5 py-2 rounded-xl border border-emerald-200">
-                    <PhoneCall className="h-4 w-4 text-[#01411C]" /> ہیلپ لائن:{" "}
+                <div className="flex flex-wrap gap-3 pt-1 text-xs font-semibold text-slate-700">
+                  <span className="inline-flex items-center gap-1.5 bg-slate-100 px-3 py-1.5 rounded-lg">
+                    <PhoneCall className="h-3.5 w-3.5 text-teal-600" /> Helpline:{" "}
                     {currentCase.primaryAuthority.helpline}
                   </span>
-                  <span className="inline-flex items-center gap-1.5 bg-white px-3.5 py-2 rounded-xl border border-emerald-200">
-                    <Mail className="h-4 w-4 text-[#01411C]" /> ای میل:{" "}
+                  <span className="inline-flex items-center gap-1.5 bg-slate-100 px-3 py-1.5 rounded-lg">
+                    <Mail className="h-3.5 w-3.5 text-teal-600" /> Email:{" "}
                     {currentCase.primaryAuthority.email}
                   </span>
                 </div>
-                <div className="pt-2 flex flex-wrap gap-3">
+                <div className="pt-2 flex flex-wrap gap-2.5">
                   <button
                     type="button"
                     onClick={() => setActiveTab("complaint")}
-                    className="inline-flex items-center gap-2 rounded-xl bg-[#01411C] px-5 py-3 text-sm font-extrabold text-[#D4AF37]"
+                    className="inline-flex items-center gap-1.5 rounded-xl bg-teal-600 px-4 py-2.5 text-xs font-bold text-white hover:bg-teal-700"
                   >
                     <FileCheck2 className="h-4 w-4" />
                     <span>ابھی 1-کلک پر شکایت بھیجیں →</span>
@@ -719,26 +721,25 @@ function AssistantContent() {
                     href={currentCase.primaryAuthority.portalUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-xl bg-white border border-slate-300 px-5 py-3 text-sm font-bold text-slate-800"
+                    className="inline-flex items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-xs font-semibold text-slate-700 hover:bg-slate-50"
                   >
-                    <span>سرکاری ویب سائٹ کھولیں</span>
-                    <ExternalLink className="h-4 w-4" />
+                    <span>Official Portal</span>
+                    <ExternalLink className="h-3.5 w-3.5" />
                   </a>
                 </div>
               </div>
 
-              {/* Practical Steps */}
-              <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm space-y-4">
-                <h3 className="text-lg font-extrabold text-slate-900">
+              <div className="soft-card rounded-3xl p-6 space-y-4">
+                <h3 className="text-base font-bold text-slate-900">
                   ✅ آپ کو کیا کرنا چاہیے؟ (Step-by-Step Instructions)
                 </h3>
-                <ol className="space-y-3">
+                <ol className="space-y-2.5">
                   {currentCase.nextSteps.map((step, i) => (
                     <li
                       key={i}
-                      className="flex items-start gap-3 rounded-2xl bg-slate-50 p-4 text-sm sm:text-base font-medium text-slate-800"
+                      className="flex items-start gap-3 rounded-xl bg-slate-50/80 p-3.5 text-sm text-slate-700"
                     >
-                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#01411C] text-xs font-extrabold text-[#D4AF37]">
+                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-teal-100 text-xs font-bold text-teal-800">
                         {i + 1}
                       </span>
                       <span className="leading-relaxed">{step}</span>
@@ -747,21 +748,20 @@ function AssistantContent() {
                 </ol>
               </div>
 
-              {/* Constitutional & Statutory Rights */}
-              <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm space-y-4">
-                <h3 className="text-lg font-extrabold text-slate-900">
+              <div className="soft-card rounded-3xl p-6 space-y-4">
+                <h3 className="text-base font-bold text-slate-900">
                   ⚖️ آئینِ پاکستان (1973) اور قوانین کے مطابق آپ کے حقوق
                 </h3>
                 <div className="space-y-3">
                   {currentCase.constitutionalRights.map((c, idx) => (
                     <div
                       key={idx}
-                      className="rounded-2xl border-l-4 border-[#01411C] bg-emerald-50/50 p-4"
+                      className="rounded-xl border-l-4 border-teal-500 bg-teal-50/40 p-4"
                     >
-                      <p className="text-sm font-extrabold text-[#01411C]">
+                      <p className="text-xs font-bold text-teal-800">
                         {c.article} — {c.title}
                       </p>
-                      <p className="mt-1 text-sm text-slate-800 leading-relaxed">
+                      <p className="mt-1 text-sm text-slate-700 leading-relaxed">
                         {c.summary}
                       </p>
                     </div>
@@ -770,12 +770,12 @@ function AssistantContent() {
                   {currentCase.statutoryLaws.map((s, idx) => (
                     <div
                       key={idx}
-                      className="rounded-2xl border-l-4 border-[#D4AF37] bg-amber-50/50 p-4"
+                      className="rounded-xl border-l-4 border-indigo-500 bg-indigo-50/40 p-4"
                     >
-                      <p className="text-sm font-extrabold text-amber-950">
+                      <p className="text-xs font-bold text-indigo-900">
                         {s.law} ({s.section})
                       </p>
-                      <p className="mt-1 text-sm text-slate-800 leading-relaxed">
+                      <p className="mt-1 text-sm text-slate-700 leading-relaxed">
                         {s.explanation}
                       </p>
                     </div>
@@ -783,9 +783,8 @@ function AssistantContent() {
                 </div>
               </div>
 
-              {/* Follow-Up Question Input */}
-              <div className="rounded-3xl border-2 border-emerald-200 bg-emerald-50/50 p-6 space-y-3">
-                <h4 className="text-base font-extrabold text-[#01411C]">
+              <div className="soft-card rounded-3xl p-6 space-y-3">
+                <h4 className="text-sm font-bold text-slate-800">
                   مزید کوئی سوال پوچھنا چاہتے ہیں؟ (Ask Any Follow-Up Question)
                 </h4>
                 <div className="flex flex-col sm:flex-row gap-2.5">
@@ -799,7 +798,7 @@ function AssistantContent() {
                       }
                     }}
                     placeholder="یہاں اپنا اگلا سوال لکھیں..."
-                    className="flex-1 rounded-xl border-2 border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 focus:border-[#01411C] focus:outline-none"
+                    className="flex-1 rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm text-slate-900 focus:border-teal-500 focus:bg-white focus:outline-none"
                   />
                   <button
                     type="button"
@@ -807,9 +806,9 @@ function AssistantContent() {
                     onClick={() =>
                       handleAnalyze(followUpInput, language, currentCase)
                     }
-                    className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#01411C] px-6 py-3 text-sm font-extrabold text-[#D4AF37] disabled:opacity-50"
+                    className="inline-flex items-center justify-center gap-2 rounded-xl bg-teal-600 px-5 py-2.5 text-xs font-bold text-white hover:bg-teal-700 disabled:opacity-50"
                   >
-                    <Send className="h-4 w-4" />
+                    <Send className="h-3.5 w-3.5" />
                     <span>جواب پوچھیں</span>
                   </button>
                 </div>
@@ -826,8 +825,8 @@ export default function AssistantPage() {
   return (
     <Suspense
       fallback={
-        <div className="p-12 text-center text-sm text-slate-600">
-          لوڈ ہو رہا ہے (Loading HaqAI)...
+        <div className="p-12 text-center text-sm text-slate-500">
+          Loading HaqAI...
         </div>
       }
     >

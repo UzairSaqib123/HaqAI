@@ -14,17 +14,27 @@ import {
 } from "lucide-react";
 
 const NAV_ITEMS = [
-  { href: "/", label: "ہوم (Home)", icon: Scale },
-  { href: "/assistant", label: "بول کر مسئلہ بتائیں (Ask AI)", icon: Mic },
-  { href: "/complaint", label: "شکایت بھیجیں (1-Click Complaint)", icon: FileCheck2 },
-  { href: "/rights", label: "قوانین جانیں (Pakistan Laws)", icon: BookOpen },
+  { href: "/", label: "Home", sub: "ہوم", icon: Scale },
+  { href: "/assistant", label: "Ask AI", sub: "بول کر پوچھیں", icon: Mic },
+  {
+    href: "/complaint",
+    label: "1-Click Complaint",
+    sub: "شکایت بھیجیں",
+    icon: FileCheck2,
+  },
+  {
+    href: "/rights",
+    label: "Laws & Rights",
+    sub: "قوانین",
+    icon: BookOpen,
+  },
 ];
 
 export default function Navbar() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [activeHaqId, setActiveHaqId] = useState("رجسٹر کریں");
-  const [citizenName, setCitizenName] = useState("پروفائل (My Profile)");
+  const [activeHaqId, setActiveHaqId] = useState("Register");
+  const [citizenName, setCitizenName] = useState("My Profile");
 
   useEffect(() => {
     function syncProfile() {
@@ -50,29 +60,30 @@ export default function Navbar() {
   }
 
   return (
-    <header className="sticky top-0 z-50 border-b border-emerald-900/20 bg-[#01411C] text-white shadow-lg">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3.5 sm:px-6 lg:px-8">
+    <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/85 backdrop-blur-md">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+        {/* Brand Logo */}
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-[#D4AF37] to-amber-500 text-[#01411C] shadow-md transition-transform group-hover:scale-105">
-            <Scale className="h-6 w-6 stroke-[2.4]" />
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-teal-600 to-emerald-600 text-white shadow-sm transition-transform group-hover:scale-105">
+            <Scale className="h-5 w-5" />
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="text-2xl font-extrabold tracking-tight text-white">
-                Haq<span className="text-[#D4AF37]">AI</span>
+              <span className="text-xl font-extrabold tracking-tight text-slate-900">
+                Haq<span className="text-teal-600">AI</span>
               </span>
-              <span className="rounded-full bg-emerald-800 px-2.5 py-0.5 text-xs font-bold text-amber-300 border border-amber-400/30">
+              <span className="rounded-full bg-teal-50 px-2.5 py-0.5 text-[11px] font-semibold text-teal-700 border border-teal-200/60">
                 حق اے آئی
               </span>
             </div>
-            <p className="text-xs text-emerald-100 hidden sm:block">
-              آپ کے حقوق۔ آپ کی آواز۔ آپ کا عمل۔
+            <p className="text-[11px] text-slate-500 hidden sm:block">
+              Citizen Rights &amp; 1-Click Complaint Assistant
             </p>
           </div>
         </Link>
 
-        {/* Simple, Big Desktop Navigation (No Admin Button) */}
-        <nav className="hidden lg:flex items-center gap-2">
+        {/* Clean Pill Navigation */}
+        <nav className="hidden lg:flex items-center gap-1.5 rounded-2xl bg-slate-100/80 p-1.5 border border-slate-200/60">
           {NAV_ITEMS.map((item) => {
             const Icon = item.icon;
             const active =
@@ -83,52 +94,61 @@ export default function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-bold transition-all ${
+                className={`flex items-center gap-2 rounded-xl px-3.5 py-2 text-xs font-semibold transition-all ${
                   active
-                    ? "bg-[#D4AF37] text-[#01411C] shadow"
-                    : "text-emerald-50 hover:bg-emerald-800/70 hover:text-white"
+                    ? "bg-white text-teal-700 shadow-sm font-bold"
+                    : "text-slate-600 hover:text-slate-900 hover:bg-white/50"
                 }`}
               >
-                <Icon className="h-4 w-4" />
+                <Icon
+                  className={`h-4 w-4 ${
+                    active ? "text-teal-600" : "text-slate-400"
+                  }`}
+                />
                 <span>{item.label}</span>
+                <span className="text-[11px] text-slate-400 font-normal">
+                  ({item.sub})
+                </span>
               </Link>
             );
           })}
         </nav>
 
-        {/* Citizen ID / Profile Button (Opens Popup Modal) */}
-        <div className="hidden sm:flex items-center gap-2">
+        {/* Citizen Profile Pill */}
+        <div className="hidden sm:flex items-center gap-2.5">
           <button
             type="button"
             onClick={openProfileModal}
-            className="flex items-center gap-2.5 rounded-xl border border-amber-400/50 bg-emerald-900/90 px-3.5 py-2 text-xs hover:bg-emerald-800 transition"
+            className="flex items-center gap-2.5 rounded-xl border border-slate-200 bg-slate-50/80 px-3.5 py-2 text-xs hover:border-teal-300 hover:bg-teal-50/40 transition"
           >
-            <UserCheck className="h-4 w-4 text-[#D4AF37]" />
+            <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-teal-100 text-teal-700">
+              <UserCheck className="h-4 w-4" />
+            </div>
             <div className="text-left">
-              <span className="block font-mono text-xs font-extrabold text-[#D4AF37]">
-                {activeHaqId}
-              </span>
-              <span className="block text-[11px] text-emerald-100 truncate max-w-[130px]">
+              <span className="block font-semibold text-slate-800 truncate max-w-[120px]">
                 {citizenName}
+              </span>
+              <span className="block font-mono text-[10px] text-teal-600 font-medium">
+                {activeHaqId}
               </span>
             </div>
           </button>
         </div>
 
-        {/* Mobile menu button */}
+        {/* Mobile Menu Button */}
         <button
           type="button"
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="inline-flex items-center justify-center rounded-xl p-2 text-emerald-100 hover:bg-emerald-800 lg:hidden"
+          className="inline-flex items-center justify-center rounded-xl p-2 text-slate-600 hover:bg-slate-100 lg:hidden"
           aria-label="Toggle Menu"
         >
-          {mobileOpen ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
+          {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </div>
 
       {/* Mobile Drawer */}
       {mobileOpen && (
-        <div className="border-t border-emerald-800 bg-[#013316] px-4 pt-3 pb-5 lg:hidden space-y-2">
+        <div className="border-t border-slate-200 bg-white px-4 pt-3 pb-5 lg:hidden space-y-1.5 shadow-lg">
           {NAV_ITEMS.map((item) => {
             const Icon = item.icon;
             const active =
@@ -140,14 +160,17 @@ export default function Navbar() {
                 key={item.href}
                 href={item.href}
                 onClick={() => setMobileOpen(false)}
-                className={`flex items-center gap-3 rounded-xl px-4 py-3 text-base font-bold ${
+                className={`flex items-center justify-between rounded-xl px-4 py-3 text-sm font-semibold ${
                   active
-                    ? "bg-[#D4AF37] text-[#01411C]"
-                    : "text-emerald-100 hover:bg-emerald-800/60"
+                    ? "bg-teal-50 text-teal-700 font-bold"
+                    : "text-slate-700 hover:bg-slate-50"
                 }`}
               >
-                <Icon className="h-5 w-5" />
-                <span>{item.label}</span>
+                <div className="flex items-center gap-3">
+                  <Icon className="h-4 w-4 text-teal-600" />
+                  <span>{item.label}</span>
+                </div>
+                <span className="text-xs text-slate-400">{item.sub}</span>
               </Link>
             );
           })}
@@ -157,10 +180,13 @@ export default function Navbar() {
               setMobileOpen(false);
               openProfileModal();
             }}
-            className="w-full flex items-center gap-3 rounded-xl border border-amber-400/40 bg-emerald-900 px-4 py-3 text-sm font-bold text-[#D4AF37]"
+            className="w-full mt-2 flex items-center justify-between rounded-xl border border-teal-200 bg-teal-50/60 px-4 py-3 text-xs font-bold text-teal-800"
           >
-            <UserCheck className="h-5 w-5" />
-            <span>میرا پروفائل: {citizenName} ({activeHaqId})</span>
+            <span className="flex items-center gap-2">
+              <UserCheck className="h-4 w-4 text-teal-600" />
+              Profile: {citizenName}
+            </span>
+            <span className="font-mono">{activeHaqId}</span>
           </button>
         </div>
       )}

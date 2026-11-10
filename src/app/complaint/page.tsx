@@ -229,27 +229,28 @@ function ComplaintStudioContent() {
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 space-y-8">
       {/* Top Banner */}
-      <div className="rounded-2xl bg-gradient-to-r from-[#01411C] to-[#045d2a] p-6 text-white shadow-lg">
+      <div className="soft-card rounded-3xl bg-gradient-to-r from-teal-50/80 via-white to-emerald-50/60 p-6 sm:p-8">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-400/20 px-3 py-1 text-xs font-bold text-amber-300">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-teal-100/80 px-3 py-0.5 text-xs font-semibold text-teal-800">
               <FileCheck2 className="h-3.5 w-3.5" /> Website Option 1 • Pre-Filled with Citizen ID {facts.haqId}
             </span>
-            <h1 className="mt-2 text-2xl sm:text-3xl font-extrabold">
-              Pre-Filled Formal Complaint &amp; 1-Click Institution Dispatch
+            <h1 className="mt-2 text-2xl sm:text-3xl font-extrabold text-slate-900">
+              Pre-Filled Formal Complaint &amp; 1-Click Dispatch
             </h1>
-            <p className="mt-1 text-sm text-emerald-100/90">
+            <p className="mt-1 text-sm text-slate-600">
               Your personal details from Citizen ID{" "}
-              <strong>{facts.haqId}</strong> have been automatically populated
-              below. Review, edit if needed, approve, and forward in 1 click!
+              <strong className="text-teal-700">{facts.haqId}</strong> have been
+              automatically populated below. Review, edit if needed, approve,
+              and forward in 1 click!
             </p>
           </div>
           <div className="flex items-center gap-2 shrink-0">
             <Link
               href={`/assistant?caseId=${caseId}`}
-              className="inline-flex items-center gap-1.5 rounded-xl bg-white/15 border border-white/25 px-4 py-2.5 text-xs font-bold text-white hover:bg-white/25 transition"
+              className="inline-flex items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-xs font-bold text-slate-700 shadow-sm hover:border-teal-300 transition"
             >
-              <Volume2 className="h-4 w-4 text-[#D4AF37]" />
+              <Volume2 className="h-4 w-4 text-teal-600" />
               <span>Option 2: Legal Guidance</span>
             </Link>
           </div>
@@ -566,7 +567,7 @@ function ComplaintStudioContent() {
               type="button"
               disabled={!userApproved || isDispatching}
               onClick={handleOneClickForward}
-              className="w-full flex items-center justify-center gap-2.5 rounded-2xl bg-[#01411C] px-6 py-4 text-base font-extrabold text-[#D4AF37] shadow-xl hover:bg-emerald-900 disabled:opacity-40 transition"
+              className="w-full flex items-center justify-center gap-2.5 rounded-2xl bg-gradient-to-r from-teal-600 to-emerald-600 px-6 py-4 text-base font-bold text-white shadow-lg hover:from-teal-700 hover:to-emerald-700 disabled:opacity-40 transition"
             >
               <Send className="h-5 w-5" />
               <span>

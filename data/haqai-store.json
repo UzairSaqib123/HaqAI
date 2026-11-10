@@ -2043,6 +2043,428 @@
         }
       ],
       "status": "Open"
+    },
+    "HAQ-899395": {
+      "caseId": "HAQ-899395",
+      "haqId": "HAQ-PK-535308",
+      "citizenProfile": {
+        "id": "prof-demo-01",
+        "haqId": "HAQ-PK-535308",
+        "email": "citizen.user@gmail.com",
+        "fullName": "Uzair Saqib",
+        "cnic": "33100651562622",
+        "phone": "03001234567",
+        "city": "Faisalabad",
+        "province": "Punjab",
+        "address": "Abdullahpur Faisalabad Pakistan",
+        "occupation": "Citizen of Pakistan",
+        "role": "citizen",
+        "createdAt": "2026-11-10T19:22:00.889Z",
+        "updatedAt": "2026-11-10T19:41:45.808Z"
+      },
+      "timestamp": "2026-11-10T19:43:15.343Z",
+      "channel": "website",
+      "language": "ur",
+      "aiEngineUsed": "verified-pakistan-rag",
+      "userQuery": "تو اب اس کا کیا حل ہے کہ اس نے میری جگہ پر قبضہ کر لیا ہوا ہے اس کا کوئی حل تو ہونا چاہیے",
+      "categoryId": "property",
+      "categoryTitle": "جائیداد کے حقوق، ناجائز قبضہ اور خواتین کی وراثت",
+      "replyText": "السلام علیکم **Uzair Saqib** (شناختی آئی ڈی: `HAQ-PK-535308`)! آئینِ پاکستان 1973 اور نافذ العمل قوانین کے مطابق آپ کا مسئلہ **جائیداد کے حقوق، ناجائز قبضہ اور خواتین کی وراثت** سے متعلق ہے۔\n\n### ⚖️ آپ کے آئینی حقوق:\n- **Article 23 & Article 24 – Constitution of Pakistan 1973:** آرٹیکل 23 اور 24 کے تحت ہر شہری کو اپنی جائیداد اور وراثتی حصے کے تحفظ کا مکمل آئینی حق حاصل ہے۔\n\n### 📜 لاگو پاکستانی قوانین:\n- **Enforcement of Women's Property Rights Act, 2020:** خواتین کے حقوقِ جائیداد ایکٹ 2020 کے تحت محتسب 60 دن کے اندر ڈپٹی کمشنر اور پولیس کے ذریعے خواتین کو ان کا وراثتی حصہ دلواتا ہے۔\n- **Illegal Dispossession Act, 2005:** اللیگل ڈسپوزیشن ایکٹ 2005 کے تحت ناجائز قبضہ کرنے والوں کو 10 سال تک قید اور اصل مالک کو فوری قبضہ واپس دلانے کی سزا مقرر ہے۔\n\n### 🏛️ متعلقہ ادارہ:\n- **Ombudsman for Enforcement of Women's Property Rights (FOSPAH)** (https://fospah.gov.pk | ہیلپ لائن: 051-9264446)",
+      "whatsappReplyText": "🇵🇰 *HaqAI – Citizen Rights & Complaint Assistant*\n\n👤 *Citizen ID:* HAQ-PK-535308\n📌 *Issue:* Jaidad, Qabza Mafia aur Khawateen ka Wirasat mein Hissa\n⚖️ *Pakistani Law:* Article 23 & Article 24 – Constitution of Pakistan 1973 & Enforcement of Women's Property Rights Act, 2020\n🏛️ *Authority:* Ombudsman for Enforcement of Women's Property Rights (FOSPAH) (Helpline: 051-9264446)\n\n👇 *Click Your Website Link Below (2 Citizen Options):*\n1️⃣ *Option 1 – Submit Online Complaint (Edit & 1-Click Forward):*\nhttp://localhost:3001/complaint?caseId=HAQ-899395\n\n2️⃣ *Option 2 – Full Legal Guidance (Voice & Text):*\nhttp://localhost:3001/assistant?caseId=HAQ-899395",
+      "voiceSummaryText": "السلام علیکم۔ آپ کا مسئلہ جائیداد کے حقوق، ناجائز قبضہ اور خواتین کی وراثت سے متعلق ہے۔ خواتین کے حقوقِ جائیداد ایکٹ 2020 کے تحت محتسب 60 دن کے اندر ڈپٹی کمشنر اور پولیس کے ذریعے خواتین کو ان کا وراثتی حصہ دلواتا ہے۔ آپ کی تفصیلات کے ساتھ درخواست تیار کر دی گئی ہے جسے آپ ایک کلک پر متعلقہ ادارے کو بھیج سکتے ہیں۔",
+      "constitutionalRights": [
+        {
+          "article": "Article 23 & Article 24 – Constitution of Pakistan 1973",
+          "title": "Right to Acquire, Hold and Dispose of Property & Protection of Property Rights",
+          "summary": "آرٹیکل 23 اور 24 کے تحت ہر شہری کو اپنی جائیداد اور وراثتی حصے کے تحفظ کا مکمل آئینی حق حاصل ہے۔"
+        }
+      ],
+      "statutoryLaws": [
+        {
+          "law": "Enforcement of Women's Property Rights Act, 2020",
+          "section": "Section 4 & 5 (Summary Inquiry & Restoration of Possession by Ombudsman)",
+          "explanation": "خواتین کے حقوقِ جائیداد ایکٹ 2020 کے تحت محتسب 60 دن کے اندر ڈپٹی کمشنر اور پولیس کے ذریعے خواتین کو ان کا وراثتی حصہ دلواتا ہے۔"
+        },
+        {
+          "law": "Illegal Dispossession Act, 2005",
+          "section": "Section 3 & 7 (Prevention of Illegal Dispossession & Interim Restoration)",
+          "explanation": "اللیگل ڈسپوزیشن ایکٹ 2005 کے تحت ناجائز قبضہ کرنے والوں کو 10 سال تک قید اور اصل مالک کو فوری قبضہ واپس دلانے کی سزا مقرر ہے۔"
+        }
+      ],
+      "nextSteps": [
+        "نادرا سے ایف آر سی (FRC) اور اراضی ریکارڈ سینٹر سے فرد حاصل کریں۔",
+        "خواتین کی وراثت کے لیے فوسپاہ (fospah.gov.pk) اور ناجائز قبضے کے خلاف سیشن کورٹ یا ڈی سی آفس سے رجوع کریں۔"
+      ],
+      "followUpQuestions": [
+        "کیا یہ مسئلہ وراثت میں حصہ نہ ملنے کا ہے یا جائیداد پر ناجائز قبضے کا؟",
+        "جائیداد کس ضلع یا شہر میں واقع ہے؟"
+      ],
+      "recommendedAuthorities": [
+        {
+          "id": "fospah_property",
+          "name": "Ombudsman for Enforcement of Women's Property Rights (FOSPAH)",
+          "shortName": "FOSPAH Property Cell",
+          "role": "Restores women's inheritance and property rights within 60 days",
+          "portalUrl": "https://fospah.gov.pk",
+          "email": "complaints@fospah.gov.pk",
+          "helpline": "051-9264446",
+          "address": "LG&RD Complex, Sector G-5/2, Islamabad",
+          "turnaroundTime": "60 Days Statutory Limit",
+          "instructions": {
+            "en": "File your property/inheritance petition at fospah.gov.pk with your CNIC and FRC.",
+            "roman_ur": "fospah.gov.pk par CNIC aur NADRA FRC ke sath darkhwast dein.",
+            "ur": "اپنے شناختی کارڈ اور ایف آر سی کے ساتھ fospah.gov.pk پر درخواست جمع کروائیں۔",
+            "pa": "اپنے شناختی کارڈ تے ایف آر سی نال fospah.gov.pk اتے درخواست دیو۔"
+          }
+        },
+        {
+          "id": "plra",
+          "name": "Provincial Land Records Authority (PLRA / Arazi Center)",
+          "shortName": "Land Records Authority",
+          "role": "Handles Fard, Intiqal (Mutation), and inheritance record corrections",
+          "portalUrl": "https://zameen.punjab.gov.pk",
+          "email": "info@punjab-zameen.gov.pk",
+          "helpline": "042-111-222-277",
+          "address": "PLRA Headquarters, Lahore / District Arazi Record Centers",
+          "turnaroundTime": "7–15 Days",
+          "instructions": {
+            "en": "Apply for inheritance mutation or record correction at zameen.punjab.gov.pk.",
+            "roman_ur": "Wirasati intiqal ya record ki durustgi ke liye zameen.punjab.gov.pk par rabta karein.",
+            "ur": "وراثتی انتقال یا ریکارڈ کی درستگی کے لیے اراضی ریکارڈ سینٹر سے رجوع کریں۔",
+            "pa": "وراثتی انتقال لئی اراضی ریکارڈ سینٹر نال رابطہ کرو۔"
+          }
+        }
+      ],
+      "primaryAuthority": {
+        "id": "fospah_property",
+        "name": "Ombudsman for Enforcement of Women's Property Rights (FOSPAH)",
+        "shortName": "FOSPAH Property Cell",
+        "role": "Restores women's inheritance and property rights within 60 days",
+        "portalUrl": "https://fospah.gov.pk",
+        "email": "complaints@fospah.gov.pk",
+        "helpline": "051-9264446",
+        "address": "LG&RD Complex, Sector G-5/2, Islamabad",
+        "turnaroundTime": "60 Days Statutory Limit",
+        "instructions": {
+          "en": "File your property/inheritance petition at fospah.gov.pk with your CNIC and FRC.",
+          "roman_ur": "fospah.gov.pk par CNIC aur NADRA FRC ke sath darkhwast dein.",
+          "ur": "اپنے شناختی کارڈ اور ایف آر سی کے ساتھ fospah.gov.pk پر درخواست جمع کروائیں۔",
+          "pa": "اپنے شناختی کارڈ تے ایف آر سی نال fospah.gov.pk اتے درخواست دیو۔"
+        }
+      },
+      "generatedComplaint": {
+        "subject": "Complaint for Restoration of Lawful Property / Inheritance Rights under Women's Property Rights Act 2020 – Regarding [Name of Concerned Department / Institution / Respondent]",
+        "recipientTitle": "Ombudsman for Enforcement of Women's Property Rights (FOSPAH)",
+        "recipientAuthority": {
+          "id": "fospah_property",
+          "name": "Ombudsman for Enforcement of Women's Property Rights (FOSPAH)",
+          "shortName": "FOSPAH Property Cell",
+          "role": "Restores women's inheritance and property rights within 60 days",
+          "portalUrl": "https://fospah.gov.pk",
+          "email": "complaints@fospah.gov.pk",
+          "helpline": "051-9264446",
+          "address": "LG&RD Complex, Sector G-5/2, Islamabad",
+          "turnaroundTime": "60 Days Statutory Limit",
+          "instructions": {
+            "en": "File your property/inheritance petition at fospah.gov.pk with your CNIC and FRC.",
+            "roman_ur": "fospah.gov.pk par CNIC aur NADRA FRC ke sath darkhwast dein.",
+            "ur": "اپنے شناختی کارڈ اور ایف آر سی کے ساتھ fospah.gov.pk پر درخواست جمع کروائیں۔",
+            "pa": "اپنے شناختی کارڈ تے ایف آر سی نال fospah.gov.pk اتے درخواست دیو۔"
+          }
+        },
+        "date": "11 November 2026",
+        "bodyText": "To,\nThe Competent Authority / Grievance Redressal Cell,\nOmbudsman for Enforcement of Women's Property Rights (FOSPAH)\nOfficial Portal: https://fospah.gov.pk\nDate: 11 November 2026\nHaqAI Citizen ID: HAQ-PK-535308\n\nSUBJECT: COMPLAINT FOR RESTORATION OF LAWFUL PROPERTY / INHERITANCE RIGHTS UNDER WOMEN'S PROPERTY RIGHTS ACT 2020 – REGARDING [NAME OF CONCERNED DEPARTMENT / INSTITUTION / RESPONDENT]\n\nRespected Sir / Madam,\n\nI, Uzair Saqib (holding CNIC No. 33100651562622, resident of Abdullahpur Faisalabad Pakistan), respectfully submit this formal complaint and state the facts strictly as follows:\n\n1. STATEMENT OF GRIEVANCE & FACTS:\n   - Aggrieved Citizen Statement: \"تو اب اس کا کیا حل ہے کہ اس نے میری جگہ پر قبضہ کر لیا ہوا ہے اس کا کوئی حل تو ہونا چاہیے\"\n   - Concerned Institution / Respondent: [Name of Concerned Department / Institution / Respondent]\n   - City / Jurisdiction: Faisalabad\n   - Relevant Date / Reference / Roll No.: [Registration / Roll No. / Reference ID] (Date: 2026-11-10)\n\n2. APPLICABLE CONSTITUTIONAL & STATUTORY LEGAL PROVISIONS (PAKISTAN):\n   Under Articles 23, 24, and 25 of the Constitution of Pakistan 1973, read with Section 4 and Section 5 of the Enforcement of Women's Property Rights Act 2020 and the Illegal Dispossession Act 2005, depriving any lawful heir or owner of their property or inheritance share is unlawful and subject to summary restoration.\n\n3. PRAYER / REQUESTED RELIEF:\n   It is respectfully prayed that an immediate inquiry be conducted through the Deputy Commissioner and Revenue authorities to restore my lawful property/inheritance share and mutate the revenue record accordingly.\n\nI affirm that the facts stated above are true and accurate to the best of my knowledge. Copies of my CNIC (33100651562622) and relevant supporting documents are attached herewith.\n\nYours faithfully,\n\nSignature: ___________________________\nFull Name: Uzair Saqib\nHaqAI Citizen ID: HAQ-PK-535308\nCNIC No.: 33100651562622\nAddress / City: Abdullahpur Faisalabad Pakistan\nContact Phone: 03001234567\nEmail: citizen.user@gmail.com",
+        "emailSubject": "[Formal Citizen Complaint - HAQ-PK-535308] Complaint for Restoration of Lawful Property / Inheritance Rights under Women's Property Rights Act 2020 – Regarding [Name of Concerned Department / Institution / Respondent]",
+        "emailBody": "Dear Grievance Redressal Officer (FOSPAH Property Cell),\n\nPlease find below the formal citizen complaint submitted by Uzair Saqib (HaqAI ID: HAQ-PK-535308, CNIC: 33100651562622) for urgent statutory action:\n\n--------------------------------------------------\nTo,\nThe Competent Authority / Grievance Redressal Cell,\nOmbudsman for Enforcement of Women's Property Rights (FOSPAH)\nOfficial Portal: https://fospah.gov.pk\nDate: 11 November 2026\nHaqAI Citizen ID: HAQ-PK-535308\n\nSUBJECT: COMPLAINT FOR RESTORATION OF LAWFUL PROPERTY / INHERITANCE RIGHTS UNDER WOMEN'S PROPERTY RIGHTS ACT 2020 – REGARDING [NAME OF CONCERNED DEPARTMENT / INSTITUTION / RESPONDENT]\n\nRespected Sir / Madam,\n\nI, Uzair Saqib (holding CNIC No. 33100651562622, resident of Abdullahpur Faisalabad Pakistan), respectfully submit this formal complaint and state the facts strictly as follows:\n\n1. STATEMENT OF GRIEVANCE & FACTS:\n   - Aggrieved Citizen Statement: \"تو اب اس کا کیا حل ہے کہ اس نے میری جگہ پر قبضہ کر لیا ہوا ہے اس کا کوئی حل تو ہونا چاہیے\"\n   - Concerned Institution / Respondent: [Name of Concerned Department / Institution / Respondent]\n   - City / Jurisdiction: Faisalabad\n   - Relevant Date / Reference / Roll No.: [Registration / Roll No. / Reference ID] (Date: 2026-11-10)\n\n2. APPLICABLE CONSTITUTIONAL & STATUTORY LEGAL PROVISIONS (PAKISTAN):\n   Under Articles 23, 24, and 25 of the Constitution of Pakistan 1973, read with Section 4 and Section 5 of the Enforcement of Women's Property Rights Act 2020 and the Illegal Dispossession Act 2005, depriving any lawful heir or owner of their property or inheritance share is unlawful and subject to summary restoration.\n\n3. PRAYER / REQUESTED RELIEF:\n   It is respectfully prayed that an immediate inquiry be conducted through the Deputy Commissioner and Revenue authorities to restore my lawful property/inheritance share and mutate the revenue record accordingly.\n\nI affirm that the facts stated above are true and accurate to the best of my knowledge. Copies of my CNIC (33100651562622) and relevant supporting documents are attached herewith.\n\nYours faithfully,\n\nSignature: ___________________________\nFull Name: Uzair Saqib\nHaqAI Citizen ID: HAQ-PK-535308\nCNIC No.: 33100651562622\nAddress / City: Abdullahpur Faisalabad Pakistan\nContact Phone: 03001234567\nEmail: citizen.user@gmail.com\n--------------------------------------------------",
+        "categoryId": "property",
+        "facts": {
+          "haqId": "HAQ-PK-535308",
+          "rawStatement": "تو اب اس کا کیا حل ہے کہ اس نے میری جگہ پر قبضہ کر لیا ہوا ہے اس کا کوئی حل تو ہونا چاہیے",
+          "applicantName": "Uzair Saqib",
+          "cnic": "33100651562622",
+          "city": "Faisalabad",
+          "address": "Abdullahpur Faisalabad Pakistan",
+          "institutionOrRespondent": "[Name of Concerned Department / Institution / Respondent]",
+          "dateOfIncident": "2026-11-10",
+          "referenceOrRollNo": "[Registration / Roll No. / Reference ID]",
+          "contactPhone": "03001234567",
+          "contactEmail": "citizen.user@gmail.com"
+        }
+      },
+      "workflowSteps": [
+        {
+          "stepNumber": 1,
+          "title": "Understand Input",
+          "status": "completed",
+          "summary": "Captured website query (UR)"
+        },
+        {
+          "stepNumber": 2,
+          "title": "Classify & Match Laws",
+          "status": "completed",
+          "summary": "Property, Land Grabbing (Qabza) & Women's Inheritance"
+        },
+        {
+          "stepNumber": 3,
+          "title": "Citizen Profile Linked",
+          "status": "completed",
+          "summary": "HaqAI ID: HAQ-PK-535308 (Uzair Saqib)"
+        },
+        {
+          "stepNumber": 4,
+          "title": "Explain 1973 Constitution",
+          "status": "completed",
+          "summary": "1 Articles & 2 Statutes verified"
+        },
+        {
+          "stepNumber": 5,
+          "title": "Recommend Solutions",
+          "status": "completed",
+          "summary": "2 actionable legal steps mapped"
+        },
+        {
+          "stepNumber": 6,
+          "title": "Find Authority",
+          "status": "completed",
+          "summary": "FOSPAH Property Cell (https://fospah.gov.pk)"
+        },
+        {
+          "stepNumber": 7,
+          "title": "Pre-Fill Formal Complaint",
+          "status": "completed",
+          "summary": "Pre-filled with Citizen CNIC & Address"
+        },
+        {
+          "stepNumber": 8,
+          "title": "User Review & 1-Click Approval",
+          "status": "action_required",
+          "summary": "Awaiting citizen approval for 1-click dispatch"
+        }
+      ],
+      "chatHistory": [
+        {
+          "role": "user",
+          "content": "تو اب اس کا کیا حل ہے کہ اس نے میری جگہ پر قبضہ کر لیا ہوا ہے اس کا کوئی حل تو ہونا چاہیے",
+          "timestamp": "2026-11-10T19:43:15.343Z"
+        },
+        {
+          "role": "assistant",
+          "content": "السلام علیکم **Uzair Saqib** (شناختی آئی ڈی: `HAQ-PK-535308`)! آئینِ پاکستان 1973 اور نافذ العمل قوانین کے مطابق آپ کا مسئلہ **جائیداد کے حقوق، ناجائز قبضہ اور خواتین کی وراثت** سے متعلق ہے۔\n\n### ⚖️ آپ کے آئینی حقوق:\n- **Article 23 & Article 24 – Constitution of Pakistan 1973:** آرٹیکل 23 اور 24 کے تحت ہر شہری کو اپنی جائیداد اور وراثتی حصے کے تحفظ کا مکمل آئینی حق حاصل ہے۔\n\n### 📜 لاگو پاکستانی قوانین:\n- **Enforcement of Women's Property Rights Act, 2020:** خواتین کے حقوقِ جائیداد ایکٹ 2020 کے تحت محتسب 60 دن کے اندر ڈپٹی کمشنر اور پولیس کے ذریعے خواتین کو ان کا وراثتی حصہ دلواتا ہے۔\n- **Illegal Dispossession Act, 2005:** اللیگل ڈسپوزیشن ایکٹ 2005 کے تحت ناجائز قبضہ کرنے والوں کو 10 سال تک قید اور اصل مالک کو فوری قبضہ واپس دلانے کی سزا مقرر ہے۔\n\n### 🏛️ متعلقہ ادارہ:\n- **Ombudsman for Enforcement of Women's Property Rights (FOSPAH)** (https://fospah.gov.pk | ہیلپ لائن: 051-9264446)",
+          "timestamp": "2026-11-10T19:43:15.343Z"
+        }
+      ],
+      "status": "Open"
+    },
+    "HAQ-956669": {
+      "caseId": "HAQ-956669",
+      "haqId": "HAQ-PK-535308",
+      "citizenProfile": {
+        "id": "prof-demo-01",
+        "haqId": "HAQ-PK-535308",
+        "email": "citizen.user@gmail.com",
+        "fullName": "Uzair Saqib",
+        "cnic": "33100651562622",
+        "phone": "03001234567",
+        "city": "Faisalabad",
+        "province": "Punjab",
+        "address": "Abdullahpur Faisalabad Pakistan",
+        "occupation": "Citizen of Pakistan",
+        "role": "citizen",
+        "createdAt": "2026-11-10T19:22:00.889Z",
+        "updatedAt": "2026-11-10T19:41:45.808Z"
+      },
+      "timestamp": "2026-11-10T19:50:24.705Z",
+      "channel": "website",
+      "language": "ur",
+      "aiEngineUsed": "verified-pakistan-rag",
+      "userQuery": "میرے نا دوست کا کسی نے قتل کر دیا تو اب اس کا کیا حل ہے",
+      "categoryId": "government",
+      "categoryTitle": "سرکاری ادارے، نادرا، پاسپورٹ اور بلوں کی شکایات",
+      "replyText": "السلام علیکم **Uzair Saqib** (شناختی آئی ڈی: `HAQ-PK-535308`)! آئینِ پاکستان 1973 اور نافذ العمل قوانین کے مطابق آپ کا مسئلہ **سرکاری ادارے، نادرا، پاسپورٹ اور بلوں کی شکایات** سے متعلق ہے۔\n\n### ⚖️ آپ کے آئینی حقوق:\n- **Article 4 & Article 25 – Constitution of Pakistan 1973:** آرٹیکل 4 اور 25 کے تحت ہر شہری کو سرکاری اداروں سے قانونی اور مساوی سلوک کا پورا حق حاصل ہے۔\n- **Article 19A – Constitution of Pakistan 1973:** آرٹیکل 19A کے تحت ہر شہری کو عوامی اہمیت کے معاملات اور اپنی درخواست کے بارے میں معلومات حاصل کرنے کا حق ہے۔\n\n### 📜 لاگو پاکستانی قوانین:\n- **Establishment of the Office of Wafaqi Mohtasib (Ombudsman) Order, 1983:** نادرا، پاسپورٹ، بجلی و گیس کمپنیوں اور دیگر وفاقی اداروں کی بدانتظامی یا غلط بلنگ کے خلاف وفاقی محتسب مفت کارروائی کرتا ہے۔\n\n### 🏛️ متعلقہ ادارہ:\n- **Wafaqi Mohtasib (Federal Ombudsman) Secretariat** (https://www.mohtasib.gov.pk | ہیلپ لائن: 1055)",
+      "whatsappReplyText": "🇵🇰 *HaqAI – Citizen Rights & Complaint Assistant*\n\n👤 *Citizen ID:* HAQ-PK-535308\n📌 *Issue:* Sarkari Idaray, NADRA, Passport aur Bills ki Shikayat\n⚖️ *Pakistani Law:* Article 4 & Article 25 – Constitution of Pakistan 1973 & Establishment of the Office of Wafaqi Mohtasib (Ombudsman) Order, 1983\n🏛️ *Authority:* Wafaqi Mohtasib (Federal Ombudsman) Secretariat (Helpline: 1055)\n\n👇 *Click Your Website Link Below (2 Citizen Options):*\n1️⃣ *Option 1 – Submit Online Complaint (Edit & 1-Click Forward):*\nhttp://localhost:3001/complaint?caseId=HAQ-956669\n\n2️⃣ *Option 2 – Full Legal Guidance (Voice & Text):*\nhttp://localhost:3001/assistant?caseId=HAQ-956669",
+      "voiceSummaryText": "السلام علیکم۔ آپ کا مسئلہ سرکاری ادارے، نادرا، پاسپورٹ اور بلوں کی شکایات سے متعلق ہے۔ نادرا، پاسپورٹ، بجلی و گیس کمپنیوں اور دیگر وفاقی اداروں کی بدانتظامی یا غلط بلنگ کے خلاف وفاقی محتسب مفت کارروائی کرتا ہے۔ آپ کی تفصیلات کے ساتھ درخواست تیار کر دی گئی ہے جسے آپ ایک کلک پر متعلقہ ادارے کو بھیج سکتے ہیں۔",
+      "constitutionalRights": [
+        {
+          "article": "Article 4 & Article 25 – Constitution of Pakistan 1973",
+          "title": "Lawful Treatment & Equality of Citizens",
+          "summary": "آرٹیکل 4 اور 25 کے تحت ہر شہری کو سرکاری اداروں سے قانونی اور مساوی سلوک کا پورا حق حاصل ہے۔"
+        },
+        {
+          "article": "Article 19A – Constitution of Pakistan 1973",
+          "title": "Right to Information",
+          "summary": "آرٹیکل 19A کے تحت ہر شہری کو عوامی اہمیت کے معاملات اور اپنی درخواست کے بارے میں معلومات حاصل کرنے کا حق ہے۔"
+        }
+      ],
+      "statutoryLaws": [
+        {
+          "law": "Establishment of the Office of Wafaqi Mohtasib (Ombudsman) Order, 1983",
+          "section": "Article 9 (Maladministration by Federal Agencies)",
+          "explanation": "نادرا، پاسپورٹ، بجلی و گیس کمپنیوں اور دیگر وفاقی اداروں کی بدانتظامی یا غلط بلنگ کے خلاف وفاقی محتسب مفت کارروائی کرتا ہے۔"
+        }
+      ],
+      "nextSteps": [
+        "متعلقہ محکمے میں شکایت کر کے ٹریکنگ یا ٹوکن نمبر حاصل کریں۔",
+        "وفاقی محتسب (mohtasib.gov.pk) یا پاکستان سٹیزن پورٹل پر آن لائن شکایت بھیجیں۔"
+      ],
+      "followUpQuestions": [
+        "آپ کی شکایت کس سرکاری ادارے کے خلاف ہے (مثلاً نادرا، پاسپورٹ، بجلی یا گیس)؟",
+        "کیا آپ کے پاس ٹریکنگ نمبر یا بل ریفرنس نمبر موجود ہے؟"
+      ],
+      "recommendedAuthorities": [
+        {
+          "id": "mohtasib_gov",
+          "name": "Wafaqi Mohtasib (Federal Ombudsman) Secretariat",
+          "shortName": "Wafaqi Mohtasib",
+          "role": "Investigates maladministration in NADRA, Passports, Electricity, Gas, and Federal Ministries",
+          "portalUrl": "https://www.mohtasib.gov.pk",
+          "email": "info@mohtasib.gov.pk",
+          "helpline": "1055",
+          "address": "36-Constitution Avenue, G-5/2, Islamabad",
+          "turnaroundTime": "30–60 Days",
+          "instructions": {
+            "en": "Submit your complaint online at mohtasib.gov.pk or call helpline 1055.",
+            "roman_ur": "mohtasib.gov.pk par online complaint bhejein ya 1055 par rabta karein.",
+            "ur": "وفاقی محتسب کی ویب سائٹ پر شکایت درج کریں یا ہیلپ لائن 1055 پر کال کریں۔",
+            "pa": "وفاقی محتسب دی ویب سائٹ یا 1055 ہیلپ لائن تے رابطہ کرو۔"
+          }
+        },
+        {
+          "id": "citizen_portal",
+          "name": "Prime Minister's Performance Delivery Unit – Pakistan Citizen Portal",
+          "shortName": "Pakistan Citizen Portal",
+          "role": "Unified Federal & Provincial citizen grievance redressal system",
+          "portalUrl": "https://citizenportal.gov.pk",
+          "email": "support@pmdu.gov.pk",
+          "helpline": "051-9000111",
+          "address": "PM Office, Constitution Avenue, Islamabad",
+          "turnaroundTime": "14–21 Days",
+          "instructions": {
+            "en": "Lodge your complaint through citizenportal.gov.pk for direct routing to the Secretary/Head of Department.",
+            "roman_ur": "citizenportal.gov.pk ke zariye apni shikayat seedha mutaliqa idaray ke sarbarah tak pohanchayein.",
+            "ur": "پاکستان سٹیزن پورٹل کے ذریعے اپنی شکایت براہِ راست متعلقہ محکمے تک پہنچائیں۔",
+            "pa": "سٹیزن پورٹل راہیں اپنی شکایت سدھی متعلقہ محکمے نوں بھیجو۔"
+          }
+        }
+      ],
+      "primaryAuthority": {
+        "id": "mohtasib_gov",
+        "name": "Wafaqi Mohtasib (Federal Ombudsman) Secretariat",
+        "shortName": "Wafaqi Mohtasib",
+        "role": "Investigates maladministration in NADRA, Passports, Electricity, Gas, and Federal Ministries",
+        "portalUrl": "https://www.mohtasib.gov.pk",
+        "email": "info@mohtasib.gov.pk",
+        "helpline": "1055",
+        "address": "36-Constitution Avenue, G-5/2, Islamabad",
+        "turnaroundTime": "30–60 Days",
+        "instructions": {
+          "en": "Submit your complaint online at mohtasib.gov.pk or call helpline 1055.",
+          "roman_ur": "mohtasib.gov.pk par online complaint bhejein ya 1055 par rabta karein.",
+          "ur": "وفاقی محتسب کی ویب سائٹ پر شکایت درج کریں یا ہیلپ لائن 1055 پر کال کریں۔",
+          "pa": "وفاقی محتسب دی ویب سائٹ یا 1055 ہیلپ لائن تے رابطہ کرو۔"
+        }
+      },
+      "generatedComplaint": {
+        "subject": "Complaint Against Maladministration and Unjustified Delay in Public Service Delivery – Regarding [Name of Concerned Department / Institution / Respondent]",
+        "recipientTitle": "Wafaqi Mohtasib (Federal Ombudsman) Secretariat",
+        "recipientAuthority": {
+          "id": "mohtasib_gov",
+          "name": "Wafaqi Mohtasib (Federal Ombudsman) Secretariat",
+          "shortName": "Wafaqi Mohtasib",
+          "role": "Investigates maladministration in NADRA, Passports, Electricity, Gas, and Federal Ministries",
+          "portalUrl": "https://www.mohtasib.gov.pk",
+          "email": "info@mohtasib.gov.pk",
+          "helpline": "1055",
+          "address": "36-Constitution Avenue, G-5/2, Islamabad",
+          "turnaroundTime": "30–60 Days",
+          "instructions": {
+            "en": "Submit your complaint online at mohtasib.gov.pk or call helpline 1055.",
+            "roman_ur": "mohtasib.gov.pk par online complaint bhejein ya 1055 par rabta karein.",
+            "ur": "وفاقی محتسب کی ویب سائٹ پر شکایت درج کریں یا ہیلپ لائن 1055 پر کال کریں۔",
+            "pa": "وفاقی محتسب دی ویب سائٹ یا 1055 ہیلپ لائن تے رابطہ کرو۔"
+          }
+        },
+        "date": "11 November 2026",
+        "bodyText": "To,\nThe Competent Authority / Grievance Redressal Cell,\nWafaqi Mohtasib (Federal Ombudsman) Secretariat\nOfficial Portal: https://www.mohtasib.gov.pk\nDate: 11 November 2026\nHaqAI Citizen ID: HAQ-PK-535308\n\nSUBJECT: COMPLAINT AGAINST MALADMINISTRATION AND UNJUSTIFIED DELAY IN PUBLIC SERVICE DELIVERY – REGARDING [NAME OF CONCERNED DEPARTMENT / INSTITUTION / RESPONDENT]\n\nRespected Sir / Madam,\n\nI, Uzair Saqib (holding CNIC No. 33100651562622, resident of Abdullahpur Faisalabad Pakistan), respectfully submit this formal complaint and state the facts strictly as follows:\n\n1. STATEMENT OF GRIEVANCE & FACTS:\n   - Aggrieved Citizen Statement: \"میرے نا دوست کا کسی نے قتل کر دیا تو اب اس کا کیا حل ہے\"\n   - Concerned Institution / Respondent: [Name of Concerned Department / Institution / Respondent]\n   - City / Jurisdiction: Faisalabad\n   - Relevant Date / Reference / Roll No.: [Registration / Roll No. / Reference ID] (Date: 2026-11-10)\n\n2. APPLICABLE CONSTITUTIONAL & STATUTORY LEGAL PROVISIONS (PAKISTAN):\n   Under Article 4, Article 19A, and Article 25 of the Constitution of Pakistan 1973, read with Article 9 of the Establishment of the Office of Wafaqi Mohtasib (Ombudsman) Order 1983, arbitrary delay, neglect, and refusal to provide lawful public services constitute actionable maladministration.\n\n3. PRAYER / REQUESTED RELIEF:\n   It is respectfully requested that the concerned department be directed to resolve my pending grievance immediately in accordance with law and provide written compliance.\n\nI affirm that the facts stated above are true and accurate to the best of my knowledge. Copies of my CNIC (33100651562622) and relevant supporting documents are attached herewith.\n\nYours faithfully,\n\nSignature: ___________________________\nFull Name: Uzair Saqib\nHaqAI Citizen ID: HAQ-PK-535308\nCNIC No.: 33100651562622\nAddress / City: Abdullahpur Faisalabad Pakistan\nContact Phone: 03001234567\nEmail: citizen.user@gmail.com",
+        "emailSubject": "[Formal Citizen Complaint - HAQ-PK-535308] Complaint Against Maladministration and Unjustified Delay in Public Service Delivery – Regarding [Name of Concerned Department / Institution / Respondent]",
+        "emailBody": "Dear Grievance Redressal Officer (Wafaqi Mohtasib),\n\nPlease find below the formal citizen complaint submitted by Uzair Saqib (HaqAI ID: HAQ-PK-535308, CNIC: 33100651562622) for urgent statutory action:\n\n--------------------------------------------------\nTo,\nThe Competent Authority / Grievance Redressal Cell,\nWafaqi Mohtasib (Federal Ombudsman) Secretariat\nOfficial Portal: https://www.mohtasib.gov.pk\nDate: 11 November 2026\nHaqAI Citizen ID: HAQ-PK-535308\n\nSUBJECT: COMPLAINT AGAINST MALADMINISTRATION AND UNJUSTIFIED DELAY IN PUBLIC SERVICE DELIVERY – REGARDING [NAME OF CONCERNED DEPARTMENT / INSTITUTION / RESPONDENT]\n\nRespected Sir / Madam,\n\nI, Uzair Saqib (holding CNIC No. 33100651562622, resident of Abdullahpur Faisalabad Pakistan), respectfully submit this formal complaint and state the facts strictly as follows:\n\n1. STATEMENT OF GRIEVANCE & FACTS:\n   - Aggrieved Citizen Statement: \"میرے نا دوست کا کسی نے قتل کر دیا تو اب اس کا کیا حل ہے\"\n   - Concerned Institution / Respondent: [Name of Concerned Department / Institution / Respondent]\n   - City / Jurisdiction: Faisalabad\n   - Relevant Date / Reference / Roll No.: [Registration / Roll No. / Reference ID] (Date: 2026-11-10)\n\n2. APPLICABLE CONSTITUTIONAL & STATUTORY LEGAL PROVISIONS (PAKISTAN):\n   Under Article 4, Article 19A, and Article 25 of the Constitution of Pakistan 1973, read with Article 9 of the Establishment of the Office of Wafaqi Mohtasib (Ombudsman) Order 1983, arbitrary delay, neglect, and refusal to provide lawful public services constitute actionable maladministration.\n\n3. PRAYER / REQUESTED RELIEF:\n   It is respectfully requested that the concerned department be directed to resolve my pending grievance immediately in accordance with law and provide written compliance.\n\nI affirm that the facts stated above are true and accurate to the best of my knowledge. Copies of my CNIC (33100651562622) and relevant supporting documents are attached herewith.\n\nYours faithfully,\n\nSignature: ___________________________\nFull Name: Uzair Saqib\nHaqAI Citizen ID: HAQ-PK-535308\nCNIC No.: 33100651562622\nAddress / City: Abdullahpur Faisalabad Pakistan\nContact Phone: 03001234567\nEmail: citizen.user@gmail.com\n--------------------------------------------------",
+        "categoryId": "government",
+        "facts": {
+          "haqId": "HAQ-PK-535308",
+          "rawStatement": "میرے نا دوست کا کسی نے قتل کر دیا تو اب اس کا کیا حل ہے",
+          "applicantName": "Uzair Saqib",
+          "cnic": "33100651562622",
+          "city": "Faisalabad",
+          "address": "Abdullahpur Faisalabad Pakistan",
+          "institutionOrRespondent": "[Name of Concerned Department / Institution / Respondent]",
+          "dateOfIncident": "2026-11-10",
+          "referenceOrRollNo": "[Registration / Roll No. / Reference ID]",
+          "contactPhone": "03001234567",
+          "contactEmail": "citizen.user@gmail.com"
+        }
+      },
+      "workflowSteps": [
+        {
+          "stepNumber": 1,
+          "title": "Understand Input",
+          "status": "completed",
+          "summary": "Captured website query (UR)"
+        },
+        {
+          "stepNumber": 2,
+          "title": "Classify & Match Laws",
+          "status": "completed",
+          "summary": "Government Services & Public Utilities"
+        },
+        {
+          "stepNumber": 3,
+          "title": "Citizen Profile Linked",
+          "status": "completed",
+          "summary": "HaqAI ID: HAQ-PK-535308 (Uzair Saqib)"
+        },
+        {
+          "stepNumber": 4,
+          "title": "Explain 1973 Constitution",
+          "status": "completed",
+          "summary": "2 Articles & 1 Statutes verified"
+        },
+        {
+          "stepNumber": 5,
+          "title": "Recommend Solutions",
+          "status": "completed",
+          "summary": "2 actionable legal steps mapped"
+        },
+        {
+          "stepNumber": 6,
+          "title": "Find Authority",
+          "status": "completed",
+          "summary": "Wafaqi Mohtasib (https://www.mohtasib.gov.pk)"
+        },
+        {
+          "stepNumber": 7,
+          "title": "Pre-Fill Formal Complaint",
+          "status": "completed",
+          "summary": "Pre-filled with Citizen CNIC & Address"
+        },
+        {
+          "stepNumber": 8,
+          "title": "User Review & 1-Click Approval",
+          "status": "action_required",
+          "summary": "Awaiting citizen approval for 1-click dispatch"
+        }
+      ],
+      "chatHistory": [
+        {
+          "role": "user",
+          "content": "میرے نا دوست کا کسی نے قتل کر دیا تو اب اس کا کیا حل ہے",
+          "timestamp": "2026-11-10T19:50:24.705Z"
+        },
+        {
+          "role": "assistant",
+          "content": "السلام علیکم **Uzair Saqib** (شناختی آئی ڈی: `HAQ-PK-535308`)! آئینِ پاکستان 1973 اور نافذ العمل قوانین کے مطابق آپ کا مسئلہ **سرکاری ادارے، نادرا، پاسپورٹ اور بلوں کی شکایات** سے متعلق ہے۔\n\n### ⚖️ آپ کے آئینی حقوق:\n- **Article 4 & Article 25 – Constitution of Pakistan 1973:** آرٹیکل 4 اور 25 کے تحت ہر شہری کو سرکاری اداروں سے قانونی اور مساوی سلوک کا پورا حق حاصل ہے۔\n- **Article 19A – Constitution of Pakistan 1973:** آرٹیکل 19A کے تحت ہر شہری کو عوامی اہمیت کے معاملات اور اپنی درخواست کے بارے میں معلومات حاصل کرنے کا حق ہے۔\n\n### 📜 لاگو پاکستانی قوانین:\n- **Establishment of the Office of Wafaqi Mohtasib (Ombudsman) Order, 1983:** نادرا، پاسپورٹ، بجلی و گیس کمپنیوں اور دیگر وفاقی اداروں کی بدانتظامی یا غلط بلنگ کے خلاف وفاقی محتسب مفت کارروائی کرتا ہے۔\n\n### 🏛️ متعلقہ ادارہ:\n- **Wafaqi Mohtasib (Federal Ombudsman) Secretariat** (https://www.mohtasib.gov.pk | ہیلپ لائن: 1055)",
+          "timestamp": "2026-11-10T19:50:24.705Z"
+        }
+      ],
+      "status": "Open"
     }
   },
   "dispatches": [],
@@ -2061,6 +2483,21 @@
       "role": "admin",
       "createdAt": "2026-11-10T19:22:00.889Z",
       "updatedAt": "2026-11-10T19:22:00.890Z"
+    },
+    "HAQ-PK-535308": {
+      "id": "prof-demo-01",
+      "haqId": "HAQ-PK-535308",
+      "email": "citizen.user@gmail.com",
+      "fullName": "Uzair Saqib",
+      "cnic": "33100651562622",
+      "phone": "03001234567",
+      "city": "Faisalabad",
+      "province": "Punjab",
+      "address": "Abdullahpur Faisalabad Pakistan",
+      "occupation": "Citizen of Pakistan",
+      "role": "citizen",
+      "createdAt": "2026-11-10T19:22:00.889Z",
+      "updatedAt": "2026-11-10T19:41:45.808Z"
     }
   }
 }
