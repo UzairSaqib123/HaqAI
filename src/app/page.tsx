@@ -5,7 +5,7 @@ import {
   Volume2,
   Send,
   Scale,
-  ExternalLink,
+  FileCheck2,
   ArrowRight,
   CheckCircle2,
   Sparkles,
@@ -14,11 +14,6 @@ import {
 import { ALL_LEGAL_CATEGORIES } from "@/lib/legal-knowledge";
 
 export default function HomePage() {
-  const whatsappNum = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "";
-  const realWhatsappUrl = whatsappNum
-    ? `https://wa.me/${whatsappNum}`
-    : "https://wa.me/";
-
   return (
     <div className="space-y-16 pb-20">
       {/* Modern Hero Section */}
@@ -61,15 +56,13 @@ export default function HomePage() {
               <ArrowRight className="h-4 w-4" />
             </Link>
 
-            <a
-              href={realWhatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/complaint"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-2xl border border-slate-200 bg-white px-7 py-4 text-base font-semibold text-slate-800 shadow-sm hover:border-teal-300 hover:bg-teal-50/40 transition-all"
             >
-              <span>Voice Note on WhatsApp (واٹس ایپ)</span>
-              <ExternalLink className="h-4 w-4 text-teal-600" />
-            </a>
+              <FileCheck2 className="h-4 w-4 text-teal-600" />
+              <span>1-Click Complaint Studio (شکایت بھیجیں)</span>
+            </Link>
           </div>
 
           <div className="pt-4 flex flex-wrap items-center justify-center gap-5 text-xs font-medium text-slate-500">

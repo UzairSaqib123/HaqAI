@@ -167,13 +167,6 @@ export default function CitizenProfilePage() {
     }
   }
 
-  const whatsappNum = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "";
-  const realWhatsappUrl = whatsappNum
-    ? `https://wa.me/${whatsappNum}?text=${encodeURIComponent(
-        `Assalam-o-Alaikum HaqAI! Meri Citizen ID ${haqId} hai (${fullName}). Mujhe qanooni madad aur online complaint darj karni hai.`
-      )}`
-    : "https://wa.me/";
-
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 space-y-8">
       <div className="soft-card rounded-3xl bg-gradient-to-r from-teal-50/80 via-white to-emerald-50/60 p-6 sm:p-8">
@@ -299,20 +292,6 @@ export default function CitizenProfilePage() {
                 <span className="text-slate-700">{address || "—"}</span>
               </div>
             </div>
-
-            {whatsappNum && (
-              <div className="pt-3 border-t border-slate-100">
-                <a
-                  href={realWhatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full flex items-center justify-center gap-2 rounded-xl bg-teal-600 px-4 py-3 text-xs font-bold text-white shadow hover:bg-teal-700 transition"
-                >
-                  <span>Open WhatsApp ({haqId})</span>
-                  <ExternalLink className="h-3.5 w-3.5" />
-                </a>
-              </div>
-            )}
           </div>
         </div>
 

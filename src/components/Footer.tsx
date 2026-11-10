@@ -3,12 +3,6 @@ import Link from "next/link";
 import { Scale, PhoneCall, ExternalLink } from "lucide-react";
 
 export default function Footer() {
-  const whatsappNum =
-    process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "923001234567";
-  const realWhatsappUrl = `https://wa.me/${whatsappNum}?text=${encodeURIComponent(
-    "Assalam-o-Alaikum HaqAI! Mujhe Pakistani qanoon ke mutabiq madad aur online complaint darj karni hai."
-  )}`;
-
   return (
     <footer className="border-t border-slate-200/80 bg-white text-slate-600">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
@@ -59,14 +53,9 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <a
-                  href={realWhatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-teal-600 font-semibold hover:underline"
-                >
-                  Connect on Official WhatsApp <ExternalLink className="h-3 w-3" />
-                </a>
+                <Link href="/profile" className="hover:text-teal-600 transition">
+                  Citizen Profile &amp; HaqAI ID (پروفائل)
+                </Link>
               </li>
             </ul>
           </div>
