@@ -1,0 +1,2066 @@
+{
+  "cases": {
+    "HAQ-DEMO01": {
+      "caseId": "HAQ-DEMO01",
+      "timestamp": "2026-11-10T18:56:38.648Z",
+      "channel": "whatsapp",
+      "language": "roman_ur",
+      "userQuery": "Meri university meri original degree aur educational documents wapas nahi kar rahi jabke meri clearance mukammal hai. Main kya kar sakta hoon?",
+      "categoryId": "education",
+      "categoryTitle": "Taleem aur University ke Masail (Degree / Documents)",
+      "replyText": "Assalam-o-Alaikum! Main ne aap ka masla samajh liya hai. Yeh **Taleem aur University ke Masail (Degree / Documents)** ke zumray mein aata hai.\n\n### ⚖️ Aap ke Qanooni aur Aaeeni Haqooq:\n- **Article 25A – Constitution of Pakistan 1973 (Right to Education):** Har shehri ko taleem hasil karne aur apni taleemi asnaad (documents) par qanooni haq deta hai.\n- **Article 4 – Constitution of Pakistan 1973 (Right of Individuals to be Dealt with in Accordance with Law):** Koi bhi idara ya university qanooni jawaz ke baghair aap ke original documents ya degree nahi rok sakti.\n- **Article 18 & Article 199 – Constitution of Pakistan 1973 (Freedom of Profession & High Court Writ Jurisdiction):** Degree ya original asnaad rokna aap ke rozgar ke haq (Art. 18) ki khilaf warzi hai aur High Court (Art. 199) mein challenge ho sakta hai.\n\n### 📜 Laago Qanoon (Pakistani Law):\n- **Higher Education Commission (HEC) Ordinance, 2002 (Section 10 (Powers and Functions of the Commission) & HEC Student Grievance Directives):** HEC Ordinance 2002 aur HEC directives ke mutabiq koi bhi university student ke original documents (Matric/Inter certificates) apne paas nahi rakh sakti aur clearance ke baad degree ya transcript rokna qanoonan mana hai.\n- **Establishment of the Office of Wafaqi Mohtasib (Ombudsman) Order, 1983 (Article 9 (Jurisdiction, Functions and Powers)):** Sarkari university ya idaray ki taraf se degree ya documents dene mein bila-jawaz takheer 'Bad-Intizami' (Maladministration) hai jis par Wafaqi Mohtasib 60 din mein faisla karta hai.\n\n### 🏛️ Mutaliqa Idara (Relevant Authority):\n- **Higher Education Commission (HEC) – Student Grievance Portal**\n- Official Portal: https://onlinehelp.hec.gov.pk\n- Helpline: 051-111-119-432\n\n### ✅ Aap ke paas 2 Aasaan Options hain:\n1. **Option 1 – Online Complaint Submit Karein (Edit & 1-Click Forward):** Hum ne aap ki formal complaint tayyar kar di hai. Aap usay check/edit kar ke **1-Click** mein seedha **HEC Pakistan** ko forward kar sakte hain.\n2. **Option 2 – Mukammal Legal Guidance Lein:** Aap neeche diye gaye steps parh/sun sakte hain aur mujh se mazeed sawal pooch sakte hain.",
+      "whatsappReplyText": "🇵🇰 *HaqAI – Citizen Rights Assistant*\n\nAssalam-o-Alaikum! Hum ne aap ka پیغام / voice note sun liya hai.\n\n📌 *Maslay ki Qisam:* Taleem aur University ke Masail (Degree / Documents)\n⚖️ *Qanooni Haq:* Article 25A – Constitution of Pakistan 1973 & Higher Education Commission (HEC) Ordinance, 2002 – HEC Ordinance 2002 aur HEC directives ke mutabiq koi bhi university student ke original documents (Matric/Inter certificates) apne paas nahi rakh sakti aur clearance ke baad degree ya transcript rokna qanoonan mana hai.\n🏛️ *Mutaliqa Idara:* Higher Education Commission (HEC) – Student Grievance Portal (Helpline: 051-111-119-432)\n\n👇 *Ab Website par jayein jahan aap ko 2 Options milenge:*\n1️⃣ *Online Complaint Submit (Edit & 1-Click Forward)* – Tayyar complaint edit karein aur 1-Click par HEC Pakistan ko forward karein.\n2️⃣ *Legal Guidance (Voice & Text)* – Aasaan alfaaz mein mukammal qanooni rehnumai hasil karein.\n\n🔗 *Aap ka Case Link (Case ID: HAQ-DEMO01):*\n/assistant?caseId=HAQ-DEMO01",
+      "voiceSummaryText": "Assalam o Alaikum. Aap ka masla Taleem aur University ke Masail (Degree / Documents) se mutaliq hai. Article 25A – Constitution of Pakistan 1973 aur Higher Education Commission (HEC) Ordinance, 2002 ke tehat aap ko mukammal qanooni tahaffuz hasil hai. Aap is maslay ki shikayat HEC Pakistan ko kar sakte hain. Hum ne aap ki formal complaint tayyar kar di hai jisay aap edit kar ke one click par mutaliqa idaray ko forward kar sakte hain.",
+      "constitutionalRights": [
+        {
+          "article": "Article 25A – Constitution of Pakistan 1973",
+          "title": "Right to Education",
+          "summary": "Har shehri ko taleem hasil karne aur apni taleemi asnaad (documents) par qanooni haq deta hai."
+        },
+        {
+          "article": "Article 4 – Constitution of Pakistan 1973",
+          "title": "Right of Individuals to be Dealt with in Accordance with Law",
+          "summary": "Koi bhi idara ya university qanooni jawaz ke baghair aap ke original documents ya degree nahi rok sakti."
+        },
+        {
+          "article": "Article 18 & Article 199 – Constitution of Pakistan 1973",
+          "title": "Freedom of Profession & High Court Writ Jurisdiction",
+          "summary": "Degree ya original asnaad rokna aap ke rozgar ke haq (Art. 18) ki khilaf warzi hai aur High Court (Art. 199) mein challenge ho sakta hai."
+        }
+      ],
+      "statutoryLaws": [
+        {
+          "law": "Higher Education Commission (HEC) Ordinance, 2002",
+          "section": "Section 10 (Powers and Functions of the Commission) & HEC Student Grievance Directives",
+          "explanation": "HEC Ordinance 2002 aur HEC directives ke mutabiq koi bhi university student ke original documents (Matric/Inter certificates) apne paas nahi rakh sakti aur clearance ke baad degree ya transcript rokna qanoonan mana hai."
+        },
+        {
+          "law": "Establishment of the Office of Wafaqi Mohtasib (Ombudsman) Order, 1983",
+          "section": "Article 9 (Jurisdiction, Functions and Powers)",
+          "explanation": "Sarkari university ya idaray ki taraf se degree ya documents dene mein bila-jawaz takheer 'Bad-Intizami' (Maladministration) hai jis par Wafaqi Mohtasib 60 din mein faisla karta hai."
+        }
+      ],
+      "nextSteps": [
+        "Sab se pehle University ke Registrar ya Controller Examinations ko تحریری (written) darkhwast dein aur uski receiving copy ya email proof mehfooz rakhein.",
+        "HEC Online Help Portal (onlinehelp.hec.gov.pk) par 'Student Grievance' ke tehat online shikayat darj karein.",
+        "Agar masla hal na ho to Wafaqi Mohtasib (mohtasib.gov.pk) ya Provincial Ombudsman ko muft online complaint bhejein.",
+        "HaqAI ke 'Online Complaint Submit (1-Click Forward)' button se apni tayyar darkhwast foran HEC aur mutaliqa idaray ko forward karein."
+      ],
+      "followUpQuestions": [
+        "Aap ki university ka naam kya hai aur yeh kis shehar mein hai?",
+        "Kya aap ne apni fees aur clearance mukammal kar li hai, aur kab se documents wapas maang rahe hain?"
+      ],
+      "recommendedAuthorities": [
+        {
+          "id": "hec",
+          "name": "Higher Education Commission (HEC) – Student Grievance Portal",
+          "shortName": "HEC Pakistan",
+          "role": "Regulator of all recognized public and private universities in Pakistan",
+          "portalUrl": "https://onlinehelp.hec.gov.pk",
+          "email": "complaints@hec.gov.pk",
+          "helpline": "051-111-119-432",
+          "address": "Sector H-9, East Service Road, Islamabad, Pakistan",
+          "turnaroundTime": "7–15 Working Days",
+          "instructions": {
+            "en": "Submit your ticket on onlinehelp.hec.gov.pk with your CNIC, Roll Number, and university clearance proof.",
+            "roman_ur": "onlinehelp.hec.gov.pk par apna CNIC, Roll Number aur university details ke sath ticket submit karein.",
+            "ur": "ایچ ای سی کے پورٹل پر اپنا شناختی کارڈ نمبر، رول نمبر اور تفصیلات کے ساتھ شکایت درج کریں۔",
+            "pa": "ایچ ای سی پورٹل اتے اپنا شناختی کارڈ تے رول نمبر لکھ کے شکایت بھیجو۔"
+          }
+        },
+        {
+          "id": "mohtasib",
+          "name": "Wafaqi Mohtasib (Federal Ombudsman) of Pakistan",
+          "shortName": "Wafaqi Mohtasib",
+          "role": "Redresses maladministration against Federal/Public universities and HEC",
+          "portalUrl": "https://www.mohtasib.gov.pk",
+          "email": "info@mohtasib.gov.pk",
+          "helpline": "1055",
+          "address": "Wafaqi Mohtasib Secretariat, 36-Constitution Avenue, G-5/2, Islamabad",
+          "turnaroundTime": "30–60 Days (Free of Cost)",
+          "instructions": {
+            "en": "File an online complaint against maladministration at mohtasib.gov.pk with zero fee.",
+            "roman_ur": "mohtasib.gov.pk par baghair kisi fee ya wakeel ke online complaint darj karein.",
+            "ur": "وفاقی محتسب کی ویب سائٹ پر بغیر کسی فیس یا وکیل کے آن لائن شکایت درج کریں۔",
+            "pa": "وفاقی محتسب دی ویب سائٹ اتے بغیر فیس توں آن لائن شکایت درج کرو۔"
+          }
+        }
+      ],
+      "primaryAuthority": {
+        "id": "hec",
+        "name": "Higher Education Commission (HEC) – Student Grievance Portal",
+        "shortName": "HEC Pakistan",
+        "role": "Regulator of all recognized public and private universities in Pakistan",
+        "portalUrl": "https://onlinehelp.hec.gov.pk",
+        "email": "complaints@hec.gov.pk",
+        "helpline": "051-111-119-432",
+        "address": "Sector H-9, East Service Road, Islamabad, Pakistan",
+        "turnaroundTime": "7–15 Working Days",
+        "instructions": {
+          "en": "Submit your ticket on onlinehelp.hec.gov.pk with your CNIC, Roll Number, and university clearance proof.",
+          "roman_ur": "onlinehelp.hec.gov.pk par apna CNIC, Roll Number aur university details ke sath ticket submit karein.",
+          "ur": "ایچ ای سی کے پورٹل پر اپنا شناختی کارڈ نمبر، رول نمبر اور تفصیلات کے ساتھ شکایت درج کریں۔",
+          "pa": "ایچ ای سی پورٹل اتے اپنا شناختی کارڈ تے رول نمبر لکھ کے شکایت بھیجو۔"
+        }
+      },
+      "generatedComplaint": {
+        "subject": "Formal Complaint Against Unlawful Withholding of Original Educational Documents / Degree – Regarding [Name of University / Degree Awarding Institute]",
+        "recipientTitle": "The Chairman / Grievance Redressal Cell, Higher Education Commission (HEC) & Wafaqi Mohtasib Secretariat, Islamabad",
+        "recipientAuthority": {
+          "id": "hec",
+          "name": "Higher Education Commission (HEC) – Student Grievance Portal",
+          "shortName": "HEC Pakistan",
+          "role": "Regulator of all recognized public and private universities in Pakistan",
+          "portalUrl": "https://onlinehelp.hec.gov.pk",
+          "email": "complaints@hec.gov.pk",
+          "helpline": "051-111-119-432",
+          "address": "Sector H-9, East Service Road, Islamabad, Pakistan",
+          "turnaroundTime": "7–15 Working Days",
+          "instructions": {
+            "en": "Submit your ticket on onlinehelp.hec.gov.pk with your CNIC, Roll Number, and university clearance proof.",
+            "roman_ur": "onlinehelp.hec.gov.pk par apna CNIC, Roll Number aur university details ke sath ticket submit karein.",
+            "ur": "ایچ ای سی کے پورٹل پر اپنا شناختی کارڈ نمبر، رول نمبر اور تفصیلات کے ساتھ شکایت درج کریں۔",
+            "pa": "ایچ ای سی پورٹل اتے اپنا شناختی کارڈ تے رول نمبر لکھ کے شکایت بھیجو۔"
+          }
+        },
+        "date": "10 November 2026",
+        "bodyText": "To,\nThe Chairman / Grievance Redressal Cell, Higher Education Commission (HEC) & Wafaqi Mohtasib Secretariat, Islamabad\nOfficial Portal: https://onlinehelp.hec.gov.pk\nDate: 10 November 2026\n\nSUBJECT: FORMAL COMPLAINT AGAINST UNLAWFUL WITHHOLDING OF ORIGINAL EDUCATIONAL DOCUMENTS / DEGREE – REGARDING [NAME OF UNIVERSITY / DEGREE AWARDING INSTITUTE]\n\nRespected Sir / Madam,\n\nI, the undersigned citizen of Pakistan, respectfully submit this formal complaint and state the facts strictly as follows:\n\n1. STATEMENT OF GRIEVANCE & FACTS:\n   - Aggrieved Citizen Statement: \"Meri university meri original degree aur educational documents wapas nahi kar rahi jabke meri clearance mukammal hai. Main kya kar sakta hoon?\"\n   - Concerned Institution / Respondent: [Name of University / Degree Awarding Institute]\n   - City / Jurisdiction: Islamabad\n   - Relevant Date / Reference / Roll No.: FA22-BCS-049 (Date: 2026-11-10)\n\n2. APPLICABLE CONSTITUTIONAL & STATUTORY LEGAL PROVISIONS:\n   Under Article 4, Article 18, and Article 25A of the Constitution of the Islamic Republic of Pakistan 1973, read with Section 10 of the Higher Education Commission Ordinance 2002 and HEC Regulatory Directives, no university is legally permitted to retain a student's original educational certificates or withhold degrees/transcripts after completion of academic and financial clearance.\n\n3. PRAYER / REQUESTED RELIEF:\n   It is respectfully requested that immediate directions be issued to the concerned university administration to release and hand over my original educational documents / degree without any further delay, and appropriate regulatory action be taken against the responsible officials for maladministration.\n\nI affirm that the facts stated above are true and accurate to the best of my knowledge. Copies of relevant supporting documents (CNIC, application receipt/clearance proof) are enclosed/attached herewith.\n\nYours faithfully,\n\nSignature: ___________________________\nFull Name: Muhammad Uzair\nCNIC No.: [Your CNIC Number: XXXXX-XXXXXXX-X]\nCity / Address: Islamabad\nContact Phone: [Your Mobile Number: 03XX-XXXXXXX]\nEmail: [Your Email Address]",
+        "emailSubject": "[Formal Citizen Complaint] Formal Complaint Against Unlawful Withholding of Original Educational Documents / Degree – Regarding [Name of University / Degree Awarding Institute]",
+        "emailBody": "Dear Grievance Redressal Officer (HEC Pakistan),\n\nPlease find below my formal citizen complaint generated via HaqAI Citizen Rights Assistant for urgent statutory action:\n\n--------------------------------------------------\nTo,\nThe Chairman / Grievance Redressal Cell, Higher Education Commission (HEC) & Wafaqi Mohtasib Secretariat, Islamabad\nOfficial Portal: https://onlinehelp.hec.gov.pk\nDate: 10 November 2026\n\nSUBJECT: FORMAL COMPLAINT AGAINST UNLAWFUL WITHHOLDING OF ORIGINAL EDUCATIONAL DOCUMENTS / DEGREE – REGARDING [NAME OF UNIVERSITY / DEGREE AWARDING INSTITUTE]\n\nRespected Sir / Madam,\n\nI, the undersigned citizen of Pakistan, respectfully submit this formal complaint and state the facts strictly as follows:\n\n1. STATEMENT OF GRIEVANCE & FACTS:\n   - Aggrieved Citizen Statement: \"Meri university meri original degree aur educational documents wapas nahi kar rahi jabke meri clearance mukammal hai. Main kya kar sakta hoon?\"\n   - Concerned Institution / Respondent: [Name of University / Degree Awarding Institute]\n   - City / Jurisdiction: Islamabad\n   - Relevant Date / Reference / Roll No.: FA22-BCS-049 (Date: 2026-11-10)\n\n2. APPLICABLE CONSTITUTIONAL & STATUTORY LEGAL PROVISIONS:\n   Under Article 4, Article 18, and Article 25A of the Constitution of the Islamic Republic of Pakistan 1973, read with Section 10 of the Higher Education Commission Ordinance 2002 and HEC Regulatory Directives, no university is legally permitted to retain a student's original educational certificates or withhold degrees/transcripts after completion of academic and financial clearance.\n\n3. PRAYER / REQUESTED RELIEF:\n   It is respectfully requested that immediate directions be issued to the concerned university administration to release and hand over my original educational documents / degree without any further delay, and appropriate regulatory action be taken against the responsible officials for maladministration.\n\nI affirm that the facts stated above are true and accurate to the best of my knowledge. Copies of relevant supporting documents (CNIC, application receipt/clearance proof) are enclosed/attached herewith.\n\nYours faithfully,\n\nSignature: ___________________________\nFull Name: Muhammad Uzair\nCNIC No.: [Your CNIC Number: XXXXX-XXXXXXX-X]\nCity / Address: Islamabad\nContact Phone: [Your Mobile Number: 03XX-XXXXXXX]\nEmail: [Your Email Address]\n--------------------------------------------------",
+        "categoryId": "education",
+        "facts": {
+          "rawStatement": "Meri university meri original degree aur educational documents wapas nahi kar rahi jabke meri clearance mukammal hai. Main kya kar sakta hoon?",
+          "applicantName": "Muhammad Uzair",
+          "cnic": "[Your CNIC Number: XXXXX-XXXXXXX-X]",
+          "city": "Islamabad",
+          "institutionOrRespondent": "[Name of University / Degree Awarding Institute]",
+          "dateOfIncident": "2026-11-10",
+          "referenceOrRollNo": "FA22-BCS-049",
+          "contactPhone": "[Your Mobile Number: 03XX-XXXXXXX]",
+          "contactEmail": "[Your Email Address]"
+        }
+      },
+      "workflowSteps": [
+        {
+          "stepNumber": 1,
+          "title": "Understand Input",
+          "status": "completed",
+          "summary": "Captured whatsapp input in ROMAN_UR"
+        },
+        {
+          "stepNumber": 2,
+          "title": "Classify Issue",
+          "status": "completed",
+          "summary": "Education & University Disputes"
+        },
+        {
+          "stepNumber": 3,
+          "title": "Identify Missing Info",
+          "status": "completed",
+          "summary": "2 clarifying questions prepared"
+        },
+        {
+          "stepNumber": 4,
+          "title": "Explain Rights",
+          "status": "completed",
+          "summary": "3 Constitutional Articles & 2 Statutes verified"
+        },
+        {
+          "stepNumber": 5,
+          "title": "Recommend Solutions",
+          "status": "completed",
+          "summary": "4 actionable administrative steps mapped"
+        },
+        {
+          "stepNumber": 6,
+          "title": "Find Authority",
+          "status": "completed",
+          "summary": "HEC Pakistan (https://onlinehelp.hec.gov.pk)"
+        },
+        {
+          "stepNumber": 7,
+          "title": "Generate Complaint",
+          "status": "completed",
+          "summary": "Formal complaint drafted for HEC Pakistan"
+        },
+        {
+          "stepNumber": 8,
+          "title": "User Review & 1-Click Approval",
+          "status": "action_required",
+          "summary": "Awaiting citizen review, edit & 1-click forward approval"
+        }
+      ]
+    },
+    "HAQ-141894": {
+      "caseId": "HAQ-141894",
+      "timestamp": "2026-11-10T18:56:38.644Z",
+      "channel": "whatsapp",
+      "language": "roman_ur",
+      "userQuery": "Assalam o Alaikum, meri university meri original degree aur educational documents wapas nahi kar rahi jabke meri clearance mukammal hai. Main kya kar sakta hoon?",
+      "categoryId": "education",
+      "categoryTitle": "Taleem aur University ke Masail (Degree / Documents)",
+      "replyText": "Assalam-o-Alaikum! Main ne aap ka masla samajh liya hai. Yeh **Taleem aur University ke Masail (Degree / Documents)** ke zumray mein aata hai.\n\n### ⚖️ Aap ke Qanooni aur Aaeeni Haqooq:\n- **Article 25A – Constitution of Pakistan 1973 (Right to Education):** Har shehri ko taleem hasil karne aur apni taleemi asnaad (documents) par qanooni haq deta hai.\n- **Article 4 – Constitution of Pakistan 1973 (Right of Individuals to be Dealt with in Accordance with Law):** Koi bhi idara ya university qanooni jawaz ke baghair aap ke original documents ya degree nahi rok sakti.\n- **Article 18 & Article 199 – Constitution of Pakistan 1973 (Freedom of Profession & High Court Writ Jurisdiction):** Degree ya original asnaad rokna aap ke rozgar ke haq (Art. 18) ki khilaf warzi hai aur High Court (Art. 199) mein challenge ho sakta hai.\n\n### 📜 Laago Qanoon (Pakistani Law):\n- **Higher Education Commission (HEC) Ordinance, 2002 (Section 10 (Powers and Functions of the Commission) & HEC Student Grievance Directives):** HEC Ordinance 2002 aur HEC directives ke mutabiq koi bhi university student ke original documents (Matric/Inter certificates) apne paas nahi rakh sakti aur clearance ke baad degree ya transcript rokna qanoonan mana hai.\n- **Establishment of the Office of Wafaqi Mohtasib (Ombudsman) Order, 1983 (Article 9 (Jurisdiction, Functions and Powers)):** Sarkari university ya idaray ki taraf se degree ya documents dene mein bila-jawaz takheer 'Bad-Intizami' (Maladministration) hai jis par Wafaqi Mohtasib 60 din mein faisla karta hai.\n\n### 🏛️ Mutaliqa Idara (Relevant Authority):\n- **Higher Education Commission (HEC) – Student Grievance Portal**\n- Official Portal: https://onlinehelp.hec.gov.pk\n- Helpline: 051-111-119-432\n\n### ✅ Aap ke paas 2 Aasaan Options hain:\n1. **Option 1 – Online Complaint Submit Karein (Edit & 1-Click Forward):** Hum ne aap ki formal complaint tayyar kar di hai. Aap usay check/edit kar ke **1-Click** mein seedha **HEC Pakistan** ko forward kar sakte hain.\n2. **Option 2 – Mukammal Legal Guidance Lein:** Aap neeche diye gaye steps parh/sun sakte hain aur mujh se mazeed sawal pooch sakte hain.",
+      "whatsappReplyText": "🇵🇰 *HaqAI – Citizen Rights Assistant*\n\nAssalam-o-Alaikum! Hum ne aap ka پیغام / voice note sun liya hai.\n\n📌 *Maslay ki Qisam:* Taleem aur University ke Masail (Degree / Documents)\n⚖️ *Qanooni Haq:* Article 25A – Constitution of Pakistan 1973 & Higher Education Commission (HEC) Ordinance, 2002 – HEC Ordinance 2002 aur HEC directives ke mutabiq koi bhi university student ke original documents (Matric/Inter certificates) apne paas nahi rakh sakti aur clearance ke baad degree ya transcript rokna qanoonan mana hai.\n🏛️ *Mutaliqa Idara:* Higher Education Commission (HEC) – Student Grievance Portal (Helpline: 051-111-119-432)\n\n👇 *Ab Website par jayein jahan aap ko 2 Options milenge:*\n1️⃣ *Online Complaint Submit (Edit & 1-Click Forward)* – Tayyar complaint edit karein aur 1-Click par HEC Pakistan ko forward karein.\n2️⃣ *Legal Guidance (Voice & Text)* – Aasaan alfaaz mein mukammal qanooni rehnumai hasil karein.\n\n🔗 *Aap ka Case Link (Case ID: HAQ-141894):*\n/assistant?caseId=HAQ-141894",
+      "voiceSummaryText": "Assalam o Alaikum. Aap ka masla Taleem aur University ke Masail (Degree / Documents) se mutaliq hai. Article 25A – Constitution of Pakistan 1973 aur Higher Education Commission (HEC) Ordinance, 2002 ke tehat aap ko mukammal qanooni tahaffuz hasil hai. Aap is maslay ki shikayat HEC Pakistan ko kar sakte hain. Hum ne aap ki formal complaint tayyar kar di hai jisay aap edit kar ke one click par mutaliqa idaray ko forward kar sakte hain.",
+      "constitutionalRights": [
+        {
+          "article": "Article 25A – Constitution of Pakistan 1973",
+          "title": "Right to Education",
+          "summary": "Har shehri ko taleem hasil karne aur apni taleemi asnaad (documents) par qanooni haq deta hai."
+        },
+        {
+          "article": "Article 4 – Constitution of Pakistan 1973",
+          "title": "Right of Individuals to be Dealt with in Accordance with Law",
+          "summary": "Koi bhi idara ya university qanooni jawaz ke baghair aap ke original documents ya degree nahi rok sakti."
+        },
+        {
+          "article": "Article 18 & Article 199 – Constitution of Pakistan 1973",
+          "title": "Freedom of Profession & High Court Writ Jurisdiction",
+          "summary": "Degree ya original asnaad rokna aap ke rozgar ke haq (Art. 18) ki khilaf warzi hai aur High Court (Art. 199) mein challenge ho sakta hai."
+        }
+      ],
+      "statutoryLaws": [
+        {
+          "law": "Higher Education Commission (HEC) Ordinance, 2002",
+          "section": "Section 10 (Powers and Functions of the Commission) & HEC Student Grievance Directives",
+          "explanation": "HEC Ordinance 2002 aur HEC directives ke mutabiq koi bhi university student ke original documents (Matric/Inter certificates) apne paas nahi rakh sakti aur clearance ke baad degree ya transcript rokna qanoonan mana hai."
+        },
+        {
+          "law": "Establishment of the Office of Wafaqi Mohtasib (Ombudsman) Order, 1983",
+          "section": "Article 9 (Jurisdiction, Functions and Powers)",
+          "explanation": "Sarkari university ya idaray ki taraf se degree ya documents dene mein bila-jawaz takheer 'Bad-Intizami' (Maladministration) hai jis par Wafaqi Mohtasib 60 din mein faisla karta hai."
+        }
+      ],
+      "nextSteps": [
+        "Sab se pehle University ke Registrar ya Controller Examinations ko تحریری (written) darkhwast dein aur uski receiving copy ya email proof mehfooz rakhein.",
+        "HEC Online Help Portal (onlinehelp.hec.gov.pk) par 'Student Grievance' ke tehat online shikayat darj karein.",
+        "Agar masla hal na ho to Wafaqi Mohtasib (mohtasib.gov.pk) ya Provincial Ombudsman ko muft online complaint bhejein.",
+        "HaqAI ke 'Online Complaint Submit (1-Click Forward)' button se apni tayyar darkhwast foran HEC aur mutaliqa idaray ko forward karein."
+      ],
+      "followUpQuestions": [
+        "Aap ki university ka naam kya hai aur yeh kis shehar mein hai?",
+        "Kya aap ne apni fees aur clearance mukammal kar li hai, aur kab se documents wapas maang rahe hain?"
+      ],
+      "recommendedAuthorities": [
+        {
+          "id": "hec",
+          "name": "Higher Education Commission (HEC) – Student Grievance Portal",
+          "shortName": "HEC Pakistan",
+          "role": "Regulator of all recognized public and private universities in Pakistan",
+          "portalUrl": "https://onlinehelp.hec.gov.pk",
+          "email": "complaints@hec.gov.pk",
+          "helpline": "051-111-119-432",
+          "address": "Sector H-9, East Service Road, Islamabad, Pakistan",
+          "turnaroundTime": "7–15 Working Days",
+          "instructions": {
+            "en": "Submit your ticket on onlinehelp.hec.gov.pk with your CNIC, Roll Number, and university clearance proof.",
+            "roman_ur": "onlinehelp.hec.gov.pk par apna CNIC, Roll Number aur university details ke sath ticket submit karein.",
+            "ur": "ایچ ای سی کے پورٹل پر اپنا شناختی کارڈ نمبر، رول نمبر اور تفصیلات کے ساتھ شکایت درج کریں۔",
+            "pa": "ایچ ای سی پورٹل اتے اپنا شناختی کارڈ تے رول نمبر لکھ کے شکایت بھیجو۔"
+          }
+        },
+        {
+          "id": "mohtasib",
+          "name": "Wafaqi Mohtasib (Federal Ombudsman) of Pakistan",
+          "shortName": "Wafaqi Mohtasib",
+          "role": "Redresses maladministration against Federal/Public universities and HEC",
+          "portalUrl": "https://www.mohtasib.gov.pk",
+          "email": "info@mohtasib.gov.pk",
+          "helpline": "1055",
+          "address": "Wafaqi Mohtasib Secretariat, 36-Constitution Avenue, G-5/2, Islamabad",
+          "turnaroundTime": "30–60 Days (Free of Cost)",
+          "instructions": {
+            "en": "File an online complaint against maladministration at mohtasib.gov.pk with zero fee.",
+            "roman_ur": "mohtasib.gov.pk par baghair kisi fee ya wakeel ke online complaint darj karein.",
+            "ur": "وفاقی محتسب کی ویب سائٹ پر بغیر کسی فیس یا وکیل کے آن لائن شکایت درج کریں۔",
+            "pa": "وفاقی محتسب دی ویب سائٹ اتے بغیر فیس توں آن لائن شکایت درج کرو۔"
+          }
+        }
+      ],
+      "primaryAuthority": {
+        "id": "hec",
+        "name": "Higher Education Commission (HEC) – Student Grievance Portal",
+        "shortName": "HEC Pakistan",
+        "role": "Regulator of all recognized public and private universities in Pakistan",
+        "portalUrl": "https://onlinehelp.hec.gov.pk",
+        "email": "complaints@hec.gov.pk",
+        "helpline": "051-111-119-432",
+        "address": "Sector H-9, East Service Road, Islamabad, Pakistan",
+        "turnaroundTime": "7–15 Working Days",
+        "instructions": {
+          "en": "Submit your ticket on onlinehelp.hec.gov.pk with your CNIC, Roll Number, and university clearance proof.",
+          "roman_ur": "onlinehelp.hec.gov.pk par apna CNIC, Roll Number aur university details ke sath ticket submit karein.",
+          "ur": "ایچ ای سی کے پورٹل پر اپنا شناختی کارڈ نمبر، رول نمبر اور تفصیلات کے ساتھ شکایت درج کریں۔",
+          "pa": "ایچ ای سی پورٹل اتے اپنا شناختی کارڈ تے رول نمبر لکھ کے شکایت بھیجو۔"
+        }
+      },
+      "generatedComplaint": {
+        "subject": "Formal Complaint Against Unlawful Withholding of Original Educational Documents / Degree – Regarding [Name of University / Degree Awarding Institute]",
+        "recipientTitle": "The Chairman / Grievance Redressal Cell, Higher Education Commission (HEC) & Wafaqi Mohtasib Secretariat, Islamabad",
+        "recipientAuthority": {
+          "id": "hec",
+          "name": "Higher Education Commission (HEC) – Student Grievance Portal",
+          "shortName": "HEC Pakistan",
+          "role": "Regulator of all recognized public and private universities in Pakistan",
+          "portalUrl": "https://onlinehelp.hec.gov.pk",
+          "email": "complaints@hec.gov.pk",
+          "helpline": "051-111-119-432",
+          "address": "Sector H-9, East Service Road, Islamabad, Pakistan",
+          "turnaroundTime": "7–15 Working Days",
+          "instructions": {
+            "en": "Submit your ticket on onlinehelp.hec.gov.pk with your CNIC, Roll Number, and university clearance proof.",
+            "roman_ur": "onlinehelp.hec.gov.pk par apna CNIC, Roll Number aur university details ke sath ticket submit karein.",
+            "ur": "ایچ ای سی کے پورٹل پر اپنا شناختی کارڈ نمبر، رول نمبر اور تفصیلات کے ساتھ شکایت درج کریں۔",
+            "pa": "ایچ ای سی پورٹل اتے اپنا شناختی کارڈ تے رول نمبر لکھ کے شکایت بھیجو۔"
+          }
+        },
+        "date": "10 November 2026",
+        "bodyText": "To,\nThe Chairman / Grievance Redressal Cell, Higher Education Commission (HEC) & Wafaqi Mohtasib Secretariat, Islamabad\nOfficial Portal: https://onlinehelp.hec.gov.pk\nDate: 10 November 2026\n\nSUBJECT: FORMAL COMPLAINT AGAINST UNLAWFUL WITHHOLDING OF ORIGINAL EDUCATIONAL DOCUMENTS / DEGREE – REGARDING [NAME OF UNIVERSITY / DEGREE AWARDING INSTITUTE]\n\nRespected Sir / Madam,\n\nI, the undersigned citizen of Pakistan, respectfully submit this formal complaint and state the facts strictly as follows:\n\n1. STATEMENT OF GRIEVANCE & FACTS:\n   - Aggrieved Citizen Statement: \"Assalam o Alaikum, meri university meri original degree aur educational documents wapas nahi kar rahi jabke meri clearance mukammal hai. Main kya kar sakta hoon?\"\n   - Concerned Institution / Respondent: [Name of University / Degree Awarding Institute]\n   - City / Jurisdiction: [Your City, e.g., Lahore / Islamabad]\n   - Relevant Date / Reference / Roll No.: [Registration / Roll No. / Reference ID] (Date: 2026-11-10)\n\n2. APPLICABLE CONSTITUTIONAL & STATUTORY LEGAL PROVISIONS:\n   Under Article 4, Article 18, and Article 25A of the Constitution of the Islamic Republic of Pakistan 1973, read with Section 10 of the Higher Education Commission Ordinance 2002 and HEC Regulatory Directives, no university is legally permitted to retain a student's original educational certificates or withhold degrees/transcripts after completion of academic and financial clearance.\n\n3. PRAYER / REQUESTED RELIEF:\n   It is respectfully requested that immediate directions be issued to the concerned university administration to release and hand over my original educational documents / degree without any further delay, and appropriate regulatory action be taken against the responsible officials for maladministration.\n\nI affirm that the facts stated above are true and accurate to the best of my knowledge. Copies of relevant supporting documents (CNIC, application receipt/clearance proof) are enclosed/attached herewith.\n\nYours faithfully,\n\nSignature: ___________________________\nFull Name: [Your Full Name]\nCNIC No.: [Your CNIC Number: XXXXX-XXXXXXX-X]\nCity / Address: [Your City, e.g., Lahore / Islamabad]\nContact Phone: +92-300-1234567\nEmail: [Your Email Address]",
+        "emailSubject": "[Formal Citizen Complaint] Formal Complaint Against Unlawful Withholding of Original Educational Documents / Degree – Regarding [Name of University / Degree Awarding Institute]",
+        "emailBody": "Dear Grievance Redressal Officer (HEC Pakistan),\n\nPlease find below my formal citizen complaint generated via HaqAI Citizen Rights Assistant for urgent statutory action:\n\n--------------------------------------------------\nTo,\nThe Chairman / Grievance Redressal Cell, Higher Education Commission (HEC) & Wafaqi Mohtasib Secretariat, Islamabad\nOfficial Portal: https://onlinehelp.hec.gov.pk\nDate: 10 November 2026\n\nSUBJECT: FORMAL COMPLAINT AGAINST UNLAWFUL WITHHOLDING OF ORIGINAL EDUCATIONAL DOCUMENTS / DEGREE – REGARDING [NAME OF UNIVERSITY / DEGREE AWARDING INSTITUTE]\n\nRespected Sir / Madam,\n\nI, the undersigned citizen of Pakistan, respectfully submit this formal complaint and state the facts strictly as follows:\n\n1. STATEMENT OF GRIEVANCE & FACTS:\n   - Aggrieved Citizen Statement: \"Assalam o Alaikum, meri university meri original degree aur educational documents wapas nahi kar rahi jabke meri clearance mukammal hai. Main kya kar sakta hoon?\"\n   - Concerned Institution / Respondent: [Name of University / Degree Awarding Institute]\n   - City / Jurisdiction: [Your City, e.g., Lahore / Islamabad]\n   - Relevant Date / Reference / Roll No.: [Registration / Roll No. / Reference ID] (Date: 2026-11-10)\n\n2. APPLICABLE CONSTITUTIONAL & STATUTORY LEGAL PROVISIONS:\n   Under Article 4, Article 18, and Article 25A of the Constitution of the Islamic Republic of Pakistan 1973, read with Section 10 of the Higher Education Commission Ordinance 2002 and HEC Regulatory Directives, no university is legally permitted to retain a student's original educational certificates or withhold degrees/transcripts after completion of academic and financial clearance.\n\n3. PRAYER / REQUESTED RELIEF:\n   It is respectfully requested that immediate directions be issued to the concerned university administration to release and hand over my original educational documents / degree without any further delay, and appropriate regulatory action be taken against the responsible officials for maladministration.\n\nI affirm that the facts stated above are true and accurate to the best of my knowledge. Copies of relevant supporting documents (CNIC, application receipt/clearance proof) are enclosed/attached herewith.\n\nYours faithfully,\n\nSignature: ___________________________\nFull Name: [Your Full Name]\nCNIC No.: [Your CNIC Number: XXXXX-XXXXXXX-X]\nCity / Address: [Your City, e.g., Lahore / Islamabad]\nContact Phone: +92-300-1234567\nEmail: [Your Email Address]\n--------------------------------------------------",
+        "categoryId": "education",
+        "facts": {
+          "rawStatement": "Assalam o Alaikum, meri university meri original degree aur educational documents wapas nahi kar rahi jabke meri clearance mukammal hai. Main kya kar sakta hoon?",
+          "applicantName": "[Your Full Name]",
+          "cnic": "[Your CNIC Number: XXXXX-XXXXXXX-X]",
+          "city": "[Your City, e.g., Lahore / Islamabad]",
+          "institutionOrRespondent": "[Name of University / Degree Awarding Institute]",
+          "dateOfIncident": "2026-11-10",
+          "referenceOrRollNo": "[Registration / Roll No. / Reference ID]",
+          "contactPhone": "+92-300-1234567",
+          "contactEmail": "[Your Email Address]"
+        }
+      },
+      "workflowSteps": [
+        {
+          "stepNumber": 1,
+          "title": "Understand Input",
+          "status": "completed",
+          "summary": "Captured whatsapp input in ROMAN_UR"
+        },
+        {
+          "stepNumber": 2,
+          "title": "Classify Issue",
+          "status": "completed",
+          "summary": "Education & University Disputes"
+        },
+        {
+          "stepNumber": 3,
+          "title": "Identify Missing Info",
+          "status": "completed",
+          "summary": "2 clarifying questions prepared"
+        },
+        {
+          "stepNumber": 4,
+          "title": "Explain Rights",
+          "status": "completed",
+          "summary": "3 Constitutional Articles & 2 Statutes verified"
+        },
+        {
+          "stepNumber": 5,
+          "title": "Recommend Solutions",
+          "status": "completed",
+          "summary": "4 actionable administrative steps mapped"
+        },
+        {
+          "stepNumber": 6,
+          "title": "Find Authority",
+          "status": "completed",
+          "summary": "HEC Pakistan (https://onlinehelp.hec.gov.pk)"
+        },
+        {
+          "stepNumber": 7,
+          "title": "Generate Complaint",
+          "status": "completed",
+          "summary": "Formal complaint drafted for HEC Pakistan"
+        },
+        {
+          "stepNumber": 8,
+          "title": "User Review & 1-Click Approval",
+          "status": "action_required",
+          "summary": "Awaiting citizen review, edit & 1-click forward approval"
+        }
+      ]
+    },
+    "HAQ-104532": {
+      "caseId": "HAQ-104532",
+      "timestamp": "2026-11-10T18:56:45.453Z",
+      "channel": "whatsapp",
+      "language": "roman_ur",
+      "userQuery": "Assalam o Alaikum, meri university meri original degree aur educational documents wapas nahi kar rahi jabke meri clearance mukammal hai. Main kya kar sakta hoon?",
+      "categoryId": "education",
+      "categoryTitle": "Taleem aur University ke Masail (Degree / Documents)",
+      "replyText": "Assalam-o-Alaikum! Main ne aap ka masla samajh liya hai. Yeh **Taleem aur University ke Masail (Degree / Documents)** ke zumray mein aata hai.\n\n### ⚖️ Aap ke Qanooni aur Aaeeni Haqooq:\n- **Article 25A – Constitution of Pakistan 1973 (Right to Education):** Har shehri ko taleem hasil karne aur apni taleemi asnaad (documents) par qanooni haq deta hai.\n- **Article 4 – Constitution of Pakistan 1973 (Right of Individuals to be Dealt with in Accordance with Law):** Koi bhi idara ya university qanooni jawaz ke baghair aap ke original documents ya degree nahi rok sakti.\n- **Article 18 & Article 199 – Constitution of Pakistan 1973 (Freedom of Profession & High Court Writ Jurisdiction):** Degree ya original asnaad rokna aap ke rozgar ke haq (Art. 18) ki khilaf warzi hai aur High Court (Art. 199) mein challenge ho sakta hai.\n\n### 📜 Laago Qanoon (Pakistani Law):\n- **Higher Education Commission (HEC) Ordinance, 2002 (Section 10 (Powers and Functions of the Commission) & HEC Student Grievance Directives):** HEC Ordinance 2002 aur HEC directives ke mutabiq koi bhi university student ke original documents (Matric/Inter certificates) apne paas nahi rakh sakti aur clearance ke baad degree ya transcript rokna qanoonan mana hai.\n- **Establishment of the Office of Wafaqi Mohtasib (Ombudsman) Order, 1983 (Article 9 (Jurisdiction, Functions and Powers)):** Sarkari university ya idaray ki taraf se degree ya documents dene mein bila-jawaz takheer 'Bad-Intizami' (Maladministration) hai jis par Wafaqi Mohtasib 60 din mein faisla karta hai.\n\n### 🏛️ Mutaliqa Idara (Relevant Authority):\n- **Higher Education Commission (HEC) – Student Grievance Portal**\n- Official Portal: https://onlinehelp.hec.gov.pk\n- Helpline: 051-111-119-432\n\n### ✅ Aap ke paas 2 Aasaan Options hain:\n1. **Option 1 – Online Complaint Submit Karein (Edit & 1-Click Forward):** Hum ne aap ki formal complaint tayyar kar di hai. Aap usay check/edit kar ke **1-Click** mein seedha **HEC Pakistan** ko forward kar sakte hain.\n2. **Option 2 – Mukammal Legal Guidance Lein:** Aap neeche diye gaye steps parh/sun sakte hain aur mujh se mazeed sawal pooch sakte hain.",
+      "whatsappReplyText": "🇵🇰 *HaqAI – Citizen Rights Assistant*\n\nAssalam-o-Alaikum! Hum ne aap ka پیغام / voice note sun liya hai.\n\n📌 *Maslay ki Qisam:* Taleem aur University ke Masail (Degree / Documents)\n⚖️ *Qanooni Haq:* Article 25A – Constitution of Pakistan 1973 & Higher Education Commission (HEC) Ordinance, 2002 – HEC Ordinance 2002 aur HEC directives ke mutabiq koi bhi university student ke original documents (Matric/Inter certificates) apne paas nahi rakh sakti aur clearance ke baad degree ya transcript rokna qanoonan mana hai.\n🏛️ *Mutaliqa Idara:* Higher Education Commission (HEC) – Student Grievance Portal (Helpline: 051-111-119-432)\n\n👇 *Ab Website par jayein jahan aap ko 2 Options milenge:*\n1️⃣ *Online Complaint Submit (Edit & 1-Click Forward)* – Tayyar complaint edit karein aur 1-Click par HEC Pakistan ko forward karein.\n2️⃣ *Legal Guidance (Voice & Text)* – Aasaan alfaaz mein mukammal qanooni rehnumai hasil karein.\n\n🔗 *Aap ka Case Link (Case ID: HAQ-104532):*\n/assistant?caseId=HAQ-104532",
+      "voiceSummaryText": "Assalam o Alaikum. Aap ka masla Taleem aur University ke Masail (Degree / Documents) se mutaliq hai. Article 25A – Constitution of Pakistan 1973 aur Higher Education Commission (HEC) Ordinance, 2002 ke tehat aap ko mukammal qanooni tahaffuz hasil hai. Aap is maslay ki shikayat HEC Pakistan ko kar sakte hain. Hum ne aap ki formal complaint tayyar kar di hai jisay aap edit kar ke one click par mutaliqa idaray ko forward kar sakte hain.",
+      "constitutionalRights": [
+        {
+          "article": "Article 25A – Constitution of Pakistan 1973",
+          "title": "Right to Education",
+          "summary": "Har shehri ko taleem hasil karne aur apni taleemi asnaad (documents) par qanooni haq deta hai."
+        },
+        {
+          "article": "Article 4 – Constitution of Pakistan 1973",
+          "title": "Right of Individuals to be Dealt with in Accordance with Law",
+          "summary": "Koi bhi idara ya university qanooni jawaz ke baghair aap ke original documents ya degree nahi rok sakti."
+        },
+        {
+          "article": "Article 18 & Article 199 – Constitution of Pakistan 1973",
+          "title": "Freedom of Profession & High Court Writ Jurisdiction",
+          "summary": "Degree ya original asnaad rokna aap ke rozgar ke haq (Art. 18) ki khilaf warzi hai aur High Court (Art. 199) mein challenge ho sakta hai."
+        }
+      ],
+      "statutoryLaws": [
+        {
+          "law": "Higher Education Commission (HEC) Ordinance, 2002",
+          "section": "Section 10 (Powers and Functions of the Commission) & HEC Student Grievance Directives",
+          "explanation": "HEC Ordinance 2002 aur HEC directives ke mutabiq koi bhi university student ke original documents (Matric/Inter certificates) apne paas nahi rakh sakti aur clearance ke baad degree ya transcript rokna qanoonan mana hai."
+        },
+        {
+          "law": "Establishment of the Office of Wafaqi Mohtasib (Ombudsman) Order, 1983",
+          "section": "Article 9 (Jurisdiction, Functions and Powers)",
+          "explanation": "Sarkari university ya idaray ki taraf se degree ya documents dene mein bila-jawaz takheer 'Bad-Intizami' (Maladministration) hai jis par Wafaqi Mohtasib 60 din mein faisla karta hai."
+        }
+      ],
+      "nextSteps": [
+        "Sab se pehle University ke Registrar ya Controller Examinations ko تحریری (written) darkhwast dein aur uski receiving copy ya email proof mehfooz rakhein.",
+        "HEC Online Help Portal (onlinehelp.hec.gov.pk) par 'Student Grievance' ke tehat online shikayat darj karein.",
+        "Agar masla hal na ho to Wafaqi Mohtasib (mohtasib.gov.pk) ya Provincial Ombudsman ko muft online complaint bhejein.",
+        "HaqAI ke 'Online Complaint Submit (1-Click Forward)' button se apni tayyar darkhwast foran HEC aur mutaliqa idaray ko forward karein."
+      ],
+      "followUpQuestions": [
+        "Aap ki university ka naam kya hai aur yeh kis shehar mein hai?",
+        "Kya aap ne apni fees aur clearance mukammal kar li hai, aur kab se documents wapas maang rahe hain?"
+      ],
+      "recommendedAuthorities": [
+        {
+          "id": "hec",
+          "name": "Higher Education Commission (HEC) – Student Grievance Portal",
+          "shortName": "HEC Pakistan",
+          "role": "Regulator of all recognized public and private universities in Pakistan",
+          "portalUrl": "https://onlinehelp.hec.gov.pk",
+          "email": "complaints@hec.gov.pk",
+          "helpline": "051-111-119-432",
+          "address": "Sector H-9, East Service Road, Islamabad, Pakistan",
+          "turnaroundTime": "7–15 Working Days",
+          "instructions": {
+            "en": "Submit your ticket on onlinehelp.hec.gov.pk with your CNIC, Roll Number, and university clearance proof.",
+            "roman_ur": "onlinehelp.hec.gov.pk par apna CNIC, Roll Number aur university details ke sath ticket submit karein.",
+            "ur": "ایچ ای سی کے پورٹل پر اپنا شناختی کارڈ نمبر، رول نمبر اور تفصیلات کے ساتھ شکایت درج کریں۔",
+            "pa": "ایچ ای سی پورٹل اتے اپنا شناختی کارڈ تے رول نمبر لکھ کے شکایت بھیجو۔"
+          }
+        },
+        {
+          "id": "mohtasib",
+          "name": "Wafaqi Mohtasib (Federal Ombudsman) of Pakistan",
+          "shortName": "Wafaqi Mohtasib",
+          "role": "Redresses maladministration against Federal/Public universities and HEC",
+          "portalUrl": "https://www.mohtasib.gov.pk",
+          "email": "info@mohtasib.gov.pk",
+          "helpline": "1055",
+          "address": "Wafaqi Mohtasib Secretariat, 36-Constitution Avenue, G-5/2, Islamabad",
+          "turnaroundTime": "30–60 Days (Free of Cost)",
+          "instructions": {
+            "en": "File an online complaint against maladministration at mohtasib.gov.pk with zero fee.",
+            "roman_ur": "mohtasib.gov.pk par baghair kisi fee ya wakeel ke online complaint darj karein.",
+            "ur": "وفاقی محتسب کی ویب سائٹ پر بغیر کسی فیس یا وکیل کے آن لائن شکایت درج کریں۔",
+            "pa": "وفاقی محتسب دی ویب سائٹ اتے بغیر فیس توں آن لائن شکایت درج کرو۔"
+          }
+        }
+      ],
+      "primaryAuthority": {
+        "id": "hec",
+        "name": "Higher Education Commission (HEC) – Student Grievance Portal",
+        "shortName": "HEC Pakistan",
+        "role": "Regulator of all recognized public and private universities in Pakistan",
+        "portalUrl": "https://onlinehelp.hec.gov.pk",
+        "email": "complaints@hec.gov.pk",
+        "helpline": "051-111-119-432",
+        "address": "Sector H-9, East Service Road, Islamabad, Pakistan",
+        "turnaroundTime": "7–15 Working Days",
+        "instructions": {
+          "en": "Submit your ticket on onlinehelp.hec.gov.pk with your CNIC, Roll Number, and university clearance proof.",
+          "roman_ur": "onlinehelp.hec.gov.pk par apna CNIC, Roll Number aur university details ke sath ticket submit karein.",
+          "ur": "ایچ ای سی کے پورٹل پر اپنا شناختی کارڈ نمبر، رول نمبر اور تفصیلات کے ساتھ شکایت درج کریں۔",
+          "pa": "ایچ ای سی پورٹل اتے اپنا شناختی کارڈ تے رول نمبر لکھ کے شکایت بھیجو۔"
+        }
+      },
+      "generatedComplaint": {
+        "subject": "Formal Complaint Against Unlawful Withholding of Original Educational Documents / Degree – Regarding [Name of University / Degree Awarding Institute]",
+        "recipientTitle": "The Chairman / Grievance Redressal Cell, Higher Education Commission (HEC) & Wafaqi Mohtasib Secretariat, Islamabad",
+        "recipientAuthority": {
+          "id": "hec",
+          "name": "Higher Education Commission (HEC) – Student Grievance Portal",
+          "shortName": "HEC Pakistan",
+          "role": "Regulator of all recognized public and private universities in Pakistan",
+          "portalUrl": "https://onlinehelp.hec.gov.pk",
+          "email": "complaints@hec.gov.pk",
+          "helpline": "051-111-119-432",
+          "address": "Sector H-9, East Service Road, Islamabad, Pakistan",
+          "turnaroundTime": "7–15 Working Days",
+          "instructions": {
+            "en": "Submit your ticket on onlinehelp.hec.gov.pk with your CNIC, Roll Number, and university clearance proof.",
+            "roman_ur": "onlinehelp.hec.gov.pk par apna CNIC, Roll Number aur university details ke sath ticket submit karein.",
+            "ur": "ایچ ای سی کے پورٹل پر اپنا شناختی کارڈ نمبر، رول نمبر اور تفصیلات کے ساتھ شکایت درج کریں۔",
+            "pa": "ایچ ای سی پورٹل اتے اپنا شناختی کارڈ تے رول نمبر لکھ کے شکایت بھیجو۔"
+          }
+        },
+        "date": "10 November 2026",
+        "bodyText": "To,\nThe Chairman / Grievance Redressal Cell, Higher Education Commission (HEC) & Wafaqi Mohtasib Secretariat, Islamabad\nOfficial Portal: https://onlinehelp.hec.gov.pk\nDate: 10 November 2026\n\nSUBJECT: FORMAL COMPLAINT AGAINST UNLAWFUL WITHHOLDING OF ORIGINAL EDUCATIONAL DOCUMENTS / DEGREE – REGARDING [NAME OF UNIVERSITY / DEGREE AWARDING INSTITUTE]\n\nRespected Sir / Madam,\n\nI, the undersigned citizen of Pakistan, respectfully submit this formal complaint and state the facts strictly as follows:\n\n1. STATEMENT OF GRIEVANCE & FACTS:\n   - Aggrieved Citizen Statement: \"Assalam o Alaikum, meri university meri original degree aur educational documents wapas nahi kar rahi jabke meri clearance mukammal hai. Main kya kar sakta hoon?\"\n   - Concerned Institution / Respondent: [Name of University / Degree Awarding Institute]\n   - City / Jurisdiction: [Your City, e.g., Lahore / Islamabad]\n   - Relevant Date / Reference / Roll No.: [Registration / Roll No. / Reference ID] (Date: 2026-11-10)\n\n2. APPLICABLE CONSTITUTIONAL & STATUTORY LEGAL PROVISIONS:\n   Under Article 4, Article 18, and Article 25A of the Constitution of the Islamic Republic of Pakistan 1973, read with Section 10 of the Higher Education Commission Ordinance 2002 and HEC Regulatory Directives, no university is legally permitted to retain a student's original educational certificates or withhold degrees/transcripts after completion of academic and financial clearance.\n\n3. PRAYER / REQUESTED RELIEF:\n   It is respectfully requested that immediate directions be issued to the concerned university administration to release and hand over my original educational documents / degree without any further delay, and appropriate regulatory action be taken against the responsible officials for maladministration.\n\nI affirm that the facts stated above are true and accurate to the best of my knowledge. Copies of relevant supporting documents (CNIC, application receipt/clearance proof) are enclosed/attached herewith.\n\nYours faithfully,\n\nSignature: ___________________________\nFull Name: [Your Full Name]\nCNIC No.: [Your CNIC Number: XXXXX-XXXXXXX-X]\nCity / Address: [Your City, e.g., Lahore / Islamabad]\nContact Phone: +92-300-1234567\nEmail: [Your Email Address]",
+        "emailSubject": "[Formal Citizen Complaint] Formal Complaint Against Unlawful Withholding of Original Educational Documents / Degree – Regarding [Name of University / Degree Awarding Institute]",
+        "emailBody": "Dear Grievance Redressal Officer (HEC Pakistan),\n\nPlease find below my formal citizen complaint generated via HaqAI Citizen Rights Assistant for urgent statutory action:\n\n--------------------------------------------------\nTo,\nThe Chairman / Grievance Redressal Cell, Higher Education Commission (HEC) & Wafaqi Mohtasib Secretariat, Islamabad\nOfficial Portal: https://onlinehelp.hec.gov.pk\nDate: 10 November 2026\n\nSUBJECT: FORMAL COMPLAINT AGAINST UNLAWFUL WITHHOLDING OF ORIGINAL EDUCATIONAL DOCUMENTS / DEGREE – REGARDING [NAME OF UNIVERSITY / DEGREE AWARDING INSTITUTE]\n\nRespected Sir / Madam,\n\nI, the undersigned citizen of Pakistan, respectfully submit this formal complaint and state the facts strictly as follows:\n\n1. STATEMENT OF GRIEVANCE & FACTS:\n   - Aggrieved Citizen Statement: \"Assalam o Alaikum, meri university meri original degree aur educational documents wapas nahi kar rahi jabke meri clearance mukammal hai. Main kya kar sakta hoon?\"\n   - Concerned Institution / Respondent: [Name of University / Degree Awarding Institute]\n   - City / Jurisdiction: [Your City, e.g., Lahore / Islamabad]\n   - Relevant Date / Reference / Roll No.: [Registration / Roll No. / Reference ID] (Date: 2026-11-10)\n\n2. APPLICABLE CONSTITUTIONAL & STATUTORY LEGAL PROVISIONS:\n   Under Article 4, Article 18, and Article 25A of the Constitution of the Islamic Republic of Pakistan 1973, read with Section 10 of the Higher Education Commission Ordinance 2002 and HEC Regulatory Directives, no university is legally permitted to retain a student's original educational certificates or withhold degrees/transcripts after completion of academic and financial clearance.\n\n3. PRAYER / REQUESTED RELIEF:\n   It is respectfully requested that immediate directions be issued to the concerned university administration to release and hand over my original educational documents / degree without any further delay, and appropriate regulatory action be taken against the responsible officials for maladministration.\n\nI affirm that the facts stated above are true and accurate to the best of my knowledge. Copies of relevant supporting documents (CNIC, application receipt/clearance proof) are enclosed/attached herewith.\n\nYours faithfully,\n\nSignature: ___________________________\nFull Name: [Your Full Name]\nCNIC No.: [Your CNIC Number: XXXXX-XXXXXXX-X]\nCity / Address: [Your City, e.g., Lahore / Islamabad]\nContact Phone: +92-300-1234567\nEmail: [Your Email Address]\n--------------------------------------------------",
+        "categoryId": "education",
+        "facts": {
+          "rawStatement": "Assalam o Alaikum, meri university meri original degree aur educational documents wapas nahi kar rahi jabke meri clearance mukammal hai. Main kya kar sakta hoon?",
+          "applicantName": "[Your Full Name]",
+          "cnic": "[Your CNIC Number: XXXXX-XXXXXXX-X]",
+          "city": "[Your City, e.g., Lahore / Islamabad]",
+          "institutionOrRespondent": "[Name of University / Degree Awarding Institute]",
+          "dateOfIncident": "2026-11-10",
+          "referenceOrRollNo": "[Registration / Roll No. / Reference ID]",
+          "contactPhone": "+92-300-1234567",
+          "contactEmail": "[Your Email Address]"
+        }
+      },
+      "workflowSteps": [
+        {
+          "stepNumber": 1,
+          "title": "Understand Input",
+          "status": "completed",
+          "summary": "Captured whatsapp input in ROMAN_UR"
+        },
+        {
+          "stepNumber": 2,
+          "title": "Classify Issue",
+          "status": "completed",
+          "summary": "Education & University Disputes"
+        },
+        {
+          "stepNumber": 3,
+          "title": "Identify Missing Info",
+          "status": "completed",
+          "summary": "2 clarifying questions prepared"
+        },
+        {
+          "stepNumber": 4,
+          "title": "Explain Rights",
+          "status": "completed",
+          "summary": "3 Constitutional Articles & 2 Statutes verified"
+        },
+        {
+          "stepNumber": 5,
+          "title": "Recommend Solutions",
+          "status": "completed",
+          "summary": "4 actionable administrative steps mapped"
+        },
+        {
+          "stepNumber": 6,
+          "title": "Find Authority",
+          "status": "completed",
+          "summary": "HEC Pakistan (https://onlinehelp.hec.gov.pk)"
+        },
+        {
+          "stepNumber": 7,
+          "title": "Generate Complaint",
+          "status": "completed",
+          "summary": "Formal complaint drafted for HEC Pakistan"
+        },
+        {
+          "stepNumber": 8,
+          "title": "User Review & 1-Click Approval",
+          "status": "action_required",
+          "summary": "Awaiting citizen review, edit & 1-click forward approval"
+        }
+      ]
+    },
+    "HAQ-659090": {
+      "caseId": "HAQ-659090",
+      "timestamp": "2026-11-10T18:57:28.689Z",
+      "channel": "website",
+      "language": "roman_ur",
+      "userQuery": "السلام علیکم بھائی میرا استاد جو کہ چھٹی ہے کیمپس کہو میرے ساتھ زیادتی کر رہا ہے اس نے میرے دوست کی بھی دو ٹانگیں توڑ دی ہیں اب تک وہ نابینا ہو چکا ہے ڈی سی بی لگ چکی ہے اسے اس کو اوسکے ہٹا دیا گیا ہے کیا کرنا چاہیے",
+      "categoryId": "government",
+      "categoryTitle": "Sarkari Idaray, NADRA, Passport aur Bills ki Shikayat",
+      "replyText": "Assalam-o-Alaikum! Main ne aap ka masla samajh liya hai. Yeh **Sarkari Idaray, NADRA, Passport aur Bills ki Shikayat** ke zumray mein aata hai.\n\n### ⚖️ Aap ke Qanooni aur Aaeeni Haqooq:\n- **Article 4 & Article 25 – Constitution of Pakistan 1973 (Lawful Treatment & Equality of Citizens):** Har shehri ka haq hai ke sarkari idaray qanoon ke mutabiq waqt par aur baghair kisi rishwat ya ta'assub ke kaam karein.\n- **Article 19A – Constitution of Pakistan 1973 (Right to Information):** Aap ko haq hasil hai ke aap apni darkhwast ya file ki status aur sarkari faislon ki maloomat hasil karein.\n\n### 📜 Laago Qanoon (Pakistani Law):\n- **Establishment of the Office of Wafaqi Mohtasib (Ombudsman) Order, 1983 (Article 9 (Maladministration by Federal Agencies)):** NADRA, Passport, Bijli/Gas companies aur tamam wafaqi idaron ki sust-rawi, ghalat billing ya na-insafi ke khilaf Wafaqi Mohtasib muft sunwai karta hai.\n\n### 🏛️ Mutaliqa Idara (Relevant Authority):\n- **Wafaqi Mohtasib (Federal Ombudsman) Secretariat**\n- Official Portal: https://www.mohtasib.gov.pk\n- Helpline: 1055\n\n### ✅ Aap ke paas 2 Aasaan Options hain:\n1. **Option 1 – Online Complaint Submit Karein (Edit & 1-Click Forward):** Hum ne aap ki formal complaint tayyar kar di hai. Aap usay check/edit kar ke **1-Click** mein seedha **Wafaqi Mohtasib** ko forward kar sakte hain.\n2. **Option 2 – Mukammal Legal Guidance Lein:** Aap neeche diye gaye steps parh/sun sakte hain aur mujh se mazeed sawal pooch sakte hain.",
+      "whatsappReplyText": "🇵🇰 *HaqAI – Citizen Rights Assistant*\n\nAssalam-o-Alaikum! Hum ne aap ka پیغام / voice note sun liya hai.\n\n📌 *Maslay ki Qisam:* Sarkari Idaray, NADRA, Passport aur Bills ki Shikayat\n⚖️ *Qanooni Haq:* Article 4 & Article 25 – Constitution of Pakistan 1973 & Establishment of the Office of Wafaqi Mohtasib (Ombudsman) Order, 1983 – NADRA, Passport, Bijli/Gas companies aur tamam wafaqi idaron ki sust-rawi, ghalat billing ya na-insafi ke khilaf Wafaqi Mohtasib muft sunwai karta hai.\n🏛️ *Mutaliqa Idara:* Wafaqi Mohtasib (Federal Ombudsman) Secretariat (Helpline: 1055)\n\n👇 *Ab Website par jayein jahan aap ko 2 Options milenge:*\n1️⃣ *Online Complaint Submit (Edit & 1-Click Forward)* – Tayyar complaint edit karein aur 1-Click par Wafaqi Mohtasib ko forward karein.\n2️⃣ *Legal Guidance (Voice & Text)* – Aasaan alfaaz mein mukammal qanooni rehnumai hasil karein.\n\n🔗 *Aap ka Case Link (Case ID: HAQ-659090):*\n/assistant?caseId=HAQ-659090",
+      "voiceSummaryText": "Assalam o Alaikum. Aap ka masla Sarkari Idaray, NADRA, Passport aur Bills ki Shikayat se mutaliq hai. Article 4 & Article 25 – Constitution of Pakistan 1973 aur Establishment of the Office of Wafaqi Mohtasib (Ombudsman) Order, 1983 ke tehat aap ko mukammal qanooni tahaffuz hasil hai. Aap is maslay ki shikayat Wafaqi Mohtasib ko kar sakte hain. Hum ne aap ki formal complaint tayyar kar di hai jisay aap edit kar ke one click par mutaliqa idaray ko forward kar sakte hain.",
+      "constitutionalRights": [
+        {
+          "article": "Article 4 & Article 25 – Constitution of Pakistan 1973",
+          "title": "Lawful Treatment & Equality of Citizens",
+          "summary": "Har shehri ka haq hai ke sarkari idaray qanoon ke mutabiq waqt par aur baghair kisi rishwat ya ta'assub ke kaam karein."
+        },
+        {
+          "article": "Article 19A – Constitution of Pakistan 1973",
+          "title": "Right to Information",
+          "summary": "Aap ko haq hasil hai ke aap apni darkhwast ya file ki status aur sarkari faislon ki maloomat hasil karein."
+        }
+      ],
+      "statutoryLaws": [
+        {
+          "law": "Establishment of the Office of Wafaqi Mohtasib (Ombudsman) Order, 1983",
+          "section": "Article 9 (Maladministration by Federal Agencies)",
+          "explanation": "NADRA, Passport, Bijli/Gas companies aur tamam wafaqi idaron ki sust-rawi, ghalat billing ya na-insafi ke khilaf Wafaqi Mohtasib muft sunwai karta hai."
+        }
+      ],
+      "nextSteps": [
+        "Mutaliqa idaray mein shikayat kar ke token ya tracking number نوٹ karein.",
+        "Wafaqi Mohtasib (mohtasib.gov.pk) ya Pakistan Citizen Portal (citizenportal.gov.pk) par apni complaint bhejein.",
+        "Apنے CNIC aur bill/receipt number ke sath HaqAI se 1-Click Complaint forward karein."
+      ],
+      "followUpQuestions": [
+        "Aap ki shikayat kis sarkari idaray ke khilaf hai (maslan NADRA, Passport, Bijli/Gas)?",
+        "Kya aap ke paas tracking ID ya bill reference number maujood hai?"
+      ],
+      "recommendedAuthorities": [
+        {
+          "id": "mohtasib_gov",
+          "name": "Wafaqi Mohtasib (Federal Ombudsman) Secretariat",
+          "shortName": "Wafaqi Mohtasib",
+          "role": "Investigates maladministration in NADRA, Passports, Electricity, Gas, and Federal Ministries",
+          "portalUrl": "https://www.mohtasib.gov.pk",
+          "email": "info@mohtasib.gov.pk",
+          "helpline": "1055",
+          "address": "36-Constitution Avenue, G-5/2, Islamabad",
+          "turnaroundTime": "30–60 Days",
+          "instructions": {
+            "en": "Submit your complaint online at mohtasib.gov.pk or call helpline 1055.",
+            "roman_ur": "mohtasib.gov.pk par online complaint bhejein ya 1055 par rabta karein.",
+            "ur": "وفاقی محتسب کی ویب سائٹ پر شکایت درج کریں یا ہیلپ لائن 1055 پر کال کریں۔",
+            "pa": "وفاقی محتسب دی ویب سائٹ یا 1055 ہیلپ لائن تے رابطہ کرو۔"
+          }
+        },
+        {
+          "id": "citizen_portal",
+          "name": "Prime Minister's Performance Delivery Unit – Pakistan Citizen Portal",
+          "shortName": "Pakistan Citizen Portal",
+          "role": "Unified Federal & Provincial citizen grievance redressal system",
+          "portalUrl": "https://citizenportal.gov.pk",
+          "email": "support@pmdu.gov.pk",
+          "helpline": "051-9000111",
+          "address": "PM Office, Constitution Avenue, Islamabad",
+          "turnaroundTime": "14–21 Days",
+          "instructions": {
+            "en": "Lodge your complaint through citizenportal.gov.pk for direct routing to the Secretary/Head of Department.",
+            "roman_ur": "citizenportal.gov.pk ke zariye apni shikayat seedha mutaliqa idaray ke sarbarah tak pohanchayein.",
+            "ur": "پاکستان سٹیزن پورٹل کے ذریعے اپنی شکایت براہِ راست متعلقہ محکمے تک پہنچائیں۔",
+            "pa": "سٹیزن پورٹل راہیں اپنی شکایت سدھی متعلقہ محکمے نوں بھیجو۔"
+          }
+        }
+      ],
+      "primaryAuthority": {
+        "id": "mohtasib_gov",
+        "name": "Wafaqi Mohtasib (Federal Ombudsman) Secretariat",
+        "shortName": "Wafaqi Mohtasib",
+        "role": "Investigates maladministration in NADRA, Passports, Electricity, Gas, and Federal Ministries",
+        "portalUrl": "https://www.mohtasib.gov.pk",
+        "email": "info@mohtasib.gov.pk",
+        "helpline": "1055",
+        "address": "36-Constitution Avenue, G-5/2, Islamabad",
+        "turnaroundTime": "30–60 Days",
+        "instructions": {
+          "en": "Submit your complaint online at mohtasib.gov.pk or call helpline 1055.",
+          "roman_ur": "mohtasib.gov.pk par online complaint bhejein ya 1055 par rabta karein.",
+          "ur": "وفاقی محتسب کی ویب سائٹ پر شکایت درج کریں یا ہیلپ لائن 1055 پر کال کریں۔",
+          "pa": "وفاقی محتسب دی ویب سائٹ یا 1055 ہیلپ لائن تے رابطہ کرو۔"
+        }
+      },
+      "generatedComplaint": {
+        "subject": "Complaint Against Maladministration and Unjustified Delay in Public Service Delivery – Regarding [Name of Concerned University / Department / Authority]",
+        "recipientTitle": "The Honourable Wafaqi Mohtasib (Federal Ombudsman), Islamabad",
+        "recipientAuthority": {
+          "id": "mohtasib_gov",
+          "name": "Wafaqi Mohtasib (Federal Ombudsman) Secretariat",
+          "shortName": "Wafaqi Mohtasib",
+          "role": "Investigates maladministration in NADRA, Passports, Electricity, Gas, and Federal Ministries",
+          "portalUrl": "https://www.mohtasib.gov.pk",
+          "email": "info@mohtasib.gov.pk",
+          "helpline": "1055",
+          "address": "36-Constitution Avenue, G-5/2, Islamabad",
+          "turnaroundTime": "30–60 Days",
+          "instructions": {
+            "en": "Submit your complaint online at mohtasib.gov.pk or call helpline 1055.",
+            "roman_ur": "mohtasib.gov.pk par online complaint bhejein ya 1055 par rabta karein.",
+            "ur": "وفاقی محتسب کی ویب سائٹ پر شکایت درج کریں یا ہیلپ لائن 1055 پر کال کریں۔",
+            "pa": "وفاقی محتسب دی ویب سائٹ یا 1055 ہیلپ لائن تے رابطہ کرو۔"
+          }
+        },
+        "date": "10 November 2026",
+        "bodyText": "To,\nThe Honourable Wafaqi Mohtasib (Federal Ombudsman), Islamabad\nOfficial Portal: https://www.mohtasib.gov.pk\nDate: 10 November 2026\n\nSUBJECT: COMPLAINT AGAINST MALADMINISTRATION AND UNJUSTIFIED DELAY IN PUBLIC SERVICE DELIVERY – REGARDING [NAME OF CONCERNED UNIVERSITY / DEPARTMENT / AUTHORITY]\n\nRespected Sir / Madam,\n\nI, the undersigned citizen of Pakistan, respectfully submit this formal complaint and state the facts strictly as follows:\n\n1. STATEMENT OF GRIEVANCE & FACTS:\n   - Aggrieved Citizen Statement: \"السلام علیکم بھائی میرا استاد جو کہ چھٹی ہے کیمپس کہو میرے ساتھ زیادتی کر رہا ہے اس نے میرے دوست کی بھی دو ٹانگیں توڑ دی ہیں اب تک وہ نابینا ہو چکا ہے ڈی سی بی لگ چکی ہے اسے اس کو اوسکے ہٹا دیا گیا ہے کیا کرنا چاہیے\"\n   - Concerned Institution / Respondent: [Name of Concerned University / Department / Authority]\n   - City / Jurisdiction: [Your City, e.g., Lahore / Islamabad]\n   - Relevant Date / Reference / Roll No.: [Registration / Roll No. / Reference ID] (Date: 2026-11-10)\n\n2. APPLICABLE CONSTITUTIONAL & STATUTORY LEGAL PROVISIONS:\n   Under Article 4, Article 19A, and Article 25 of the Constitution of Pakistan 1973, read with Article 9 of the Establishment of the Office of Wafaqi Mohtasib (Ombudsman) Order 1983, arbitrary delay, neglect, and refusal to provide lawful public services constitute actionable maladministration.\n\n3. PRAYER / REQUESTED RELIEF:\n   It is respectfully requested that the concerned department be directed to resolve my pending grievance immediately in accordance with law and provide written compliance.\n\nI affirm that the facts stated above are true and accurate to the best of my knowledge. Copies of relevant supporting documents (CNIC, application receipt/clearance proof) are enclosed/attached herewith.\n\nYours faithfully,\n\nSignature: ___________________________\nFull Name: [Your Full Name]\nCNIC No.: [Your CNIC Number: XXXXX-XXXXXXX-X]\nCity / Address: [Your City, e.g., Lahore / Islamabad]\nContact Phone: [Your Mobile Number: 03XX-XXXXXXX]\nEmail: [Your Email Address]",
+        "emailSubject": "[Formal Citizen Complaint] Complaint Against Maladministration and Unjustified Delay in Public Service Delivery – Regarding [Name of Concerned University / Department / Authority]",
+        "emailBody": "Dear Grievance Redressal Officer (Wafaqi Mohtasib),\n\nPlease find below my formal citizen complaint generated via HaqAI Citizen Rights Assistant for urgent statutory action:\n\n--------------------------------------------------\nTo,\nThe Honourable Wafaqi Mohtasib (Federal Ombudsman), Islamabad\nOfficial Portal: https://www.mohtasib.gov.pk\nDate: 10 November 2026\n\nSUBJECT: COMPLAINT AGAINST MALADMINISTRATION AND UNJUSTIFIED DELAY IN PUBLIC SERVICE DELIVERY – REGARDING [NAME OF CONCERNED UNIVERSITY / DEPARTMENT / AUTHORITY]\n\nRespected Sir / Madam,\n\nI, the undersigned citizen of Pakistan, respectfully submit this formal complaint and state the facts strictly as follows:\n\n1. STATEMENT OF GRIEVANCE & FACTS:\n   - Aggrieved Citizen Statement: \"السلام علیکم بھائی میرا استاد جو کہ چھٹی ہے کیمپس کہو میرے ساتھ زیادتی کر رہا ہے اس نے میرے دوست کی بھی دو ٹانگیں توڑ دی ہیں اب تک وہ نابینا ہو چکا ہے ڈی سی بی لگ چکی ہے اسے اس کو اوسکے ہٹا دیا گیا ہے کیا کرنا چاہیے\"\n   - Concerned Institution / Respondent: [Name of Concerned University / Department / Authority]\n   - City / Jurisdiction: [Your City, e.g., Lahore / Islamabad]\n   - Relevant Date / Reference / Roll No.: [Registration / Roll No. / Reference ID] (Date: 2026-11-10)\n\n2. APPLICABLE CONSTITUTIONAL & STATUTORY LEGAL PROVISIONS:\n   Under Article 4, Article 19A, and Article 25 of the Constitution of Pakistan 1973, read with Article 9 of the Establishment of the Office of Wafaqi Mohtasib (Ombudsman) Order 1983, arbitrary delay, neglect, and refusal to provide lawful public services constitute actionable maladministration.\n\n3. PRAYER / REQUESTED RELIEF:\n   It is respectfully requested that the concerned department be directed to resolve my pending grievance immediately in accordance with law and provide written compliance.\n\nI affirm that the facts stated above are true and accurate to the best of my knowledge. Copies of relevant supporting documents (CNIC, application receipt/clearance proof) are enclosed/attached herewith.\n\nYours faithfully,\n\nSignature: ___________________________\nFull Name: [Your Full Name]\nCNIC No.: [Your CNIC Number: XXXXX-XXXXXXX-X]\nCity / Address: [Your City, e.g., Lahore / Islamabad]\nContact Phone: [Your Mobile Number: 03XX-XXXXXXX]\nEmail: [Your Email Address]\n--------------------------------------------------",
+        "categoryId": "government",
+        "facts": {
+          "rawStatement": "السلام علیکم بھائی میرا استاد جو کہ چھٹی ہے کیمپس کہو میرے ساتھ زیادتی کر رہا ہے اس نے میرے دوست کی بھی دو ٹانگیں توڑ دی ہیں اب تک وہ نابینا ہو چکا ہے ڈی سی بی لگ چکی ہے اسے اس کو اوسکے ہٹا دیا گیا ہے کیا کرنا چاہیے",
+          "applicantName": "[Your Full Name]",
+          "cnic": "[Your CNIC Number: XXXXX-XXXXXXX-X]",
+          "city": "[Your City, e.g., Lahore / Islamabad]",
+          "institutionOrRespondent": "[Name of Concerned University / Department / Authority]",
+          "dateOfIncident": "2026-11-10",
+          "referenceOrRollNo": "[Registration / Roll No. / Reference ID]",
+          "contactPhone": "[Your Mobile Number: 03XX-XXXXXXX]",
+          "contactEmail": "[Your Email Address]"
+        }
+      },
+      "workflowSteps": [
+        {
+          "stepNumber": 1,
+          "title": "Understand Input",
+          "status": "completed",
+          "summary": "Captured website input in ROMAN_UR"
+        },
+        {
+          "stepNumber": 2,
+          "title": "Classify Issue",
+          "status": "completed",
+          "summary": "Government Services & Public Utilities"
+        },
+        {
+          "stepNumber": 3,
+          "title": "Identify Missing Info",
+          "status": "completed",
+          "summary": "2 clarifying questions prepared"
+        },
+        {
+          "stepNumber": 4,
+          "title": "Explain Rights",
+          "status": "completed",
+          "summary": "2 Constitutional Articles & 1 Statutes verified"
+        },
+        {
+          "stepNumber": 5,
+          "title": "Recommend Solutions",
+          "status": "completed",
+          "summary": "3 actionable administrative steps mapped"
+        },
+        {
+          "stepNumber": 6,
+          "title": "Find Authority",
+          "status": "completed",
+          "summary": "Wafaqi Mohtasib (https://www.mohtasib.gov.pk)"
+        },
+        {
+          "stepNumber": 7,
+          "title": "Generate Complaint",
+          "status": "completed",
+          "summary": "Formal complaint drafted for Wafaqi Mohtasib"
+        },
+        {
+          "stepNumber": 8,
+          "title": "User Review & 1-Click Approval",
+          "status": "action_required",
+          "summary": "Awaiting citizen review, edit & 1-click forward approval"
+        }
+      ]
+    },
+    "HAQ-545708": {
+      "caseId": "HAQ-545708",
+      "timestamp": "2026-11-10T18:57:31.630Z",
+      "channel": "website",
+      "language": "roman_ur",
+      "userQuery": "السلام علیکم بھائی میرا استاد جو کہ چھٹی ہے کیمپس کہو میرے ساتھ زیادتی کر رہا ہے اس نے میرے دوست کی بھی دو ٹانگیں توڑ دی ہیں اب تک وہ نابینا ہو چکا ہے ڈی سی بی لگ چکی ہے اسے اس کو اوسکے ہٹا دیا گیا ہے کیا کرنا چاہیے",
+      "categoryId": "government",
+      "categoryTitle": "Sarkari Idaray, NADRA, Passport aur Bills ki Shikayat",
+      "replyText": "Assalam-o-Alaikum! Main ne aap ka masla samajh liya hai. Yeh **Sarkari Idaray, NADRA, Passport aur Bills ki Shikayat** ke zumray mein aata hai.\n\n### ⚖️ Aap ke Qanooni aur Aaeeni Haqooq:\n- **Article 4 & Article 25 – Constitution of Pakistan 1973 (Lawful Treatment & Equality of Citizens):** Har shehri ka haq hai ke sarkari idaray qanoon ke mutabiq waqt par aur baghair kisi rishwat ya ta'assub ke kaam karein.\n- **Article 19A – Constitution of Pakistan 1973 (Right to Information):** Aap ko haq hasil hai ke aap apni darkhwast ya file ki status aur sarkari faislon ki maloomat hasil karein.\n\n### 📜 Laago Qanoon (Pakistani Law):\n- **Establishment of the Office of Wafaqi Mohtasib (Ombudsman) Order, 1983 (Article 9 (Maladministration by Federal Agencies)):** NADRA, Passport, Bijli/Gas companies aur tamam wafaqi idaron ki sust-rawi, ghalat billing ya na-insafi ke khilaf Wafaqi Mohtasib muft sunwai karta hai.\n\n### 🏛️ Mutaliqa Idara (Relevant Authority):\n- **Wafaqi Mohtasib (Federal Ombudsman) Secretariat**\n- Official Portal: https://www.mohtasib.gov.pk\n- Helpline: 1055\n\n### ✅ Aap ke paas 2 Aasaan Options hain:\n1. **Option 1 – Online Complaint Submit Karein (Edit & 1-Click Forward):** Hum ne aap ki formal complaint tayyar kar di hai. Aap usay check/edit kar ke **1-Click** mein seedha **Wafaqi Mohtasib** ko forward kar sakte hain.\n2. **Option 2 – Mukammal Legal Guidance Lein:** Aap neeche diye gaye steps parh/sun sakte hain aur mujh se mazeed sawal pooch sakte hain.",
+      "whatsappReplyText": "🇵🇰 *HaqAI – Citizen Rights Assistant*\n\nAssalam-o-Alaikum! Hum ne aap ka پیغام / voice note sun liya hai.\n\n📌 *Maslay ki Qisam:* Sarkari Idaray, NADRA, Passport aur Bills ki Shikayat\n⚖️ *Qanooni Haq:* Article 4 & Article 25 – Constitution of Pakistan 1973 & Establishment of the Office of Wafaqi Mohtasib (Ombudsman) Order, 1983 – NADRA, Passport, Bijli/Gas companies aur tamam wafaqi idaron ki sust-rawi, ghalat billing ya na-insafi ke khilaf Wafaqi Mohtasib muft sunwai karta hai.\n🏛️ *Mutaliqa Idara:* Wafaqi Mohtasib (Federal Ombudsman) Secretariat (Helpline: 1055)\n\n👇 *Ab Website par jayein jahan aap ko 2 Options milenge:*\n1️⃣ *Online Complaint Submit (Edit & 1-Click Forward)* – Tayyar complaint edit karein aur 1-Click par Wafaqi Mohtasib ko forward karein.\n2️⃣ *Legal Guidance (Voice & Text)* – Aasaan alfaaz mein mukammal qanooni rehnumai hasil karein.\n\n🔗 *Aap ka Case Link (Case ID: HAQ-545708):*\n/assistant?caseId=HAQ-545708",
+      "voiceSummaryText": "Assalam o Alaikum. Aap ka masla Sarkari Idaray, NADRA, Passport aur Bills ki Shikayat se mutaliq hai. Article 4 & Article 25 – Constitution of Pakistan 1973 aur Establishment of the Office of Wafaqi Mohtasib (Ombudsman) Order, 1983 ke tehat aap ko mukammal qanooni tahaffuz hasil hai. Aap is maslay ki shikayat Wafaqi Mohtasib ko kar sakte hain. Hum ne aap ki formal complaint tayyar kar di hai jisay aap edit kar ke one click par mutaliqa idaray ko forward kar sakte hain.",
+      "constitutionalRights": [
+        {
+          "article": "Article 4 & Article 25 – Constitution of Pakistan 1973",
+          "title": "Lawful Treatment & Equality of Citizens",
+          "summary": "Har shehri ka haq hai ke sarkari idaray qanoon ke mutabiq waqt par aur baghair kisi rishwat ya ta'assub ke kaam karein."
+        },
+        {
+          "article": "Article 19A – Constitution of Pakistan 1973",
+          "title": "Right to Information",
+          "summary": "Aap ko haq hasil hai ke aap apni darkhwast ya file ki status aur sarkari faislon ki maloomat hasil karein."
+        }
+      ],
+      "statutoryLaws": [
+        {
+          "law": "Establishment of the Office of Wafaqi Mohtasib (Ombudsman) Order, 1983",
+          "section": "Article 9 (Maladministration by Federal Agencies)",
+          "explanation": "NADRA, Passport, Bijli/Gas companies aur tamam wafaqi idaron ki sust-rawi, ghalat billing ya na-insafi ke khilaf Wafaqi Mohtasib muft sunwai karta hai."
+        }
+      ],
+      "nextSteps": [
+        "Mutaliqa idaray mein shikayat kar ke token ya tracking number نوٹ karein.",
+        "Wafaqi Mohtasib (mohtasib.gov.pk) ya Pakistan Citizen Portal (citizenportal.gov.pk) par apni complaint bhejein.",
+        "Apنے CNIC aur bill/receipt number ke sath HaqAI se 1-Click Complaint forward karein."
+      ],
+      "followUpQuestions": [
+        "Aap ki shikayat kis sarkari idaray ke khilaf hai (maslan NADRA, Passport, Bijli/Gas)?",
+        "Kya aap ke paas tracking ID ya bill reference number maujood hai?"
+      ],
+      "recommendedAuthorities": [
+        {
+          "id": "mohtasib_gov",
+          "name": "Wafaqi Mohtasib (Federal Ombudsman) Secretariat",
+          "shortName": "Wafaqi Mohtasib",
+          "role": "Investigates maladministration in NADRA, Passports, Electricity, Gas, and Federal Ministries",
+          "portalUrl": "https://www.mohtasib.gov.pk",
+          "email": "info@mohtasib.gov.pk",
+          "helpline": "1055",
+          "address": "36-Constitution Avenue, G-5/2, Islamabad",
+          "turnaroundTime": "30–60 Days",
+          "instructions": {
+            "en": "Submit your complaint online at mohtasib.gov.pk or call helpline 1055.",
+            "roman_ur": "mohtasib.gov.pk par online complaint bhejein ya 1055 par rabta karein.",
+            "ur": "وفاقی محتسب کی ویب سائٹ پر شکایت درج کریں یا ہیلپ لائن 1055 پر کال کریں۔",
+            "pa": "وفاقی محتسب دی ویب سائٹ یا 1055 ہیلپ لائن تے رابطہ کرو۔"
+          }
+        },
+        {
+          "id": "citizen_portal",
+          "name": "Prime Minister's Performance Delivery Unit – Pakistan Citizen Portal",
+          "shortName": "Pakistan Citizen Portal",
+          "role": "Unified Federal & Provincial citizen grievance redressal system",
+          "portalUrl": "https://citizenportal.gov.pk",
+          "email": "support@pmdu.gov.pk",
+          "helpline": "051-9000111",
+          "address": "PM Office, Constitution Avenue, Islamabad",
+          "turnaroundTime": "14–21 Days",
+          "instructions": {
+            "en": "Lodge your complaint through citizenportal.gov.pk for direct routing to the Secretary/Head of Department.",
+            "roman_ur": "citizenportal.gov.pk ke zariye apni shikayat seedha mutaliqa idaray ke sarbarah tak pohanchayein.",
+            "ur": "پاکستان سٹیزن پورٹل کے ذریعے اپنی شکایت براہِ راست متعلقہ محکمے تک پہنچائیں۔",
+            "pa": "سٹیزن پورٹل راہیں اپنی شکایت سدھی متعلقہ محکمے نوں بھیجو۔"
+          }
+        }
+      ],
+      "primaryAuthority": {
+        "id": "mohtasib_gov",
+        "name": "Wafaqi Mohtasib (Federal Ombudsman) Secretariat",
+        "shortName": "Wafaqi Mohtasib",
+        "role": "Investigates maladministration in NADRA, Passports, Electricity, Gas, and Federal Ministries",
+        "portalUrl": "https://www.mohtasib.gov.pk",
+        "email": "info@mohtasib.gov.pk",
+        "helpline": "1055",
+        "address": "36-Constitution Avenue, G-5/2, Islamabad",
+        "turnaroundTime": "30–60 Days",
+        "instructions": {
+          "en": "Submit your complaint online at mohtasib.gov.pk or call helpline 1055.",
+          "roman_ur": "mohtasib.gov.pk par online complaint bhejein ya 1055 par rabta karein.",
+          "ur": "وفاقی محتسب کی ویب سائٹ پر شکایت درج کریں یا ہیلپ لائن 1055 پر کال کریں۔",
+          "pa": "وفاقی محتسب دی ویب سائٹ یا 1055 ہیلپ لائن تے رابطہ کرو۔"
+        }
+      },
+      "generatedComplaint": {
+        "subject": "Complaint Against Maladministration and Unjustified Delay in Public Service Delivery – Regarding [Name of Concerned University / Department / Authority]",
+        "recipientTitle": "The Honourable Wafaqi Mohtasib (Federal Ombudsman), Islamabad",
+        "recipientAuthority": {
+          "id": "mohtasib_gov",
+          "name": "Wafaqi Mohtasib (Federal Ombudsman) Secretariat",
+          "shortName": "Wafaqi Mohtasib",
+          "role": "Investigates maladministration in NADRA, Passports, Electricity, Gas, and Federal Ministries",
+          "portalUrl": "https://www.mohtasib.gov.pk",
+          "email": "info@mohtasib.gov.pk",
+          "helpline": "1055",
+          "address": "36-Constitution Avenue, G-5/2, Islamabad",
+          "turnaroundTime": "30–60 Days",
+          "instructions": {
+            "en": "Submit your complaint online at mohtasib.gov.pk or call helpline 1055.",
+            "roman_ur": "mohtasib.gov.pk par online complaint bhejein ya 1055 par rabta karein.",
+            "ur": "وفاقی محتسب کی ویب سائٹ پر شکایت درج کریں یا ہیلپ لائن 1055 پر کال کریں۔",
+            "pa": "وفاقی محتسب دی ویب سائٹ یا 1055 ہیلپ لائن تے رابطہ کرو۔"
+          }
+        },
+        "date": "10 November 2026",
+        "bodyText": "To,\nThe Honourable Wafaqi Mohtasib (Federal Ombudsman), Islamabad\nOfficial Portal: https://www.mohtasib.gov.pk\nDate: 10 November 2026\n\nSUBJECT: COMPLAINT AGAINST MALADMINISTRATION AND UNJUSTIFIED DELAY IN PUBLIC SERVICE DELIVERY – REGARDING [NAME OF CONCERNED UNIVERSITY / DEPARTMENT / AUTHORITY]\n\nRespected Sir / Madam,\n\nI, the undersigned citizen of Pakistan, respectfully submit this formal complaint and state the facts strictly as follows:\n\n1. STATEMENT OF GRIEVANCE & FACTS:\n   - Aggrieved Citizen Statement: \"السلام علیکم بھائی میرا استاد جو کہ چھٹی ہے کیمپس کہو میرے ساتھ زیادتی کر رہا ہے اس نے میرے دوست کی بھی دو ٹانگیں توڑ دی ہیں اب تک وہ نابینا ہو چکا ہے ڈی سی بی لگ چکی ہے اسے اس کو اوسکے ہٹا دیا گیا ہے کیا کرنا چاہیے\"\n   - Concerned Institution / Respondent: [Name of Concerned University / Department / Authority]\n   - City / Jurisdiction: [Your City, e.g., Lahore / Islamabad]\n   - Relevant Date / Reference / Roll No.: [Registration / Roll No. / Reference ID] (Date: 2026-11-10)\n\n2. APPLICABLE CONSTITUTIONAL & STATUTORY LEGAL PROVISIONS:\n   Under Article 4, Article 19A, and Article 25 of the Constitution of Pakistan 1973, read with Article 9 of the Establishment of the Office of Wafaqi Mohtasib (Ombudsman) Order 1983, arbitrary delay, neglect, and refusal to provide lawful public services constitute actionable maladministration.\n\n3. PRAYER / REQUESTED RELIEF:\n   It is respectfully requested that the concerned department be directed to resolve my pending grievance immediately in accordance with law and provide written compliance.\n\nI affirm that the facts stated above are true and accurate to the best of my knowledge. Copies of relevant supporting documents (CNIC, application receipt/clearance proof) are enclosed/attached herewith.\n\nYours faithfully,\n\nSignature: ___________________________\nFull Name: [Your Full Name]\nCNIC No.: [Your CNIC Number: XXXXX-XXXXXXX-X]\nCity / Address: [Your City, e.g., Lahore / Islamabad]\nContact Phone: [Your Mobile Number: 03XX-XXXXXXX]\nEmail: [Your Email Address]",
+        "emailSubject": "[Formal Citizen Complaint] Complaint Against Maladministration and Unjustified Delay in Public Service Delivery – Regarding [Name of Concerned University / Department / Authority]",
+        "emailBody": "Dear Grievance Redressal Officer (Wafaqi Mohtasib),\n\nPlease find below my formal citizen complaint generated via HaqAI Citizen Rights Assistant for urgent statutory action:\n\n--------------------------------------------------\nTo,\nThe Honourable Wafaqi Mohtasib (Federal Ombudsman), Islamabad\nOfficial Portal: https://www.mohtasib.gov.pk\nDate: 10 November 2026\n\nSUBJECT: COMPLAINT AGAINST MALADMINISTRATION AND UNJUSTIFIED DELAY IN PUBLIC SERVICE DELIVERY – REGARDING [NAME OF CONCERNED UNIVERSITY / DEPARTMENT / AUTHORITY]\n\nRespected Sir / Madam,\n\nI, the undersigned citizen of Pakistan, respectfully submit this formal complaint and state the facts strictly as follows:\n\n1. STATEMENT OF GRIEVANCE & FACTS:\n   - Aggrieved Citizen Statement: \"السلام علیکم بھائی میرا استاد جو کہ چھٹی ہے کیمپس کہو میرے ساتھ زیادتی کر رہا ہے اس نے میرے دوست کی بھی دو ٹانگیں توڑ دی ہیں اب تک وہ نابینا ہو چکا ہے ڈی سی بی لگ چکی ہے اسے اس کو اوسکے ہٹا دیا گیا ہے کیا کرنا چاہیے\"\n   - Concerned Institution / Respondent: [Name of Concerned University / Department / Authority]\n   - City / Jurisdiction: [Your City, e.g., Lahore / Islamabad]\n   - Relevant Date / Reference / Roll No.: [Registration / Roll No. / Reference ID] (Date: 2026-11-10)\n\n2. APPLICABLE CONSTITUTIONAL & STATUTORY LEGAL PROVISIONS:\n   Under Article 4, Article 19A, and Article 25 of the Constitution of Pakistan 1973, read with Article 9 of the Establishment of the Office of Wafaqi Mohtasib (Ombudsman) Order 1983, arbitrary delay, neglect, and refusal to provide lawful public services constitute actionable maladministration.\n\n3. PRAYER / REQUESTED RELIEF:\n   It is respectfully requested that the concerned department be directed to resolve my pending grievance immediately in accordance with law and provide written compliance.\n\nI affirm that the facts stated above are true and accurate to the best of my knowledge. Copies of relevant supporting documents (CNIC, application receipt/clearance proof) are enclosed/attached herewith.\n\nYours faithfully,\n\nSignature: ___________________________\nFull Name: [Your Full Name]\nCNIC No.: [Your CNIC Number: XXXXX-XXXXXXX-X]\nCity / Address: [Your City, e.g., Lahore / Islamabad]\nContact Phone: [Your Mobile Number: 03XX-XXXXXXX]\nEmail: [Your Email Address]\n--------------------------------------------------",
+        "categoryId": "government",
+        "facts": {
+          "rawStatement": "السلام علیکم بھائی میرا استاد جو کہ چھٹی ہے کیمپس کہو میرے ساتھ زیادتی کر رہا ہے اس نے میرے دوست کی بھی دو ٹانگیں توڑ دی ہیں اب تک وہ نابینا ہو چکا ہے ڈی سی بی لگ چکی ہے اسے اس کو اوسکے ہٹا دیا گیا ہے کیا کرنا چاہیے",
+          "applicantName": "[Your Full Name]",
+          "cnic": "[Your CNIC Number: XXXXX-XXXXXXX-X]",
+          "city": "[Your City, e.g., Lahore / Islamabad]",
+          "institutionOrRespondent": "[Name of Concerned University / Department / Authority]",
+          "dateOfIncident": "2026-11-10",
+          "referenceOrRollNo": "[Registration / Roll No. / Reference ID]",
+          "contactPhone": "[Your Mobile Number: 03XX-XXXXXXX]",
+          "contactEmail": "[Your Email Address]"
+        }
+      },
+      "workflowSteps": [
+        {
+          "stepNumber": 1,
+          "title": "Understand Input",
+          "status": "completed",
+          "summary": "Captured website input in ROMAN_UR"
+        },
+        {
+          "stepNumber": 2,
+          "title": "Classify Issue",
+          "status": "completed",
+          "summary": "Government Services & Public Utilities"
+        },
+        {
+          "stepNumber": 3,
+          "title": "Identify Missing Info",
+          "status": "completed",
+          "summary": "2 clarifying questions prepared"
+        },
+        {
+          "stepNumber": 4,
+          "title": "Explain Rights",
+          "status": "completed",
+          "summary": "2 Constitutional Articles & 1 Statutes verified"
+        },
+        {
+          "stepNumber": 5,
+          "title": "Recommend Solutions",
+          "status": "completed",
+          "summary": "3 actionable administrative steps mapped"
+        },
+        {
+          "stepNumber": 6,
+          "title": "Find Authority",
+          "status": "completed",
+          "summary": "Wafaqi Mohtasib (https://www.mohtasib.gov.pk)"
+        },
+        {
+          "stepNumber": 7,
+          "title": "Generate Complaint",
+          "status": "completed",
+          "summary": "Formal complaint drafted for Wafaqi Mohtasib"
+        },
+        {
+          "stepNumber": 8,
+          "title": "User Review & 1-Click Approval",
+          "status": "action_required",
+          "summary": "Awaiting citizen review, edit & 1-click forward approval"
+        }
+      ]
+    },
+    "HAQ-933480": {
+      "caseId": "HAQ-933480",
+      "timestamp": "2026-11-10T18:57:33.754Z",
+      "channel": "website",
+      "language": "roman_ur",
+      "userQuery": "السلام علیکم بھائی میرا استاد جو کہ چھٹی ہے کیمپس کہو میرے ساتھ زیادتی کر رہا ہے اس نے میرے دوست کی بھی دو ٹانگیں توڑ دی ہیں اب تک وہ نابینا ہو چکا ہے ڈی سی بی لگ چکی ہے اسے اس کو اوسکے ہٹا دیا گیا ہے کیا کرنا چاہیے",
+      "categoryId": "government",
+      "categoryTitle": "Sarkari Idaray, NADRA, Passport aur Bills ki Shikayat",
+      "replyText": "Assalam-o-Alaikum! Main ne aap ka masla samajh liya hai. Yeh **Sarkari Idaray, NADRA, Passport aur Bills ki Shikayat** ke zumray mein aata hai.\n\n### ⚖️ Aap ke Qanooni aur Aaeeni Haqooq:\n- **Article 4 & Article 25 – Constitution of Pakistan 1973 (Lawful Treatment & Equality of Citizens):** Har shehri ka haq hai ke sarkari idaray qanoon ke mutabiq waqt par aur baghair kisi rishwat ya ta'assub ke kaam karein.\n- **Article 19A – Constitution of Pakistan 1973 (Right to Information):** Aap ko haq hasil hai ke aap apni darkhwast ya file ki status aur sarkari faislon ki maloomat hasil karein.\n\n### 📜 Laago Qanoon (Pakistani Law):\n- **Establishment of the Office of Wafaqi Mohtasib (Ombudsman) Order, 1983 (Article 9 (Maladministration by Federal Agencies)):** NADRA, Passport, Bijli/Gas companies aur tamam wafaqi idaron ki sust-rawi, ghalat billing ya na-insafi ke khilaf Wafaqi Mohtasib muft sunwai karta hai.\n\n### 🏛️ Mutaliqa Idara (Relevant Authority):\n- **Wafaqi Mohtasib (Federal Ombudsman) Secretariat**\n- Official Portal: https://www.mohtasib.gov.pk\n- Helpline: 1055\n\n### ✅ Aap ke paas 2 Aasaan Options hain:\n1. **Option 1 – Online Complaint Submit Karein (Edit & 1-Click Forward):** Hum ne aap ki formal complaint tayyar kar di hai. Aap usay check/edit kar ke **1-Click** mein seedha **Wafaqi Mohtasib** ko forward kar sakte hain.\n2. **Option 2 – Mukammal Legal Guidance Lein:** Aap neeche diye gaye steps parh/sun sakte hain aur mujh se mazeed sawal pooch sakte hain.",
+      "whatsappReplyText": "🇵🇰 *HaqAI – Citizen Rights Assistant*\n\nAssalam-o-Alaikum! Hum ne aap ka پیغام / voice note sun liya hai.\n\n📌 *Maslay ki Qisam:* Sarkari Idaray, NADRA, Passport aur Bills ki Shikayat\n⚖️ *Qanooni Haq:* Article 4 & Article 25 – Constitution of Pakistan 1973 & Establishment of the Office of Wafaqi Mohtasib (Ombudsman) Order, 1983 – NADRA, Passport, Bijli/Gas companies aur tamam wafaqi idaron ki sust-rawi, ghalat billing ya na-insafi ke khilaf Wafaqi Mohtasib muft sunwai karta hai.\n🏛️ *Mutaliqa Idara:* Wafaqi Mohtasib (Federal Ombudsman) Secretariat (Helpline: 1055)\n\n👇 *Ab Website par jayein jahan aap ko 2 Options milenge:*\n1️⃣ *Online Complaint Submit (Edit & 1-Click Forward)* – Tayyar complaint edit karein aur 1-Click par Wafaqi Mohtasib ko forward karein.\n2️⃣ *Legal Guidance (Voice & Text)* – Aasaan alfaaz mein mukammal qanooni rehnumai hasil karein.\n\n🔗 *Aap ka Case Link (Case ID: HAQ-933480):*\n/assistant?caseId=HAQ-933480",
+      "voiceSummaryText": "Assalam o Alaikum. Aap ka masla Sarkari Idaray, NADRA, Passport aur Bills ki Shikayat se mutaliq hai. Article 4 & Article 25 – Constitution of Pakistan 1973 aur Establishment of the Office of Wafaqi Mohtasib (Ombudsman) Order, 1983 ke tehat aap ko mukammal qanooni tahaffuz hasil hai. Aap is maslay ki shikayat Wafaqi Mohtasib ko kar sakte hain. Hum ne aap ki formal complaint tayyar kar di hai jisay aap edit kar ke one click par mutaliqa idaray ko forward kar sakte hain.",
+      "constitutionalRights": [
+        {
+          "article": "Article 4 & Article 25 – Constitution of Pakistan 1973",
+          "title": "Lawful Treatment & Equality of Citizens",
+          "summary": "Har shehri ka haq hai ke sarkari idaray qanoon ke mutabiq waqt par aur baghair kisi rishwat ya ta'assub ke kaam karein."
+        },
+        {
+          "article": "Article 19A – Constitution of Pakistan 1973",
+          "title": "Right to Information",
+          "summary": "Aap ko haq hasil hai ke aap apni darkhwast ya file ki status aur sarkari faislon ki maloomat hasil karein."
+        }
+      ],
+      "statutoryLaws": [
+        {
+          "law": "Establishment of the Office of Wafaqi Mohtasib (Ombudsman) Order, 1983",
+          "section": "Article 9 (Maladministration by Federal Agencies)",
+          "explanation": "NADRA, Passport, Bijli/Gas companies aur tamam wafaqi idaron ki sust-rawi, ghalat billing ya na-insafi ke khilaf Wafaqi Mohtasib muft sunwai karta hai."
+        }
+      ],
+      "nextSteps": [
+        "Mutaliqa idaray mein shikayat kar ke token ya tracking number نوٹ karein.",
+        "Wafaqi Mohtasib (mohtasib.gov.pk) ya Pakistan Citizen Portal (citizenportal.gov.pk) par apni complaint bhejein.",
+        "Apنے CNIC aur bill/receipt number ke sath HaqAI se 1-Click Complaint forward karein."
+      ],
+      "followUpQuestions": [
+        "Aap ki shikayat kis sarkari idaray ke khilaf hai (maslan NADRA, Passport, Bijli/Gas)?",
+        "Kya aap ke paas tracking ID ya bill reference number maujood hai?"
+      ],
+      "recommendedAuthorities": [
+        {
+          "id": "mohtasib_gov",
+          "name": "Wafaqi Mohtasib (Federal Ombudsman) Secretariat",
+          "shortName": "Wafaqi Mohtasib",
+          "role": "Investigates maladministration in NADRA, Passports, Electricity, Gas, and Federal Ministries",
+          "portalUrl": "https://www.mohtasib.gov.pk",
+          "email": "info@mohtasib.gov.pk",
+          "helpline": "1055",
+          "address": "36-Constitution Avenue, G-5/2, Islamabad",
+          "turnaroundTime": "30–60 Days",
+          "instructions": {
+            "en": "Submit your complaint online at mohtasib.gov.pk or call helpline 1055.",
+            "roman_ur": "mohtasib.gov.pk par online complaint bhejein ya 1055 par rabta karein.",
+            "ur": "وفاقی محتسب کی ویب سائٹ پر شکایت درج کریں یا ہیلپ لائن 1055 پر کال کریں۔",
+            "pa": "وفاقی محتسب دی ویب سائٹ یا 1055 ہیلپ لائن تے رابطہ کرو۔"
+          }
+        },
+        {
+          "id": "citizen_portal",
+          "name": "Prime Minister's Performance Delivery Unit – Pakistan Citizen Portal",
+          "shortName": "Pakistan Citizen Portal",
+          "role": "Unified Federal & Provincial citizen grievance redressal system",
+          "portalUrl": "https://citizenportal.gov.pk",
+          "email": "support@pmdu.gov.pk",
+          "helpline": "051-9000111",
+          "address": "PM Office, Constitution Avenue, Islamabad",
+          "turnaroundTime": "14–21 Days",
+          "instructions": {
+            "en": "Lodge your complaint through citizenportal.gov.pk for direct routing to the Secretary/Head of Department.",
+            "roman_ur": "citizenportal.gov.pk ke zariye apni shikayat seedha mutaliqa idaray ke sarbarah tak pohanchayein.",
+            "ur": "پاکستان سٹیزن پورٹل کے ذریعے اپنی شکایت براہِ راست متعلقہ محکمے تک پہنچائیں۔",
+            "pa": "سٹیزن پورٹل راہیں اپنی شکایت سدھی متعلقہ محکمے نوں بھیجو۔"
+          }
+        }
+      ],
+      "primaryAuthority": {
+        "id": "mohtasib_gov",
+        "name": "Wafaqi Mohtasib (Federal Ombudsman) Secretariat",
+        "shortName": "Wafaqi Mohtasib",
+        "role": "Investigates maladministration in NADRA, Passports, Electricity, Gas, and Federal Ministries",
+        "portalUrl": "https://www.mohtasib.gov.pk",
+        "email": "info@mohtasib.gov.pk",
+        "helpline": "1055",
+        "address": "36-Constitution Avenue, G-5/2, Islamabad",
+        "turnaroundTime": "30–60 Days",
+        "instructions": {
+          "en": "Submit your complaint online at mohtasib.gov.pk or call helpline 1055.",
+          "roman_ur": "mohtasib.gov.pk par online complaint bhejein ya 1055 par rabta karein.",
+          "ur": "وفاقی محتسب کی ویب سائٹ پر شکایت درج کریں یا ہیلپ لائن 1055 پر کال کریں۔",
+          "pa": "وفاقی محتسب دی ویب سائٹ یا 1055 ہیلپ لائن تے رابطہ کرو۔"
+        }
+      },
+      "generatedComplaint": {
+        "subject": "Complaint Against Maladministration and Unjustified Delay in Public Service Delivery – Regarding [Name of Concerned University / Department / Authority]",
+        "recipientTitle": "The Honourable Wafaqi Mohtasib (Federal Ombudsman), Islamabad",
+        "recipientAuthority": {
+          "id": "mohtasib_gov",
+          "name": "Wafaqi Mohtasib (Federal Ombudsman) Secretariat",
+          "shortName": "Wafaqi Mohtasib",
+          "role": "Investigates maladministration in NADRA, Passports, Electricity, Gas, and Federal Ministries",
+          "portalUrl": "https://www.mohtasib.gov.pk",
+          "email": "info@mohtasib.gov.pk",
+          "helpline": "1055",
+          "address": "36-Constitution Avenue, G-5/2, Islamabad",
+          "turnaroundTime": "30–60 Days",
+          "instructions": {
+            "en": "Submit your complaint online at mohtasib.gov.pk or call helpline 1055.",
+            "roman_ur": "mohtasib.gov.pk par online complaint bhejein ya 1055 par rabta karein.",
+            "ur": "وفاقی محتسب کی ویب سائٹ پر شکایت درج کریں یا ہیلپ لائن 1055 پر کال کریں۔",
+            "pa": "وفاقی محتسب دی ویب سائٹ یا 1055 ہیلپ لائن تے رابطہ کرو۔"
+          }
+        },
+        "date": "10 November 2026",
+        "bodyText": "To,\nThe Honourable Wafaqi Mohtasib (Federal Ombudsman), Islamabad\nOfficial Portal: https://www.mohtasib.gov.pk\nDate: 10 November 2026\n\nSUBJECT: COMPLAINT AGAINST MALADMINISTRATION AND UNJUSTIFIED DELAY IN PUBLIC SERVICE DELIVERY – REGARDING [NAME OF CONCERNED UNIVERSITY / DEPARTMENT / AUTHORITY]\n\nRespected Sir / Madam,\n\nI, the undersigned citizen of Pakistan, respectfully submit this formal complaint and state the facts strictly as follows:\n\n1. STATEMENT OF GRIEVANCE & FACTS:\n   - Aggrieved Citizen Statement: \"السلام علیکم بھائی میرا استاد جو کہ چھٹی ہے کیمپس کہو میرے ساتھ زیادتی کر رہا ہے اس نے میرے دوست کی بھی دو ٹانگیں توڑ دی ہیں اب تک وہ نابینا ہو چکا ہے ڈی سی بی لگ چکی ہے اسے اس کو اوسکے ہٹا دیا گیا ہے کیا کرنا چاہیے\"\n   - Concerned Institution / Respondent: [Name of Concerned University / Department / Authority]\n   - City / Jurisdiction: [Your City, e.g., Lahore / Islamabad]\n   - Relevant Date / Reference / Roll No.: [Registration / Roll No. / Reference ID] (Date: 2026-11-10)\n\n2. APPLICABLE CONSTITUTIONAL & STATUTORY LEGAL PROVISIONS:\n   Under Article 4, Article 19A, and Article 25 of the Constitution of Pakistan 1973, read with Article 9 of the Establishment of the Office of Wafaqi Mohtasib (Ombudsman) Order 1983, arbitrary delay, neglect, and refusal to provide lawful public services constitute actionable maladministration.\n\n3. PRAYER / REQUESTED RELIEF:\n   It is respectfully requested that the concerned department be directed to resolve my pending grievance immediately in accordance with law and provide written compliance.\n\nI affirm that the facts stated above are true and accurate to the best of my knowledge. Copies of relevant supporting documents (CNIC, application receipt/clearance proof) are enclosed/attached herewith.\n\nYours faithfully,\n\nSignature: ___________________________\nFull Name: [Your Full Name]\nCNIC No.: [Your CNIC Number: XXXXX-XXXXXXX-X]\nCity / Address: [Your City, e.g., Lahore / Islamabad]\nContact Phone: [Your Mobile Number: 03XX-XXXXXXX]\nEmail: [Your Email Address]",
+        "emailSubject": "[Formal Citizen Complaint] Complaint Against Maladministration and Unjustified Delay in Public Service Delivery – Regarding [Name of Concerned University / Department / Authority]",
+        "emailBody": "Dear Grievance Redressal Officer (Wafaqi Mohtasib),\n\nPlease find below my formal citizen complaint generated via HaqAI Citizen Rights Assistant for urgent statutory action:\n\n--------------------------------------------------\nTo,\nThe Honourable Wafaqi Mohtasib (Federal Ombudsman), Islamabad\nOfficial Portal: https://www.mohtasib.gov.pk\nDate: 10 November 2026\n\nSUBJECT: COMPLAINT AGAINST MALADMINISTRATION AND UNJUSTIFIED DELAY IN PUBLIC SERVICE DELIVERY – REGARDING [NAME OF CONCERNED UNIVERSITY / DEPARTMENT / AUTHORITY]\n\nRespected Sir / Madam,\n\nI, the undersigned citizen of Pakistan, respectfully submit this formal complaint and state the facts strictly as follows:\n\n1. STATEMENT OF GRIEVANCE & FACTS:\n   - Aggrieved Citizen Statement: \"السلام علیکم بھائی میرا استاد جو کہ چھٹی ہے کیمپس کہو میرے ساتھ زیادتی کر رہا ہے اس نے میرے دوست کی بھی دو ٹانگیں توڑ دی ہیں اب تک وہ نابینا ہو چکا ہے ڈی سی بی لگ چکی ہے اسے اس کو اوسکے ہٹا دیا گیا ہے کیا کرنا چاہیے\"\n   - Concerned Institution / Respondent: [Name of Concerned University / Department / Authority]\n   - City / Jurisdiction: [Your City, e.g., Lahore / Islamabad]\n   - Relevant Date / Reference / Roll No.: [Registration / Roll No. / Reference ID] (Date: 2026-11-10)\n\n2. APPLICABLE CONSTITUTIONAL & STATUTORY LEGAL PROVISIONS:\n   Under Article 4, Article 19A, and Article 25 of the Constitution of Pakistan 1973, read with Article 9 of the Establishment of the Office of Wafaqi Mohtasib (Ombudsman) Order 1983, arbitrary delay, neglect, and refusal to provide lawful public services constitute actionable maladministration.\n\n3. PRAYER / REQUESTED RELIEF:\n   It is respectfully requested that the concerned department be directed to resolve my pending grievance immediately in accordance with law and provide written compliance.\n\nI affirm that the facts stated above are true and accurate to the best of my knowledge. Copies of relevant supporting documents (CNIC, application receipt/clearance proof) are enclosed/attached herewith.\n\nYours faithfully,\n\nSignature: ___________________________\nFull Name: [Your Full Name]\nCNIC No.: [Your CNIC Number: XXXXX-XXXXXXX-X]\nCity / Address: [Your City, e.g., Lahore / Islamabad]\nContact Phone: [Your Mobile Number: 03XX-XXXXXXX]\nEmail: [Your Email Address]\n--------------------------------------------------",
+        "categoryId": "government",
+        "facts": {
+          "rawStatement": "السلام علیکم بھائی میرا استاد جو کہ چھٹی ہے کیمپس کہو میرے ساتھ زیادتی کر رہا ہے اس نے میرے دوست کی بھی دو ٹانگیں توڑ دی ہیں اب تک وہ نابینا ہو چکا ہے ڈی سی بی لگ چکی ہے اسے اس کو اوسکے ہٹا دیا گیا ہے کیا کرنا چاہیے",
+          "applicantName": "[Your Full Name]",
+          "cnic": "[Your CNIC Number: XXXXX-XXXXXXX-X]",
+          "city": "[Your City, e.g., Lahore / Islamabad]",
+          "institutionOrRespondent": "[Name of Concerned University / Department / Authority]",
+          "dateOfIncident": "2026-11-10",
+          "referenceOrRollNo": "[Registration / Roll No. / Reference ID]",
+          "contactPhone": "[Your Mobile Number: 03XX-XXXXXXX]",
+          "contactEmail": "[Your Email Address]"
+        }
+      },
+      "workflowSteps": [
+        {
+          "stepNumber": 1,
+          "title": "Understand Input",
+          "status": "completed",
+          "summary": "Captured website input in ROMAN_UR"
+        },
+        {
+          "stepNumber": 2,
+          "title": "Classify Issue",
+          "status": "completed",
+          "summary": "Government Services & Public Utilities"
+        },
+        {
+          "stepNumber": 3,
+          "title": "Identify Missing Info",
+          "status": "completed",
+          "summary": "2 clarifying questions prepared"
+        },
+        {
+          "stepNumber": 4,
+          "title": "Explain Rights",
+          "status": "completed",
+          "summary": "2 Constitutional Articles & 1 Statutes verified"
+        },
+        {
+          "stepNumber": 5,
+          "title": "Recommend Solutions",
+          "status": "completed",
+          "summary": "3 actionable administrative steps mapped"
+        },
+        {
+          "stepNumber": 6,
+          "title": "Find Authority",
+          "status": "completed",
+          "summary": "Wafaqi Mohtasib (https://www.mohtasib.gov.pk)"
+        },
+        {
+          "stepNumber": 7,
+          "title": "Generate Complaint",
+          "status": "completed",
+          "summary": "Formal complaint drafted for Wafaqi Mohtasib"
+        },
+        {
+          "stepNumber": 8,
+          "title": "User Review & 1-Click Approval",
+          "status": "action_required",
+          "summary": "Awaiting citizen review, edit & 1-click forward approval"
+        }
+      ]
+    },
+    "HAQ-892860": {
+      "caseId": "HAQ-892860",
+      "timestamp": "2026-11-10T18:57:55.611Z",
+      "channel": "website",
+      "language": "roman_ur",
+      "userQuery": "السلام علیکم بھائی میرا استاد جو کہ چھٹی ہے کیمپس کہو میرے ساتھ زیادتی کر رہا ہے اس نے میرے دوست کی بھی دو ٹانگیں توڑ دی ہیں اب تک وہ نابینا ہو چکا ہے ڈی سی بی لگ چکی ہے اسے اس کو اوسکے ہٹا دیا گیا ہے کیا کرنا چاہیے",
+      "categoryId": "government",
+      "categoryTitle": "Sarkari Idaray, NADRA, Passport aur Bills ki Shikayat",
+      "replyText": "Assalam-o-Alaikum! Main ne aap ka masla samajh liya hai. Yeh **Sarkari Idaray, NADRA, Passport aur Bills ki Shikayat** ke zumray mein aata hai.\n\n### ⚖️ Aap ke Qanooni aur Aaeeni Haqooq:\n- **Article 4 & Article 25 – Constitution of Pakistan 1973 (Lawful Treatment & Equality of Citizens):** Har shehri ka haq hai ke sarkari idaray qanoon ke mutabiq waqt par aur baghair kisi rishwat ya ta'assub ke kaam karein.\n- **Article 19A – Constitution of Pakistan 1973 (Right to Information):** Aap ko haq hasil hai ke aap apni darkhwast ya file ki status aur sarkari faislon ki maloomat hasil karein.\n\n### 📜 Laago Qanoon (Pakistani Law):\n- **Establishment of the Office of Wafaqi Mohtasib (Ombudsman) Order, 1983 (Article 9 (Maladministration by Federal Agencies)):** NADRA, Passport, Bijli/Gas companies aur tamam wafaqi idaron ki sust-rawi, ghalat billing ya na-insafi ke khilaf Wafaqi Mohtasib muft sunwai karta hai.\n\n### 🏛️ Mutaliqa Idara (Relevant Authority):\n- **Wafaqi Mohtasib (Federal Ombudsman) Secretariat**\n- Official Portal: https://www.mohtasib.gov.pk\n- Helpline: 1055\n\n### ✅ Aap ke paas 2 Aasaan Options hain:\n1. **Option 1 – Online Complaint Submit Karein (Edit & 1-Click Forward):** Hum ne aap ki formal complaint tayyar kar di hai. Aap usay check/edit kar ke **1-Click** mein seedha **Wafaqi Mohtasib** ko forward kar sakte hain.\n2. **Option 2 – Mukammal Legal Guidance Lein:** Aap neeche diye gaye steps parh/sun sakte hain aur mujh se mazeed sawal pooch sakte hain.",
+      "whatsappReplyText": "🇵🇰 *HaqAI – Citizen Rights Assistant*\n\nAssalam-o-Alaikum! Hum ne aap ka پیغام / voice note sun liya hai.\n\n📌 *Maslay ki Qisam:* Sarkari Idaray, NADRA, Passport aur Bills ki Shikayat\n⚖️ *Qanooni Haq:* Article 4 & Article 25 – Constitution of Pakistan 1973 & Establishment of the Office of Wafaqi Mohtasib (Ombudsman) Order, 1983 – NADRA, Passport, Bijli/Gas companies aur tamam wafaqi idaron ki sust-rawi, ghalat billing ya na-insafi ke khilaf Wafaqi Mohtasib muft sunwai karta hai.\n🏛️ *Mutaliqa Idara:* Wafaqi Mohtasib (Federal Ombudsman) Secretariat (Helpline: 1055)\n\n👇 *Ab Website par jayein jahan aap ko 2 Options milenge:*\n1️⃣ *Online Complaint Submit (Edit & 1-Click Forward)* – Tayyar complaint edit karein aur 1-Click par Wafaqi Mohtasib ko forward karein.\n2️⃣ *Legal Guidance (Voice & Text)* – Aasaan alfaaz mein mukammal qanooni rehnumai hasil karein.\n\n🔗 *Aap ka Case Link (Case ID: HAQ-892860):*\n/assistant?caseId=HAQ-892860",
+      "voiceSummaryText": "Assalam o Alaikum. Aap ka masla Sarkari Idaray, NADRA, Passport aur Bills ki Shikayat se mutaliq hai. Article 4 & Article 25 – Constitution of Pakistan 1973 aur Establishment of the Office of Wafaqi Mohtasib (Ombudsman) Order, 1983 ke tehat aap ko mukammal qanooni tahaffuz hasil hai. Aap is maslay ki shikayat Wafaqi Mohtasib ko kar sakte hain. Hum ne aap ki formal complaint tayyar kar di hai jisay aap edit kar ke one click par mutaliqa idaray ko forward kar sakte hain.",
+      "constitutionalRights": [
+        {
+          "article": "Article 4 & Article 25 – Constitution of Pakistan 1973",
+          "title": "Lawful Treatment & Equality of Citizens",
+          "summary": "Har shehri ka haq hai ke sarkari idaray qanoon ke mutabiq waqt par aur baghair kisi rishwat ya ta'assub ke kaam karein."
+        },
+        {
+          "article": "Article 19A – Constitution of Pakistan 1973",
+          "title": "Right to Information",
+          "summary": "Aap ko haq hasil hai ke aap apni darkhwast ya file ki status aur sarkari faislon ki maloomat hasil karein."
+        }
+      ],
+      "statutoryLaws": [
+        {
+          "law": "Establishment of the Office of Wafaqi Mohtasib (Ombudsman) Order, 1983",
+          "section": "Article 9 (Maladministration by Federal Agencies)",
+          "explanation": "NADRA, Passport, Bijli/Gas companies aur tamam wafaqi idaron ki sust-rawi, ghalat billing ya na-insafi ke khilaf Wafaqi Mohtasib muft sunwai karta hai."
+        }
+      ],
+      "nextSteps": [
+        "Mutaliqa idaray mein shikayat kar ke token ya tracking number نوٹ karein.",
+        "Wafaqi Mohtasib (mohtasib.gov.pk) ya Pakistan Citizen Portal (citizenportal.gov.pk) par apni complaint bhejein.",
+        "Apنے CNIC aur bill/receipt number ke sath HaqAI se 1-Click Complaint forward karein."
+      ],
+      "followUpQuestions": [
+        "Aap ki shikayat kis sarkari idaray ke khilaf hai (maslan NADRA, Passport, Bijli/Gas)?",
+        "Kya aap ke paas tracking ID ya bill reference number maujood hai?"
+      ],
+      "recommendedAuthorities": [
+        {
+          "id": "mohtasib_gov",
+          "name": "Wafaqi Mohtasib (Federal Ombudsman) Secretariat",
+          "shortName": "Wafaqi Mohtasib",
+          "role": "Investigates maladministration in NADRA, Passports, Electricity, Gas, and Federal Ministries",
+          "portalUrl": "https://www.mohtasib.gov.pk",
+          "email": "info@mohtasib.gov.pk",
+          "helpline": "1055",
+          "address": "36-Constitution Avenue, G-5/2, Islamabad",
+          "turnaroundTime": "30–60 Days",
+          "instructions": {
+            "en": "Submit your complaint online at mohtasib.gov.pk or call helpline 1055.",
+            "roman_ur": "mohtasib.gov.pk par online complaint bhejein ya 1055 par rabta karein.",
+            "ur": "وفاقی محتسب کی ویب سائٹ پر شکایت درج کریں یا ہیلپ لائن 1055 پر کال کریں۔",
+            "pa": "وفاقی محتسب دی ویب سائٹ یا 1055 ہیلپ لائن تے رابطہ کرو۔"
+          }
+        },
+        {
+          "id": "citizen_portal",
+          "name": "Prime Minister's Performance Delivery Unit – Pakistan Citizen Portal",
+          "shortName": "Pakistan Citizen Portal",
+          "role": "Unified Federal & Provincial citizen grievance redressal system",
+          "portalUrl": "https://citizenportal.gov.pk",
+          "email": "support@pmdu.gov.pk",
+          "helpline": "051-9000111",
+          "address": "PM Office, Constitution Avenue, Islamabad",
+          "turnaroundTime": "14–21 Days",
+          "instructions": {
+            "en": "Lodge your complaint through citizenportal.gov.pk for direct routing to the Secretary/Head of Department.",
+            "roman_ur": "citizenportal.gov.pk ke zariye apni shikayat seedha mutaliqa idaray ke sarbarah tak pohanchayein.",
+            "ur": "پاکستان سٹیزن پورٹل کے ذریعے اپنی شکایت براہِ راست متعلقہ محکمے تک پہنچائیں۔",
+            "pa": "سٹیزن پورٹل راہیں اپنی شکایت سدھی متعلقہ محکمے نوں بھیجو۔"
+          }
+        }
+      ],
+      "primaryAuthority": {
+        "id": "mohtasib_gov",
+        "name": "Wafaqi Mohtasib (Federal Ombudsman) Secretariat",
+        "shortName": "Wafaqi Mohtasib",
+        "role": "Investigates maladministration in NADRA, Passports, Electricity, Gas, and Federal Ministries",
+        "portalUrl": "https://www.mohtasib.gov.pk",
+        "email": "info@mohtasib.gov.pk",
+        "helpline": "1055",
+        "address": "36-Constitution Avenue, G-5/2, Islamabad",
+        "turnaroundTime": "30–60 Days",
+        "instructions": {
+          "en": "Submit your complaint online at mohtasib.gov.pk or call helpline 1055.",
+          "roman_ur": "mohtasib.gov.pk par online complaint bhejein ya 1055 par rabta karein.",
+          "ur": "وفاقی محتسب کی ویب سائٹ پر شکایت درج کریں یا ہیلپ لائن 1055 پر کال کریں۔",
+          "pa": "وفاقی محتسب دی ویب سائٹ یا 1055 ہیلپ لائن تے رابطہ کرو۔"
+        }
+      },
+      "generatedComplaint": {
+        "subject": "Complaint Against Maladministration and Unjustified Delay in Public Service Delivery – Regarding [Name of Concerned University / Department / Authority]",
+        "recipientTitle": "The Honourable Wafaqi Mohtasib (Federal Ombudsman), Islamabad",
+        "recipientAuthority": {
+          "id": "mohtasib_gov",
+          "name": "Wafaqi Mohtasib (Federal Ombudsman) Secretariat",
+          "shortName": "Wafaqi Mohtasib",
+          "role": "Investigates maladministration in NADRA, Passports, Electricity, Gas, and Federal Ministries",
+          "portalUrl": "https://www.mohtasib.gov.pk",
+          "email": "info@mohtasib.gov.pk",
+          "helpline": "1055",
+          "address": "36-Constitution Avenue, G-5/2, Islamabad",
+          "turnaroundTime": "30–60 Days",
+          "instructions": {
+            "en": "Submit your complaint online at mohtasib.gov.pk or call helpline 1055.",
+            "roman_ur": "mohtasib.gov.pk par online complaint bhejein ya 1055 par rabta karein.",
+            "ur": "وفاقی محتسب کی ویب سائٹ پر شکایت درج کریں یا ہیلپ لائن 1055 پر کال کریں۔",
+            "pa": "وفاقی محتسب دی ویب سائٹ یا 1055 ہیلپ لائن تے رابطہ کرو۔"
+          }
+        },
+        "date": "10 November 2026",
+        "bodyText": "To,\nThe Honourable Wafaqi Mohtasib (Federal Ombudsman), Islamabad\nOfficial Portal: https://www.mohtasib.gov.pk\nDate: 10 November 2026\n\nSUBJECT: COMPLAINT AGAINST MALADMINISTRATION AND UNJUSTIFIED DELAY IN PUBLIC SERVICE DELIVERY – REGARDING [NAME OF CONCERNED UNIVERSITY / DEPARTMENT / AUTHORITY]\n\nRespected Sir / Madam,\n\nI, the undersigned citizen of Pakistan, respectfully submit this formal complaint and state the facts strictly as follows:\n\n1. STATEMENT OF GRIEVANCE & FACTS:\n   - Aggrieved Citizen Statement: \"السلام علیکم بھائی میرا استاد جو کہ چھٹی ہے کیمپس کہو میرے ساتھ زیادتی کر رہا ہے اس نے میرے دوست کی بھی دو ٹانگیں توڑ دی ہیں اب تک وہ نابینا ہو چکا ہے ڈی سی بی لگ چکی ہے اسے اس کو اوسکے ہٹا دیا گیا ہے کیا کرنا چاہیے\"\n   - Concerned Institution / Respondent: [Name of Concerned University / Department / Authority]\n   - City / Jurisdiction: [Your City, e.g., Lahore / Islamabad]\n   - Relevant Date / Reference / Roll No.: [Registration / Roll No. / Reference ID] (Date: 2026-11-10)\n\n2. APPLICABLE CONSTITUTIONAL & STATUTORY LEGAL PROVISIONS:\n   Under Article 4, Article 19A, and Article 25 of the Constitution of Pakistan 1973, read with Article 9 of the Establishment of the Office of Wafaqi Mohtasib (Ombudsman) Order 1983, arbitrary delay, neglect, and refusal to provide lawful public services constitute actionable maladministration.\n\n3. PRAYER / REQUESTED RELIEF:\n   It is respectfully requested that the concerned department be directed to resolve my pending grievance immediately in accordance with law and provide written compliance.\n\nI affirm that the facts stated above are true and accurate to the best of my knowledge. Copies of relevant supporting documents (CNIC, application receipt/clearance proof) are enclosed/attached herewith.\n\nYours faithfully,\n\nSignature: ___________________________\nFull Name: [Your Full Name]\nCNIC No.: [Your CNIC Number: XXXXX-XXXXXXX-X]\nCity / Address: [Your City, e.g., Lahore / Islamabad]\nContact Phone: [Your Mobile Number: 03XX-XXXXXXX]\nEmail: [Your Email Address]",
+        "emailSubject": "[Formal Citizen Complaint] Complaint Against Maladministration and Unjustified Delay in Public Service Delivery – Regarding [Name of Concerned University / Department / Authority]",
+        "emailBody": "Dear Grievance Redressal Officer (Wafaqi Mohtasib),\n\nPlease find below my formal citizen complaint generated via HaqAI Citizen Rights Assistant for urgent statutory action:\n\n--------------------------------------------------\nTo,\nThe Honourable Wafaqi Mohtasib (Federal Ombudsman), Islamabad\nOfficial Portal: https://www.mohtasib.gov.pk\nDate: 10 November 2026\n\nSUBJECT: COMPLAINT AGAINST MALADMINISTRATION AND UNJUSTIFIED DELAY IN PUBLIC SERVICE DELIVERY – REGARDING [NAME OF CONCERNED UNIVERSITY / DEPARTMENT / AUTHORITY]\n\nRespected Sir / Madam,\n\nI, the undersigned citizen of Pakistan, respectfully submit this formal complaint and state the facts strictly as follows:\n\n1. STATEMENT OF GRIEVANCE & FACTS:\n   - Aggrieved Citizen Statement: \"السلام علیکم بھائی میرا استاد جو کہ چھٹی ہے کیمپس کہو میرے ساتھ زیادتی کر رہا ہے اس نے میرے دوست کی بھی دو ٹانگیں توڑ دی ہیں اب تک وہ نابینا ہو چکا ہے ڈی سی بی لگ چکی ہے اسے اس کو اوسکے ہٹا دیا گیا ہے کیا کرنا چاہیے\"\n   - Concerned Institution / Respondent: [Name of Concerned University / Department / Authority]\n   - City / Jurisdiction: [Your City, e.g., Lahore / Islamabad]\n   - Relevant Date / Reference / Roll No.: [Registration / Roll No. / Reference ID] (Date: 2026-11-10)\n\n2. APPLICABLE CONSTITUTIONAL & STATUTORY LEGAL PROVISIONS:\n   Under Article 4, Article 19A, and Article 25 of the Constitution of Pakistan 1973, read with Article 9 of the Establishment of the Office of Wafaqi Mohtasib (Ombudsman) Order 1983, arbitrary delay, neglect, and refusal to provide lawful public services constitute actionable maladministration.\n\n3. PRAYER / REQUESTED RELIEF:\n   It is respectfully requested that the concerned department be directed to resolve my pending grievance immediately in accordance with law and provide written compliance.\n\nI affirm that the facts stated above are true and accurate to the best of my knowledge. Copies of relevant supporting documents (CNIC, application receipt/clearance proof) are enclosed/attached herewith.\n\nYours faithfully,\n\nSignature: ___________________________\nFull Name: [Your Full Name]\nCNIC No.: [Your CNIC Number: XXXXX-XXXXXXX-X]\nCity / Address: [Your City, e.g., Lahore / Islamabad]\nContact Phone: [Your Mobile Number: 03XX-XXXXXXX]\nEmail: [Your Email Address]\n--------------------------------------------------",
+        "categoryId": "government",
+        "facts": {
+          "rawStatement": "السلام علیکم بھائی میرا استاد جو کہ چھٹی ہے کیمپس کہو میرے ساتھ زیادتی کر رہا ہے اس نے میرے دوست کی بھی دو ٹانگیں توڑ دی ہیں اب تک وہ نابینا ہو چکا ہے ڈی سی بی لگ چکی ہے اسے اس کو اوسکے ہٹا دیا گیا ہے کیا کرنا چاہیے",
+          "applicantName": "[Your Full Name]",
+          "cnic": "[Your CNIC Number: XXXXX-XXXXXXX-X]",
+          "city": "[Your City, e.g., Lahore / Islamabad]",
+          "institutionOrRespondent": "[Name of Concerned University / Department / Authority]",
+          "dateOfIncident": "2026-11-10",
+          "referenceOrRollNo": "[Registration / Roll No. / Reference ID]",
+          "contactPhone": "[Your Mobile Number: 03XX-XXXXXXX]",
+          "contactEmail": "[Your Email Address]"
+        }
+      },
+      "workflowSteps": [
+        {
+          "stepNumber": 1,
+          "title": "Understand Input",
+          "status": "completed",
+          "summary": "Captured website input in ROMAN_UR"
+        },
+        {
+          "stepNumber": 2,
+          "title": "Classify Issue",
+          "status": "completed",
+          "summary": "Government Services & Public Utilities"
+        },
+        {
+          "stepNumber": 3,
+          "title": "Identify Missing Info",
+          "status": "completed",
+          "summary": "2 clarifying questions prepared"
+        },
+        {
+          "stepNumber": 4,
+          "title": "Explain Rights",
+          "status": "completed",
+          "summary": "2 Constitutional Articles & 1 Statutes verified"
+        },
+        {
+          "stepNumber": 5,
+          "title": "Recommend Solutions",
+          "status": "completed",
+          "summary": "3 actionable administrative steps mapped"
+        },
+        {
+          "stepNumber": 6,
+          "title": "Find Authority",
+          "status": "completed",
+          "summary": "Wafaqi Mohtasib (https://www.mohtasib.gov.pk)"
+        },
+        {
+          "stepNumber": 7,
+          "title": "Generate Complaint",
+          "status": "completed",
+          "summary": "Formal complaint drafted for Wafaqi Mohtasib"
+        },
+        {
+          "stepNumber": 8,
+          "title": "User Review & 1-Click Approval",
+          "status": "action_required",
+          "summary": "Awaiting citizen review, edit & 1-click forward approval"
+        }
+      ]
+    },
+    "HAQ-467988": {
+      "caseId": "HAQ-467988",
+      "timestamp": "2026-11-10T18:57:56.318Z",
+      "channel": "website",
+      "language": "roman_ur",
+      "userQuery": "السلام علیکم بھائی میرا استاد جو کہ چھٹی ہے کیمپس کہو میرے ساتھ زیادتی کر رہا ہے اس نے میرے دوست کی بھی دو ٹانگیں توڑ دی ہیں اب تک وہ نابینا ہو چکا ہے ڈی سی بی لگ چکی ہے اسے اس کو اوسکے ہٹا دیا گیا ہے کیا کرنا چاہیے",
+      "categoryId": "government",
+      "categoryTitle": "Sarkari Idaray, NADRA, Passport aur Bills ki Shikayat",
+      "replyText": "Assalam-o-Alaikum! Main ne aap ka masla samajh liya hai. Yeh **Sarkari Idaray, NADRA, Passport aur Bills ki Shikayat** ke zumray mein aata hai.\n\n### ⚖️ Aap ke Qanooni aur Aaeeni Haqooq:\n- **Article 4 & Article 25 – Constitution of Pakistan 1973 (Lawful Treatment & Equality of Citizens):** Har shehri ka haq hai ke sarkari idaray qanoon ke mutabiq waqt par aur baghair kisi rishwat ya ta'assub ke kaam karein.\n- **Article 19A – Constitution of Pakistan 1973 (Right to Information):** Aap ko haq hasil hai ke aap apni darkhwast ya file ki status aur sarkari faislon ki maloomat hasil karein.\n\n### 📜 Laago Qanoon (Pakistani Law):\n- **Establishment of the Office of Wafaqi Mohtasib (Ombudsman) Order, 1983 (Article 9 (Maladministration by Federal Agencies)):** NADRA, Passport, Bijli/Gas companies aur tamam wafaqi idaron ki sust-rawi, ghalat billing ya na-insafi ke khilaf Wafaqi Mohtasib muft sunwai karta hai.\n\n### 🏛️ Mutaliqa Idara (Relevant Authority):\n- **Wafaqi Mohtasib (Federal Ombudsman) Secretariat**\n- Official Portal: https://www.mohtasib.gov.pk\n- Helpline: 1055\n\n### ✅ Aap ke paas 2 Aasaan Options hain:\n1. **Option 1 – Online Complaint Submit Karein (Edit & 1-Click Forward):** Hum ne aap ki formal complaint tayyar kar di hai. Aap usay check/edit kar ke **1-Click** mein seedha **Wafaqi Mohtasib** ko forward kar sakte hain.\n2. **Option 2 – Mukammal Legal Guidance Lein:** Aap neeche diye gaye steps parh/sun sakte hain aur mujh se mazeed sawal pooch sakte hain.",
+      "whatsappReplyText": "🇵🇰 *HaqAI – Citizen Rights Assistant*\n\nAssalam-o-Alaikum! Hum ne aap ka پیغام / voice note sun liya hai.\n\n📌 *Maslay ki Qisam:* Sarkari Idaray, NADRA, Passport aur Bills ki Shikayat\n⚖️ *Qanooni Haq:* Article 4 & Article 25 – Constitution of Pakistan 1973 & Establishment of the Office of Wafaqi Mohtasib (Ombudsman) Order, 1983 – NADRA, Passport, Bijli/Gas companies aur tamam wafaqi idaron ki sust-rawi, ghalat billing ya na-insafi ke khilaf Wafaqi Mohtasib muft sunwai karta hai.\n🏛️ *Mutaliqa Idara:* Wafaqi Mohtasib (Federal Ombudsman) Secretariat (Helpline: 1055)\n\n👇 *Ab Website par jayein jahan aap ko 2 Options milenge:*\n1️⃣ *Online Complaint Submit (Edit & 1-Click Forward)* – Tayyar complaint edit karein aur 1-Click par Wafaqi Mohtasib ko forward karein.\n2️⃣ *Legal Guidance (Voice & Text)* – Aasaan alfaaz mein mukammal qanooni rehnumai hasil karein.\n\n🔗 *Aap ka Case Link (Case ID: HAQ-467988):*\n/assistant?caseId=HAQ-467988",
+      "voiceSummaryText": "Assalam o Alaikum. Aap ka masla Sarkari Idaray, NADRA, Passport aur Bills ki Shikayat se mutaliq hai. Article 4 & Article 25 – Constitution of Pakistan 1973 aur Establishment of the Office of Wafaqi Mohtasib (Ombudsman) Order, 1983 ke tehat aap ko mukammal qanooni tahaffuz hasil hai. Aap is maslay ki shikayat Wafaqi Mohtasib ko kar sakte hain. Hum ne aap ki formal complaint tayyar kar di hai jisay aap edit kar ke one click par mutaliqa idaray ko forward kar sakte hain.",
+      "constitutionalRights": [
+        {
+          "article": "Article 4 & Article 25 – Constitution of Pakistan 1973",
+          "title": "Lawful Treatment & Equality of Citizens",
+          "summary": "Har shehri ka haq hai ke sarkari idaray qanoon ke mutabiq waqt par aur baghair kisi rishwat ya ta'assub ke kaam karein."
+        },
+        {
+          "article": "Article 19A – Constitution of Pakistan 1973",
+          "title": "Right to Information",
+          "summary": "Aap ko haq hasil hai ke aap apni darkhwast ya file ki status aur sarkari faislon ki maloomat hasil karein."
+        }
+      ],
+      "statutoryLaws": [
+        {
+          "law": "Establishment of the Office of Wafaqi Mohtasib (Ombudsman) Order, 1983",
+          "section": "Article 9 (Maladministration by Federal Agencies)",
+          "explanation": "NADRA, Passport, Bijli/Gas companies aur tamam wafaqi idaron ki sust-rawi, ghalat billing ya na-insafi ke khilaf Wafaqi Mohtasib muft sunwai karta hai."
+        }
+      ],
+      "nextSteps": [
+        "Mutaliqa idaray mein shikayat kar ke token ya tracking number نوٹ karein.",
+        "Wafaqi Mohtasib (mohtasib.gov.pk) ya Pakistan Citizen Portal (citizenportal.gov.pk) par apni complaint bhejein.",
+        "Apنے CNIC aur bill/receipt number ke sath HaqAI se 1-Click Complaint forward karein."
+      ],
+      "followUpQuestions": [
+        "Aap ki shikayat kis sarkari idaray ke khilaf hai (maslan NADRA, Passport, Bijli/Gas)?",
+        "Kya aap ke paas tracking ID ya bill reference number maujood hai?"
+      ],
+      "recommendedAuthorities": [
+        {
+          "id": "mohtasib_gov",
+          "name": "Wafaqi Mohtasib (Federal Ombudsman) Secretariat",
+          "shortName": "Wafaqi Mohtasib",
+          "role": "Investigates maladministration in NADRA, Passports, Electricity, Gas, and Federal Ministries",
+          "portalUrl": "https://www.mohtasib.gov.pk",
+          "email": "info@mohtasib.gov.pk",
+          "helpline": "1055",
+          "address": "36-Constitution Avenue, G-5/2, Islamabad",
+          "turnaroundTime": "30–60 Days",
+          "instructions": {
+            "en": "Submit your complaint online at mohtasib.gov.pk or call helpline 1055.",
+            "roman_ur": "mohtasib.gov.pk par online complaint bhejein ya 1055 par rabta karein.",
+            "ur": "وفاقی محتسب کی ویب سائٹ پر شکایت درج کریں یا ہیلپ لائن 1055 پر کال کریں۔",
+            "pa": "وفاقی محتسب دی ویب سائٹ یا 1055 ہیلپ لائن تے رابطہ کرو۔"
+          }
+        },
+        {
+          "id": "citizen_portal",
+          "name": "Prime Minister's Performance Delivery Unit – Pakistan Citizen Portal",
+          "shortName": "Pakistan Citizen Portal",
+          "role": "Unified Federal & Provincial citizen grievance redressal system",
+          "portalUrl": "https://citizenportal.gov.pk",
+          "email": "support@pmdu.gov.pk",
+          "helpline": "051-9000111",
+          "address": "PM Office, Constitution Avenue, Islamabad",
+          "turnaroundTime": "14–21 Days",
+          "instructions": {
+            "en": "Lodge your complaint through citizenportal.gov.pk for direct routing to the Secretary/Head of Department.",
+            "roman_ur": "citizenportal.gov.pk ke zariye apni shikayat seedha mutaliqa idaray ke sarbarah tak pohanchayein.",
+            "ur": "پاکستان سٹیزن پورٹل کے ذریعے اپنی شکایت براہِ راست متعلقہ محکمے تک پہنچائیں۔",
+            "pa": "سٹیزن پورٹل راہیں اپنی شکایت سدھی متعلقہ محکمے نوں بھیجو۔"
+          }
+        }
+      ],
+      "primaryAuthority": {
+        "id": "mohtasib_gov",
+        "name": "Wafaqi Mohtasib (Federal Ombudsman) Secretariat",
+        "shortName": "Wafaqi Mohtasib",
+        "role": "Investigates maladministration in NADRA, Passports, Electricity, Gas, and Federal Ministries",
+        "portalUrl": "https://www.mohtasib.gov.pk",
+        "email": "info@mohtasib.gov.pk",
+        "helpline": "1055",
+        "address": "36-Constitution Avenue, G-5/2, Islamabad",
+        "turnaroundTime": "30–60 Days",
+        "instructions": {
+          "en": "Submit your complaint online at mohtasib.gov.pk or call helpline 1055.",
+          "roman_ur": "mohtasib.gov.pk par online complaint bhejein ya 1055 par rabta karein.",
+          "ur": "وفاقی محتسب کی ویب سائٹ پر شکایت درج کریں یا ہیلپ لائن 1055 پر کال کریں۔",
+          "pa": "وفاقی محتسب دی ویب سائٹ یا 1055 ہیلپ لائن تے رابطہ کرو۔"
+        }
+      },
+      "generatedComplaint": {
+        "subject": "Complaint Against Maladministration and Unjustified Delay in Public Service Delivery – Regarding [Name of Concerned University / Department / Authority]",
+        "recipientTitle": "The Honourable Wafaqi Mohtasib (Federal Ombudsman), Islamabad",
+        "recipientAuthority": {
+          "id": "mohtasib_gov",
+          "name": "Wafaqi Mohtasib (Federal Ombudsman) Secretariat",
+          "shortName": "Wafaqi Mohtasib",
+          "role": "Investigates maladministration in NADRA, Passports, Electricity, Gas, and Federal Ministries",
+          "portalUrl": "https://www.mohtasib.gov.pk",
+          "email": "info@mohtasib.gov.pk",
+          "helpline": "1055",
+          "address": "36-Constitution Avenue, G-5/2, Islamabad",
+          "turnaroundTime": "30–60 Days",
+          "instructions": {
+            "en": "Submit your complaint online at mohtasib.gov.pk or call helpline 1055.",
+            "roman_ur": "mohtasib.gov.pk par online complaint bhejein ya 1055 par rabta karein.",
+            "ur": "وفاقی محتسب کی ویب سائٹ پر شکایت درج کریں یا ہیلپ لائن 1055 پر کال کریں۔",
+            "pa": "وفاقی محتسب دی ویب سائٹ یا 1055 ہیلپ لائن تے رابطہ کرو۔"
+          }
+        },
+        "date": "10 November 2026",
+        "bodyText": "To,\nThe Honourable Wafaqi Mohtasib (Federal Ombudsman), Islamabad\nOfficial Portal: https://www.mohtasib.gov.pk\nDate: 10 November 2026\n\nSUBJECT: COMPLAINT AGAINST MALADMINISTRATION AND UNJUSTIFIED DELAY IN PUBLIC SERVICE DELIVERY – REGARDING [NAME OF CONCERNED UNIVERSITY / DEPARTMENT / AUTHORITY]\n\nRespected Sir / Madam,\n\nI, the undersigned citizen of Pakistan, respectfully submit this formal complaint and state the facts strictly as follows:\n\n1. STATEMENT OF GRIEVANCE & FACTS:\n   - Aggrieved Citizen Statement: \"السلام علیکم بھائی میرا استاد جو کہ چھٹی ہے کیمپس کہو میرے ساتھ زیادتی کر رہا ہے اس نے میرے دوست کی بھی دو ٹانگیں توڑ دی ہیں اب تک وہ نابینا ہو چکا ہے ڈی سی بی لگ چکی ہے اسے اس کو اوسکے ہٹا دیا گیا ہے کیا کرنا چاہیے\"\n   - Concerned Institution / Respondent: [Name of Concerned University / Department / Authority]\n   - City / Jurisdiction: [Your City, e.g., Lahore / Islamabad]\n   - Relevant Date / Reference / Roll No.: [Registration / Roll No. / Reference ID] (Date: 2026-11-10)\n\n2. APPLICABLE CONSTITUTIONAL & STATUTORY LEGAL PROVISIONS:\n   Under Article 4, Article 19A, and Article 25 of the Constitution of Pakistan 1973, read with Article 9 of the Establishment of the Office of Wafaqi Mohtasib (Ombudsman) Order 1983, arbitrary delay, neglect, and refusal to provide lawful public services constitute actionable maladministration.\n\n3. PRAYER / REQUESTED RELIEF:\n   It is respectfully requested that the concerned department be directed to resolve my pending grievance immediately in accordance with law and provide written compliance.\n\nI affirm that the facts stated above are true and accurate to the best of my knowledge. Copies of relevant supporting documents (CNIC, application receipt/clearance proof) are enclosed/attached herewith.\n\nYours faithfully,\n\nSignature: ___________________________\nFull Name: [Your Full Name]\nCNIC No.: [Your CNIC Number: XXXXX-XXXXXXX-X]\nCity / Address: [Your City, e.g., Lahore / Islamabad]\nContact Phone: [Your Mobile Number: 03XX-XXXXXXX]\nEmail: [Your Email Address]",
+        "emailSubject": "[Formal Citizen Complaint] Complaint Against Maladministration and Unjustified Delay in Public Service Delivery – Regarding [Name of Concerned University / Department / Authority]",
+        "emailBody": "Dear Grievance Redressal Officer (Wafaqi Mohtasib),\n\nPlease find below my formal citizen complaint generated via HaqAI Citizen Rights Assistant for urgent statutory action:\n\n--------------------------------------------------\nTo,\nThe Honourable Wafaqi Mohtasib (Federal Ombudsman), Islamabad\nOfficial Portal: https://www.mohtasib.gov.pk\nDate: 10 November 2026\n\nSUBJECT: COMPLAINT AGAINST MALADMINISTRATION AND UNJUSTIFIED DELAY IN PUBLIC SERVICE DELIVERY – REGARDING [NAME OF CONCERNED UNIVERSITY / DEPARTMENT / AUTHORITY]\n\nRespected Sir / Madam,\n\nI, the undersigned citizen of Pakistan, respectfully submit this formal complaint and state the facts strictly as follows:\n\n1. STATEMENT OF GRIEVANCE & FACTS:\n   - Aggrieved Citizen Statement: \"السلام علیکم بھائی میرا استاد جو کہ چھٹی ہے کیمپس کہو میرے ساتھ زیادتی کر رہا ہے اس نے میرے دوست کی بھی دو ٹانگیں توڑ دی ہیں اب تک وہ نابینا ہو چکا ہے ڈی سی بی لگ چکی ہے اسے اس کو اوسکے ہٹا دیا گیا ہے کیا کرنا چاہیے\"\n   - Concerned Institution / Respondent: [Name of Concerned University / Department / Authority]\n   - City / Jurisdiction: [Your City, e.g., Lahore / Islamabad]\n   - Relevant Date / Reference / Roll No.: [Registration / Roll No. / Reference ID] (Date: 2026-11-10)\n\n2. APPLICABLE CONSTITUTIONAL & STATUTORY LEGAL PROVISIONS:\n   Under Article 4, Article 19A, and Article 25 of the Constitution of Pakistan 1973, read with Article 9 of the Establishment of the Office of Wafaqi Mohtasib (Ombudsman) Order 1983, arbitrary delay, neglect, and refusal to provide lawful public services constitute actionable maladministration.\n\n3. PRAYER / REQUESTED RELIEF:\n   It is respectfully requested that the concerned department be directed to resolve my pending grievance immediately in accordance with law and provide written compliance.\n\nI affirm that the facts stated above are true and accurate to the best of my knowledge. Copies of relevant supporting documents (CNIC, application receipt/clearance proof) are enclosed/attached herewith.\n\nYours faithfully,\n\nSignature: ___________________________\nFull Name: [Your Full Name]\nCNIC No.: [Your CNIC Number: XXXXX-XXXXXXX-X]\nCity / Address: [Your City, e.g., Lahore / Islamabad]\nContact Phone: [Your Mobile Number: 03XX-XXXXXXX]\nEmail: [Your Email Address]\n--------------------------------------------------",
+        "categoryId": "government",
+        "facts": {
+          "rawStatement": "السلام علیکم بھائی میرا استاد جو کہ چھٹی ہے کیمپس کہو میرے ساتھ زیادتی کر رہا ہے اس نے میرے دوست کی بھی دو ٹانگیں توڑ دی ہیں اب تک وہ نابینا ہو چکا ہے ڈی سی بی لگ چکی ہے اسے اس کو اوسکے ہٹا دیا گیا ہے کیا کرنا چاہیے",
+          "applicantName": "[Your Full Name]",
+          "cnic": "[Your CNIC Number: XXXXX-XXXXXXX-X]",
+          "city": "[Your City, e.g., Lahore / Islamabad]",
+          "institutionOrRespondent": "[Name of Concerned University / Department / Authority]",
+          "dateOfIncident": "2026-11-10",
+          "referenceOrRollNo": "[Registration / Roll No. / Reference ID]",
+          "contactPhone": "[Your Mobile Number: 03XX-XXXXXXX]",
+          "contactEmail": "[Your Email Address]"
+        }
+      },
+      "workflowSteps": [
+        {
+          "stepNumber": 1,
+          "title": "Understand Input",
+          "status": "completed",
+          "summary": "Captured website input in ROMAN_UR"
+        },
+        {
+          "stepNumber": 2,
+          "title": "Classify Issue",
+          "status": "completed",
+          "summary": "Government Services & Public Utilities"
+        },
+        {
+          "stepNumber": 3,
+          "title": "Identify Missing Info",
+          "status": "completed",
+          "summary": "2 clarifying questions prepared"
+        },
+        {
+          "stepNumber": 4,
+          "title": "Explain Rights",
+          "status": "completed",
+          "summary": "2 Constitutional Articles & 1 Statutes verified"
+        },
+        {
+          "stepNumber": 5,
+          "title": "Recommend Solutions",
+          "status": "completed",
+          "summary": "3 actionable administrative steps mapped"
+        },
+        {
+          "stepNumber": 6,
+          "title": "Find Authority",
+          "status": "completed",
+          "summary": "Wafaqi Mohtasib (https://www.mohtasib.gov.pk)"
+        },
+        {
+          "stepNumber": 7,
+          "title": "Generate Complaint",
+          "status": "completed",
+          "summary": "Formal complaint drafted for Wafaqi Mohtasib"
+        },
+        {
+          "stepNumber": 8,
+          "title": "User Review & 1-Click Approval",
+          "status": "action_required",
+          "summary": "Awaiting citizen review, edit & 1-click forward approval"
+        }
+      ]
+    },
+    "HAQ-456808": {
+      "caseId": "HAQ-456808",
+      "timestamp": "2026-11-10T18:57:56.773Z",
+      "channel": "website",
+      "language": "roman_ur",
+      "userQuery": "السلام علیکم بھائی میرا استاد جو کہ چھٹی ہے کیمپس کہو میرے ساتھ زیادتی کر رہا ہے اس نے میرے دوست کی بھی دو ٹانگیں توڑ دی ہیں اب تک وہ نابینا ہو چکا ہے ڈی سی بی لگ چکی ہے اسے اس کو اوسکے ہٹا دیا گیا ہے کیا کرنا چاہیے",
+      "categoryId": "government",
+      "categoryTitle": "Sarkari Idaray, NADRA, Passport aur Bills ki Shikayat",
+      "replyText": "Assalam-o-Alaikum! Main ne aap ka masla samajh liya hai. Yeh **Sarkari Idaray, NADRA, Passport aur Bills ki Shikayat** ke zumray mein aata hai.\n\n### ⚖️ Aap ke Qanooni aur Aaeeni Haqooq:\n- **Article 4 & Article 25 – Constitution of Pakistan 1973 (Lawful Treatment & Equality of Citizens):** Har shehri ka haq hai ke sarkari idaray qanoon ke mutabiq waqt par aur baghair kisi rishwat ya ta'assub ke kaam karein.\n- **Article 19A – Constitution of Pakistan 1973 (Right to Information):** Aap ko haq hasil hai ke aap apni darkhwast ya file ki status aur sarkari faislon ki maloomat hasil karein.\n\n### 📜 Laago Qanoon (Pakistani Law):\n- **Establishment of the Office of Wafaqi Mohtasib (Ombudsman) Order, 1983 (Article 9 (Maladministration by Federal Agencies)):** NADRA, Passport, Bijli/Gas companies aur tamam wafaqi idaron ki sust-rawi, ghalat billing ya na-insafi ke khilaf Wafaqi Mohtasib muft sunwai karta hai.\n\n### 🏛️ Mutaliqa Idara (Relevant Authority):\n- **Wafaqi Mohtasib (Federal Ombudsman) Secretariat**\n- Official Portal: https://www.mohtasib.gov.pk\n- Helpline: 1055\n\n### ✅ Aap ke paas 2 Aasaan Options hain:\n1. **Option 1 – Online Complaint Submit Karein (Edit & 1-Click Forward):** Hum ne aap ki formal complaint tayyar kar di hai. Aap usay check/edit kar ke **1-Click** mein seedha **Wafaqi Mohtasib** ko forward kar sakte hain.\n2. **Option 2 – Mukammal Legal Guidance Lein:** Aap neeche diye gaye steps parh/sun sakte hain aur mujh se mazeed sawal pooch sakte hain.",
+      "whatsappReplyText": "🇵🇰 *HaqAI – Citizen Rights Assistant*\n\nAssalam-o-Alaikum! Hum ne aap ka پیغام / voice note sun liya hai.\n\n📌 *Maslay ki Qisam:* Sarkari Idaray, NADRA, Passport aur Bills ki Shikayat\n⚖️ *Qanooni Haq:* Article 4 & Article 25 – Constitution of Pakistan 1973 & Establishment of the Office of Wafaqi Mohtasib (Ombudsman) Order, 1983 – NADRA, Passport, Bijli/Gas companies aur tamam wafaqi idaron ki sust-rawi, ghalat billing ya na-insafi ke khilaf Wafaqi Mohtasib muft sunwai karta hai.\n🏛️ *Mutaliqa Idara:* Wafaqi Mohtasib (Federal Ombudsman) Secretariat (Helpline: 1055)\n\n👇 *Ab Website par jayein jahan aap ko 2 Options milenge:*\n1️⃣ *Online Complaint Submit (Edit & 1-Click Forward)* – Tayyar complaint edit karein aur 1-Click par Wafaqi Mohtasib ko forward karein.\n2️⃣ *Legal Guidance (Voice & Text)* – Aasaan alfaaz mein mukammal qanooni rehnumai hasil karein.\n\n🔗 *Aap ka Case Link (Case ID: HAQ-456808):*\n/assistant?caseId=HAQ-456808",
+      "voiceSummaryText": "Assalam o Alaikum. Aap ka masla Sarkari Idaray, NADRA, Passport aur Bills ki Shikayat se mutaliq hai. Article 4 & Article 25 – Constitution of Pakistan 1973 aur Establishment of the Office of Wafaqi Mohtasib (Ombudsman) Order, 1983 ke tehat aap ko mukammal qanooni tahaffuz hasil hai. Aap is maslay ki shikayat Wafaqi Mohtasib ko kar sakte hain. Hum ne aap ki formal complaint tayyar kar di hai jisay aap edit kar ke one click par mutaliqa idaray ko forward kar sakte hain.",
+      "constitutionalRights": [
+        {
+          "article": "Article 4 & Article 25 – Constitution of Pakistan 1973",
+          "title": "Lawful Treatment & Equality of Citizens",
+          "summary": "Har shehri ka haq hai ke sarkari idaray qanoon ke mutabiq waqt par aur baghair kisi rishwat ya ta'assub ke kaam karein."
+        },
+        {
+          "article": "Article 19A – Constitution of Pakistan 1973",
+          "title": "Right to Information",
+          "summary": "Aap ko haq hasil hai ke aap apni darkhwast ya file ki status aur sarkari faislon ki maloomat hasil karein."
+        }
+      ],
+      "statutoryLaws": [
+        {
+          "law": "Establishment of the Office of Wafaqi Mohtasib (Ombudsman) Order, 1983",
+          "section": "Article 9 (Maladministration by Federal Agencies)",
+          "explanation": "NADRA, Passport, Bijli/Gas companies aur tamam wafaqi idaron ki sust-rawi, ghalat billing ya na-insafi ke khilaf Wafaqi Mohtasib muft sunwai karta hai."
+        }
+      ],
+      "nextSteps": [
+        "Mutaliqa idaray mein shikayat kar ke token ya tracking number نوٹ karein.",
+        "Wafaqi Mohtasib (mohtasib.gov.pk) ya Pakistan Citizen Portal (citizenportal.gov.pk) par apni complaint bhejein.",
+        "Apنے CNIC aur bill/receipt number ke sath HaqAI se 1-Click Complaint forward karein."
+      ],
+      "followUpQuestions": [
+        "Aap ki shikayat kis sarkari idaray ke khilaf hai (maslan NADRA, Passport, Bijli/Gas)?",
+        "Kya aap ke paas tracking ID ya bill reference number maujood hai?"
+      ],
+      "recommendedAuthorities": [
+        {
+          "id": "mohtasib_gov",
+          "name": "Wafaqi Mohtasib (Federal Ombudsman) Secretariat",
+          "shortName": "Wafaqi Mohtasib",
+          "role": "Investigates maladministration in NADRA, Passports, Electricity, Gas, and Federal Ministries",
+          "portalUrl": "https://www.mohtasib.gov.pk",
+          "email": "info@mohtasib.gov.pk",
+          "helpline": "1055",
+          "address": "36-Constitution Avenue, G-5/2, Islamabad",
+          "turnaroundTime": "30–60 Days",
+          "instructions": {
+            "en": "Submit your complaint online at mohtasib.gov.pk or call helpline 1055.",
+            "roman_ur": "mohtasib.gov.pk par online complaint bhejein ya 1055 par rabta karein.",
+            "ur": "وفاقی محتسب کی ویب سائٹ پر شکایت درج کریں یا ہیلپ لائن 1055 پر کال کریں۔",
+            "pa": "وفاقی محتسب دی ویب سائٹ یا 1055 ہیلپ لائن تے رابطہ کرو۔"
+          }
+        },
+        {
+          "id": "citizen_portal",
+          "name": "Prime Minister's Performance Delivery Unit – Pakistan Citizen Portal",
+          "shortName": "Pakistan Citizen Portal",
+          "role": "Unified Federal & Provincial citizen grievance redressal system",
+          "portalUrl": "https://citizenportal.gov.pk",
+          "email": "support@pmdu.gov.pk",
+          "helpline": "051-9000111",
+          "address": "PM Office, Constitution Avenue, Islamabad",
+          "turnaroundTime": "14–21 Days",
+          "instructions": {
+            "en": "Lodge your complaint through citizenportal.gov.pk for direct routing to the Secretary/Head of Department.",
+            "roman_ur": "citizenportal.gov.pk ke zariye apni shikayat seedha mutaliqa idaray ke sarbarah tak pohanchayein.",
+            "ur": "پاکستان سٹیزن پورٹل کے ذریعے اپنی شکایت براہِ راست متعلقہ محکمے تک پہنچائیں۔",
+            "pa": "سٹیزن پورٹل راہیں اپنی شکایت سدھی متعلقہ محکمے نوں بھیجو۔"
+          }
+        }
+      ],
+      "primaryAuthority": {
+        "id": "mohtasib_gov",
+        "name": "Wafaqi Mohtasib (Federal Ombudsman) Secretariat",
+        "shortName": "Wafaqi Mohtasib",
+        "role": "Investigates maladministration in NADRA, Passports, Electricity, Gas, and Federal Ministries",
+        "portalUrl": "https://www.mohtasib.gov.pk",
+        "email": "info@mohtasib.gov.pk",
+        "helpline": "1055",
+        "address": "36-Constitution Avenue, G-5/2, Islamabad",
+        "turnaroundTime": "30–60 Days",
+        "instructions": {
+          "en": "Submit your complaint online at mohtasib.gov.pk or call helpline 1055.",
+          "roman_ur": "mohtasib.gov.pk par online complaint bhejein ya 1055 par rabta karein.",
+          "ur": "وفاقی محتسب کی ویب سائٹ پر شکایت درج کریں یا ہیلپ لائن 1055 پر کال کریں۔",
+          "pa": "وفاقی محتسب دی ویب سائٹ یا 1055 ہیلپ لائن تے رابطہ کرو۔"
+        }
+      },
+      "generatedComplaint": {
+        "subject": "Complaint Against Maladministration and Unjustified Delay in Public Service Delivery – Regarding [Name of Concerned University / Department / Authority]",
+        "recipientTitle": "The Honourable Wafaqi Mohtasib (Federal Ombudsman), Islamabad",
+        "recipientAuthority": {
+          "id": "mohtasib_gov",
+          "name": "Wafaqi Mohtasib (Federal Ombudsman) Secretariat",
+          "shortName": "Wafaqi Mohtasib",
+          "role": "Investigates maladministration in NADRA, Passports, Electricity, Gas, and Federal Ministries",
+          "portalUrl": "https://www.mohtasib.gov.pk",
+          "email": "info@mohtasib.gov.pk",
+          "helpline": "1055",
+          "address": "36-Constitution Avenue, G-5/2, Islamabad",
+          "turnaroundTime": "30–60 Days",
+          "instructions": {
+            "en": "Submit your complaint online at mohtasib.gov.pk or call helpline 1055.",
+            "roman_ur": "mohtasib.gov.pk par online complaint bhejein ya 1055 par rabta karein.",
+            "ur": "وفاقی محتسب کی ویب سائٹ پر شکایت درج کریں یا ہیلپ لائن 1055 پر کال کریں۔",
+            "pa": "وفاقی محتسب دی ویب سائٹ یا 1055 ہیلپ لائن تے رابطہ کرو۔"
+          }
+        },
+        "date": "10 November 2026",
+        "bodyText": "To,\nThe Honourable Wafaqi Mohtasib (Federal Ombudsman), Islamabad\nOfficial Portal: https://www.mohtasib.gov.pk\nDate: 10 November 2026\n\nSUBJECT: COMPLAINT AGAINST MALADMINISTRATION AND UNJUSTIFIED DELAY IN PUBLIC SERVICE DELIVERY – REGARDING [NAME OF CONCERNED UNIVERSITY / DEPARTMENT / AUTHORITY]\n\nRespected Sir / Madam,\n\nI, the undersigned citizen of Pakistan, respectfully submit this formal complaint and state the facts strictly as follows:\n\n1. STATEMENT OF GRIEVANCE & FACTS:\n   - Aggrieved Citizen Statement: \"السلام علیکم بھائی میرا استاد جو کہ چھٹی ہے کیمپس کہو میرے ساتھ زیادتی کر رہا ہے اس نے میرے دوست کی بھی دو ٹانگیں توڑ دی ہیں اب تک وہ نابینا ہو چکا ہے ڈی سی بی لگ چکی ہے اسے اس کو اوسکے ہٹا دیا گیا ہے کیا کرنا چاہیے\"\n   - Concerned Institution / Respondent: [Name of Concerned University / Department / Authority]\n   - City / Jurisdiction: [Your City, e.g., Lahore / Islamabad]\n   - Relevant Date / Reference / Roll No.: [Registration / Roll No. / Reference ID] (Date: 2026-11-10)\n\n2. APPLICABLE CONSTITUTIONAL & STATUTORY LEGAL PROVISIONS:\n   Under Article 4, Article 19A, and Article 25 of the Constitution of Pakistan 1973, read with Article 9 of the Establishment of the Office of Wafaqi Mohtasib (Ombudsman) Order 1983, arbitrary delay, neglect, and refusal to provide lawful public services constitute actionable maladministration.\n\n3. PRAYER / REQUESTED RELIEF:\n   It is respectfully requested that the concerned department be directed to resolve my pending grievance immediately in accordance with law and provide written compliance.\n\nI affirm that the facts stated above are true and accurate to the best of my knowledge. Copies of relevant supporting documents (CNIC, application receipt/clearance proof) are enclosed/attached herewith.\n\nYours faithfully,\n\nSignature: ___________________________\nFull Name: [Your Full Name]\nCNIC No.: [Your CNIC Number: XXXXX-XXXXXXX-X]\nCity / Address: [Your City, e.g., Lahore / Islamabad]\nContact Phone: [Your Mobile Number: 03XX-XXXXXXX]\nEmail: [Your Email Address]",
+        "emailSubject": "[Formal Citizen Complaint] Complaint Against Maladministration and Unjustified Delay in Public Service Delivery – Regarding [Name of Concerned University / Department / Authority]",
+        "emailBody": "Dear Grievance Redressal Officer (Wafaqi Mohtasib),\n\nPlease find below my formal citizen complaint generated via HaqAI Citizen Rights Assistant for urgent statutory action:\n\n--------------------------------------------------\nTo,\nThe Honourable Wafaqi Mohtasib (Federal Ombudsman), Islamabad\nOfficial Portal: https://www.mohtasib.gov.pk\nDate: 10 November 2026\n\nSUBJECT: COMPLAINT AGAINST MALADMINISTRATION AND UNJUSTIFIED DELAY IN PUBLIC SERVICE DELIVERY – REGARDING [NAME OF CONCERNED UNIVERSITY / DEPARTMENT / AUTHORITY]\n\nRespected Sir / Madam,\n\nI, the undersigned citizen of Pakistan, respectfully submit this formal complaint and state the facts strictly as follows:\n\n1. STATEMENT OF GRIEVANCE & FACTS:\n   - Aggrieved Citizen Statement: \"السلام علیکم بھائی میرا استاد جو کہ چھٹی ہے کیمپس کہو میرے ساتھ زیادتی کر رہا ہے اس نے میرے دوست کی بھی دو ٹانگیں توڑ دی ہیں اب تک وہ نابینا ہو چکا ہے ڈی سی بی لگ چکی ہے اسے اس کو اوسکے ہٹا دیا گیا ہے کیا کرنا چاہیے\"\n   - Concerned Institution / Respondent: [Name of Concerned University / Department / Authority]\n   - City / Jurisdiction: [Your City, e.g., Lahore / Islamabad]\n   - Relevant Date / Reference / Roll No.: [Registration / Roll No. / Reference ID] (Date: 2026-11-10)\n\n2. APPLICABLE CONSTITUTIONAL & STATUTORY LEGAL PROVISIONS:\n   Under Article 4, Article 19A, and Article 25 of the Constitution of Pakistan 1973, read with Article 9 of the Establishment of the Office of Wafaqi Mohtasib (Ombudsman) Order 1983, arbitrary delay, neglect, and refusal to provide lawful public services constitute actionable maladministration.\n\n3. PRAYER / REQUESTED RELIEF:\n   It is respectfully requested that the concerned department be directed to resolve my pending grievance immediately in accordance with law and provide written compliance.\n\nI affirm that the facts stated above are true and accurate to the best of my knowledge. Copies of relevant supporting documents (CNIC, application receipt/clearance proof) are enclosed/attached herewith.\n\nYours faithfully,\n\nSignature: ___________________________\nFull Name: [Your Full Name]\nCNIC No.: [Your CNIC Number: XXXXX-XXXXXXX-X]\nCity / Address: [Your City, e.g., Lahore / Islamabad]\nContact Phone: [Your Mobile Number: 03XX-XXXXXXX]\nEmail: [Your Email Address]\n--------------------------------------------------",
+        "categoryId": "government",
+        "facts": {
+          "rawStatement": "السلام علیکم بھائی میرا استاد جو کہ چھٹی ہے کیمپس کہو میرے ساتھ زیادتی کر رہا ہے اس نے میرے دوست کی بھی دو ٹانگیں توڑ دی ہیں اب تک وہ نابینا ہو چکا ہے ڈی سی بی لگ چکی ہے اسے اس کو اوسکے ہٹا دیا گیا ہے کیا کرنا چاہیے",
+          "applicantName": "[Your Full Name]",
+          "cnic": "[Your CNIC Number: XXXXX-XXXXXXX-X]",
+          "city": "[Your City, e.g., Lahore / Islamabad]",
+          "institutionOrRespondent": "[Name of Concerned University / Department / Authority]",
+          "dateOfIncident": "2026-11-10",
+          "referenceOrRollNo": "[Registration / Roll No. / Reference ID]",
+          "contactPhone": "[Your Mobile Number: 03XX-XXXXXXX]",
+          "contactEmail": "[Your Email Address]"
+        }
+      },
+      "workflowSteps": [
+        {
+          "stepNumber": 1,
+          "title": "Understand Input",
+          "status": "completed",
+          "summary": "Captured website input in ROMAN_UR"
+        },
+        {
+          "stepNumber": 2,
+          "title": "Classify Issue",
+          "status": "completed",
+          "summary": "Government Services & Public Utilities"
+        },
+        {
+          "stepNumber": 3,
+          "title": "Identify Missing Info",
+          "status": "completed",
+          "summary": "2 clarifying questions prepared"
+        },
+        {
+          "stepNumber": 4,
+          "title": "Explain Rights",
+          "status": "completed",
+          "summary": "2 Constitutional Articles & 1 Statutes verified"
+        },
+        {
+          "stepNumber": 5,
+          "title": "Recommend Solutions",
+          "status": "completed",
+          "summary": "3 actionable administrative steps mapped"
+        },
+        {
+          "stepNumber": 6,
+          "title": "Find Authority",
+          "status": "completed",
+          "summary": "Wafaqi Mohtasib (https://www.mohtasib.gov.pk)"
+        },
+        {
+          "stepNumber": 7,
+          "title": "Generate Complaint",
+          "status": "completed",
+          "summary": "Formal complaint drafted for Wafaqi Mohtasib"
+        },
+        {
+          "stepNumber": 8,
+          "title": "User Review & 1-Click Approval",
+          "status": "action_required",
+          "summary": "Awaiting citizen review, edit & 1-click forward approval"
+        }
+      ]
+    },
+    "HAQ-954459": {
+      "caseId": "HAQ-954459",
+      "timestamp": "2026-11-10T18:57:57.346Z",
+      "channel": "website",
+      "language": "roman_ur",
+      "userQuery": "السلام علیکم بھائی میرا استاد جو کہ چھٹی ہے کیمپس کہو میرے ساتھ زیادتی کر رہا ہے اس نے میرے دوست کی بھی دو ٹانگیں توڑ دی ہیں اب تک وہ نابینا ہو چکا ہے ڈی سی بی لگ چکی ہے اسے اس کو اوسکے ہٹا دیا گیا ہے کیا کرنا چاہیے",
+      "categoryId": "government",
+      "categoryTitle": "Sarkari Idaray, NADRA, Passport aur Bills ki Shikayat",
+      "replyText": "Assalam-o-Alaikum! Main ne aap ka masla samajh liya hai. Yeh **Sarkari Idaray, NADRA, Passport aur Bills ki Shikayat** ke zumray mein aata hai.\n\n### ⚖️ Aap ke Qanooni aur Aaeeni Haqooq:\n- **Article 4 & Article 25 – Constitution of Pakistan 1973 (Lawful Treatment & Equality of Citizens):** Har shehri ka haq hai ke sarkari idaray qanoon ke mutabiq waqt par aur baghair kisi rishwat ya ta'assub ke kaam karein.\n- **Article 19A – Constitution of Pakistan 1973 (Right to Information):** Aap ko haq hasil hai ke aap apni darkhwast ya file ki status aur sarkari faislon ki maloomat hasil karein.\n\n### 📜 Laago Qanoon (Pakistani Law):\n- **Establishment of the Office of Wafaqi Mohtasib (Ombudsman) Order, 1983 (Article 9 (Maladministration by Federal Agencies)):** NADRA, Passport, Bijli/Gas companies aur tamam wafaqi idaron ki sust-rawi, ghalat billing ya na-insafi ke khilaf Wafaqi Mohtasib muft sunwai karta hai.\n\n### 🏛️ Mutaliqa Idara (Relevant Authority):\n- **Wafaqi Mohtasib (Federal Ombudsman) Secretariat**\n- Official Portal: https://www.mohtasib.gov.pk\n- Helpline: 1055\n\n### ✅ Aap ke paas 2 Aasaan Options hain:\n1. **Option 1 – Online Complaint Submit Karein (Edit & 1-Click Forward):** Hum ne aap ki formal complaint tayyar kar di hai. Aap usay check/edit kar ke **1-Click** mein seedha **Wafaqi Mohtasib** ko forward kar sakte hain.\n2. **Option 2 – Mukammal Legal Guidance Lein:** Aap neeche diye gaye steps parh/sun sakte hain aur mujh se mazeed sawal pooch sakte hain.",
+      "whatsappReplyText": "🇵🇰 *HaqAI – Citizen Rights Assistant*\n\nAssalam-o-Alaikum! Hum ne aap ka پیغام / voice note sun liya hai.\n\n📌 *Maslay ki Qisam:* Sarkari Idaray, NADRA, Passport aur Bills ki Shikayat\n⚖️ *Qanooni Haq:* Article 4 & Article 25 – Constitution of Pakistan 1973 & Establishment of the Office of Wafaqi Mohtasib (Ombudsman) Order, 1983 – NADRA, Passport, Bijli/Gas companies aur tamam wafaqi idaron ki sust-rawi, ghalat billing ya na-insafi ke khilaf Wafaqi Mohtasib muft sunwai karta hai.\n🏛️ *Mutaliqa Idara:* Wafaqi Mohtasib (Federal Ombudsman) Secretariat (Helpline: 1055)\n\n👇 *Ab Website par jayein jahan aap ko 2 Options milenge:*\n1️⃣ *Online Complaint Submit (Edit & 1-Click Forward)* – Tayyar complaint edit karein aur 1-Click par Wafaqi Mohtasib ko forward karein.\n2️⃣ *Legal Guidance (Voice & Text)* – Aasaan alfaaz mein mukammal qanooni rehnumai hasil karein.\n\n🔗 *Aap ka Case Link (Case ID: HAQ-954459):*\n/assistant?caseId=HAQ-954459",
+      "voiceSummaryText": "Assalam o Alaikum. Aap ka masla Sarkari Idaray, NADRA, Passport aur Bills ki Shikayat se mutaliq hai. Article 4 & Article 25 – Constitution of Pakistan 1973 aur Establishment of the Office of Wafaqi Mohtasib (Ombudsman) Order, 1983 ke tehat aap ko mukammal qanooni tahaffuz hasil hai. Aap is maslay ki shikayat Wafaqi Mohtasib ko kar sakte hain. Hum ne aap ki formal complaint tayyar kar di hai jisay aap edit kar ke one click par mutaliqa idaray ko forward kar sakte hain.",
+      "constitutionalRights": [
+        {
+          "article": "Article 4 & Article 25 – Constitution of Pakistan 1973",
+          "title": "Lawful Treatment & Equality of Citizens",
+          "summary": "Har shehri ka haq hai ke sarkari idaray qanoon ke mutabiq waqt par aur baghair kisi rishwat ya ta'assub ke kaam karein."
+        },
+        {
+          "article": "Article 19A – Constitution of Pakistan 1973",
+          "title": "Right to Information",
+          "summary": "Aap ko haq hasil hai ke aap apni darkhwast ya file ki status aur sarkari faislon ki maloomat hasil karein."
+        }
+      ],
+      "statutoryLaws": [
+        {
+          "law": "Establishment of the Office of Wafaqi Mohtasib (Ombudsman) Order, 1983",
+          "section": "Article 9 (Maladministration by Federal Agencies)",
+          "explanation": "NADRA, Passport, Bijli/Gas companies aur tamam wafaqi idaron ki sust-rawi, ghalat billing ya na-insafi ke khilaf Wafaqi Mohtasib muft sunwai karta hai."
+        }
+      ],
+      "nextSteps": [
+        "Mutaliqa idaray mein shikayat kar ke token ya tracking number نوٹ karein.",
+        "Wafaqi Mohtasib (mohtasib.gov.pk) ya Pakistan Citizen Portal (citizenportal.gov.pk) par apni complaint bhejein.",
+        "Apنے CNIC aur bill/receipt number ke sath HaqAI se 1-Click Complaint forward karein."
+      ],
+      "followUpQuestions": [
+        "Aap ki shikayat kis sarkari idaray ke khilaf hai (maslan NADRA, Passport, Bijli/Gas)?",
+        "Kya aap ke paas tracking ID ya bill reference number maujood hai?"
+      ],
+      "recommendedAuthorities": [
+        {
+          "id": "mohtasib_gov",
+          "name": "Wafaqi Mohtasib (Federal Ombudsman) Secretariat",
+          "shortName": "Wafaqi Mohtasib",
+          "role": "Investigates maladministration in NADRA, Passports, Electricity, Gas, and Federal Ministries",
+          "portalUrl": "https://www.mohtasib.gov.pk",
+          "email": "info@mohtasib.gov.pk",
+          "helpline": "1055",
+          "address": "36-Constitution Avenue, G-5/2, Islamabad",
+          "turnaroundTime": "30–60 Days",
+          "instructions": {
+            "en": "Submit your complaint online at mohtasib.gov.pk or call helpline 1055.",
+            "roman_ur": "mohtasib.gov.pk par online complaint bhejein ya 1055 par rabta karein.",
+            "ur": "وفاقی محتسب کی ویب سائٹ پر شکایت درج کریں یا ہیلپ لائن 1055 پر کال کریں۔",
+            "pa": "وفاقی محتسب دی ویب سائٹ یا 1055 ہیلپ لائن تے رابطہ کرو۔"
+          }
+        },
+        {
+          "id": "citizen_portal",
+          "name": "Prime Minister's Performance Delivery Unit – Pakistan Citizen Portal",
+          "shortName": "Pakistan Citizen Portal",
+          "role": "Unified Federal & Provincial citizen grievance redressal system",
+          "portalUrl": "https://citizenportal.gov.pk",
+          "email": "support@pmdu.gov.pk",
+          "helpline": "051-9000111",
+          "address": "PM Office, Constitution Avenue, Islamabad",
+          "turnaroundTime": "14–21 Days",
+          "instructions": {
+            "en": "Lodge your complaint through citizenportal.gov.pk for direct routing to the Secretary/Head of Department.",
+            "roman_ur": "citizenportal.gov.pk ke zariye apni shikayat seedha mutaliqa idaray ke sarbarah tak pohanchayein.",
+            "ur": "پاکستان سٹیزن پورٹل کے ذریعے اپنی شکایت براہِ راست متعلقہ محکمے تک پہنچائیں۔",
+            "pa": "سٹیزن پورٹل راہیں اپنی شکایت سدھی متعلقہ محکمے نوں بھیجو۔"
+          }
+        }
+      ],
+      "primaryAuthority": {
+        "id": "mohtasib_gov",
+        "name": "Wafaqi Mohtasib (Federal Ombudsman) Secretariat",
+        "shortName": "Wafaqi Mohtasib",
+        "role": "Investigates maladministration in NADRA, Passports, Electricity, Gas, and Federal Ministries",
+        "portalUrl": "https://www.mohtasib.gov.pk",
+        "email": "info@mohtasib.gov.pk",
+        "helpline": "1055",
+        "address": "36-Constitution Avenue, G-5/2, Islamabad",
+        "turnaroundTime": "30–60 Days",
+        "instructions": {
+          "en": "Submit your complaint online at mohtasib.gov.pk or call helpline 1055.",
+          "roman_ur": "mohtasib.gov.pk par online complaint bhejein ya 1055 par rabta karein.",
+          "ur": "وفاقی محتسب کی ویب سائٹ پر شکایت درج کریں یا ہیلپ لائن 1055 پر کال کریں۔",
+          "pa": "وفاقی محتسب دی ویب سائٹ یا 1055 ہیلپ لائن تے رابطہ کرو۔"
+        }
+      },
+      "generatedComplaint": {
+        "subject": "Complaint Against Maladministration and Unjustified Delay in Public Service Delivery – Regarding [Name of Concerned University / Department / Authority]",
+        "recipientTitle": "The Honourable Wafaqi Mohtasib (Federal Ombudsman), Islamabad",
+        "recipientAuthority": {
+          "id": "mohtasib_gov",
+          "name": "Wafaqi Mohtasib (Federal Ombudsman) Secretariat",
+          "shortName": "Wafaqi Mohtasib",
+          "role": "Investigates maladministration in NADRA, Passports, Electricity, Gas, and Federal Ministries",
+          "portalUrl": "https://www.mohtasib.gov.pk",
+          "email": "info@mohtasib.gov.pk",
+          "helpline": "1055",
+          "address": "36-Constitution Avenue, G-5/2, Islamabad",
+          "turnaroundTime": "30–60 Days",
+          "instructions": {
+            "en": "Submit your complaint online at mohtasib.gov.pk or call helpline 1055.",
+            "roman_ur": "mohtasib.gov.pk par online complaint bhejein ya 1055 par rabta karein.",
+            "ur": "وفاقی محتسب کی ویب سائٹ پر شکایت درج کریں یا ہیلپ لائن 1055 پر کال کریں۔",
+            "pa": "وفاقی محتسب دی ویب سائٹ یا 1055 ہیلپ لائن تے رابطہ کرو۔"
+          }
+        },
+        "date": "10 November 2026",
+        "bodyText": "To,\nThe Honourable Wafaqi Mohtasib (Federal Ombudsman), Islamabad\nOfficial Portal: https://www.mohtasib.gov.pk\nDate: 10 November 2026\n\nSUBJECT: COMPLAINT AGAINST MALADMINISTRATION AND UNJUSTIFIED DELAY IN PUBLIC SERVICE DELIVERY – REGARDING [NAME OF CONCERNED UNIVERSITY / DEPARTMENT / AUTHORITY]\n\nRespected Sir / Madam,\n\nI, the undersigned citizen of Pakistan, respectfully submit this formal complaint and state the facts strictly as follows:\n\n1. STATEMENT OF GRIEVANCE & FACTS:\n   - Aggrieved Citizen Statement: \"السلام علیکم بھائی میرا استاد جو کہ چھٹی ہے کیمپس کہو میرے ساتھ زیادتی کر رہا ہے اس نے میرے دوست کی بھی دو ٹانگیں توڑ دی ہیں اب تک وہ نابینا ہو چکا ہے ڈی سی بی لگ چکی ہے اسے اس کو اوسکے ہٹا دیا گیا ہے کیا کرنا چاہیے\"\n   - Concerned Institution / Respondent: [Name of Concerned University / Department / Authority]\n   - City / Jurisdiction: [Your City, e.g., Lahore / Islamabad]\n   - Relevant Date / Reference / Roll No.: [Registration / Roll No. / Reference ID] (Date: 2026-11-10)\n\n2. APPLICABLE CONSTITUTIONAL & STATUTORY LEGAL PROVISIONS:\n   Under Article 4, Article 19A, and Article 25 of the Constitution of Pakistan 1973, read with Article 9 of the Establishment of the Office of Wafaqi Mohtasib (Ombudsman) Order 1983, arbitrary delay, neglect, and refusal to provide lawful public services constitute actionable maladministration.\n\n3. PRAYER / REQUESTED RELIEF:\n   It is respectfully requested that the concerned department be directed to resolve my pending grievance immediately in accordance with law and provide written compliance.\n\nI affirm that the facts stated above are true and accurate to the best of my knowledge. Copies of relevant supporting documents (CNIC, application receipt/clearance proof) are enclosed/attached herewith.\n\nYours faithfully,\n\nSignature: ___________________________\nFull Name: [Your Full Name]\nCNIC No.: [Your CNIC Number: XXXXX-XXXXXXX-X]\nCity / Address: [Your City, e.g., Lahore / Islamabad]\nContact Phone: [Your Mobile Number: 03XX-XXXXXXX]\nEmail: [Your Email Address]",
+        "emailSubject": "[Formal Citizen Complaint] Complaint Against Maladministration and Unjustified Delay in Public Service Delivery – Regarding [Name of Concerned University / Department / Authority]",
+        "emailBody": "Dear Grievance Redressal Officer (Wafaqi Mohtasib),\n\nPlease find below my formal citizen complaint generated via HaqAI Citizen Rights Assistant for urgent statutory action:\n\n--------------------------------------------------\nTo,\nThe Honourable Wafaqi Mohtasib (Federal Ombudsman), Islamabad\nOfficial Portal: https://www.mohtasib.gov.pk\nDate: 10 November 2026\n\nSUBJECT: COMPLAINT AGAINST MALADMINISTRATION AND UNJUSTIFIED DELAY IN PUBLIC SERVICE DELIVERY – REGARDING [NAME OF CONCERNED UNIVERSITY / DEPARTMENT / AUTHORITY]\n\nRespected Sir / Madam,\n\nI, the undersigned citizen of Pakistan, respectfully submit this formal complaint and state the facts strictly as follows:\n\n1. STATEMENT OF GRIEVANCE & FACTS:\n   - Aggrieved Citizen Statement: \"السلام علیکم بھائی میرا استاد جو کہ چھٹی ہے کیمپس کہو میرے ساتھ زیادتی کر رہا ہے اس نے میرے دوست کی بھی دو ٹانگیں توڑ دی ہیں اب تک وہ نابینا ہو چکا ہے ڈی سی بی لگ چکی ہے اسے اس کو اوسکے ہٹا دیا گیا ہے کیا کرنا چاہیے\"\n   - Concerned Institution / Respondent: [Name of Concerned University / Department / Authority]\n   - City / Jurisdiction: [Your City, e.g., Lahore / Islamabad]\n   - Relevant Date / Reference / Roll No.: [Registration / Roll No. / Reference ID] (Date: 2026-11-10)\n\n2. APPLICABLE CONSTITUTIONAL & STATUTORY LEGAL PROVISIONS:\n   Under Article 4, Article 19A, and Article 25 of the Constitution of Pakistan 1973, read with Article 9 of the Establishment of the Office of Wafaqi Mohtasib (Ombudsman) Order 1983, arbitrary delay, neglect, and refusal to provide lawful public services constitute actionable maladministration.\n\n3. PRAYER / REQUESTED RELIEF:\n   It is respectfully requested that the concerned department be directed to resolve my pending grievance immediately in accordance with law and provide written compliance.\n\nI affirm that the facts stated above are true and accurate to the best of my knowledge. Copies of relevant supporting documents (CNIC, application receipt/clearance proof) are enclosed/attached herewith.\n\nYours faithfully,\n\nSignature: ___________________________\nFull Name: [Your Full Name]\nCNIC No.: [Your CNIC Number: XXXXX-XXXXXXX-X]\nCity / Address: [Your City, e.g., Lahore / Islamabad]\nContact Phone: [Your Mobile Number: 03XX-XXXXXXX]\nEmail: [Your Email Address]\n--------------------------------------------------",
+        "categoryId": "government",
+        "facts": {
+          "rawStatement": "السلام علیکم بھائی میرا استاد جو کہ چھٹی ہے کیمپس کہو میرے ساتھ زیادتی کر رہا ہے اس نے میرے دوست کی بھی دو ٹانگیں توڑ دی ہیں اب تک وہ نابینا ہو چکا ہے ڈی سی بی لگ چکی ہے اسے اس کو اوسکے ہٹا دیا گیا ہے کیا کرنا چاہیے",
+          "applicantName": "[Your Full Name]",
+          "cnic": "[Your CNIC Number: XXXXX-XXXXXXX-X]",
+          "city": "[Your City, e.g., Lahore / Islamabad]",
+          "institutionOrRespondent": "[Name of Concerned University / Department / Authority]",
+          "dateOfIncident": "2026-11-10",
+          "referenceOrRollNo": "[Registration / Roll No. / Reference ID]",
+          "contactPhone": "[Your Mobile Number: 03XX-XXXXXXX]",
+          "contactEmail": "[Your Email Address]"
+        }
+      },
+      "workflowSteps": [
+        {
+          "stepNumber": 1,
+          "title": "Understand Input",
+          "status": "completed",
+          "summary": "Captured website input in ROMAN_UR"
+        },
+        {
+          "stepNumber": 2,
+          "title": "Classify Issue",
+          "status": "completed",
+          "summary": "Government Services & Public Utilities"
+        },
+        {
+          "stepNumber": 3,
+          "title": "Identify Missing Info",
+          "status": "completed",
+          "summary": "2 clarifying questions prepared"
+        },
+        {
+          "stepNumber": 4,
+          "title": "Explain Rights",
+          "status": "completed",
+          "summary": "2 Constitutional Articles & 1 Statutes verified"
+        },
+        {
+          "stepNumber": 5,
+          "title": "Recommend Solutions",
+          "status": "completed",
+          "summary": "3 actionable administrative steps mapped"
+        },
+        {
+          "stepNumber": 6,
+          "title": "Find Authority",
+          "status": "completed",
+          "summary": "Wafaqi Mohtasib (https://www.mohtasib.gov.pk)"
+        },
+        {
+          "stepNumber": 7,
+          "title": "Generate Complaint",
+          "status": "completed",
+          "summary": "Formal complaint drafted for Wafaqi Mohtasib"
+        },
+        {
+          "stepNumber": 8,
+          "title": "User Review & 1-Click Approval",
+          "status": "action_required",
+          "summary": "Awaiting citizen review, edit & 1-click forward approval"
+        }
+      ]
+    },
+    "HAQ-908749": {
+      "caseId": "HAQ-908749",
+      "haqId": "HAQ-PK-104829",
+      "citizenProfile": {
+        "id": "prof-demo-01",
+        "haqId": "HAQ-PK-104829",
+        "email": "uzair.citizen@gmail.com",
+        "fullName": "Muhammad Uzair",
+        "cnic": "35202-4829104-1",
+        "phone": "+923001234567",
+        "city": "Islamabad",
+        "province": "Islamabad Capital Territory (ICT)",
+        "address": "House 14, Street 8, Sector G-10/2, Islamabad",
+        "occupation": "University Graduate / Software Engineer",
+        "role": "admin",
+        "createdAt": "2026-11-10T19:22:00.889Z",
+        "updatedAt": "2026-11-10T19:22:00.890Z"
+      },
+      "timestamp": "2026-11-10T19:22:22.164Z",
+      "channel": "website",
+      "language": "roman_ur",
+      "aiEngineUsed": "verified-pakistan-rag",
+      "userQuery": "میرے استاد نے میرے اوپر تشدد کیا ہے مجھے کیا کرنا چاہیے",
+      "categoryId": "human_rights",
+      "categoryTitle": "Insani Haqooq, Khawateen aur Aqliyaton ka Tahaffuz",
+      "replyText": "Assalam-o-Alaikum **Muhammad Uzair** (Citizen ID: `HAQ-PK-104829`)! Main ne Pakistan ke **1973 Constitution** aur **Pakistani Qawaneen** ke mutabiq aap ka masla check kar liya hai. Yeh **Insani Haqooq, Khawateen aur Aqliyaton ka Tahaffuz** se mutaliq hai.\n\n### ⚖️ Aap ke Aaeeni Haqooq (1973 Constitution):\n- **Article 9, Article 14 & Article 25 – Constitution of Pakistan 1973 (Right to Life, Human Dignity & Equality of Citizens):** Qanoon ki nazar mein tamam shehri barabar hain. Jins (gender), mazhab ya zaat ki bunyad par kisi ke sath imtiazi sulook nahi ho sakta.\n- **Article 20, Article 26 & Article 27 – Constitution of Pakistan 1973 (Freedom of Religion & Non-Discrimination in Public Access and Services):** Mazhabi azadi aur aam jagahon ya sarkari mulazmat mein har shehri ko barabari ka tahaffuz hasil hai.\n\n### 📜 Laago Pakistani Qanoon (Statutes):\n- **National Commission for Human Rights (NCHR) Act, 2012 (Section 9 (Functions and Powers to Inquire into Human Rights Violations)):** NCHR Act 2012 ke tehat Commission insani haqooq ki khilaf warzi par tahqeeqat aur qanooni karrawai ka ikhtiyar rakhta hai.\n\n### 🏛️ Mutaliqa Sarkari Idara:\n- **Ministry of Human Rights (MoHR) – Helpline 1099** (https://mohr.gov.pk | Helpline: 1099)\n\n### ✅ Aap ki pre-saved details (`35202-4829104-1`, `Islamabad`) ke sath Complaint tayyar hai:\n1. **Option 1 – Online Complaint Submit Karein (Edit & 1-Click Forward):** Apni tayyar complaint check/edit karein aur 1-Click mein **MoHR Helpline 1099** ko forward karein.\n2. **Option 2 – Mukammal Legal Guidance:** Neeche diye gaye qanooni steps parhein/sunein ya mazeed koi bhi qanooni sawal poochein.",
+      "whatsappReplyText": "🇵🇰 *HaqAI – Citizen Rights & Complaint Assistant*\n\n👤 *Citizen ID:* HAQ-PK-104829\n📌 *Issue:* Insani Haqooq, Khawateen aur Aqliyaton ka Tahaffuz\n⚖️ *Pakistani Law:* Article 9, Article 14 & Article 25 – Constitution of Pakistan 1973 & National Commission for Human Rights (NCHR) Act, 2012\n🏛️ *Authority:* Ministry of Human Rights (MoHR) – Helpline 1099 (Helpline: 1099)\n\n👇 *Click Your Website Link Below (2 Citizen Options):*\n1️⃣ *Option 1 – Submit Online Complaint (Edit & 1-Click Forward):*\nhttp://localhost:3001/complaint?caseId=HAQ-908749\n\n2️⃣ *Option 2 – Full Legal Guidance (Voice & Text):*\nhttp://localhost:3001/assistant?caseId=HAQ-908749",
+      "voiceSummaryText": "Assalam o Alaikum Muhammad Uzair. Aap ka masla Insani Haqooq, Khawateen aur Aqliyaton ka Tahaffuz se mutaliq hai. Article 9, Article 14 & Article 25 – Constitution of Pakistan 1973 aur National Commission for Human Rights (NCHR) Act, 2012 ke tehat aap ko mukammal qanooni tahaffuz hasil hai. Hum ne aap ki citizen profile details ke sath formal complaint tayyar kar di hai jisay aap one click par MoHR Helpline 1099 ko forward kar sakte hain.",
+      "constitutionalRights": [
+        {
+          "article": "Article 9, Article 14 & Article 25 – Constitution of Pakistan 1973",
+          "title": "Right to Life, Human Dignity & Equality of Citizens",
+          "summary": "Qanoon ki nazar mein tamam shehri barabar hain. Jins (gender), mazhab ya zaat ki bunyad par kisi ke sath imtiazi sulook nahi ho sakta."
+        },
+        {
+          "article": "Article 20, Article 26 & Article 27 – Constitution of Pakistan 1973",
+          "title": "Freedom of Religion & Non-Discrimination in Public Access and Services",
+          "summary": "Mazhabi azadi aur aam jagahon ya sarkari mulazmat mein har shehri ko barabari ka tahaffuz hasil hai."
+        }
+      ],
+      "statutoryLaws": [
+        {
+          "law": "National Commission for Human Rights (NCHR) Act, 2012",
+          "section": "Section 9 (Functions and Powers to Inquire into Human Rights Violations)",
+          "explanation": "NCHR Act 2012 ke tehat Commission insani haqooq ki khilaf warzi par tahqeeqat aur qanooni karrawai ka ikhtiyar rakhta hai."
+        }
+      ],
+      "nextSteps": [
+        "Fori qanooni madad ke liye Ministry of Human Rights ki Toll-Free Helpline 1099 par call karein.",
+        "National Commission for Human Rights (nchr.gov.pk) ya Ministry of Human Rights (mohr.gov.pk) ko darkhwast bhejein."
+      ],
+      "followUpQuestions": [
+        "Yeh waqia kis shehar mein pesh aaya aur kis idaray ya shaks ke khilaf shikayat hai?",
+        "Kya is waqt kisi ko fori khatra lahaq hai?"
+      ],
+      "recommendedAuthorities": [
+        {
+          "id": "mohr_1099",
+          "name": "Ministry of Human Rights (MoHR) – Helpline 1099",
+          "shortName": "MoHR Helpline 1099",
+          "role": "Federal Human Rights Grievance Cell & Free Legal Aid Referral",
+          "portalUrl": "https://mohr.gov.pk",
+          "email": "helpline1099@mohr.gov.pk",
+          "helpline": "1099",
+          "address": "9th Floor, New Pak Secretariat (Kohsar Block), Sector F-5, Islamabad",
+          "turnaroundTime": "24–48 Hours Emergency Response",
+          "instructions": {
+            "en": "Dial 1099 (free) or submit your complaint via mohr.gov.pk.",
+            "roman_ur": "1099 par muft call karein ya mohr.gov.pk par shikayat bhejein.",
+            "ur": "ہیلپ لائن 1099 پر کال کریں یا وزارتِ انسانی حقوق کی ویب سائٹ پر شکایت درج کریں۔",
+            "pa": "1099 اتے مفت کال کرو یا ویب سائٹ راہیں شکایت بھیجو۔"
+          }
+        },
+        {
+          "id": "nchr",
+          "name": "National Commission for Human Rights (NCHR) Pakistan",
+          "shortName": "NCHR Pakistan",
+          "role": "Independent statutory body investigating human rights violations",
+          "portalUrl": "https://nchr.gov.pk",
+          "email": "complaints@nchr.gov.pk",
+          "helpline": "051-9216771",
+          "address": "5th Floor, Evacuee Trust Complex, Agha Khan Road, F-5/1, Islamabad",
+          "turnaroundTime": "7–21 Days",
+          "instructions": {
+            "en": "Lodge an online complaint at nchr.gov.pk.",
+            "roman_ur": "nchr.gov.pk par online darkhwast darj karein.",
+            "ur": "nchr.gov.pk پر آن لائن شکایت درج کریں۔",
+            "pa": "nchr.gov.pk اتے آن لائن شکایت درج کرو۔"
+          }
+        }
+      ],
+      "primaryAuthority": {
+        "id": "mohr_1099",
+        "name": "Ministry of Human Rights (MoHR) – Helpline 1099",
+        "shortName": "MoHR Helpline 1099",
+        "role": "Federal Human Rights Grievance Cell & Free Legal Aid Referral",
+        "portalUrl": "https://mohr.gov.pk",
+        "email": "helpline1099@mohr.gov.pk",
+        "helpline": "1099",
+        "address": "9th Floor, New Pak Secretariat (Kohsar Block), Sector F-5, Islamabad",
+        "turnaroundTime": "24–48 Hours Emergency Response",
+        "instructions": {
+          "en": "Dial 1099 (free) or submit your complaint via mohr.gov.pk.",
+          "roman_ur": "1099 par muft call karein ya mohr.gov.pk par shikayat bhejein.",
+          "ur": "ہیلپ لائن 1099 پر کال کریں یا وزارتِ انسانی حقوق کی ویب سائٹ پر شکایت درج کریں۔",
+          "pa": "1099 اتے مفت کال کرو یا ویب سائٹ راہیں شکایت بھیجو۔"
+        }
+      },
+      "generatedComplaint": {
+        "subject": "Urgent Petition Regarding Violation of Fundamental Human Rights – Regarding [Name of Concerned Department / Institution / Respondent]",
+        "recipientTitle": "Ministry of Human Rights (MoHR) – Helpline 1099",
+        "recipientAuthority": {
+          "id": "mohr_1099",
+          "name": "Ministry of Human Rights (MoHR) – Helpline 1099",
+          "shortName": "MoHR Helpline 1099",
+          "role": "Federal Human Rights Grievance Cell & Free Legal Aid Referral",
+          "portalUrl": "https://mohr.gov.pk",
+          "email": "helpline1099@mohr.gov.pk",
+          "helpline": "1099",
+          "address": "9th Floor, New Pak Secretariat (Kohsar Block), Sector F-5, Islamabad",
+          "turnaroundTime": "24–48 Hours Emergency Response",
+          "instructions": {
+            "en": "Dial 1099 (free) or submit your complaint via mohr.gov.pk.",
+            "roman_ur": "1099 par muft call karein ya mohr.gov.pk par shikayat bhejein.",
+            "ur": "ہیلپ لائن 1099 پر کال کریں یا وزارتِ انسانی حقوق کی ویب سائٹ پر شکایت درج کریں۔",
+            "pa": "1099 اتے مفت کال کرو یا ویب سائٹ راہیں شکایت بھیجو۔"
+          }
+        },
+        "date": "11 November 2026",
+        "bodyText": "To,\nThe Competent Authority / Grievance Redressal Cell,\nMinistry of Human Rights (MoHR) – Helpline 1099\nOfficial Portal: https://mohr.gov.pk\nDate: 11 November 2026\nHaqAI Citizen ID: HAQ-PK-104829\n\nSUBJECT: URGENT PETITION REGARDING VIOLATION OF FUNDAMENTAL HUMAN RIGHTS – REGARDING [NAME OF CONCERNED DEPARTMENT / INSTITUTION / RESPONDENT]\n\nRespected Sir / Madam,\n\nI, Muhammad Uzair (holding CNIC No. 35202-4829104-1, resident of House 14, Street 8, Sector G-10/2, Islamabad), respectfully submit this formal complaint and state the facts strictly as follows:\n\n1. STATEMENT OF GRIEVANCE & FACTS:\n   - Aggrieved Citizen Statement: \"میرے استاد نے میرے اوپر تشدد کیا ہے مجھے کیا کرنا چاہیے\"\n   - Concerned Institution / Respondent: [Name of Concerned Department / Institution / Respondent]\n   - City / Jurisdiction: Islamabad\n   - Relevant Date / Reference / Roll No.: [Registration / Roll No. / Reference ID] (Date: 2026-11-10)\n\n2. APPLICABLE CONSTITUTIONAL & STATUTORY LEGAL PROVISIONS (PAKISTAN):\n   Under Articles 4, 9, 14, 25, and 26 of the Constitution of the Islamic Republic of Pakistan 1973, read with Section 9 of the National Commission for Human Rights Act 2012, every citizen is guaranteed inviolable human dignity, security of person, and equal protection of law.\n\n3. PRAYER / REQUESTED RELIEF:\n   It is respectfully requested that an immediate inquiry be initiated into this violation of fundamental rights, protection be provided to the aggrieved citizen, and legal proceedings be recommended against the responsible parties.\n\nI affirm that the facts stated above are true and accurate to the best of my knowledge. Copies of my CNIC (35202-4829104-1) and relevant supporting documents are attached herewith.\n\nYours faithfully,\n\nSignature: ___________________________\nFull Name: Muhammad Uzair\nHaqAI Citizen ID: HAQ-PK-104829\nCNIC No.: 35202-4829104-1\nAddress / City: House 14, Street 8, Sector G-10/2, Islamabad\nContact Phone: +923001234567\nEmail: uzair.citizen@gmail.com",
+        "emailSubject": "[Formal Citizen Complaint - HAQ-PK-104829] Urgent Petition Regarding Violation of Fundamental Human Rights – Regarding [Name of Concerned Department / Institution / Respondent]",
+        "emailBody": "Dear Grievance Redressal Officer (MoHR Helpline 1099),\n\nPlease find below the formal citizen complaint submitted by Muhammad Uzair (HaqAI ID: HAQ-PK-104829, CNIC: 35202-4829104-1) for urgent statutory action:\n\n--------------------------------------------------\nTo,\nThe Competent Authority / Grievance Redressal Cell,\nMinistry of Human Rights (MoHR) – Helpline 1099\nOfficial Portal: https://mohr.gov.pk\nDate: 11 November 2026\nHaqAI Citizen ID: HAQ-PK-104829\n\nSUBJECT: URGENT PETITION REGARDING VIOLATION OF FUNDAMENTAL HUMAN RIGHTS – REGARDING [NAME OF CONCERNED DEPARTMENT / INSTITUTION / RESPONDENT]\n\nRespected Sir / Madam,\n\nI, Muhammad Uzair (holding CNIC No. 35202-4829104-1, resident of House 14, Street 8, Sector G-10/2, Islamabad), respectfully submit this formal complaint and state the facts strictly as follows:\n\n1. STATEMENT OF GRIEVANCE & FACTS:\n   - Aggrieved Citizen Statement: \"میرے استاد نے میرے اوپر تشدد کیا ہے مجھے کیا کرنا چاہیے\"\n   - Concerned Institution / Respondent: [Name of Concerned Department / Institution / Respondent]\n   - City / Jurisdiction: Islamabad\n   - Relevant Date / Reference / Roll No.: [Registration / Roll No. / Reference ID] (Date: 2026-11-10)\n\n2. APPLICABLE CONSTITUTIONAL & STATUTORY LEGAL PROVISIONS (PAKISTAN):\n   Under Articles 4, 9, 14, 25, and 26 of the Constitution of the Islamic Republic of Pakistan 1973, read with Section 9 of the National Commission for Human Rights Act 2012, every citizen is guaranteed inviolable human dignity, security of person, and equal protection of law.\n\n3. PRAYER / REQUESTED RELIEF:\n   It is respectfully requested that an immediate inquiry be initiated into this violation of fundamental rights, protection be provided to the aggrieved citizen, and legal proceedings be recommended against the responsible parties.\n\nI affirm that the facts stated above are true and accurate to the best of my knowledge. Copies of my CNIC (35202-4829104-1) and relevant supporting documents are attached herewith.\n\nYours faithfully,\n\nSignature: ___________________________\nFull Name: Muhammad Uzair\nHaqAI Citizen ID: HAQ-PK-104829\nCNIC No.: 35202-4829104-1\nAddress / City: House 14, Street 8, Sector G-10/2, Islamabad\nContact Phone: +923001234567\nEmail: uzair.citizen@gmail.com\n--------------------------------------------------",
+        "categoryId": "human_rights",
+        "facts": {
+          "haqId": "HAQ-PK-104829",
+          "rawStatement": "میرے استاد نے میرے اوپر تشدد کیا ہے مجھے کیا کرنا چاہیے",
+          "applicantName": "Muhammad Uzair",
+          "cnic": "35202-4829104-1",
+          "city": "Islamabad",
+          "address": "House 14, Street 8, Sector G-10/2, Islamabad",
+          "institutionOrRespondent": "[Name of Concerned Department / Institution / Respondent]",
+          "dateOfIncident": "2026-11-10",
+          "referenceOrRollNo": "[Registration / Roll No. / Reference ID]",
+          "contactPhone": "+923001234567",
+          "contactEmail": "uzair.citizen@gmail.com"
+        }
+      },
+      "workflowSteps": [
+        {
+          "stepNumber": 1,
+          "title": "Understand Input",
+          "status": "completed",
+          "summary": "Captured website query (ROMAN_UR)"
+        },
+        {
+          "stepNumber": 2,
+          "title": "Classify & Match Laws",
+          "status": "completed",
+          "summary": "Human Rights & Protection Against Discrimination"
+        },
+        {
+          "stepNumber": 3,
+          "title": "Citizen Profile Linked",
+          "status": "completed",
+          "summary": "HaqAI ID: HAQ-PK-104829 (Muhammad Uzair)"
+        },
+        {
+          "stepNumber": 4,
+          "title": "Explain 1973 Constitution",
+          "status": "completed",
+          "summary": "2 Articles & 1 Statutes verified"
+        },
+        {
+          "stepNumber": 5,
+          "title": "Recommend Solutions",
+          "status": "completed",
+          "summary": "2 actionable legal steps mapped"
+        },
+        {
+          "stepNumber": 6,
+          "title": "Find Authority",
+          "status": "completed",
+          "summary": "MoHR Helpline 1099 (https://mohr.gov.pk)"
+        },
+        {
+          "stepNumber": 7,
+          "title": "Pre-Fill Formal Complaint",
+          "status": "completed",
+          "summary": "Pre-filled with Citizen CNIC & Address"
+        },
+        {
+          "stepNumber": 8,
+          "title": "User Review & 1-Click Approval",
+          "status": "action_required",
+          "summary": "Awaiting citizen approval for 1-click dispatch"
+        }
+      ],
+      "chatHistory": [
+        {
+          "role": "user",
+          "content": "میرے استاد نے میرے اوپر تشدد کیا ہے مجھے کیا کرنا چاہیے",
+          "timestamp": "2026-11-10T19:22:22.164Z"
+        },
+        {
+          "role": "assistant",
+          "content": "Assalam-o-Alaikum **Muhammad Uzair** (Citizen ID: `HAQ-PK-104829`)! Main ne Pakistan ke **1973 Constitution** aur **Pakistani Qawaneen** ke mutabiq aap ka masla check kar liya hai. Yeh **Insani Haqooq, Khawateen aur Aqliyaton ka Tahaffuz** se mutaliq hai.\n\n### ⚖️ Aap ke Aaeeni Haqooq (1973 Constitution):\n- **Article 9, Article 14 & Article 25 – Constitution of Pakistan 1973 (Right to Life, Human Dignity & Equality of Citizens):** Qanoon ki nazar mein tamam shehri barabar hain. Jins (gender), mazhab ya zaat ki bunyad par kisi ke sath imtiazi sulook nahi ho sakta.\n- **Article 20, Article 26 & Article 27 – Constitution of Pakistan 1973 (Freedom of Religion & Non-Discrimination in Public Access and Services):** Mazhabi azadi aur aam jagahon ya sarkari mulazmat mein har shehri ko barabari ka tahaffuz hasil hai.\n\n### 📜 Laago Pakistani Qanoon (Statutes):\n- **National Commission for Human Rights (NCHR) Act, 2012 (Section 9 (Functions and Powers to Inquire into Human Rights Violations)):** NCHR Act 2012 ke tehat Commission insani haqooq ki khilaf warzi par tahqeeqat aur qanooni karrawai ka ikhtiyar rakhta hai.\n\n### 🏛️ Mutaliqa Sarkari Idara:\n- **Ministry of Human Rights (MoHR) – Helpline 1099** (https://mohr.gov.pk | Helpline: 1099)\n\n### ✅ Aap ki pre-saved details (`35202-4829104-1`, `Islamabad`) ke sath Complaint tayyar hai:\n1. **Option 1 – Online Complaint Submit Karein (Edit & 1-Click Forward):** Apni tayyar complaint check/edit karein aur 1-Click mein **MoHR Helpline 1099** ko forward karein.\n2. **Option 2 – Mukammal Legal Guidance:** Neeche diye gaye qanooni steps parhein/sunein ya mazeed koi bhi qanooni sawal poochein.",
+          "timestamp": "2026-11-10T19:22:22.164Z"
+        }
+      ],
+      "status": "Open"
+    }
+  },
+  "dispatches": [],
+  "profiles": {
+    "HAQ-PK-104829": {
+      "id": "prof-demo-01",
+      "haqId": "HAQ-PK-104829",
+      "email": "uzair.citizen@gmail.com",
+      "fullName": "Muhammad Uzair",
+      "cnic": "35202-4829104-1",
+      "phone": "+923001234567",
+      "city": "Islamabad",
+      "province": "Islamabad Capital Territory (ICT)",
+      "address": "House 14, Street 8, Sector G-10/2, Islamabad",
+      "occupation": "University Graduate / Software Engineer",
+      "role": "admin",
+      "createdAt": "2026-11-10T19:22:00.889Z",
+      "updatedAt": "2026-11-10T19:22:00.890Z"
+    }
+  }
+}
