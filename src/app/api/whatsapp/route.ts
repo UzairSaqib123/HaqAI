@@ -1,15 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
-import { GoogleGenerativeAI } from "@google/generative-ai";
 import { generateHaqAIAnalysisAsync } from "@/lib/ai-engine";
 import { SupportedLanguage } from "@/lib/legal-knowledge";
+import { transcribeAudio } from "@/lib/llm";
 import { findCitizenProfile, saveCase } from "@/lib/store";
 
 export const dynamic = "force-dynamic";
 
-/**
- * GET /api/whatsapp
- * Official Meta WhatsApp Cloud API Webhook Verification Endpoint
- */
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
   const mode = searchParams.get("hub.mode");
@@ -34,43 +30,17 @@ export async function GET(req: NextRequest) {
   });
 }
 
-async function transcribeWhatsAppAudioWithGemini(
+async function transcribeWhatsAppAudio(
   audioUrl: string,
   authHeader?: string
 ): Promise<string> {
-  const geminiKey = process.env.GEMINI_API_KEY?.trim();
-  if (!geminiKey || geminiKey === "your_gemini_api_key_here") {
-    return "Meri university meri original degree wapas nahi kar rahi. Main kya kar sakta hoon?";
-  }
-
-  try {
-    const audioRes = await fetch(audioUrl, {
-      headers: authHeader ? { Authorization: authHeader } : undefined,
-    });
-    const arrayBuffer = await audioRes.arrayBuffer();
-    const base64Audio = Buffer.from(arrayBuffer).toString("base64");
-    const mimeType = audioRes.headers.get("content-type") || "audio/ogg";
-
-    const genAI = new GoogleGenerativeAI(geminiKey);
-    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
-
-    const result = await model.generateContent([
-      {
-        inlineData: {
-          mimeType,
-          data: base64Audio,
-        },
-      },
-      {
-        text: "Transcribe this citizen's voice note accurately. If it is in Urdu, Punjabi, or Roman Urdu, transcribe what they said clearly so our Pakistan legal assistant can analyze it.",
-      },
-    ]);
-
-    return result.response.text().trim();
-  } catch (e) {
-    console.warn("WhatsApp audio transcription fallback:", e);
-    return "Meri university meri original degree wapas nahi kar rahi. Main kya kar sakta hoon?";
-  }
+  const audioRes = await fetch(audioUrl, {
+    headers: authHeader ? { Authorization: authHeader } : undefined,
+  });
+  const arrayBuffer = await audioRes.arrayBuffer();
+  const base64Audio = Buffer.from(arrayBuffer).toString("base64");
+  const mimeType = audioRes.headers.get("content-type") || "audio/ogg";
+  return transcribeAudio(base64Audio, mimeType);
 }
 
 async function sendMetaWhatsAppReply(toPhone: string, textBody: string) {
@@ -102,13 +72,6 @@ async function sendMetaWhatsAppReply(toPhone: string, textBody: string) {
   }
 }
 
-/**
- * POST /api/whatsapp
- * Handles incoming messages & voice notes from:
- * 1) Real Meta WhatsApp Cloud API
- * 2) Real Twilio WhatsApp API
- * 3) Direct API testing
- */
 export async function POST(req: NextRequest) {
   try {
     const contentType = req.headers.get("content-type") || "";
@@ -122,14 +85,19 @@ export async function POST(req: NextRequest) {
       const mediaUrl = String(formData.get("MediaUrl0") || "").trim();
 
       if (!messageText && mediaUrl) {
-        messageText = await transcribeWhatsAppAudioWithGemini(mediaUrl);
+        messageText = await transcribeWhatsAppAudio(mediaUrl);
+      }
+
+      if (!messageText) {
+        return new NextResponse(
+          `<?xml version="1.0" encoding="UTF-8"?><Response><Message>Please send a text or voice message describing your legal issue.</Message></Response>`,
+          { status: 200, headers: { "Content-Type": "text/xml" } }
+        );
       }
 
       const citizenProfile = findCitizenProfile({ phone: senderPhone });
       const analysis = await generateHaqAIAnalysisAsync({
-        query:
-          messageText ||
-          "Meri university meri original degree wapas nahi kar rahi.",
+        query: messageText,
         channel: "whatsapp",
         citizenProfile,
         factOverrides: senderPhone ? { contactPhone: senderPhone } : undefined,
@@ -174,7 +142,7 @@ export async function POST(req: NextRequest) {
           );
           const mediaMeta = await mediaMetaRes.json();
           if (mediaMeta.url) {
-            userText = await transcribeWhatsAppAudioWithGemini(
+            userText = await transcribeWhatsAppAudio(
               mediaMeta.url,
               `Bearer ${token}`
             );
@@ -183,7 +151,10 @@ export async function POST(req: NextRequest) {
       }
 
       if (!userText) {
-        userText = "Meri university meri original degree wapas nahi kar rahi.";
+        return NextResponse.json(
+          { error: "Empty WhatsApp message or audio" },
+          { status: 400 }
+        );
       }
 
       const citizenProfile = findCitizenProfile({ phone: senderPhone });
@@ -251,7 +222,12 @@ export async function POST(req: NextRequest) {
   } catch (err) {
     console.error("Error in /api/whatsapp:", err);
     return NextResponse.json(
-      { error: "Failed to process WhatsApp webhook" },
+      {
+        error:
+          err instanceof Error
+            ? err.message
+            : "Failed to process WhatsApp webhook",
+      },
       { status: 500 }
     );
   }

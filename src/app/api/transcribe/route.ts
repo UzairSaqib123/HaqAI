@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import { transcribeAudio } from "@/lib/llm";
 
 export const dynamic = "force-dynamic";
 
@@ -16,30 +16,16 @@ export async function POST(req: NextRequest) {
       });
     }
 
-    if (base64Audio) {
-      const apiKey = process.env.GEMINI_API_KEY?.trim();
-      if (apiKey && apiKey !== "your_gemini_api_key_here") {
-        const genAI = new GoogleGenerativeAI(apiKey);
-        const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
-
-        const result = await model.generateContent([
-          {
-            inlineData: {
-              mimeType: mimeType || "audio/webm",
-              data: base64Audio,
-            },
-          },
-          {
-            text: "Transcribe this audio recording accurately in the language spoken (Urdu, Roman Urdu, Punjabi, or English). Return only the transcribed text.",
-          },
-        ]);
-
-        return NextResponse.json({
-          success: true,
-          transcript: result.response.text().trim(),
-          engine: "Gemini 2.5 Flash Multimodal Speech-to-Text",
-        });
-      }
+    if (base64Audio && typeof base64Audio === "string") {
+      const transcript = await transcribeAudio(
+        base64Audio,
+        mimeType || "audio/webm"
+      );
+      return NextResponse.json({
+        success: true,
+        transcript,
+        engine: "Gemini Multimodal Speech-to-Text",
+      });
     }
 
     return NextResponse.json(
@@ -52,7 +38,10 @@ export async function POST(req: NextRequest) {
   } catch (err) {
     console.error("Error in /api/transcribe:", err);
     return NextResponse.json(
-      { error: "Transcription failed" },
+      {
+        error:
+          err instanceof Error ? err.message : "Audio transcription failed",
+      },
       { status: 500 }
     );
   }

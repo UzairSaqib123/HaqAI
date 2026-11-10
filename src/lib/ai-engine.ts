@@ -1,16 +1,13 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
 import {
+  ALL_LEGAL_CATEGORIES,
   AuthorityInfo,
-  classifyLegalIssue,
   detectLanguageFromInput,
+  LEGAL_KNOWLEDGE_BASE,
   LegalCategoryId,
   LegalKnowledgeEntry,
   SupportedLanguage,
 } from "./legal-knowledge";
-import {
-  CONSTITUTION_OF_PAKISTAN_1973,
-  PAKISTAN_LAWS_CORPUS,
-} from "./pakistan-constitution-laws";
+import { generateText, parseJsonObject } from "./llm";
 import { CitizenProfile } from "./supabase";
 
 export interface ExtractedUserFacts {
@@ -59,7 +56,8 @@ export interface HaqAIAnalysisResult {
   timestamp: string;
   channel: "website" | "whatsapp";
   language: SupportedLanguage;
-  aiEngineUsed: "gemini-live" | "verified-pakistan-rag";
+  /** e.g. "gemini:gemini-flash-latest" or "groq:llama-3.3-70b-versatile" */
+  aiEngineUsed: string;
   userQuery: string;
   categoryId: LegalCategoryId;
   categoryTitle: string;
@@ -91,70 +89,18 @@ export function extractFactsFromText(
   existing?: Partial<ExtractedUserFacts>,
   profile?: CitizenProfile | null
 ): ExtractedUserFacts {
-  const cities = [
-    "Islamabad",
-    "Lahore",
-    "Karachi",
-    "Rawalpindi",
-    "Peshawar",
-    "Quetta",
-    "Faisalabad",
-    "Multan",
-    "Sialkot",
-    "Gujranwala",
-    "Hyderabad",
-    "Abbottabad",
-    "Bahawalpur",
-    "Sargodha",
-  ];
-
-  let detectedCity = existing?.city || profile?.city || "";
-  if (!detectedCity) {
-    for (const c of cities) {
-      if (text.toLowerCase().includes(c.toLowerCase())) {
-        detectedCity = c;
-        break;
-      }
-    }
-  }
-
-  let institution = existing?.institutionOrRespondent || "";
-  if (!institution) {
-    const uniMatch = text.match(
-      /([A-Z][a-zA-Z]+\s+(?:University|College|Institute|Police|Hospital|Bank|Company|Authority|Board|Court|Office))/
-    );
-    if (uniMatch && uniMatch[1]) {
-      institution = uniMatch[1];
-    } else if (
-      text.toLowerCase().includes("university") ||
-      text.includes("یونیورسٹی")
-    ) {
-      institution = "Concerned University / Degree Awarding Institute";
-    } else if (text.toLowerCase().includes("nadra") || text.includes("نادرا")) {
-      institution = "NADRA Regional Office";
-    } else if (
-      text.toLowerCase().includes("police") ||
-      text.toLowerCase().includes("thana") ||
-      text.includes("پولیس") ||
-      text.includes("تھانہ")
-    ) {
-      institution = "Concerned Police Station (Thana) & District Police";
-    } else {
-      institution = "Concerned Department / Respondent";
-    }
-  }
-
   const cnicMatch = text.match(/\b\d{5}-\d{7}-\d{1}\b/);
   const phoneMatch = text.match(/\b(?:03\d{2}-?\d{7}|\+923\d{9})\b/);
+  const city = existing?.city || profile?.city || "";
 
   return {
     haqId: profile?.haqId || existing?.haqId || "",
     rawStatement: text.trim(),
     applicantName: existing?.applicantName || profile?.fullName || "",
     cnic: cnicMatch ? cnicMatch[0] : existing?.cnic || profile?.cnic || "",
-    city: detectedCity,
-    address: existing?.address || profile?.address || detectedCity,
-    institutionOrRespondent: institution,
+    city,
+    address: existing?.address || profile?.address || city,
+    institutionOrRespondent: existing?.institutionOrRespondent || "",
     dateOfIncident:
       existing?.dateOfIncident || new Date().toISOString().split("T")[0],
     referenceOrRollNo: existing?.referenceOrRollNo || "",
@@ -198,6 +144,8 @@ export function buildFormalComplaint(
   const phone = facts.contactPhone || "[Mobile Number]";
   const email = facts.contactEmail || "[Email Address]";
   const haqIdLabel = facts.haqId || "Unregistered";
+  const respondent =
+    facts.institutionOrRespondent || "[Concerned Department / Respondent]";
 
   const bodyText = `To,
 The Competent Authority / Grievance Redressal Cell,
@@ -214,7 +162,7 @@ I, ${applicantName} (holding CNIC No. ${cnic}, resident of ${cityOrAddress}), re
 
 1. STATEMENT OF GRIEVANCE & FACTS:
    - Aggrieved Citizen Statement: "${facts.rawStatement}"
-   - Concerned Institution / Respondent: ${facts.institutionOrRespondent}
+   - Concerned Institution / Respondent: ${respondent}
    - City / Jurisdiction: ${facts.city || cityOrAddress}${
      facts.referenceOrRollNo
        ? `\n   - Reference / Roll No.: ${facts.referenceOrRollNo}`
@@ -263,28 +211,43 @@ ${bodyText}
   };
 }
 
-function extractJsonObject(raw: string): Record<string, unknown> | null {
-  try {
-    return JSON.parse(raw);
-  } catch {
-    const start = raw.indexOf("{");
-    const end = raw.lastIndexOf("}");
-    if (start !== -1 && end !== -1 && end > start) {
-      try {
-        return JSON.parse(raw.slice(start, end + 1));
-      } catch {
-        return null;
-      }
+/** Verified directory of Pakistani complaint authorities (official URLs / helplines). */
+function getAuthorityDirectory(): AuthorityInfo[] {
+  const map = new Map<string, AuthorityInfo>();
+  for (const cat of ALL_LEGAL_CATEGORIES) {
+    for (const a of cat.authorities) {
+      if (!map.has(a.id)) map.set(a.id, a);
     }
-    return null;
   }
+  return Array.from(map.values());
 }
 
+const LANGUAGE_INSTRUCTIONS: Record<SupportedLanguage, string> = {
+  ur: "Urdu written in Urdu script (اردو)",
+  pa: "Punjabi in Shahmukhi script, or simple Urdu script if unsure",
+  roman_ur: "Roman Urdu (Urdu written with English letters, e.g. 'Aap ka qanooni haq ye hai...')",
+  en: "simple, clear English",
+};
+
+const SYSTEM_PROMPT = `You are HaqAI, an expert Pakistani legal-rights assistant for ordinary citizens who have no legal knowledge.
+
+Your job: answer the citizen's EXACT question accurately under the law of Pakistan, in plain language they can act on.
+
+Accuracy rules (most important):
+- Answer the specific question asked. Never give a generic answer about a different topic.
+- Cite only real provisions: Articles of the Constitution of Pakistan 1973, and real sections of Pakistani statutes (PPC 1860, CrPC 1898, CPC 1908, Qanun-e-Shahadat 1984, Muslim Family Laws Ordinance 1961, Family Courts Act 1964, Dissolution of Muslim Marriages Act 1939, Guardians and Wards Act 1890, Transfer of Property Act 1882, Specific Relief Act 1877, Illegal Dispossession Act 2005, Enforcement of Women's Property Rights Act 2020, PECA 2016, Protection against Harassment of Women at the Workplace Act 2010, Payment of Wages Act 1936, Consumer Protection Acts, provincial Rent laws, Police Order 2002, Wafaqi Mohtasib Order 1983, Right of Access to Information Act 2017, etc.).
+- If you are not certain of an exact section number, name the law without inventing a section number. Never fabricate laws, sections, case names, punishments or deadlines.
+- Mention provincial differences when they matter (Punjab, Sindh, KP, Balochistan, ICT).
+- If the question is not a legal matter, still answer helpfully and briefly, and leave the law arrays empty.
+- Give practical next steps: which office/court to go to, what documents to bring, time limits, helplines.
+- For the authority, prefer an entry from the VERIFIED AUTHORITY DIRECTORY (return its id). Only if none fits, describe the correct real authority yourself.
+
+Always reply with a single valid JSON object and nothing else.`;
+
 /**
- * Dynamic Live AI Analysis Engine:
- * 1. Uses Google Gemini when GEMINI_API_KEY is configured.
- * 2. Automatically uses Live OpenAI-compatible LLM (text.pollinations.ai) when GEMINI_API_KEY is not set,
- *    ensuring 100% dynamic, real-time AI answers for ANY Urdu, Roman Urdu, Punjabi, or English question.
+ * Live AI analysis. Every answer is produced by the LLM (Gemini, with Groq as an
+ * optional free fallback). Throws LLMUnavailableError if no model can answer, so
+ * the UI shows a real error instead of a canned response.
  */
 export async function generateHaqAIAnalysisAsync(params: {
   query: string;
@@ -295,305 +258,95 @@ export async function generateHaqAIAnalysisAsync(params: {
   citizenProfile?: CitizenProfile | null;
   previousChatHistory?: ChatTurn[];
 }): Promise<HaqAIAnalysisResult> {
-  const baseResult = generateHaqAIAnalysis(params);
-
-  const constitutionContext = CONSTITUTION_OF_PAKISTAN_1973.map(
-    (c) => `${c.article} (${c.title}): ${c.textSummary}`
-  ).join("\n");
-
-  const lawsContext = PAKISTAN_LAWS_CORPUS.map(
-    (l) =>
-      `${l.lawName} [${l.domain}] (${l.keySections}): ${l.description} | Authority: ${l.authorityName} (${l.portalUrl}, Helpline: ${l.helpline}, Email: ${l.email})`
-  ).join("\n");
-
-  const profileContext = params.citizenProfile
-    ? `Logged-in Citizen Profile:
-- HaqAI Citizen ID: ${params.citizenProfile.haqId}
-- Full Name: ${params.citizenProfile.fullName}
-- CNIC: ${params.citizenProfile.cnic}
-- Phone/WhatsApp: ${params.citizenProfile.phone}
-- Email: ${params.citizenProfile.email}
-- City/Province: ${params.citizenProfile.city}, ${params.citizenProfile.province}
-- Address: ${params.citizenProfile.address}`
-    : "Citizen has not provided profile details yet.";
-
-  const historyContext =
-    params.previousChatHistory && params.previousChatHistory.length > 0
-      ? `Previous Conversation Turns:\n` +
-        params.previousChatHistory
-          .map((t) => `${t.role.toUpperCase()}: ${t.content}`)
-          .join("\n")
-      : "";
-
-  const langInstruction =
-    baseResult.language === "ur"
-      ? "Pure Pakistani Urdu script (اردو حروف تہجی)"
-      : baseResult.language === "pa"
-      ? "Pakistani Punjabi / Urdu script (شاہ مکھی پنجابی / اردو)"
-      : baseResult.language === "roman_ur"
-      ? "Easy Roman Urdu (written in English alphabet, e.g., Aap ka qanooni haq...)"
-      : "Clear English";
-
-  const prompt = `You are HaqAI (حق اے آئی), Pakistan's authoritative AI Legal Rights & Complaint Assistant.
-You know the ENTIRE Constitution of the Islamic Republic of Pakistan (1973) and ALL Pakistani Statutory Laws (Pakistan Penal Code PPC, Code of Criminal Procedure CrPC, Civil Procedure Code CPC, Muslim Family Laws Ordinance 1961, Family Courts Act 1964, Guardians & Wards Act 1890, Property/Inheritance/Rent Laws, Illegal Dispossession Act 2005, PECA Cybercrime Act 2016, HEC Ordinance 2002, Wafaqi Mohtasib Order 1983, Consumer Protection Acts, Labour/Employment Laws, Banking/Tax/FBR Laws, NADRA/Passport Laws, Motor Vehicles Ordinance, Human Rights Laws).
-
-CRITICAL RULES:
-1. Directly and specifically answer the citizen's exact question ("${params.query}") under Pakistani law. Do NOT give a generic answer.
-2. NEVER invent fake articles or fake laws. Cite real Articles of the 1973 Constitution of Pakistan and real sections of Pakistani statutes.
-3. Write "categoryTitle", "replyText", "constitutionalRights", "statutoryLaws", and "nextSteps" in ${langInstruction}.
-4. IMPORTANT FOR VOICE ("voiceSummaryText"): If the user language is 'ur', 'roman_ur', or 'pa', you MUST write "voiceSummaryText" in pure URDU SCRIPT (اردو حروف تہجی، مثلاً: السلام علیکم! پاکستانی قانون کے مطابق...) so our Urdu voice engine speaks it clearly in natural Urdu.
-
-${profileContext}
-
-REFERENCE CONSTITUTION OF PAKISTAN (1973):
-${constitutionContext}
-
-REFERENCE PAKISTAN STATUTORY LAWS:
-${lawsContext}
-
-${historyContext}
-
-CITIZEN CURRENT QUESTION / PROBLEM:
-"${params.query}"
-
-Return ONLY a valid JSON object matching this exact structure:
-{
-  "categoryTitle": "Specific legal topic title in ${langInstruction}",
-  "replyText": "Detailed, direct, helpful answer to the citizen's exact question in ${langInstruction}, citing exact Pakistani laws, punishments/remedies, and practical steps",
-  "voiceSummaryText": "3-4 sentence spoken summary (MUST be in pure Urdu script اردو if language is ur, roman_ur, or pa)",
-  "constitutionalRights": [
-    { "article": "Article X – Constitution of Pakistan 1973", "title": "Title of Article", "summary": "How this Article protects the citizen in ${langInstruction}" }
-  ],
-  "statutoryLaws": [
-    { "law": "Exact Name of Pakistani Act / Ordinance / PPC / CrPC", "section": "Exact Section(s)", "explanation": "Clear explanation in ${langInstruction}" }
-  ],
-  "nextSteps": [
-    "Step 1 practical legal action in ${langInstruction}",
-    "Step 2 practical legal action in ${langInstruction}",
-    "Step 3 practical legal action in ${langInstruction}"
-  ],
-  "followUpQuestions": [
-    "1 short follow-up question in ${langInstruction}"
-  ],
-  "primaryAuthority": {
-    "id": "authority_slug",
-    "name": "Full Official Name of Pakistani Government Institution / Ombudsman / Court / Helpline",
-    "shortName": "Short Name",
-    "role": "Official statutory role",
-    "portalUrl": "Verified official https://... gov.pk URL",
-    "email": "Official complaint email",
-    "helpline": "Official helpline number (e.g. 1099, 1055, 1787, 1991, etc.)",
-    "address": "Official office address in Pakistan",
-    "turnaroundTime": "Expected statutory resolution timeframe"
-  },
-  "complaintSubject": "Formal legal subject line tailored to the citizen's exact grievance",
-  "legalCitationParagraph": "Formal paragraph citing the exact Constitutional Articles and Pakistani statutory sections violated in this case",
-  "requestedReliefParagraph": "Formal prayer/relief paragraph requesting specific action from the authority",
-  "detectedInstitutionOrRespondent": "Name of respondent/department/person mentioned by user, or appropriate authority"
-}`;
-
-  let parsed: Record<string, any> | null = null;
-  const apiKey = process.env.GEMINI_API_KEY?.trim();
-
-  // 1. Try Google Gemini first if GEMINI_API_KEY is configured
-  if (apiKey && apiKey !== "your_gemini_api_key_here") {
-    try {
-      const genAI = new GoogleGenerativeAI(apiKey);
-      let rawJson = "";
-      try {
-        const model = genAI.getGenerativeModel({
-          model: "gemini-2.5-flash",
-          generationConfig: {
-            responseMimeType: "application/json",
-            temperature: 0.2,
-          },
-        });
-        const response = await model.generateContent(prompt);
-        rawJson = response.response.text();
-      } catch {
-        const fallbackModel = genAI.getGenerativeModel({
-          model: "gemini-1.5-flash",
-          generationConfig: {
-            responseMimeType: "application/json",
-            temperature: 0.2,
-          },
-        });
-        const response = await fallbackModel.generateContent(prompt);
-        rawJson = response.response.text();
-      }
-      parsed = extractJsonObject(rawJson);
-    } catch (err) {
-      console.warn("Gemini API error, trying live LLM fallback:", err);
-    }
-  }
-
-  // 2. If Gemini key is not set or failed, use Live OpenAI-compatible LLM endpoint
-  if (!parsed) {
-    try {
-      const controller = new AbortController();
-      const timeout = setTimeout(() => controller.abort(), 14000);
-      const llmRes = await fetch("https://text.pollinations.ai/openai", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          model: "openai",
-          temperature: 0.2,
-          response_format: { type: "json_object" },
-          messages: [
-            {
-              role: "system",
-              content:
-                "You are HaqAI, Pakistan's AI Legal Rights & Complaint Assistant. Always respond with valid JSON only.",
-            },
-            {
-              role: "user",
-              content: prompt,
-            },
-          ],
-        }),
-        signal: controller.signal,
-      });
-      clearTimeout(timeout);
-
-      if (llmRes.ok) {
-        const llmData = await llmRes.json();
-        const content = llmData?.choices?.[0]?.message?.content;
-        if (typeof content === "string") {
-          parsed = extractJsonObject(content);
-        }
-      }
-    } catch (err) {
-      console.warn("Live LLM fallback warning:", err);
-    }
-  }
-
-  if (!parsed) {
-    return baseResult;
-  }
-
-  try {
-    const updatedFacts: ExtractedUserFacts = {
-      ...baseResult.generatedComplaint.facts,
-      institutionOrRespondent:
-        parsed.detectedInstitutionOrRespondent ||
-        baseResult.generatedComplaint.facts.institutionOrRespondent,
-    };
-
-    const customAuth: AuthorityInfo = {
-      id: parsed.primaryAuthority?.id || baseResult.primaryAuthority.id,
-      name: parsed.primaryAuthority?.name || baseResult.primaryAuthority.name,
-      shortName:
-        parsed.primaryAuthority?.shortName ||
-        baseResult.primaryAuthority.shortName,
-      role: parsed.primaryAuthority?.role || baseResult.primaryAuthority.role,
-      portalUrl:
-        parsed.primaryAuthority?.portalUrl ||
-        baseResult.primaryAuthority.portalUrl,
-      email:
-        parsed.primaryAuthority?.email || baseResult.primaryAuthority.email,
-      helpline:
-        parsed.primaryAuthority?.helpline ||
-        baseResult.primaryAuthority.helpline,
-      address:
-        parsed.primaryAuthority?.address || baseResult.primaryAuthority.address,
-      turnaroundTime:
-        parsed.primaryAuthority?.turnaroundTime ||
-        baseResult.primaryAuthority.turnaroundTime,
-      instructions: baseResult.primaryAuthority.instructions,
-    };
-
-    const entry = classifyLegalIssue(params.query);
-    const updatedComplaint = buildFormalComplaint(
-      entry,
-      updatedFacts,
-      customAuth,
-      parsed.legalCitationParagraph,
-      parsed.requestedReliefParagraph,
-      parsed.complaintSubject
-    );
-
-    const appUrl =
-      process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
-
-    const whatsappReplyText =
-      `🇵🇰 *HaqAI – Pakistan Legal Rights & Complaint Assistant*\n\n` +
-      (baseResult.haqId ? `👤 *Citizen ID:* ${baseResult.haqId}\n` : "") +
-      `📌 *Legal Area:* ${parsed.categoryTitle || baseResult.categoryTitle}\n` +
-      `⚖️ *Applicable Law:* ${
-        parsed.constitutionalRights?.[0]?.article || "Constitution 1973"
-      } & ${parsed.statutoryLaws?.[0]?.law || "Pakistan Code"}\n` +
-      `🏛️ *Relevant Authority:* ${customAuth.name} (Helpline: ${customAuth.helpline})\n\n` +
-      `👇 *Click Your Personalized Website Link Below (2 Options):*\n` +
-      `1️⃣ *Option 1 – Online Complaint Submit (Edit & 1-Click Forward):*\n${appUrl}/complaint?caseId=${baseResult.caseId}\n\n` +
-      `2️⃣ *Option 2 – Full Legal Guidance & Voice Chat:*\n${appUrl}/assistant?caseId=${baseResult.caseId}`;
-
-    const newTurns: ChatTurn[] = [
-      ...(params.previousChatHistory || []),
-      {
-        role: "user",
-        content: params.query,
-        timestamp: new Date().toISOString(),
-      },
-      {
-        role: "assistant",
-        content: parsed.replyText || baseResult.replyText,
-        timestamp: new Date().toISOString(),
-      },
-    ];
-
-    return {
-      ...baseResult,
-      aiEngineUsed: "gemini-live",
-      categoryTitle: parsed.categoryTitle || baseResult.categoryTitle,
-      replyText: parsed.replyText || baseResult.replyText,
-      voiceSummaryText: parsed.voiceSummaryText || baseResult.voiceSummaryText,
-      whatsappReplyText,
-      constitutionalRights:
-        Array.isArray(parsed.constitutionalRights) &&
-        parsed.constitutionalRights.length > 0
-          ? parsed.constitutionalRights
-          : baseResult.constitutionalRights,
-      statutoryLaws:
-        Array.isArray(parsed.statutoryLaws) && parsed.statutoryLaws.length > 0
-          ? parsed.statutoryLaws
-          : baseResult.statutoryLaws,
-      nextSteps:
-        Array.isArray(parsed.nextSteps) && parsed.nextSteps.length > 0
-          ? parsed.nextSteps
-          : baseResult.nextSteps,
-      followUpQuestions:
-        Array.isArray(parsed.followUpQuestions) &&
-        parsed.followUpQuestions.length > 0
-          ? parsed.followUpQuestions
-          : baseResult.followUpQuestions,
-      primaryAuthority: customAuth,
-      recommendedAuthorities: [
-        customAuth,
-        ...baseResult.recommendedAuthorities.filter(
-          (a) => a.shortName !== customAuth.shortName
-        ),
-      ],
-      generatedComplaint: updatedComplaint,
-      chatHistory: newTurns,
-    };
-  } catch (err) {
-    console.warn("Error formatting live LLM response:", err);
-    return baseResult;
-  }
-}
-
-export function generateHaqAIAnalysis(params: {
-  query: string;
-  language?: SupportedLanguage;
-  channel?: "website" | "whatsapp";
-  existingCaseId?: string;
-  factOverrides?: Partial<ExtractedUserFacts>;
-  citizenProfile?: CitizenProfile | null;
-  previousChatHistory?: ChatTurn[];
-}): HaqAIAnalysisResult {
   const channel = params.channel || "website";
   const lang = detectLanguageFromInput(params.query, params.language);
-  const entry = classifyLegalIssue(params.query);
+  const langInstruction = LANGUAGE_INSTRUCTIONS[lang];
+  const directory = getAuthorityDirectory();
+  const categoryIds = ALL_LEGAL_CATEGORIES.map((c) => c.id);
+
+  const history = (params.previousChatHistory || []).slice(-6);
+  const historyBlock = history.length
+    ? `PREVIOUS CONVERSATION (for context of follow-up questions):\n${history
+        .map((t) => `${t.role === "user" ? "CITIZEN" : "HAQAI"}: ${t.content.slice(0, 1500)}`)
+        .join("\n")}\n`
+    : "";
+
+  const profileBlock = params.citizenProfile
+    ? `CITIZEN LOCATION: ${params.citizenProfile.city || "unknown"}, ${params.citizenProfile.province || "unknown"}`
+    : "CITIZEN LOCATION: unknown";
+
+  const directoryBlock = directory
+    .map((a) => `- id="${a.id}" | ${a.name} | helpline ${a.helpline} | ${a.portalUrl}`)
+    .join("\n");
+
+  const prompt = `${historyBlock}${profileBlock}
+
+CITIZEN'S QUESTION:
+"""${params.query}"""
+
+RESPONSE LANGUAGE: Write every human-readable field in ${langInstruction}. Law names and section numbers may stay in English.
+${
+  lang === "en"
+    ? 'Write "voiceSummaryText" in English.'
+    : 'Write "voiceSummaryText" in Urdu script (اردو) ONLY – no English letters, no markdown, numbers written as words – because it is read aloud by an Urdu text-to-speech voice.'
+}
+
+VERIFIED AUTHORITY DIRECTORY:
+${directoryBlock}
+
+Return JSON with exactly these keys:
+{
+  "categoryId": one of ${JSON.stringify(categoryIds)},
+  "categoryTitle": "short title of the legal topic",
+  "replyText": "complete, direct answer to the question (markdown allowed: short paragraphs, bullet points, bold for key laws). Start with the direct answer in 1-2 sentences, then explain the law, remedies/punishments, and what to do.",
+  "voiceSummaryText": "3-4 short spoken sentences summarising the answer",
+  "constitutionalRights": [{"article": "Article N", "title": "...", "summary": "how it applies here"}],
+  "statutoryLaws": [{"law": "exact law name", "section": "section number(s) or empty string if unsure", "explanation": "how it applies here"}],
+  "nextSteps": ["concrete step 1", "concrete step 2", "..."],
+  "followUpQuestions": ["one useful clarifying question, if any"],
+  "authorityId": "id from the directory, or empty string",
+  "customAuthority": {"name": "", "shortName": "", "role": "", "portalUrl": "", "email": "", "helpline": "", "address": "", "turnaroundTime": ""},
+  "complaintSubject": "formal subject line for a complaint about this issue",
+  "legalCitationParagraph": "formal paragraph citing the relevant Articles and sections",
+  "requestedReliefParagraph": "formal paragraph with the specific relief requested",
+  "respondent": "person/department the complaint is against, if mentioned, else empty string"
+}`;
+
+  const llm = await generateText({
+    systemPrompt: SYSTEM_PROMPT,
+    prompt,
+    json: true,
+  });
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const parsed = parseJsonObject<Record<string, any>>(llm.text);
+  if (!parsed || typeof parsed.replyText !== "string") {
+    throw new Error("AI returned an unreadable response. Please try again.");
+  }
+
+  const categoryId: LegalCategoryId = categoryIds.includes(parsed.categoryId)
+    ? parsed.categoryId
+    : "government";
+  const entry = LEGAL_KNOWLEDGE_BASE[categoryId];
+
+  const directoryMatch = directory.find((a) => a.id === parsed.authorityId);
+  const custom = parsed.customAuthority || {};
+  const primaryAuthority: AuthorityInfo =
+    directoryMatch ||
+    (custom.name
+      ? {
+          id: "ai-suggested",
+          name: String(custom.name),
+          shortName: String(custom.shortName || custom.name),
+          role: String(custom.role || ""),
+          portalUrl: String(custom.portalUrl || ""),
+          email: String(custom.email || ""),
+          helpline: String(custom.helpline || ""),
+          address: String(custom.address || ""),
+          turnaroundTime: String(custom.turnaroundTime || ""),
+          instructions: entry.authorities[0].instructions,
+        }
+      : entry.authorities[0]);
 
   const caseId =
     params.existingCaseId ||
@@ -601,171 +354,71 @@ export function generateHaqAIAnalysis(params: {
   const haqId =
     params.citizenProfile?.haqId || params.factOverrides?.haqId || "";
 
-  const facts = extractFactsFromText(
-    params.query,
-    params.factOverrides,
-    params.citizenProfile
-  );
-  const generatedComplaint = buildFormalComplaint(entry, facts);
-  const primaryAuthority = entry.authorities[0];
-
-  const constitutionalRights = entry.constitutionalRights.map((c) => ({
-    article: c.article,
-    title: c.title,
-    summary: c.summary[lang],
-  }));
-
-  const statutoryLaws = entry.statutoryLaws.map((s) => ({
-    law: s.law,
-    section: s.section,
-    explanation: s.explanation[lang],
-  }));
-
-  const nextSteps = entry.administrativeProcedures[lang];
-  const followUpQuestions = entry.followUpQuestions[lang];
-  const appUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
-
-  const resolvedCategoryTitle = entry.title[lang];
-
-  let replyText = "";
-  let voiceSummaryText = "";
-
-  if (lang === "roman_ur") {
-    replyText =
-      `Aap ka masla **${entry.title.roman_ur}** ke qawaneen ke tehat aata hai.\n\n` +
-      `⚖️ **Aaeen-e-Pakistan (1973):**\n` +
-      constitutionalRights
-        .map((c) => `• **${c.article} (${c.title}):** ${c.summary}`)
-        .join("\n") +
-      `\n\n📜 **Pakistani Qawaneen:**\n` +
-      statutoryLaws
-        .map((s) => `• **${s.law} (${s.section}):** ${s.explanation}`)
-        .join("\n") +
-      `\n\n✅ **Qanooni Tareeqa-e-Kar:**\n` +
-      nextSteps.map((step, i) => `${i + 1}. ${step}`).join("\n") +
-      `\n\n🏛️ **Mutaliqa Idara:** **${primaryAuthority.name}** (Helpline: \`${primaryAuthority.helpline}\` | Portal: ${primaryAuthority.portalUrl})`;
-
-    voiceSummaryText = `السلام علیکم۔ آپ کا مسئلہ ${entry.title.ur} سے متعلق ہے۔ ${entry.statutoryLaws[0]?.explanation.ur} آپ اس مسئلے کی شکایت ${primaryAuthority.name} کو کر سکتے ہیں۔`;
-  } else if (lang === "ur" || lang === "pa") {
-    replyText =
-      `آئینِ پاکستان 1973 اور نافذ العمل قوانین کے مطابق آپ کا مسئلہ **${entry.title.ur}** سے متعلق ہے۔\n\n` +
-      `⚖️ **آئینِ پاکستان (1973) کے تحت حقوق:**\n` +
-      constitutionalRights
-        .map((c) => `• **${c.article}:** ${c.summary}`)
-        .join("\n") +
-      `\n\n📜 **لاگو پاکستانی قوانین:**\n` +
-      statutoryLaws
-        .map((s) => `• **${s.law} (${s.section}):** ${s.explanation}`)
-        .join("\n") +
-      `\n\n✅ **قانونی طریقہ کار:**\n` +
-      nextSteps.map((step, i) => `${i + 1}. ${step}`).join("\n") +
-      `\n\n🏛️ **متعلقہ سرکاری ادارہ:** **${primaryAuthority.name}** (ہیلپ لائن: \`${primaryAuthority.helpline}\` | پورٹل: ${primaryAuthority.portalUrl})`;
-
-    voiceSummaryText = `السلام علیکم۔ آپ کا مسئلہ ${entry.title.ur} سے متعلق ہے۔ ${entry.statutoryLaws[0]?.explanation.ur} آپ اپنی درخواست ایک کلک پر ${primaryAuthority.name} کو بھیج سکتے ہیں۔`;
-  } else {
-    replyText =
-      `Under the **Constitution of Pakistan (1973)** and **Pakistani Statutory Law**, your issue falls under **${entry.title.en}**.\n\n` +
-      `⚖️ **Constitutional Protections:**\n` +
-      constitutionalRights
-        .map((c) => `• **${c.article} (${c.title}):** ${c.summary}`)
-        .join("\n") +
-      `\n\n📜 **Applicable Pakistani Statutes:**\n` +
-      statutoryLaws
-        .map((s) => `• **${s.law} (${s.section}):** ${s.explanation}`)
-        .join("\n") +
-      `\n\n✅ **Step-by-Step Legal Procedure:**\n` +
-      nextSteps.map((step, i) => `${i + 1}. ${step}`).join("\n") +
-      `\n\n🏛️ **Verified Authority:** **${primaryAuthority.name}** (${primaryAuthority.portalUrl} | Helpline: ${primaryAuthority.helpline})`;
-
-    voiceSummaryText = `Your issue involves ${resolvedCategoryTitle}. Under ${constitutionalRights[0]?.article} and ${statutoryLaws[0]?.law}, ${statutoryLaws[0]?.explanation}`;
+  const facts = extractFactsFromText(params.query, params.factOverrides, params.citizenProfile);
+  if (!facts.institutionOrRespondent && parsed.respondent) {
+    facts.institutionOrRespondent = String(parsed.respondent);
   }
 
+  const generatedComplaint = buildFormalComplaint(
+    entry,
+    facts,
+    primaryAuthority,
+    parsed.legalCitationParagraph,
+    parsed.requestedReliefParagraph,
+    parsed.complaintSubject
+  );
+
+  const asArray = <T,>(v: unknown): T[] => (Array.isArray(v) ? (v as T[]) : []);
+  const constitutionalRights = asArray<{ article: string; title: string; summary: string }>(
+    parsed.constitutionalRights
+  );
+  const statutoryLaws = asArray<{ law: string; section: string; explanation: string }>(
+    parsed.statutoryLaws
+  );
+  const nextSteps = asArray<string>(parsed.nextSteps).map(String);
+  const followUpQuestions = asArray<string>(parsed.followUpQuestions).map(String);
+  const categoryTitle = String(parsed.categoryTitle || entry.title[lang]);
+  const replyText = parsed.replyText.trim();
+  const voiceSummaryText = String(parsed.voiceSummaryText || "").trim();
+
+  const appUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
   const whatsappReplyText =
-    `🇵🇰 *HaqAI – Citizen Rights & Complaint Assistant*\n\n` +
-    (haqId ? `👤 *Citizen ID:* ${haqId}\n` : "") +
-    `📌 *Issue:* ${resolvedCategoryTitle}\n` +
-    `⚖️ *Pakistani Law:* ${constitutionalRights[0]?.article} & ${statutoryLaws[0]?.law}\n` +
-    `🏛️ *Authority:* ${primaryAuthority.name} (Helpline: ${primaryAuthority.helpline})\n\n` +
-    `👇 *Click Your Website Link Below (2 Citizen Options):*\n` +
-    `1️⃣ *Option 1 – Submit Online Complaint (Edit & 1-Click Forward):*\n${appUrl}/complaint?caseId=${caseId}\n\n` +
-    `2️⃣ *Option 2 – Full Legal Guidance (Voice & Text):*\n${appUrl}/assistant?caseId=${caseId}`;
+    `🇵🇰 *HaqAI – Legal Rights Assistant*\n\n` +
+    `📌 *${categoryTitle}*\n\n` +
+    `${replyText.replace(/\*\*/g, "*").slice(0, 2500)}\n\n` +
+    (primaryAuthority.helpline
+      ? `🏛️ *${primaryAuthority.name}* – Helpline: ${primaryAuthority.helpline}\n\n`
+      : "") +
+    `1️⃣ *Online Complaint (edit & send):*\n${appUrl}/complaint?caseId=${caseId}\n\n` +
+    `2️⃣ *Full Guidance & Voice:*\n${appUrl}/assistant?caseId=${caseId}`;
 
   const workflowSteps: AgentWorkflowStep[] = [
-    {
-      stepNumber: 1,
-      title: "Understand Input",
-      status: "completed",
-      summary: `Captured ${channel} query (${lang.toUpperCase()})`,
-    },
-    {
-      stepNumber: 2,
-      title: "Classify & Match Laws",
-      status: "completed",
-      summary: resolvedCategoryTitle,
-    },
-    {
-      stepNumber: 3,
-      title: "Citizen Profile Linked",
-      status: "completed",
-      summary: haqId ? `HaqAI ID: ${haqId}` : "Citizen Session",
-    },
-    {
-      stepNumber: 4,
-      title: "Explain 1973 Constitution",
-      status: "completed",
-      summary: `${constitutionalRights.length} Articles & ${statutoryLaws.length} Statutes verified`,
-    },
-    {
-      stepNumber: 5,
-      title: "Recommend Solutions",
-      status: "completed",
-      summary: `${nextSteps.length} actionable legal steps mapped`,
-    },
-    {
-      stepNumber: 6,
-      title: "Find Authority",
-      status: "completed",
-      summary: `${primaryAuthority.shortName} (${primaryAuthority.portalUrl})`,
-    },
-    {
-      stepNumber: 7,
-      title: "Pre-Fill Formal Complaint",
-      status: "completed",
-      summary: `Formal complaint drafted`,
-    },
-    {
-      stepNumber: 8,
-      title: "User Review & 1-Click Approval",
-      status: "action_required",
-      summary: "Awaiting citizen approval for 1-click dispatch",
-    },
+    { stepNumber: 1, title: "Understand Input", status: "completed", summary: `${channel} query (${lang})` },
+    { stepNumber: 2, title: "AI Legal Analysis", status: "completed", summary: `${llm.provider}:${llm.model}` },
+    { stepNumber: 3, title: "Laws Identified", status: "completed", summary: `${constitutionalRights.length} Articles, ${statutoryLaws.length} statutes` },
+    { stepNumber: 4, title: "Authority Found", status: "completed", summary: primaryAuthority.shortName },
+    { stepNumber: 5, title: "Complaint Drafted", status: "completed", summary: generatedComplaint.subject },
+    { stepNumber: 6, title: "Citizen Approval", status: "action_required", summary: "Awaiting review & 1-click dispatch" },
   ];
 
+  const now = new Date().toISOString();
   const chatHistory: ChatTurn[] = [
     ...(params.previousChatHistory || []),
-    {
-      role: "user",
-      content: params.query,
-      timestamp: new Date().toISOString(),
-    },
-    {
-      role: "assistant",
-      content: replyText,
-      timestamp: new Date().toISOString(),
-    },
+    { role: "user", content: params.query, timestamp: now },
+    { role: "assistant", content: replyText, timestamp: now },
   ];
 
   return {
     caseId,
     haqId,
     citizenProfile: params.citizenProfile || undefined,
-    timestamp: new Date().toISOString(),
+    timestamp: now,
     channel,
     language: lang,
-    aiEngineUsed: "verified-pakistan-rag",
+    aiEngineUsed: `${llm.provider}:${llm.model}`,
     userQuery: params.query,
-    categoryId: entry.id,
-    categoryTitle: resolvedCategoryTitle,
+    categoryId,
+    categoryTitle,
     replyText,
     whatsappReplyText,
     voiceSummaryText,
@@ -773,7 +426,10 @@ export function generateHaqAIAnalysis(params: {
     statutoryLaws,
     nextSteps,
     followUpQuestions,
-    recommendedAuthorities: entry.authorities,
+    recommendedAuthorities: [
+      primaryAuthority,
+      ...entry.authorities.filter((a) => a.id !== primaryAuthority.id),
+    ],
     primaryAuthority,
     generatedComplaint,
     workflowSteps,
