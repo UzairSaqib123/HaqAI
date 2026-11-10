@@ -26,6 +26,11 @@ import {
   LegalCategoryId,
 } from "@/lib/legal-knowledge";
 import type { PreferenceMatch } from "@/app/api/availability/route";
+import {
+  getActiveClientProfile,
+  getClientHelpers,
+  saveClientHelper,
+} from "@/lib/client-storage";
 
 const TIME_SLOTS: {
   id: AvailabilityTimeSlot;
@@ -109,9 +114,8 @@ export default function AvailabilitySwitchCard({
 
   useEffect(() => {
     try {
-      const savedProfileRaw = localStorage.getItem("haqai_citizen_profile");
-      if (savedProfileRaw) {
-        const parsed = JSON.parse(savedProfileRaw);
+      const parsed = getActiveClientProfile();
+      if (parsed) {
         if (parsed.fullName) setFullName(parsed.fullName);
         if (parsed.city) setCity(parsed.city);
         if (parsed.phone) setPhone(parsed.phone);
@@ -137,6 +141,13 @@ export default function AvailabilitySwitchCard({
           setHelpTypes(parsedHelper.helpTypes);
         if (parsedHelper.legalCategories?.length)
           setSelectedCategories(parsedHelper.legalCategories);
+        saveClientHelper(parsedHelper);
+        // Ensure server also has this volunteer record
+        fetch("/api/availability", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(parsedHelper),
+        }).catch(() => {});
       }
     } catch {
       // ignore localStorage read errors
@@ -147,14 +158,25 @@ export default function AvailabilitySwitchCard({
 
   async function fetchAvailabilityData() {
     try {
-      const res = await fetch("/api/availability");
+      const res = await fetch(`/api/availability?t=${Date.now()}`, {
+        cache: "no-store",
+      });
       if (res.ok) {
         const data = await res.json();
-        setHelpers(data.helpers || []);
+        const serverHelpers: LegalHelperAvailability[] = data.helpers || [];
+        const localHelpers = getClientHelpers();
+        const mergedMap = new Map<string, LegalHelperAvailability>();
+        for (const h of localHelpers) {
+          if (h?.helperId) mergedMap.set(h.helperId, h);
+        }
+        for (const h of serverHelpers) {
+          if (h?.helperId) mergedMap.set(h.helperId, h);
+        }
+        setHelpers(Array.from(mergedMap.values()));
         setMatches(data.matches || []);
       }
     } catch {
-      // ignore fetch errors
+      setHelpers(getClientHelpers());
     }
   }
 
@@ -212,12 +234,9 @@ export default function AvailabilitySwitchCard({
       const data = await res.json();
       if (res.ok && data.helper) {
         setHelperId(data.helper.helperId);
+        saveClientHelper(data.helper);
         setHelpers(data.helpers || []);
         setMatches(data.matches || []);
-        localStorage.setItem(
-          "haqai_helper_availability",
-          JSON.stringify(data.helper)
-        );
         setStatusMessage(
           nextAvailableState
             ? "Availability Switch ON: You are now live for Preference-Based Legal Matching!"

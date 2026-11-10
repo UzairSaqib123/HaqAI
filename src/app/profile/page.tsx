@@ -19,6 +19,7 @@ import {
   isSupabaseConfigured,
   supabase,
 } from "@/lib/supabase";
+import { saveClientProfile } from "@/lib/client-storage";
 
 const PROVINCES = [
   "Punjab",
@@ -63,6 +64,12 @@ export default function CitizenProfilePage() {
         setOccupation(p.occupation || "");
         setRole(p.role || "citizen");
         setIsGoogleAuthenticated(true);
+        saveClientProfile(p);
+        fetch("/api/profile", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(p),
+        }).catch(() => {});
         return;
       } else {
         setHaqId(generateHaqCitizenId());
@@ -149,12 +156,7 @@ export default function CitizenProfilePage() {
       });
       const data = await res.json();
       if (data.success && data.profile) {
-        localStorage.setItem(
-          "haqai_active_profile",
-          JSON.stringify(data.profile)
-        );
-        localStorage.setItem("haqai_registered_citizen", "true");
-        window.dispatchEvent(new Event("haqai-profile-updated"));
+        saveClientProfile(data.profile);
         setIsGoogleAuthenticated(true);
         setSavedSuccess(true);
       } else {

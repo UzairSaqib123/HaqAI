@@ -28,6 +28,7 @@ import {
   HaqAIAnalysisResult,
 } from "@/lib/ai-engine";
 import { CitizenProfile } from "@/lib/supabase";
+import { saveClientDispatch } from "@/lib/client-storage";
 
 function ComplaintStudioContent() {
   const searchParams = useSearchParams();
@@ -210,6 +211,9 @@ function ComplaintStudioContent() {
       });
       const data = await res.json();
       if (data.success) {
+        if (data.dispatchRecord) {
+          saveClientDispatch(data.dispatchRecord);
+        }
         try {
           navigator.clipboard.writeText(complaintText);
           setCopied(true);

@@ -20,6 +20,7 @@ import { HaqAIAnalysisResult } from "@/lib/ai-engine";
 import { SupportedLanguage } from "@/lib/legal-knowledge";
 import { CitizenProfile } from "@/lib/supabase";
 import { playHaqAITTS, stopHaqAITTS } from "@/lib/tts-player";
+import { saveClientCase, saveClientDispatch } from "@/lib/client-storage";
 
 const LANGUAGE_OPTIONS: {
   id: SupportedLanguage;
@@ -149,6 +150,7 @@ function AssistantContent() {
       });
       const data = await res.json();
       if (data.caseData) {
+        saveClientCase(data.caseData);
         setCurrentCase(data.caseData);
         setEditableComplaint(data.caseData.generatedComplaint.bodyText);
         setFollowUpInput("");
@@ -267,6 +269,9 @@ function AssistantContent() {
     });
     const data = await res.json();
     if (data.success) {
+      if (data.dispatchRecord) {
+        saveClientDispatch(data.dispatchRecord);
+      }
       try {
         navigator.clipboard.writeText(editableComplaint);
       } catch {

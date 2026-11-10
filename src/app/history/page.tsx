@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { HaqAIAnalysisResult } from "@/lib/ai-engine";
 import { DispatchRecord } from "@/lib/store";
+import { getClientCases, getClientDispatches } from "@/lib/client-storage";
 
 export default function HistoryPage() {
   const [cases, setCases] = useState<HaqAIAnalysisResult[]>([]);
@@ -20,11 +21,43 @@ export default function HistoryPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("/api/history")
+    const localCases = getClientCases();
+    const localDispatches = getClientDispatches();
+    setCases(localCases);
+    setDispatches(localDispatches);
+
+    fetch(`/api/history?t=${Date.now()}`, { cache: "no-store" })
       .then((r) => r.json())
       .then((data) => {
-        if (data.cases) setCases(data.cases);
-        if (data.dispatches) setDispatches(data.dispatches);
+        const mergedCases = new Map<string, HaqAIAnalysisResult>();
+        for (const c of localCases) if (c?.caseId) mergedCases.set(c.caseId, c);
+        if (Array.isArray(data.cases)) {
+          for (const c of data.cases) if (c?.caseId) mergedCases.set(c.caseId, c);
+        }
+        setCases(
+          Array.from(mergedCases.values()).sort(
+            (a, b) =>
+              new Date(b.timestamp || 0).getTime() -
+              new Date(a.timestamp || 0).getTime()
+          )
+        );
+
+        const mergedDispatches = new Map<string, DispatchRecord>();
+        for (const d of localDispatches) {
+          if (d?.dispatchId) mergedDispatches.set(d.dispatchId, d);
+        }
+        if (Array.isArray(data.dispatches)) {
+          for (const d of data.dispatches) {
+            if (d?.dispatchId) mergedDispatches.set(d.dispatchId, d);
+          }
+        }
+        setDispatches(
+          Array.from(mergedDispatches.values()).sort(
+            (a, b) =>
+              new Date(b.dispatchedAt || 0).getTime() -
+              new Date(a.dispatchedAt || 0).getTime()
+          )
+        );
       })
       .catch(() => {})
       .finally(() => setLoading(false));

@@ -14,6 +14,7 @@ import {
   isSupabaseConfigured,
   supabase,
 } from "@/lib/supabase";
+import { saveClientProfile } from "@/lib/client-storage";
 
 export default function RegistrationModal() {
   const [isOpen, setIsOpen] = useState(false);
@@ -48,6 +49,13 @@ export default function RegistrationModal() {
         setGoogleConnected(true);
         setCanClose(true);
         setIsOpen(false);
+        saveClientProfile(parsed);
+        // Ensure the server store also has this existing citizen registration
+        fetch("/api/profile", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(parsed),
+        }).catch(() => {});
       } else {
         setHaqId(generateHaqCitizenId());
         setIsOpen(true);
@@ -137,12 +145,7 @@ export default function RegistrationModal() {
 
       const data = await res.json();
       if (data.success && data.profile) {
-        localStorage.setItem(
-          "haqai_active_profile",
-          JSON.stringify(data.profile)
-        );
-        localStorage.setItem("haqai_registered_citizen", "true");
-        window.dispatchEvent(new Event("haqai-profile-updated"));
+        saveClientProfile(data.profile);
         setCanClose(true);
         setIsOpen(false);
       } else {

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import {
   ShieldAlert,
@@ -12,12 +12,34 @@ import {
   Lock,
   LogOut,
   HeartHandshake,
+  UserPlus,
+  Activity,
 } from "lucide-react";
 import { CitizenProfile } from "@/lib/supabase";
 import { HaqAIAnalysisResult } from "@/lib/ai-engine";
 import { DispatchRecord, LegalHelperAvailability } from "@/lib/store";
+import {
+  getClientCases,
+  getClientDispatches,
+  getClientHelpers,
+  getClientProfiles,
+  updateClientStatus,
+} from "@/lib/client-storage";
 
 const ADMIN_PASSCODE = "12341234";
+
+function mergeByKey<T>(localList: T[], serverList: T[], keyFn: (item: T) => string): T[] {
+  const map = new Map<string, T>();
+  for (const item of localList) {
+    const k = item ? keyFn(item) : "";
+    if (k) map.set(k, item);
+  }
+  for (const item of serverList) {
+    const k = item ? keyFn(item) : "";
+    if (k) map.set(k, { ...(map.get(k) || {}), ...item });
+  }
+  return Array.from(map.values());
+}
 
 export default function AdminDashboardPage() {
   const [isUnlocked, setIsUnlocked] = useState(false);
@@ -38,6 +60,7 @@ export default function AdminDashboardPage() {
     "citizens" | "cases" | "dispatches" | "helpers"
   >("citizens");
   const [loading, setLoading] = useState(false);
+  const [lastSyncedAt, setLastSyncedAt] = useState<string>("");
 
   useEffect(() => {
     try {
@@ -50,11 +73,125 @@ export default function AdminDashboardPage() {
     }
   }, []);
 
-  useEffect(() => {
-    if (isUnlocked) {
-      loadAdminData();
+  const loadAdminData = useCallback(async (opts?: { silent?: boolean }) => {
+    if (!opts?.silent) {
+      setLoading(true);
     }
-  }, [isUnlocked]);
+
+    // 1. Immediately read any browser-saved registrations, cases, dispatches & volunteers
+    const localProfiles = getClientProfiles();
+    const localCases = getClientCases();
+    const localDispatches = getClientDispatches();
+    const localHelpers = getClientHelpers();
+
+    if (localProfiles.length > 0) setProfiles((prev) => mergeByKey(localProfiles, prev, (p) => p.haqId));
+    if (localCases.length > 0) setCases((prev) => mergeByKey(localCases, prev, (c) => c.caseId));
+    if (localDispatches.length > 0) setDispatches((prev) => mergeByKey(localDispatches, prev, (d) => d.dispatchId));
+    if (localHelpers.length > 0) setHelpers((prev) => mergeByKey(localHelpers, prev, (h) => h.helperId));
+
+    try {
+      // 2. Sync browser records to backend & fetch latest server + Supabase records
+      const res = await fetch(`/api/admin?t=${Date.now()}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        cache: "no-store",
+        body: JSON.stringify({
+          profiles: localProfiles,
+          cases: localCases,
+          dispatches: localDispatches,
+          helpers: localHelpers,
+        }),
+      });
+
+      if (res.ok) {
+        const data = await res.json();
+        const mergedProfiles = mergeByKey(
+          localProfiles,
+          data.profiles || [],
+          (p) => p.haqId
+        ).sort(
+          (a, b) =>
+            new Date(b.updatedAt || b.createdAt || 0).getTime() -
+            new Date(a.updatedAt || a.createdAt || 0).getTime()
+        );
+
+        const mergedCases = mergeByKey(
+          localCases,
+          data.cases || [],
+          (c) => c.caseId
+        ).sort(
+          (a, b) =>
+            new Date(b.timestamp || 0).getTime() -
+            new Date(a.timestamp || 0).getTime()
+        );
+
+        const mergedDispatches = mergeByKey(
+          localDispatches,
+          data.dispatches || [],
+          (d) => d.dispatchId
+        ).sort(
+          (a, b) =>
+            new Date(b.dispatchedAt || 0).getTime() -
+            new Date(a.dispatchedAt || 0).getTime()
+        );
+
+        const mergedHelpers = mergeByKey(
+          localHelpers,
+          data.helpers || [],
+          (h) => h.helperId
+        ).sort(
+          (a, b) =>
+            new Date(b.updatedAt || 0).getTime() -
+            new Date(a.updatedAt || 0).getTime()
+        );
+
+        setProfiles(mergedProfiles);
+        setCases(mergedCases);
+        setDispatches(mergedDispatches);
+        setHelpers(mergedHelpers);
+        setSystemStatus(data.systemStatus || null);
+        setLastSyncedAt(new Date().toLocaleTimeString());
+      }
+    } catch (e) {
+      console.error("Admin data load error:", e);
+    } finally {
+      if (!opts?.silent) {
+        setLoading(false);
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!isUnlocked) return;
+
+    loadAdminData();
+
+    const handleRealtimeUpdate = () => {
+      loadAdminData({ silent: true });
+    };
+
+    window.addEventListener("haqai-profile-updated", handleRealtimeUpdate);
+    window.addEventListener("haqai-case-updated", handleRealtimeUpdate);
+    window.addEventListener("haqai-dispatch-updated", handleRealtimeUpdate);
+    window.addEventListener("haqai-helper-updated", handleRealtimeUpdate);
+    window.addEventListener("storage", handleRealtimeUpdate);
+    window.addEventListener("focus", handleRealtimeUpdate);
+
+    // Poll every 4 seconds for live multi-tab / webhook / Supabase updates
+    const interval = setInterval(() => {
+      loadAdminData({ silent: true });
+    }, 4000);
+
+    return () => {
+      window.removeEventListener("haqai-profile-updated", handleRealtimeUpdate);
+      window.removeEventListener("haqai-case-updated", handleRealtimeUpdate);
+      window.removeEventListener("haqai-dispatch-updated", handleRealtimeUpdate);
+      window.removeEventListener("haqai-helper-updated", handleRealtimeUpdate);
+      window.removeEventListener("storage", handleRealtimeUpdate);
+      window.removeEventListener("focus", handleRealtimeUpdate);
+      clearInterval(interval);
+    };
+  }, [isUnlocked, loadAdminData]);
 
   function handleUnlockSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -81,34 +218,52 @@ export default function AdminDashboardPage() {
     }
   }
 
-  async function loadAdminData() {
-    setLoading(true);
-    try {
-      const res = await fetch("/api/admin");
-      const data = await res.json();
-      setProfiles(data.profiles || []);
-      setCases(data.cases || []);
-      setDispatches(data.dispatches || []);
-      setHelpers(data.helpers || []);
-      setSystemStatus(data.systemStatus || null);
-    } catch (e) {
-      console.error(e);
-    } finally {
-      setLoading(false);
-    }
-  }
-
   async function handleStatusUpdate(params: {
     caseId?: string;
     dispatchId?: string;
     status: string;
   }) {
+    // 1. Optimistic UI + Client Storage update
+    updateClientStatus(params);
+    if (params.caseId) {
+      setCases((prev) =>
+        prev.map((c) =>
+          c.caseId === params.caseId
+            ? {
+                ...c,
+                status: params.status as
+                  | "Open"
+                  | "Dispatched"
+                  | "Resolved"
+                  | "Under Review",
+              }
+            : c
+        )
+      );
+    }
+    if (params.dispatchId) {
+      setDispatches((prev) =>
+        prev.map((d) =>
+          d.dispatchId === params.dispatchId
+            ? {
+                ...d,
+                status: params.status as
+                  | "Dispatched"
+                  | "In Progress"
+                  | "Resolved",
+              }
+            : d
+        )
+      );
+    }
+
+    // 2. Persist to backend & Supabase
     await fetch("/api/admin", {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(params),
     });
-    loadAdminData();
+    loadAdminData({ silent: true });
   }
 
   // Password Gate Screen
@@ -171,24 +326,30 @@ export default function AdminDashboardPage() {
       <div className="rounded-2xl bg-gradient-to-r from-slate-900 via-[#01411C] to-slate-900 p-6 sm:p-8 text-white shadow-xl">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-400/20 px-3 py-1 text-xs font-bold text-amber-300">
-              <ShieldAlert className="h-3.5 w-3.5" /> HaqAI Admin Control Panel
-            </span>
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-400/20 px-3 py-1 text-xs font-bold text-amber-300">
+                <ShieldAlert className="h-3.5 w-3.5" /> HaqAI Admin Control Panel
+              </span>
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/20 border border-emerald-400/30 px-3 py-1 text-[11px] font-bold text-emerald-200">
+                <Activity className="h-3.5 w-3.5 text-emerald-400 animate-pulse" />
+                Live Sync Active {lastSyncedAt ? `(${lastSyncedAt})` : ""}
+              </span>
+            </div>
             <h1 className="mt-2 text-2xl sm:text-3xl font-extrabold">
               Admin Dashboard: Citizens, Cases, Dispatches &amp; Volunteers
             </h1>
             <p className="mt-1 text-sm text-emerald-100/90">
               Monitor registered citizens, AI legal consultations, 1-click
-              dispatched complaints, and Card 9 Legal Aid Volunteers.
+              dispatched complaints, and Card 9 Legal Aid Volunteers in real time.
             </p>
           </div>
           <div className="flex items-center gap-2 shrink-0">
             <button
               type="button"
-              onClick={loadAdminData}
+              onClick={() => loadAdminData()}
               className="inline-flex items-center gap-2 rounded-xl bg-[#D4AF37] px-4 py-2.5 text-xs font-extrabold text-[#01411C] hover:bg-amber-400 transition"
             >
-              <RefreshCw className="h-4 w-4" />
+              <RefreshCw className={`h-4 w-4 ${loading ? "animate-spin" : ""}`} />
               <span>Refresh Data</span>
             </button>
             <button
@@ -205,7 +366,10 @@ export default function AdminDashboardPage() {
 
       {/* KPI Cards */}
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <div className="soft-card rounded-2xl p-5">
+        <div
+          onClick={() => setActiveTab("citizens")}
+          className="soft-card rounded-2xl p-5 cursor-pointer hover:border-teal-400 transition"
+        >
           <div className="flex items-center justify-between">
             <span className="text-xs font-bold uppercase text-slate-500">
               Registered Citizens
@@ -220,7 +384,10 @@ export default function AdminDashboardPage() {
           </p>
         </div>
 
-        <div className="soft-card rounded-2xl p-5">
+        <div
+          onClick={() => setActiveTab("cases")}
+          className="soft-card rounded-2xl p-5 cursor-pointer hover:border-teal-400 transition"
+        >
           <div className="flex items-center justify-between">
             <span className="text-xs font-bold uppercase text-slate-500">
               Total Legal Cases
@@ -235,7 +402,10 @@ export default function AdminDashboardPage() {
           </p>
         </div>
 
-        <div className="soft-card rounded-2xl p-5">
+        <div
+          onClick={() => setActiveTab("dispatches")}
+          className="soft-card rounded-2xl p-5 cursor-pointer hover:border-teal-400 transition"
+        >
           <div className="flex items-center justify-between">
             <span className="text-xs font-bold uppercase text-slate-500">
               1-Click Dispatched
@@ -279,7 +449,15 @@ export default function AdminDashboardPage() {
                   : "bg-amber-100 text-amber-800"
               }`}
             >
-              {systemStatus?.isSupabaseConfigured ? "Connected" : "Local Store"}
+              {systemStatus?.isSupabaseConfigured
+                ? "Connected + Synced"
+                : "Local + Browser Sync"}
+            </span>
+          </div>
+          <div className="flex items-center justify-between text-xs">
+            <span className="font-semibold">Card 9 Volunteers:</span>
+            <span className="rounded px-2 py-0.5 font-bold bg-emerald-100 text-emerald-800">
+              {helpers.length} Registered
             </span>
           </div>
         </div>
@@ -336,7 +514,7 @@ export default function AdminDashboardPage() {
         </button>
       </div>
 
-      {loading ? (
+      {loading && profiles.length === 0 && cases.length === 0 ? (
         <div className="p-8 text-center text-sm text-slate-600">
           Loading Admin Panel records...
         </div>
@@ -345,26 +523,55 @@ export default function AdminDashboardPage() {
           {/* TAB 1: CITIZEN PROFILES */}
           {activeTab === "citizens" && (
             <div className="soft-card rounded-2xl overflow-hidden">
-              <div className="p-5 border-b border-slate-100 flex items-center justify-between">
+              <div className="p-5 border-b border-slate-100 flex flex-wrap items-center justify-between gap-3">
                 <div>
                   <h2 className="text-base font-extrabold text-slate-900">
                     Registered Citizens Directory (`citizen_profiles`)
                   </h2>
                   <p className="text-xs text-slate-500">
                     Real registered citizens with their unique HaqAI Citizen ID.
+                    Updates automatically when any citizen registers.
                   </p>
                 </div>
-                <Link
-                  href="/profile"
-                  className="rounded-xl bg-[#01411C] px-3.5 py-2 text-xs font-bold text-[#D4AF37]"
-                >
-                  + Add / Edit Citizen Profile
-                </Link>
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={() =>
+                      window.dispatchEvent(
+                        new Event("haqai-open-registration-modal")
+                      )
+                    }
+                    className="inline-flex items-center gap-1.5 rounded-xl bg-teal-600 px-3.5 py-2 text-xs font-bold text-white hover:bg-teal-700 transition"
+                  >
+                    <UserPlus className="h-3.5 w-3.5" />
+                    <span>Quick Register Citizen</span>
+                  </button>
+                  <Link
+                    href="/profile"
+                    className="rounded-xl bg-[#01411C] px-3.5 py-2 text-xs font-bold text-[#D4AF37]"
+                  >
+                    + Full Citizen Profile Page
+                  </Link>
+                </div>
               </div>
 
               {profiles.length === 0 ? (
-                <div className="p-8 text-center text-xs text-slate-500">
-                  No citizen profiles registered yet.
+                <div className="p-8 text-center space-y-3">
+                  <p className="text-xs text-slate-500">
+                    No citizen profiles registered yet.
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() =>
+                      window.dispatchEvent(
+                        new Event("haqai-open-registration-modal")
+                      )
+                    }
+                    className="inline-flex items-center gap-2 rounded-xl bg-teal-600 px-4 py-2.5 text-xs font-bold text-white shadow hover:bg-teal-700 transition"
+                  >
+                    <UserPlus className="h-4 w-4" />
+                    <span>Register a Citizen Profile Now</span>
+                  </button>
                 </div>
               ) : (
                 <div className="overflow-x-auto">
@@ -418,7 +625,14 @@ export default function AdminDashboardPage() {
             <div className="space-y-4">
               {cases.length === 0 ? (
                 <div className="soft-card rounded-2xl p-8 text-center text-sm text-slate-500">
-                  No legal cases recorded yet.
+                  No legal cases recorded yet. Go to{" "}
+                  <Link
+                    href="/assistant"
+                    className="font-bold text-teal-700 underline"
+                  >
+                    Ask AI Legal Assistant
+                  </Link>{" "}
+                  to create a live legal consultation.
                 </div>
               ) : (
                 cases.map((c) => (
@@ -471,8 +685,8 @@ export default function AdminDashboardPage() {
                           Citizen Name &amp; CNIC:
                         </span>
                         <span className="font-bold text-slate-900">
-                          {c.generatedComplaint.facts.applicantName || "N/A"} (
-                          {c.generatedComplaint.facts.cnic || "N/A"})
+                          {c.generatedComplaint?.facts?.applicantName || "N/A"}{" "}
+                          ({c.generatedComplaint?.facts?.cnic || "N/A"})
                         </span>
                       </div>
                       <div>
@@ -486,7 +700,7 @@ export default function AdminDashboardPage() {
                           Matched Authority:
                         </span>
                         <span className="font-bold text-slate-900">
-                          {c.primaryAuthority.name}
+                          {c.primaryAuthority?.name || "N/A"}
                         </span>
                       </div>
                     </div>
@@ -550,8 +764,8 @@ export default function AdminDashboardPage() {
 
                     <div className="grid grid-cols-1 gap-2 sm:grid-cols-3 text-xs bg-slate-50 p-3 rounded-xl">
                       <p>
-                        <strong>Citizen:</strong> {d.citizenName} ({d.citizenCnic}
-                        )
+                        <strong>Citizen:</strong> {d.citizenName} (
+                        {d.citizenCnic})
                       </p>
                       <p>
                         <strong>Phone &amp; City:</strong> {d.citizenPhone} •{" "}

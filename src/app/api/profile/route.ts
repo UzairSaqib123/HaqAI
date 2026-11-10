@@ -3,12 +3,14 @@ import {
   findCitizenProfile,
   getAllProfiles,
   saveCitizenProfile,
+  syncStoreWithSupabase,
 } from "@/lib/store";
 import { CitizenProfile, generateHaqCitizenId } from "@/lib/supabase";
 
 export const dynamic = "force-dynamic";
 
 export async function GET(req: NextRequest) {
+  await syncStoreWithSupabase();
   const { searchParams } = new URL(req.url);
   const haqId = searchParams.get("haqId") || undefined;
   const email = searchParams.get("email") || undefined;
