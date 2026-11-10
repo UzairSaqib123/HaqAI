@@ -57,6 +57,18 @@ const QUICK_SCENARIOS = [
     lang: "ur" as SupportedLanguage,
     text: "میری کمپنی نے پچھلے 3 مہینے سے میری تنخواہ روکی ہوئی ہے اور مانگنے پر نوکری سے نکالنے کی دھمکی دے رہے ہیں۔",
   },
+  {
+    key: "family_ur",
+    badge: "👨‍👩‍👧 خلع، حق مہر اور بچوں کا خرچہ (Family Law)",
+    lang: "ur" as SupportedLanguage,
+    text: "میرا شوہر مجھے اور بچوں کو خرچہ نہیں دیتا اور نہ ہی حق مہر ادا کر رہا ہے۔ میں فیملی کورٹ سے اپنا حق کیسے لوں؟",
+  },
+  {
+    key: "cheque_ur",
+    badge: "💳 چیک باؤنس اور ادھار کی واپسی (Cheque / Fraud)",
+    lang: "ur" as SupportedLanguage,
+    text: "ایک شخص نے مجھ سے کاروبار کے نام پر پیسے لیے اور جو چیک دیا وہ بینک سے باؤنس (Dishonour) ہو گیا ہے۔ اب کیا قانونی کارروائی ہو سکتی ہے؟",
+  },
 ];
 
 function AssistantContent() {
@@ -525,11 +537,26 @@ function AssistantContent() {
             {/* Spoken Summary Box */}
             <div className="rounded-2xl bg-teal-50/60 border border-teal-200/70 p-5 space-y-1.5">
               <p className="text-xs font-bold text-teal-800">
-                🔊 آسان خلاصہ (Spoken Summary):
+                🔊 آسان خلاصہ (Spoken Audio Summary):
               </p>
               <p className="text-base sm:text-lg font-medium text-slate-800 leading-relaxed">
                 {currentCase.voiceSummaryText}
               </p>
+            </div>
+
+            {/* Detailed Direct Answer Box */}
+            <div className="rounded-2xl bg-white border border-slate-200 p-5 sm:p-6 space-y-2 shadow-sm">
+              <div className="flex items-center justify-between">
+                <p className="text-xs font-bold uppercase tracking-wider text-teal-700">
+                  ⚖️ آپ کے سوال کا تفصیلی قانونی جواب (Complete Legal Answer)
+                </p>
+                <span className="text-[11px] font-medium text-slate-400">
+                  Q: &ldquo;{currentCase.userQuery}&rdquo;
+                </span>
+              </div>
+              <div className="whitespace-pre-line text-sm sm:text-base text-slate-800 leading-relaxed">
+                {currentCase.replyText}
+              </div>
             </div>
 
             {/* 2 Balanced Option Cards */}

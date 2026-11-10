@@ -2465,6 +2465,388 @@
         }
       ],
       "status": "Open"
+    },
+    "HAQ-267979": {
+      "caseId": "HAQ-267979",
+      "haqId": "HAQ-PK-535308",
+      "citizenProfile": {
+        "id": "prof-demo-01",
+        "haqId": "HAQ-PK-535308",
+        "email": "citizen.user@gmail.com",
+        "fullName": "Uzair Saqib",
+        "cnic": "33100651562622",
+        "phone": "03001234567",
+        "city": "Faisalabad",
+        "province": "Punjab",
+        "address": "Abdullahpur Faisalabad Pakistan",
+        "occupation": "Citizen of Pakistan",
+        "role": "citizen",
+        "createdAt": "2026-11-10T19:22:00.889Z",
+        "updatedAt": "2026-11-10T19:41:45.808Z"
+      },
+      "timestamp": "2026-11-10T20:02:34.450Z",
+      "channel": "website",
+      "language": "ur",
+      "aiEngineUsed": "verified-pakistan-rag",
+      "userQuery": "میرے دوست نے قتل کر دیا ہے",
+      "categoryId": "police",
+      "categoryTitle": "پولیس شکایات، ایف آئی آر کا اندراج، چوری اور غیر قانونی حراست سے تحفظ",
+      "replyText": "السلام علیکم **Uzair Saqib** (شناختی آئی ڈی: `HAQ-PK-535308`)! آئینِ پاکستان 1973 اور نافذ العمل قوانین کے مطابق آپ کا مسئلہ **پولیس شکایات، ایف آئی آر کا اندراج، چوری اور غیر قانونی حراست سے تحفظ** سے متعلق ہے۔\n\n### ⚖️ آپ کے آئینی حقوق:\n- **Article 9 & Article 10 – Constitution of Pakistan 1973:** آرٹیکل 9 اور 10 کے تحت کسی شخص کو غیر قانونی طور پر حراست میں نہیں رکھا جا سکتا، گرفتاری کی وجہ بتانا اور 24 گھنٹے کے اندر مجسٹریٹ کے سامنے پیش کرنا لازم ہے۔\n- **Article 14 – Constitution of Pakistan 1973:** آرٹیکل 14 کے تحت انسان کی عزتِ نفس اور چادر و چار دیواری کا تحفظ یقینی بنایا گیا ہے اور پولیس تشدد کی مکمل ممانعت ہے۔\n\n### 📜 لاگو پاکستانی قوانین:\n- **Code of Criminal Procedure (CrPC), 1898:** ضابطہ فوجداری کی دفعہ 154 کے تحت ایس ایچ او پر ایف آئی آر درج کرنا فرض ہے۔ انکار کی صورت میں آئی جی کمپلینٹ سیل (1787) یا دفعہ 22-A کے تحت سیشن جج کو درخواست دیں، اور غیر قانونی حراست پر دفعہ 491 کی پٹیشن دائر کریں۔\n\n### 🏛️ متعلقہ ادارہ:\n- **IGP Police Complaint Center (1787) / Provincial Police** (https://punjabpolice.gov.pk | ہیلپ لائن: 1787)",
+      "whatsappReplyText": "🇵🇰 *HaqAI – Citizen Rights & Complaint Assistant*\n\n👤 *Citizen ID:* HAQ-PK-535308\n📌 *Issue:* Police Shikayat, FIR ka Indiraj, Chori aur Giraftari se Tahaffuz\n⚖️ *Pakistani Law:* Article 9 & Article 10 – Constitution of Pakistan 1973 & Code of Criminal Procedure (CrPC), 1898\n🏛️ *Authority:* IGP Police Complaint Center (1787) / Provincial Police (Helpline: 1787)\n\n👇 *Click Your Website Link Below (2 Citizen Options):*\n1️⃣ *Option 1 – Submit Online Complaint (Edit & 1-Click Forward):*\nhttp://localhost:3001/complaint?caseId=HAQ-267979\n\n2️⃣ *Option 2 – Full Legal Guidance (Voice & Text):*\nhttp://localhost:3001/assistant?caseId=HAQ-267979",
+      "voiceSummaryText": "السلام علیکم۔ آپ کا مسئلہ پولیس شکایات، ایف آئی آر کا اندراج، چوری اور غیر قانونی حراست سے تحفظ سے متعلق ہے۔ ضابطہ فوجداری کی دفعہ 154 کے تحت ایس ایچ او پر ایف آئی آر درج کرنا فرض ہے۔ انکار کی صورت میں آئی جی کمپلینٹ سیل (1787) یا دفعہ 22-A کے تحت سیشن جج کو درخواست دیں، اور غیر قانونی حراست پر دفعہ 491 کی پٹیشن دائر کریں۔ آپ کی تفصیلات کے ساتھ درخواست تیار کر دی گئی ہے جسے آپ ایک کلک پر متعلقہ ادارے کو بھیج سکتے ہیں۔",
+      "constitutionalRights": [
+        {
+          "article": "Article 9 & Article 10 – Constitution of Pakistan 1973",
+          "title": "Security of Person & Arrest Safeguards (جان و آزادی کا تحفظ)",
+          "summary": "آرٹیکل 9 اور 10 کے تحت کسی شخص کو غیر قانونی طور پر حراست میں نہیں رکھا جا سکتا، گرفتاری کی وجہ بتانا اور 24 گھنٹے کے اندر مجسٹریٹ کے سامنے پیش کرنا لازم ہے۔"
+        },
+        {
+          "article": "Article 14 – Constitution of Pakistan 1973",
+          "title": "Inviolability of Dignity & Prohibition of Torture (عزتِ نفس اور چادر و چار دیواری)",
+          "summary": "آرٹیکل 14 کے تحت انسان کی عزتِ نفس اور چادر و چار دیواری کا تحفظ یقینی بنایا گیا ہے اور پولیس تشدد کی مکمل ممانعت ہے۔"
+        }
+      ],
+      "statutoryLaws": [
+        {
+          "law": "Code of Criminal Procedure (CrPC), 1898",
+          "section": "Section 154 (FIR Registration), Section 22-A/22-B (Justice of Peace) & Section 491 (Habeas Corpus)",
+          "explanation": "ضابطہ فوجداری کی دفعہ 154 کے تحت ایس ایچ او پر ایف آئی آر درج کرنا فرض ہے۔ انکار کی صورت میں آئی جی کمپلینٹ سیل (1787) یا دفعہ 22-A کے تحت سیشن جج کو درخواست دیں، اور غیر قانونی حراست پر دفعہ 491 کی پٹیشن دائر کریں۔"
+        }
+      ],
+      "nextSteps": [
+        "تھانے کے فرنٹ ڈیسک پر تحریری درخواست جمع کروائیں اور کمپیوٹرائزڈ رسید (e-Tag) حاصل کریں۔",
+        "ایس ایچ او کے انکار پر فوری طور پر آئی جی کمپلینٹ سیل (1787) یا ڈی پی او آفس میں آن لائن شکایت بھیجیں۔",
+        "سیشن کورٹ (جسٹس آف پیس) میں دفعہ 22-A کے تحت ایف آئی آر درج کروانے کے حکم کے لیے درخواست دیں۔"
+      ],
+      "followUpQuestions": [
+        "یہ واقعہ کس شہر اور کس تھانے کی حدود میں پیش آیا ہے؟"
+      ],
+      "recommendedAuthorities": [
+        {
+          "id": "igp_punjab",
+          "name": "IGP Police Complaint Center (1787) / Provincial Police",
+          "shortName": "Police Complaint Cell (1787)",
+          "role": "Enforces FIR registration and investigates police misconduct",
+          "portalUrl": "https://punjabpolice.gov.pk",
+          "email": "igpcomplaintcenter@punjabpolice.gov.pk",
+          "helpline": "1787",
+          "address": "Central Police Office (CPO) / DPO Office",
+          "turnaroundTime": "24–72 Hours",
+          "instructions": {
+            "en": "Call 1787 or submit online at punjabpolice.gov.pk.",
+            "roman_ur": "1787 par call karein ya police portal par shikayat bhejein.",
+            "ur": "1787 پر کال کریں یا پولیس پورٹل پر شکایت درج کریں۔",
+            "pa": "1787 اتے کال کرو۔"
+          }
+        }
+      ],
+      "primaryAuthority": {
+        "id": "igp_punjab",
+        "name": "IGP Police Complaint Center (1787) / Provincial Police",
+        "shortName": "Police Complaint Cell (1787)",
+        "role": "Enforces FIR registration and investigates police misconduct",
+        "portalUrl": "https://punjabpolice.gov.pk",
+        "email": "igpcomplaintcenter@punjabpolice.gov.pk",
+        "helpline": "1787",
+        "address": "Central Police Office (CPO) / DPO Office",
+        "turnaroundTime": "24–72 Hours",
+        "instructions": {
+          "en": "Call 1787 or submit online at punjabpolice.gov.pk.",
+          "roman_ur": "1787 par call karein ya police portal par shikayat bhejein.",
+          "ur": "1787 پر کال کریں یا پولیس پورٹل پر شکایت درج کریں۔",
+          "pa": "1787 اتے کال کرو۔"
+        }
+      },
+      "generatedComplaint": {
+        "subject": "Urgent Complaint Regarding Non-Registration of FIR / Police Action under Section 154 CrPC – Regarding [Name of Concerned Department / Institution / Respondent]",
+        "recipientTitle": "IGP Police Complaint Center (1787) / Provincial Police",
+        "recipientAuthority": {
+          "id": "igp_punjab",
+          "name": "IGP Police Complaint Center (1787) / Provincial Police",
+          "shortName": "Police Complaint Cell (1787)",
+          "role": "Enforces FIR registration and investigates police misconduct",
+          "portalUrl": "https://punjabpolice.gov.pk",
+          "email": "igpcomplaintcenter@punjabpolice.gov.pk",
+          "helpline": "1787",
+          "address": "Central Police Office (CPO) / DPO Office",
+          "turnaroundTime": "24–72 Hours",
+          "instructions": {
+            "en": "Call 1787 or submit online at punjabpolice.gov.pk.",
+            "roman_ur": "1787 par call karein ya police portal par shikayat bhejein.",
+            "ur": "1787 پر کال کریں یا پولیس پورٹل پر شکایت درج کریں۔",
+            "pa": "1787 اتے کال کرو۔"
+          }
+        },
+        "date": "11 November 2026",
+        "bodyText": "To,\nThe Competent Authority / Grievance Redressal Cell,\nIGP Police Complaint Center (1787) / Provincial Police\nOfficial Portal: https://punjabpolice.gov.pk\nDate: 11 November 2026\nHaqAI Citizen ID: HAQ-PK-535308\n\nSUBJECT: URGENT COMPLAINT REGARDING NON-REGISTRATION OF FIR / POLICE ACTION UNDER SECTION 154 CRPC – REGARDING [NAME OF CONCERNED DEPARTMENT / INSTITUTION / RESPONDENT]\n\nRespected Sir / Madam,\n\nI, Uzair Saqib (holding CNIC No. 33100651562622, resident of Abdullahpur Faisalabad Pakistan), respectfully submit this formal complaint and state the facts strictly as follows:\n\n1. STATEMENT OF GRIEVANCE & FACTS:\n   - Aggrieved Citizen Statement: \"میرے دوست نے قتل کر دیا ہے\"\n   - Concerned Institution / Respondent: [Name of Concerned Department / Institution / Respondent]\n   - City / Jurisdiction: Faisalabad\n   - Relevant Date / Reference / Roll No.: [Registration / Roll No. / Reference ID] (Date: 2026-11-10)\n\n2. APPLICABLE CONSTITUTIONAL & STATUTORY LEGAL PROVISIONS (PAKISTAN):\n   Under Articles 4, 9, 10, and 14 of the Constitution of Pakistan 1973, read with Section 154 of the Code of Criminal Procedure (CrPC) 1898 and the Police Order 2002, registration of an FIR upon disclosure of a cognizable offense is a mandatory statutory duty.\n\n3. PRAYER / REQUESTED RELIEF:\n   It is respectfully prayed that immediate orders be issued to the concerned SHO to register the FIR under Section 154 CrPC, conduct an impartial investigation, and provide lawful protection.\n\nI affirm that the facts stated above are true and accurate to the best of my knowledge. Copies of my CNIC (33100651562622) and relevant supporting documents are attached herewith.\n\nYours faithfully,\n\nSignature: ___________________________\nFull Name: Uzair Saqib\nHaqAI Citizen ID: HAQ-PK-535308\nCNIC No.: 33100651562622\nAddress / City: Abdullahpur Faisalabad Pakistan\nContact Phone: 03001234567\nEmail: citizen.user@gmail.com",
+        "emailSubject": "[Formal Citizen Complaint - HAQ-PK-535308] Urgent Complaint Regarding Non-Registration of FIR / Police Action under Section 154 CrPC – Regarding [Name of Concerned Department / Institution / Respondent]",
+        "emailBody": "Dear Grievance Redressal Officer (Police Complaint Cell (1787)),\n\nPlease find below the formal citizen complaint submitted by Uzair Saqib (HaqAI ID: HAQ-PK-535308, CNIC: 33100651562622) for urgent statutory action:\n\n--------------------------------------------------\nTo,\nThe Competent Authority / Grievance Redressal Cell,\nIGP Police Complaint Center (1787) / Provincial Police\nOfficial Portal: https://punjabpolice.gov.pk\nDate: 11 November 2026\nHaqAI Citizen ID: HAQ-PK-535308\n\nSUBJECT: URGENT COMPLAINT REGARDING NON-REGISTRATION OF FIR / POLICE ACTION UNDER SECTION 154 CRPC – REGARDING [NAME OF CONCERNED DEPARTMENT / INSTITUTION / RESPONDENT]\n\nRespected Sir / Madam,\n\nI, Uzair Saqib (holding CNIC No. 33100651562622, resident of Abdullahpur Faisalabad Pakistan), respectfully submit this formal complaint and state the facts strictly as follows:\n\n1. STATEMENT OF GRIEVANCE & FACTS:\n   - Aggrieved Citizen Statement: \"میرے دوست نے قتل کر دیا ہے\"\n   - Concerned Institution / Respondent: [Name of Concerned Department / Institution / Respondent]\n   - City / Jurisdiction: Faisalabad\n   - Relevant Date / Reference / Roll No.: [Registration / Roll No. / Reference ID] (Date: 2026-11-10)\n\n2. APPLICABLE CONSTITUTIONAL & STATUTORY LEGAL PROVISIONS (PAKISTAN):\n   Under Articles 4, 9, 10, and 14 of the Constitution of Pakistan 1973, read with Section 154 of the Code of Criminal Procedure (CrPC) 1898 and the Police Order 2002, registration of an FIR upon disclosure of a cognizable offense is a mandatory statutory duty.\n\n3. PRAYER / REQUESTED RELIEF:\n   It is respectfully prayed that immediate orders be issued to the concerned SHO to register the FIR under Section 154 CrPC, conduct an impartial investigation, and provide lawful protection.\n\nI affirm that the facts stated above are true and accurate to the best of my knowledge. Copies of my CNIC (33100651562622) and relevant supporting documents are attached herewith.\n\nYours faithfully,\n\nSignature: ___________________________\nFull Name: Uzair Saqib\nHaqAI Citizen ID: HAQ-PK-535308\nCNIC No.: 33100651562622\nAddress / City: Abdullahpur Faisalabad Pakistan\nContact Phone: 03001234567\nEmail: citizen.user@gmail.com\n--------------------------------------------------",
+        "categoryId": "police",
+        "facts": {
+          "haqId": "HAQ-PK-535308",
+          "rawStatement": "میرے دوست نے قتل کر دیا ہے",
+          "applicantName": "Uzair Saqib",
+          "cnic": "33100651562622",
+          "city": "Faisalabad",
+          "address": "Abdullahpur Faisalabad Pakistan",
+          "institutionOrRespondent": "[Name of Concerned Department / Institution / Respondent]",
+          "dateOfIncident": "2026-11-10",
+          "referenceOrRollNo": "[Registration / Roll No. / Reference ID]",
+          "contactPhone": "03001234567",
+          "contactEmail": "citizen.user@gmail.com"
+        }
+      },
+      "workflowSteps": [
+        {
+          "stepNumber": 1,
+          "title": "Understand Input",
+          "status": "completed",
+          "summary": "Captured website query (UR)"
+        },
+        {
+          "stepNumber": 2,
+          "title": "Classify & Match Laws",
+          "status": "completed",
+          "summary": "Police Complaints, FIR Registration, Theft & Unlawful Detention"
+        },
+        {
+          "stepNumber": 3,
+          "title": "Citizen Profile Linked",
+          "status": "completed",
+          "summary": "HaqAI ID: HAQ-PK-535308 (Uzair Saqib)"
+        },
+        {
+          "stepNumber": 4,
+          "title": "Explain 1973 Constitution",
+          "status": "completed",
+          "summary": "2 Articles & 1 Statutes verified"
+        },
+        {
+          "stepNumber": 5,
+          "title": "Recommend Solutions",
+          "status": "completed",
+          "summary": "3 actionable legal steps mapped"
+        },
+        {
+          "stepNumber": 6,
+          "title": "Find Authority",
+          "status": "completed",
+          "summary": "Police Complaint Cell (1787) (https://punjabpolice.gov.pk)"
+        },
+        {
+          "stepNumber": 7,
+          "title": "Pre-Fill Formal Complaint",
+          "status": "completed",
+          "summary": "Pre-filled with Citizen CNIC & Address"
+        },
+        {
+          "stepNumber": 8,
+          "title": "User Review & 1-Click Approval",
+          "status": "action_required",
+          "summary": "Awaiting citizen approval for 1-click dispatch"
+        }
+      ],
+      "chatHistory": [
+        {
+          "role": "user",
+          "content": "میرے دوست نے قتل کر دیا ہے",
+          "timestamp": "2026-11-10T20:02:34.450Z"
+        },
+        {
+          "role": "assistant",
+          "content": "السلام علیکم **Uzair Saqib** (شناختی آئی ڈی: `HAQ-PK-535308`)! آئینِ پاکستان 1973 اور نافذ العمل قوانین کے مطابق آپ کا مسئلہ **پولیس شکایات، ایف آئی آر کا اندراج، چوری اور غیر قانونی حراست سے تحفظ** سے متعلق ہے۔\n\n### ⚖️ آپ کے آئینی حقوق:\n- **Article 9 & Article 10 – Constitution of Pakistan 1973:** آرٹیکل 9 اور 10 کے تحت کسی شخص کو غیر قانونی طور پر حراست میں نہیں رکھا جا سکتا، گرفتاری کی وجہ بتانا اور 24 گھنٹے کے اندر مجسٹریٹ کے سامنے پیش کرنا لازم ہے۔\n- **Article 14 – Constitution of Pakistan 1973:** آرٹیکل 14 کے تحت انسان کی عزتِ نفس اور چادر و چار دیواری کا تحفظ یقینی بنایا گیا ہے اور پولیس تشدد کی مکمل ممانعت ہے۔\n\n### 📜 لاگو پاکستانی قوانین:\n- **Code of Criminal Procedure (CrPC), 1898:** ضابطہ فوجداری کی دفعہ 154 کے تحت ایس ایچ او پر ایف آئی آر درج کرنا فرض ہے۔ انکار کی صورت میں آئی جی کمپلینٹ سیل (1787) یا دفعہ 22-A کے تحت سیشن جج کو درخواست دیں، اور غیر قانونی حراست پر دفعہ 491 کی پٹیشن دائر کریں۔\n\n### 🏛️ متعلقہ ادارہ:\n- **IGP Police Complaint Center (1787) / Provincial Police** (https://punjabpolice.gov.pk | ہیلپ لائن: 1787)",
+          "timestamp": "2026-11-10T20:02:34.450Z"
+        }
+      ],
+      "status": "Open"
+    },
+    "HAQ-951425": {
+      "caseId": "HAQ-951425",
+      "haqId": "HAQ-PK-535308",
+      "citizenProfile": {
+        "id": "prof-demo-01",
+        "haqId": "HAQ-PK-535308",
+        "email": "citizen.user@gmail.com",
+        "fullName": "Uzair Saqib",
+        "cnic": "33100651562622",
+        "phone": "03001234567",
+        "city": "Faisalabad",
+        "province": "Punjab",
+        "address": "Abdullahpur Faisalabad Pakistan",
+        "occupation": "Citizen of Pakistan",
+        "role": "citizen",
+        "createdAt": "2026-11-10T19:22:00.889Z",
+        "updatedAt": "2026-11-10T19:41:45.808Z"
+      },
+      "timestamp": "2026-11-10T20:03:50.371Z",
+      "channel": "website",
+      "language": "ur",
+      "aiEngineUsed": "verified-pakistan-rag",
+      "userQuery": "میری جگہ پر کسی نے قبضہ کر لیا",
+      "categoryId": "property",
+      "categoryTitle": "جائیداد، خواتین کی وراثت، ناجائز قبضہ اور مکان مالک و کرایہ دار کے مسائل",
+      "replyText": "السلام علیکم **Uzair Saqib** (شناختی آئی ڈی: `HAQ-PK-535308`)! آئینِ پاکستان 1973 اور نافذ العمل قوانین کے مطابق آپ کا مسئلہ **جائیداد، خواتین کی وراثت، ناجائز قبضہ اور مکان مالک و کرایہ دار کے مسائل** سے متعلق ہے۔\n\n### ⚖️ آپ کے آئینی حقوق:\n- **Article 23, Article 24 & Article 25 – Constitution of Pakistan 1973:** آرٹیکل 23، 24 اور 25 کے تحت ہر شہری (مرد اور عورت) کو اپنی جائیداد اور وراثتی حصے کے تحفظ کا مکمل آئینی حق حاصل ہے۔\n\n### 📜 لاگو پاکستانی قوانین:\n- **Enforcement of Women's Property Rights Act, 2020 & Illegal Dispossession Act, 2005:** خواتین کے حقوقِ جائیداد ایکٹ 2020 کے تحت محتسب 60 دن میں ڈپٹی کمشنر اور پولیس کے ذریعے خواتین کو ان کا وراثتی حصہ دلواتا ہے۔ ناجائز قبضہ کرنے والوں کو اللیگل ڈسپوزیشن ایکٹ 2005 کے تحت 10 سال قید کی سزا ہے، اور کرایہ داری کے مسائل رینٹ ٹربیونل حل کرتا ہے۔\n\n### 🏛️ متعلقہ ادارہ:\n- **Ombudsman for Enforcement of Women's Property Rights (FOSPAH) & Land Revenue Authority** (https://fospah.gov.pk | ہیلپ لائن: 051-9264446)",
+      "whatsappReplyText": "🇵🇰 *HaqAI – Citizen Rights & Complaint Assistant*\n\n👤 *Citizen ID:* HAQ-PK-535308\n📌 *Issue:* Jaidad, Khawateen ki Wirasat, Najayaz Qabza aur Makan / Kirayedar ke Masail\n⚖️ *Pakistani Law:* Article 23, Article 24 & Article 25 – Constitution of Pakistan 1973 & Enforcement of Women's Property Rights Act, 2020 & Illegal Dispossession Act, 2005\n🏛️ *Authority:* Ombudsman for Enforcement of Women's Property Rights (FOSPAH) & Land Revenue Authority (Helpline: 051-9264446)\n\n👇 *Click Your Website Link Below (2 Citizen Options):*\n1️⃣ *Option 1 – Submit Online Complaint (Edit & 1-Click Forward):*\nhttp://localhost:3001/complaint?caseId=HAQ-951425\n\n2️⃣ *Option 2 – Full Legal Guidance (Voice & Text):*\nhttp://localhost:3001/assistant?caseId=HAQ-951425",
+      "voiceSummaryText": "السلام علیکم۔ آپ کا مسئلہ جائیداد، خواتین کی وراثت، ناجائز قبضہ اور مکان مالک و کرایہ دار کے مسائل سے متعلق ہے۔ خواتین کے حقوقِ جائیداد ایکٹ 2020 کے تحت محتسب 60 دن میں ڈپٹی کمشنر اور پولیس کے ذریعے خواتین کو ان کا وراثتی حصہ دلواتا ہے۔ ناجائز قبضہ کرنے والوں کو اللیگل ڈسپوزیشن ایکٹ 2005 کے تحت 10 سال قید کی سزا ہے، اور کرایہ داری کے مسائل رینٹ ٹربیونل حل کرتا ہے۔ آپ کی تفصیلات کے ساتھ درخواست تیار کر دی گئی ہے جسے آپ ایک کلک پر متعلقہ ادارے کو بھیج سکتے ہیں۔",
+      "constitutionalRights": [
+        {
+          "article": "Article 23, Article 24 & Article 25 – Constitution of Pakistan 1973",
+          "title": "Protection of Property & Inheritance Rights (جائیداد اور وراثت کا آئینی تحفظ)",
+          "summary": "آرٹیکل 23، 24 اور 25 کے تحت ہر شہری (مرد اور عورت) کو اپنی جائیداد اور وراثتی حصے کے تحفظ کا مکمل آئینی حق حاصل ہے۔"
+        }
+      ],
+      "statutoryLaws": [
+        {
+          "law": "Enforcement of Women's Property Rights Act, 2020 & Illegal Dispossession Act, 2005",
+          "section": "Sections 4 & 5 (Ombudsman 60-Day Restoration); Section 3 (Illegal Dispossession / Qabza); Provincial Rented Premises Acts",
+          "explanation": "خواتین کے حقوقِ جائیداد ایکٹ 2020 کے تحت محتسب 60 دن میں ڈپٹی کمشنر اور پولیس کے ذریعے خواتین کو ان کا وراثتی حصہ دلواتا ہے۔ ناجائز قبضہ کرنے والوں کو اللیگل ڈسپوزیشن ایکٹ 2005 کے تحت 10 سال قید کی سزا ہے، اور کرایہ داری کے مسائل رینٹ ٹربیونل حل کرتا ہے۔"
+        }
+      ],
+      "nextSteps": [
+        "نادرا سے ایف آر سی (FRC) اور اراضی ریکارڈ سینٹر سے زمین کی فرد حاصل کریں۔",
+        "خواتین کی وراثت کے لیے فوسپاہ (fospah.gov.pk) اور ناجائز قبضے یا کرایہ داری کے لیے ڈی سی آفس یا عدالت میں درخواست دیں۔"
+      ],
+      "followUpQuestions": [
+        "کیا یہ وراثت کے حصے کا مسئلہ ہے، ناجائز قبضے کا، یا مکان کرایہ داری کا؟"
+      ],
+      "recommendedAuthorities": [
+        {
+          "id": "fospah_property",
+          "name": "Ombudsman for Enforcement of Women's Property Rights (FOSPAH) & Land Revenue Authority",
+          "shortName": "FOSPAH Property Cell",
+          "role": "Restores inheritance and property possession within 60 days",
+          "portalUrl": "https://fospah.gov.pk",
+          "email": "complaints@fospah.gov.pk",
+          "helpline": "051-9264446",
+          "address": "Sector G-5/2, Islamabad / Provincial Offices",
+          "turnaroundTime": "60 Days Statutory Limit",
+          "instructions": {
+            "en": "File your petition at fospah.gov.pk.",
+            "roman_ur": "fospah.gov.pk par darkhwast dein.",
+            "ur": "fospah.gov.pk پر آن لائن درخواست جمع کروائیں۔",
+            "pa": "fospah.gov.pk اتے درخواست دیو۔"
+          }
+        }
+      ],
+      "primaryAuthority": {
+        "id": "fospah_property",
+        "name": "Ombudsman for Enforcement of Women's Property Rights (FOSPAH) & Land Revenue Authority",
+        "shortName": "FOSPAH Property Cell",
+        "role": "Restores inheritance and property possession within 60 days",
+        "portalUrl": "https://fospah.gov.pk",
+        "email": "complaints@fospah.gov.pk",
+        "helpline": "051-9264446",
+        "address": "Sector G-5/2, Islamabad / Provincial Offices",
+        "turnaroundTime": "60 Days Statutory Limit",
+        "instructions": {
+          "en": "File your petition at fospah.gov.pk.",
+          "roman_ur": "fospah.gov.pk par darkhwast dein.",
+          "ur": "fospah.gov.pk پر آن لائن درخواست جمع کروائیں۔",
+          "pa": "fospah.gov.pk اتے درخواست دیو۔"
+        }
+      },
+      "generatedComplaint": {
+        "subject": "Petition for Restoration of Lawful Property / Inheritance Share under Women's Property Rights Act 2020 & Illegal Dispossession Act 2005 – Regarding [Name of Concerned Department / Institution / Respondent]",
+        "recipientTitle": "Ombudsman for Enforcement of Women's Property Rights (FOSPAH) & Land Revenue Authority",
+        "recipientAuthority": {
+          "id": "fospah_property",
+          "name": "Ombudsman for Enforcement of Women's Property Rights (FOSPAH) & Land Revenue Authority",
+          "shortName": "FOSPAH Property Cell",
+          "role": "Restores inheritance and property possession within 60 days",
+          "portalUrl": "https://fospah.gov.pk",
+          "email": "complaints@fospah.gov.pk",
+          "helpline": "051-9264446",
+          "address": "Sector G-5/2, Islamabad / Provincial Offices",
+          "turnaroundTime": "60 Days Statutory Limit",
+          "instructions": {
+            "en": "File your petition at fospah.gov.pk.",
+            "roman_ur": "fospah.gov.pk par darkhwast dein.",
+            "ur": "fospah.gov.pk پر آن لائن درخواست جمع کروائیں۔",
+            "pa": "fospah.gov.pk اتے درخواست دیو۔"
+          }
+        },
+        "date": "11 November 2026",
+        "bodyText": "To,\nThe Competent Authority / Grievance Redressal Cell,\nOmbudsman for Enforcement of Women's Property Rights (FOSPAH) & Land Revenue Authority\nOfficial Portal: https://fospah.gov.pk\nDate: 11 November 2026\nHaqAI Citizen ID: HAQ-PK-535308\n\nSUBJECT: PETITION FOR RESTORATION OF LAWFUL PROPERTY / INHERITANCE SHARE UNDER WOMEN'S PROPERTY RIGHTS ACT 2020 & ILLEGAL DISPOSSESSION ACT 2005 – REGARDING [NAME OF CONCERNED DEPARTMENT / INSTITUTION / RESPONDENT]\n\nRespected Sir / Madam,\n\nI, Uzair Saqib (holding CNIC No. 33100651562622, resident of Abdullahpur Faisalabad Pakistan), respectfully submit this formal complaint and state the facts strictly as follows:\n\n1. STATEMENT OF GRIEVANCE & FACTS:\n   - Aggrieved Citizen Statement: \"میری جگہ پر کسی نے قبضہ کر لیا\"\n   - Concerned Institution / Respondent: [Name of Concerned Department / Institution / Respondent]\n   - City / Jurisdiction: Faisalabad\n   - Relevant Date / Reference / Roll No.: [Registration / Roll No. / Reference ID] (Date: 2026-11-10)\n\n2. APPLICABLE CONSTITUTIONAL & STATUTORY LEGAL PROVISIONS (PAKISTAN):\n   Under Articles 23, 24, and 25 of the Constitution of Pakistan 1973, read with Sections 4 and 5 of the Enforcement of Women's Property Rights Act 2020 and the Illegal Dispossession Act 2005, depriving any lawful heir or owner of their property or inheritance share is unlawful.\n\n3. PRAYER / REQUESTED RELIEF:\n   It is respectfully prayed that an immediate inquiry be conducted through the Deputy Commissioner and Revenue authorities to restore my lawful property/inheritance share and mutate the revenue record accordingly.\n\nI affirm that the facts stated above are true and accurate to the best of my knowledge. Copies of my CNIC (33100651562622) and relevant supporting documents are attached herewith.\n\nYours faithfully,\n\nSignature: ___________________________\nFull Name: Uzair Saqib\nHaqAI Citizen ID: HAQ-PK-535308\nCNIC No.: 33100651562622\nAddress / City: Abdullahpur Faisalabad Pakistan\nContact Phone: 03001234567\nEmail: citizen.user@gmail.com",
+        "emailSubject": "[Formal Citizen Complaint - HAQ-PK-535308] Petition for Restoration of Lawful Property / Inheritance Share under Women's Property Rights Act 2020 & Illegal Dispossession Act 2005 – Regarding [Name of Concerned Department / Institution / Respondent]",
+        "emailBody": "Dear Grievance Redressal Officer (FOSPAH Property Cell),\n\nPlease find below the formal citizen complaint submitted by Uzair Saqib (HaqAI ID: HAQ-PK-535308, CNIC: 33100651562622) for urgent statutory action:\n\n--------------------------------------------------\nTo,\nThe Competent Authority / Grievance Redressal Cell,\nOmbudsman for Enforcement of Women's Property Rights (FOSPAH) & Land Revenue Authority\nOfficial Portal: https://fospah.gov.pk\nDate: 11 November 2026\nHaqAI Citizen ID: HAQ-PK-535308\n\nSUBJECT: PETITION FOR RESTORATION OF LAWFUL PROPERTY / INHERITANCE SHARE UNDER WOMEN'S PROPERTY RIGHTS ACT 2020 & ILLEGAL DISPOSSESSION ACT 2005 – REGARDING [NAME OF CONCERNED DEPARTMENT / INSTITUTION / RESPONDENT]\n\nRespected Sir / Madam,\n\nI, Uzair Saqib (holding CNIC No. 33100651562622, resident of Abdullahpur Faisalabad Pakistan), respectfully submit this formal complaint and state the facts strictly as follows:\n\n1. STATEMENT OF GRIEVANCE & FACTS:\n   - Aggrieved Citizen Statement: \"میری جگہ پر کسی نے قبضہ کر لیا\"\n   - Concerned Institution / Respondent: [Name of Concerned Department / Institution / Respondent]\n   - City / Jurisdiction: Faisalabad\n   - Relevant Date / Reference / Roll No.: [Registration / Roll No. / Reference ID] (Date: 2026-11-10)\n\n2. APPLICABLE CONSTITUTIONAL & STATUTORY LEGAL PROVISIONS (PAKISTAN):\n   Under Articles 23, 24, and 25 of the Constitution of Pakistan 1973, read with Sections 4 and 5 of the Enforcement of Women's Property Rights Act 2020 and the Illegal Dispossession Act 2005, depriving any lawful heir or owner of their property or inheritance share is unlawful.\n\n3. PRAYER / REQUESTED RELIEF:\n   It is respectfully prayed that an immediate inquiry be conducted through the Deputy Commissioner and Revenue authorities to restore my lawful property/inheritance share and mutate the revenue record accordingly.\n\nI affirm that the facts stated above are true and accurate to the best of my knowledge. Copies of my CNIC (33100651562622) and relevant supporting documents are attached herewith.\n\nYours faithfully,\n\nSignature: ___________________________\nFull Name: Uzair Saqib\nHaqAI Citizen ID: HAQ-PK-535308\nCNIC No.: 33100651562622\nAddress / City: Abdullahpur Faisalabad Pakistan\nContact Phone: 03001234567\nEmail: citizen.user@gmail.com\n--------------------------------------------------",
+        "categoryId": "property",
+        "facts": {
+          "haqId": "HAQ-PK-535308",
+          "rawStatement": "میری جگہ پر کسی نے قبضہ کر لیا",
+          "applicantName": "Uzair Saqib",
+          "cnic": "33100651562622",
+          "city": "Faisalabad",
+          "address": "Abdullahpur Faisalabad Pakistan",
+          "institutionOrRespondent": "[Name of Concerned Department / Institution / Respondent]",
+          "dateOfIncident": "2026-11-10",
+          "referenceOrRollNo": "[Registration / Roll No. / Reference ID]",
+          "contactPhone": "03001234567",
+          "contactEmail": "citizen.user@gmail.com"
+        }
+      },
+      "workflowSteps": [
+        {
+          "stepNumber": 1,
+          "title": "Understand Input",
+          "status": "completed",
+          "summary": "Captured website query (UR)"
+        },
+        {
+          "stepNumber": 2,
+          "title": "Classify & Match Laws",
+          "status": "completed",
+          "summary": "Property, Women's Inheritance (Wirasat), Land Grabbing (Qabza) & Rent Disputes"
+        },
+        {
+          "stepNumber": 3,
+          "title": "Citizen Profile Linked",
+          "status": "completed",
+          "summary": "HaqAI ID: HAQ-PK-535308 (Uzair Saqib)"
+        },
+        {
+          "stepNumber": 4,
+          "title": "Explain 1973 Constitution",
+          "status": "completed",
+          "summary": "1 Articles & 1 Statutes verified"
+        },
+        {
+          "stepNumber": 5,
+          "title": "Recommend Solutions",
+          "status": "completed",
+          "summary": "2 actionable legal steps mapped"
+        },
+        {
+          "stepNumber": 6,
+          "title": "Find Authority",
+          "status": "completed",
+          "summary": "FOSPAH Property Cell (https://fospah.gov.pk)"
+        },
+        {
+          "stepNumber": 7,
+          "title": "Pre-Fill Formal Complaint",
+          "status": "completed",
+          "summary": "Pre-filled with Citizen CNIC & Address"
+        },
+        {
+          "stepNumber": 8,
+          "title": "User Review & 1-Click Approval",
+          "status": "action_required",
+          "summary": "Awaiting citizen approval for 1-click dispatch"
+        }
+      ],
+      "chatHistory": [
+        {
+          "role": "user",
+          "content": "میری جگہ پر کسی نے قبضہ کر لیا",
+          "timestamp": "2026-11-10T20:03:50.371Z"
+        },
+        {
+          "role": "assistant",
+          "content": "السلام علیکم **Uzair Saqib** (شناختی آئی ڈی: `HAQ-PK-535308`)! آئینِ پاکستان 1973 اور نافذ العمل قوانین کے مطابق آپ کا مسئلہ **جائیداد، خواتین کی وراثت، ناجائز قبضہ اور مکان مالک و کرایہ دار کے مسائل** سے متعلق ہے۔\n\n### ⚖️ آپ کے آئینی حقوق:\n- **Article 23, Article 24 & Article 25 – Constitution of Pakistan 1973:** آرٹیکل 23، 24 اور 25 کے تحت ہر شہری (مرد اور عورت) کو اپنی جائیداد اور وراثتی حصے کے تحفظ کا مکمل آئینی حق حاصل ہے۔\n\n### 📜 لاگو پاکستانی قوانین:\n- **Enforcement of Women's Property Rights Act, 2020 & Illegal Dispossession Act, 2005:** خواتین کے حقوقِ جائیداد ایکٹ 2020 کے تحت محتسب 60 دن میں ڈپٹی کمشنر اور پولیس کے ذریعے خواتین کو ان کا وراثتی حصہ دلواتا ہے۔ ناجائز قبضہ کرنے والوں کو اللیگل ڈسپوزیشن ایکٹ 2005 کے تحت 10 سال قید کی سزا ہے، اور کرایہ داری کے مسائل رینٹ ٹربیونل حل کرتا ہے۔\n\n### 🏛️ متعلقہ ادارہ:\n- **Ombudsman for Enforcement of Women's Property Rights (FOSPAH) & Land Revenue Authority** (https://fospah.gov.pk | ہیلپ لائن: 051-9264446)",
+          "timestamp": "2026-11-10T20:03:50.371Z"
+        }
+      ],
+      "status": "Open"
     }
   },
   "dispatches": [],

@@ -86,6 +86,307 @@ export interface HaqAIAnalysisResult {
   status?: "Open" | "Dispatched" | "Resolved" | "Under Review";
 }
 
+interface SpecificScenarioAnswer {
+  matchKeywords: string[];
+  titleUr: string;
+  titleRoman: string;
+  titleEn: string;
+  directAnswerUr: string;
+  directAnswerRoman: string;
+  directAnswerEn: string;
+  voiceUr: string;
+}
+
+/**
+ * High-precision Urdu, Roman Urdu & English Legal Q&A Answers for specific citizen questions
+ * so that even without an external LLM key, every specific question gets an exact, tailored response.
+ */
+const SPECIFIC_LEGAL_QA_BANK: SpecificScenarioAnswer[] = [
+  {
+    matchKeywords: [
+      "گرفتار",
+      "حراست",
+      "وارنٹ",
+      "ضمانت",
+      "تھانے میں بند",
+      "پولیس پکڑ",
+      "giraftar",
+      "hirasat",
+      "warrant",
+      "zamanat",
+      "bail",
+      "arrest",
+      "detained",
+    ],
+    titleUr: "غیر قانونی گرفتاری، حراست اور ضمانت کے حقوق (آرٹیکل 10 اور ضابطہ فوجداری)",
+    titleRoman: "Ghair-Qanooni Giraftari, Hirasat aur Zamanat (Bail) ke Qanooni Haqooq",
+    titleEn: "Unlawful Arrest, Custody & Bail Rights under Pakistan Law",
+    directAnswerUr:
+      "پاکستانی آئین کے **آرٹیکل 10** اور **ضابطہ فوجداری (CrPC) کی دفعہ 61 اور 167** کے مطابق پولیس کسی بھی شخص کو گرفتار کرنے کے بعد **24 گھنٹے سے زیادہ** مجسٹریٹ کی اجازت کے بغیر تھانے میں بند نہیں رکھ سکتی۔ گرفتار شخص کو فوری طور پر گرفتاری کی وجہ بتانا اور اپنی پسند کے وکیل سے مشورہ کرنے دینا فرض ہے۔ اگر پولیس نے کسی کو غیر قانونی حراست (Illegal Custody) میں رکھا ہے تو فوری طور پر **سیشن جج یا ہائی کورٹ میں دفعہ 491 CrPC (Habeas Corpus)** کی درخواست دیں، عدالت بیلف (Bailiff) بھیج کر مغوی کو بازیاب کروائے گی۔ اگر گرفتاری کا خدشہ ہو تو سیشن کورٹ سے **ضمانت قبل از گرفتاری (Pre-Arrest Bail - دفعہ 498 CrPC)** حاصل کی جا سکتی ہے۔",
+    directAnswerRoman:
+      "Aaeen-e-Pakistan ke **Article 10** aur **CrPC Sec. 61** ke tehat police kisi bhi shaks ko **24 ghantay se zyada** Magistrate ke samne pesh kiye baghair thanay mein band nahi rakh sakti. Agar police ne kisi ko ghair-qanooni hirasat mein rakha hai to foran **Sessions Judge ke paas Sec. 491 CrPC (Habeas Corpus)** ki darkhwast dein, adalat Bailiff bhej kar chhura legi. Agar giraftari ka darr ho to **Sec. 498 CrPC ke tehat Pre-Arrest Bail (Zamanat Qabl-az-Giraftari)** lein.",
+    directAnswerEn:
+      "Under **Article 10 of the Constitution** and **Sections 61 & 167 CrPC**, police cannot detain any citizen for more than **24 hours** without producing them before a Magistrate. For unlawful detention, file a **Section 491 CrPC (Habeas Corpus)** petition before the Sessions Judge for immediate recovery via Court Bailiff, or seek **Pre-Arrest Bail under Section 498 CrPC**.",
+    voiceUr:
+      "السلام علیکم۔ آئین پاکستان کے آرٹیکل دس کے مطابق پولیس کسی بھی شخص کو چوبیس گھنٹے سے زیادہ مجسٹریٹ کے سامنے پیش کیے بغیر تھانے میں نہیں رکھ سکتی۔ غیر قانونی حراست کی صورت میں آپ دفعہ چار سو اکیانوے کے تحت سیشن جج کو درخواست دے سکتے ہیں یا ضمانت قبل از گرفتاری حاصل کر سکتے ہیں۔",
+  },
+  {
+    matchKeywords: [
+      "ایف آئی آر",
+      "پرچہ",
+      "ایس ایچ او",
+      "تھانہ",
+      "پولیس بات نہیں سن",
+      "رشوت",
+      "fir",
+      "parcha",
+      "sho",
+      "thana",
+      "154",
+      "22a",
+      "22-a",
+    ],
+    titleUr: "ایف آئی آر (FIR) کا اندراج اور پولیس کے خلاف قانونی کارروائی",
+    titleRoman: "FIR Darj Karwane aur Police Inkar ke Khilaf Qanooni Rasta",
+    titleEn: "Mandatory FIR Registration (Sec. 154 & Sec. 22-A CrPC)",
+    directAnswerUr:
+      "ضابطہ فوجداری کی **دفعہ 154 (Section 154 CrPC)** کے تحت اگر کوئی قابلِ دست اندازی جرم (جیسے چوری، ڈکیتی، فراڈ، حملہ یا دھمکی) ہوا ہو تو تھانے کے ایس ایچ او (SHO) پر ایف آئی آر درج کرنا قانوناً فرض ہے۔ اگر ایس ایچ او ٹال مٹول کرے یا انکار کرے تو آپ کے پاس 3 فوری قانونی راستے ہیں:\n1. متعلقہ تھانے میں تحریری درخواست جمع کروا کر **ڈائری نمبر (Diary Receipt)** لیں۔\n2. فوری طور پر **آئی جی پی کمپلینٹ سیل ہیلپ لائن 1787** پر کال کریں یا آن لائن شکایت بھیجیں۔\n3. **ضابطہ فوجداری کی دفعہ 22-A / 22-B** کے تحت ضلعی سیشن جج (Justice of Peace) کو درخواست دیں جو پولیس کو ایف آئی آر درج کرنے کا براہِ راست عدالتی حکم دیتے ہیں۔",
+    directAnswerRoman:
+      "**CrPC Section 154** ke tehat qabil-e-dast-andazi jurm par FIR darj karna SHO par qanoonan farz hai. Agar SHO inkar kare to: (1) Written application de kar Diary Number lein, (2) **IGP Helpline 1787** par shikayat darj karwayein, ya (3) **Section 22-A CrPC** ke tehat Sessions Judge (Justice of Peace) ko darkhwast dein jo SHO ko FIR darj karne ka hukam denge.",
+    directAnswerEn:
+      "Under **Section 154 CrPC**, the SHO is legally bound to register an FIR for any cognizable offense. If refused, escalate to the **IGP Complaint Cell (1787)** or file a petition under **Section 22-A/22-B CrPC** before the Sessions Judge (Justice of Peace) to compel FIR registration.",
+    voiceUr:
+      "السلام علیکم۔ ضابطہ فوجداری کی دفعہ ایک سو چون کے تحت ایف آئی آر درج کرنا ایس ایچ او پر فرض ہے۔ اگر پولیس انکار کرے تو آپ ہیلپ لائن سترہ ستاسی پر شکایت کر سکتے ہیں یا دفعہ بائیس اے کے تحت سیشن جج سے ایف آئی آر درج کرنے کا حکم لے سکتے ہیں۔",
+  },
+  {
+    matchKeywords: [
+      "خلع",
+      "طلاق",
+      "شادی ختم",
+      "خاوند طلاق",
+      "خاوند مارتا",
+      "عزت",
+      "بیوی",
+      "شوہر",
+      "نکاح",
+      "khula",
+      "talaq",
+      "divorce",
+      "nikah",
+      "shohar",
+      "biwi",
+    ],
+    titleUr: "خلع، طلاق اور نکاح کے قوانین (مسلم فیملی لاز آرڈیننس 1961)",
+    titleRoman: "Khula, Talaq aur Nikah ke Qawaneen (Muslim Family Laws 1961)",
+    titleEn: "Divorce (Talaq), Khula & Marriage Dissolution Laws in Pakistan",
+    directAnswerUr:
+      "پاکستانی فیملی قوانین (**Dissolution of Muslim Marriages Act 1939** اور **Family Courts Act 1964**) کے تحت اگر شوہر طلاق نہ دے رہا ہو، بدسلوکی کرتا ہو یا نان نفقہ (خرچہ) نہ دیتا ہو تو بیوی کو **فیملی کورٹ سے خلع (Khula)** لینے کا مکمل قانونی حق حاصل ہے۔ فیملی کورٹ خلع کے مقدمے کا فیصلہ قانوناً **4 سے 6 ماہ** کے اندر کرنے کی پابند ہے۔ اسی طرح **مسلم فیملی لاز آرڈیننس 1961 کی دفعہ 7** کے تحت طلاق یا خلع کے بعد یونین کونسل (چیئرمین ثالثی کونسل) میں نوٹس جاتا ہے اور 90 دن کے بعد طلاق مؤثر ہونے کا سرکاری سرٹیفکیٹ جاری ہوتا ہے۔ مفت قانونی مدد کے لیے وزارتِ انسانی حقوق کی ہیلپ لائن **1099** پر رابطہ کریں۔",
+    directAnswerRoman:
+      "**Family Courts Act 1964** aur **Muslim Family Laws Ordinance 1961** ke tehat har khatoon ko zulm, kharcha na milne ya ذہنی na-humwari ki surat mein **Family Court se Khula** lene ka qanooni haq hasil hai, jiska faisla 4 se 6 mahinay mein ho jata hai. Sec. 7 ke tehat Union Council se 90 din baad Talaq/Khula certificate jari hota hai.",
+    directAnswerEn:
+      "Under the **Dissolution of Muslim Marriages Act 1939** and **Family Courts Act 1964**, a wife has the statutory right to seek **Khula** or judicial divorce through the Family Court (decided within 4–6 months), followed by a divorce effectiveness certificate from the Union Council under **Section 7 of the Muslim Family Laws Ordinance 1961**.",
+    voiceUr:
+      "السلام علیکم۔ پاکستانی فیملی قوانین کے تحت خاتون کو فیملی کورٹ کے ذریعے خلع لینے، حق مہر اور جہیز کا سامان واپس لینے کا مکمل قانونی حق حاصل ہے۔ فیملی کورٹ چار سے چھ ماہ میں فیصلہ کرتی ہے اور مفت قانونی مدد کے لیے آپ ہیلپ لائن دس ننانوے پر رابطہ کر سکتی ہیں۔",
+  },
+  {
+    matchKeywords: [
+      "حق مہر",
+      "خرچہ",
+      "نان نفقہ",
+      "جہیز",
+      "بچوں کا خرچہ",
+      "دوسری شادی",
+      "بچوں کی حوالگی",
+      "حضانت",
+      "بچے چھین",
+      "haq mehr",
+      "kharcha",
+      "maintenance",
+      "jahez",
+      "custody",
+      "hizanat",
+      "second marriage",
+    ],
+    titleUr: "حق مہر، نان نفقہ (خرچہ)، جہیز اور بچوں کی حضانت (Custody)",
+    titleRoman: "Haq Mehr, Biwi/Bachon ka Kharcha, Jahez aur Child Custody",
+    titleEn: "Haq Mehr, Wife/Child Maintenance, Dowry Recovery & Child Custody",
+    directAnswerUr:
+      "**مسلم فیملی لاز آرڈیننس 1961 کی دفعہ 9** اور **فیملی کورٹس ایکٹ 1964** کے تحت:\n1. **حق مہر اور جہیز:** بیوی کسی بھی وقت اپنا واجب الادا حق مہر (Prompt Dower) اور جہیز کے تمام سامان کی فہرست کے مطابق واپسی کا دعویٰ فیملی کورٹ میں دائر کر سکتی ہے۔\n2. **بیوی اور بچوں کا خرچہ (Maintenance):** شوہر/والد قانوناً اپنی بیوی اور بچوں کا ماہانہ خرچہ، تعلیم اور علاج کا خرچہ دینے کا پابند ہے۔ فیملی کورٹ پہلی ہی پیشی کے بعد عبوری ماہانہ خرچہ (Interim Maintenance) مقرر کر دیتی ہے۔\n3. **بچوں کی حضانت (Child Custody):** **گارڈینز اینڈ وارڈز ایکٹ 1890** کے تحت کم عمر بچوں کی پرورش (Hizanat) کا پہلا حق ماں کو حاصل ہے اور اگر کوئی زبردستی بچے چھین لے تو گارڈین جج فوری بازیابی کا حکم دیتے ہیں۔\n4. **بغیر اجازت دوسری شادی (دفعہ 6):** پہلی بیوی اور ثالثی کونسل کی تحریری اجازت کے بغیر دوسری شادی کرنے پر شوہر کو قید/جرمانے کی سزا ہوتی ہے اور پہلی بیوی کا پورا حق مہر فوراً واجب الادا ہو جاتا ہے۔",
+    directAnswerRoman:
+      "**Muslim Family Laws 1961 (Sec. 6 & 9)** aur **Guardians & Wards Act 1890** ke tehat biwi apna **Haq Mehr**, **Jahez ka saman**, aur apna wa **bachon ka mahana kharcha (Maintenance)** Family Court ke zariye foran wasool kar sakti hai. Chhotay bachon ki custody (Hizanat) mein maa ko qanooni tarjeeh hasil hai.",
+    directAnswerEn:
+      "Under **Section 9 of the Muslim Family Laws Ordinance 1961**, **Family Courts Act 1964**, and **Guardians & Wards Act 1890**, you can file a consolidated suit in Family Court for recovery of **Haq Mehr**, **Dowry Articles (Jahez)**, **Monthly Maintenance (Kharcha)** for wife and children, and **Child Custody (Hizanat)**.",
+    voiceUr:
+      "السلام علیکم۔ مسلم فیملی لاز کے تحت بیوی اور بچوں کا ماہانہ خرچہ، حق مہر اور جہیز کی واپسی کے لیے آپ فیملی کورٹ میں دعویٰ دائر کر سکتے ہیں جہاں عدالت فوری عبوری خرچہ مقرر کرتی ہے۔ کم عمر بچوں کی حضانت میں بھی ماں کو قانونی حق حاصل ہے۔",
+  },
+  {
+    matchKeywords: [
+      "وراثت",
+      "جائیداد میں حصہ",
+      "والد کی جائیداد",
+      "بہن کا حصہ",
+      "بیٹی کا حصہ",
+      "شرعی حصہ",
+      "وفات کے بعد جائیداد",
+      "wirasat",
+      "inheritance",
+      "jaidad mein hissa",
+      "behen ka hissa",
+    ],
+    titleUr: "وراثت میں حصہ اور خواتین کے جائیداد کے حقوق (آرٹیکل 23، 24 اور ایکٹ 2020)",
+    titleRoman: "Wirasat (Inheritance) mein Qanooni Hissa aur Property Protection",
+    titleEn: "Inheritance (Wirasat) & Women's Property Rights Act 2020",
+    directAnswerUr:
+      "پاکستان کے آئین کے **آرٹیکل 23 اور 24** اور **خواتین کے جائیداد کے حقوق کے قانون (Enforcement of Women's Property Rights Act, 2020)** کے تحت والد، والدہ یا شوہر کی وفات کے بعد ہر وارث (خاص طور پر بیٹیوں، بہنوں اور بیوہ) کو شرعی اور قانونی حصہ ملنا لازم ہے۔\n- کسی خاتون کو دھوکے یا دباؤ سے وراثت سے محروم کرنا **تعزیراتِ پاکستان کی دفعہ 498-A** کے تحت قابلِ سزا فوجداری جرم ہے جس کی سزا **5 سے 10 سال تک قید** ہے۔\n- لمبے عدالتی چکر کے بجائے آپ براہِ راست **وفاقی/صوبائی محتسب برائے خواتین پراپرٹی سیل (FOSPAH)** کو درخواست دے سکتے ہیں، جو **60 دن** میں فیصلہ کر کے ڈپٹی کمشنر اور پولیس کے ذریعے آپ کا انتقال (Mutation) اور قبضہ دلوانے کا پابند ہے۔",
+    directAnswerRoman:
+      "**Enforcement of Women's Property Rights Act 2020** aur **PPC Sec. 498-A** ke tehat kisi ko wirasat (inheritance) se mehroom karna سنگین jurm hai (10 saal tak qaid). Aap baghair lambay court case ke **Ombudsman (FOSPAH)** mein darkhwast de sakte hain jo **60 din** mein Deputy Commissioner ke zariye aap ka wirasati hissa aur qabza dilwata hai.",
+    directAnswerEn:
+      "Under the **Enforcement of Women's Property Rights Act 2020** and **Section 498-A PPC**, depriving an heir (especially women) of inheritance is a criminal offense punishable by up to 10 years imprisonment. File a direct complaint with **FOSPAH** for a binding order and restoration of share within **60 days**.",
+    voiceUr:
+      "السلام علیکم۔ پاکستانی قانون کے تحت کسی بھی وارث یا خاتون کو وراثت سے محروم کرنا دفعہ چار سو اٹھانوے اے کے تحت سنگین جرم ہے جس کی سزا دس سال تک قید ہے۔ آپ محتسب کے پراپرٹی سیل میں درخواست دے کر ساٹھ دن کے اندر اپنا وراثتی حصہ اور قبضہ حاصل کر سکتے ہیں۔",
+  },
+  {
+    matchKeywords: [
+      "کرایہ دار",
+      "مکان مالک",
+      "مکان خالی",
+      "کرایہ",
+      "پگڑی",
+      "kirayedar",
+      "makan malik",
+      "rent",
+      "tenant",
+      "landlord",
+      "evict",
+    ],
+    titleUr: "مکان مالک اور کرایہ دار کے قوانین (Rented Premises Act)",
+    titleRoman: "Makan Malik aur Kirayedar (Landlord & Tenant) ke Qawaneen",
+    titleEn: "Landlord & Tenant Disputes (Provincial Rented Premises Acts)",
+    directAnswerUr:
+      "صوبائی **رینٹڈ پریمسز ایکٹ (Rented Premises Act)** کے تحت مکان مالک اور کرایہ دار دونوں کے حقوق محفوظ ہیں:\n1. **اگر کرایہ دار مکان خالی نہ کرے یا کرایہ نہ دے:** مکان مالک زبردستی سامان باہر نہیں پھینک سکتا لیکن **اسپیشل جج رینٹ (Rent Tribunal / Rent Controller)** کے پاس بے دخلی (Eviction Petition) دائر کر سکتا ہے، جہاں کرایہ دار کو جواب دینے کے لیے صرف **10 دن (Leave to Appear)** ملتے ہیں اور تیز رفتاری سے مکان خالی کروایا جاتا ہے۔\n2. **اگر مکان مالک ناجائز تنگ کرے یا بجلی/پانی بند کرے:** کوئی مکان مالک عدالتی حکم کے بغیر کرایہ دار کی بجلی، گیس یا پانی منقطع نہیں کر سکتا اور نہ ہی معاہدے کی مدت سے پہلے زبردستی نکال سکتا ہے۔ کرایہ دار رینٹ کنٹرولر کے پاس کرایہ جمع کروا کر تحفظ حاصل کر سکتا ہے۔",
+    directAnswerRoman:
+      "**Rented Premises Act** ke tehat agar kirayedar kraya na de ya makan khali na kare to makan malik **Rent Tribunal (Rent Controller)** mein Eviction Petition dayer kar ke fori makan khali karwa sakta hai. Aur agar makan malik ghair-qanooni tor par bijli/gas band kare ya zabardasti nikale to kirayedar Rent Controller se stay aur tahaffuz le sakta hai.",
+    directAnswerEn:
+      "Under the **Provincial Rented Premises Acts**, all landlord-tenant disputes—including non-payment of rent, expiry of tenancy, security deposit refund, or unlawful utility disconnection—are resolved expeditiously by the **Special Judge (Rent) / Rent Controller**.",
+    voiceUr:
+      "السلام علیکم۔ کرایہ داری کے قوانین کے تحت مکان خالی کروانے، بقایا کرایہ وصول کرنے یا مکان مالک کی جانب سے ناجائز تنگ کیے جانے کی صورت میں آپ رینٹ ٹربیونل یعنی رینٹ کنٹرولر کی عدالت سے فوری قانونی داد رسی حاصل کر سکتے ہیں۔",
+  },
+  {
+    matchKeywords: [
+      "چیک",
+      "باؤنس",
+      "ڈس آنر",
+      "ادھار",
+      "قرض",
+      "قرضہ",
+      "پیسے واپس",
+      "کمیٹی",
+      "امانت میں خیانت",
+      "دھوکہ",
+      "فراڈ",
+      "cheque",
+      "bounce",
+      "489f",
+      "489-f",
+      "udhar",
+      "qarz",
+      "paise wapis",
+      "420",
+      "406",
+    ],
+    titleUr: "بوگس چیک (489-F)، ادھار/قرض کی واپسی اور مالی فراڈ (420/406 PPC)",
+    titleRoman: "Cheque Bounce (489-F PPC), Udhar/Qarz Wapsi aur Fraud ke Qawaneen",
+    titleEn: "Dishonoured Cheque (Sec. 489-F PPC), Money Recovery & Financial Fraud",
+    directAnswerUr:
+      "پاکستانی قانون میں رقم کی واپسی اور مالی دھوکہ دہی کے لیے دو مضبوط قانونی راستے موجود ہیں:\n1. **اگر چیک باؤنس (Dishonour) ہوا ہے:** بینک سے **Return Memo** لیں۔ **تعزیراتِ پاکستان کی دفعہ 489-F** کے تحت بوگس چیک دینا قابلِ دست اندازی فوجداری جرم ہے جس کی سزا **3 سال تک قید** ہے (اس پر تھانے میں ایف آئی آر درج ہوتی ہے)۔ ساتھ ہی آپ **ضابطہ دیوانی کے آرڈر 37 (Order 37 CPC)** کے تحت سیشن کورٹ میں فوری رقم وصولی کا دعویٰ (Summary Suit) دائر کر سکتے ہیں۔\n2. **اگر ادھار، کمیٹی یا کاروباری دھوکہ ہوا ہے:** اگر کسی نے امانت رکھوا کر کھا لی تو **دفعہ 406 PPC (امانت میں خیانت)** اور اگر دھوکہ دے کر پیسے بٹورے تو **دفعہ 420 PPC (فراڈ)** کے تحت پولیس کو درخواست دیں، اور بینک سلپ، واٹس ایپ میسجز یا گواہوں کی بنیاد پر دیوانی عدالت میں **Suit for Recovery of Money** دائر کریں۔",
+    directAnswerRoman:
+      "Agar **Cheque Bounce** hua hai to Bank Return Memo ke sath **PPC Section 489-F** ke tehat FIR darj karwayein (3 saal tak qaid) aur **Order 37 CPC** ke tehat Sessions Court mein fori recovery case karein. Agar **Udhar/Qarz ya Fraud** hai to **PPC Sec. 406 (Amanat mein Khayanat)** ya **Sec. 420 (Fraud)** ki karrawai aur Money Recovery Suit dayer karein.",
+    directAnswerEn:
+      "For a **bounced cheque**, obtain the Bank Return Memo to lodge a criminal FIR under **Section 489-F PPC** (up to 3 years imprisonment) and file a fast-track **Order 37 CPC Summary Suit**. For unpaid loans or fraud, proceed under **Sections 406/420 PPC** and file a civil **Money Recovery Suit** using bank receipts and WhatsApp messages (admissible under Article 164 of Qanun-e-Shahadat).",
+    voiceUr:
+      "السلام علیکم۔ اگر کسی کا دیا ہوا چیک باؤنس ہو گیا ہے تو تعزیرات پاکستان کی دفعہ چار سو نواسی ایف کے تحت یہ فوجداری جرم ہے جس پر ایف آئی آر درج ہوتی ہے۔ ادھار یا مالی فراڈ کی صورت میں آپ دفعہ چار سو بیس اور چار سو چھ کے تحت کارروائی اور رقم کی واپسی کا دعویٰ کر سکتے ہیں۔",
+  },
+  {
+    matchKeywords: [
+      "بلیک میل",
+      "ہیک",
+      "واٹس ایپ",
+      "فیس بک",
+      "تصاویر",
+      "ویڈیو",
+      "جعلی اکاؤنٹ",
+      "سائبر",
+      "آن لائن فراڈ",
+      "ایزی پیسہ",
+      "جاز کیش",
+      "بینک فراڈ",
+      "blackmail",
+      "hack",
+      "cyber",
+      "fia",
+      "easypaisa",
+      "jazzcash",
+    ],
+    titleUr: "سائبر کرائم، آن لائن بلیک میلنگ، ہیکنگ اور ڈیجیٹل فراڈ (PECA 2016)",
+    titleRoman: "Cybercrime, Blackmailing, Hacking aur Online Fraud (PECA 2016)",
+    titleEn: "Cybercrime, Online Blackmail, Hacking & Digital Fraud (PECA 2016)",
+    directAnswerUr:
+      "**پریوینشن آف الیکٹرانک کرائمز ایکٹ (PECA 2016)** کے تحت:\n- کسی کی تصاویر یا ویڈیوز کے ذریعے بلیک میل کرنا یا پھیلانا (**دفعہ 21 اور 24**) سنگین جرم ہے جس کی سزا **5 سے 7 سال قید اور 50 لاکھ روپے تک جرمانہ** ہے۔\n- واٹس ایپ/سوشل میڈیا ہیک کرنا یا جعلی اکاؤنٹ بنانا (**دفعہ 3 اور 16**) اور آن لائن پیسوں کا فراڈ (**دفعہ 14**) بھی قابلِ سزا جرم ہے۔\n- **فوری اقدام:** کسی بھی میسج یا اسکرین شاٹ کو ڈیلیٹ نہ کریں۔ فوری طور پر **ایف آئی اے سائبر کرائم ہیلپ لائن 1991** پر کال کریں یا **nr3c.gov.pk** پر آن لائن شکایت درج کروائیں۔ اگر بینک، ایزی پیسہ یا جاز کیش فراڈ ہوا ہے تو **بینکنگ محتسب پاکستان** سے بھی رجوع کریں۔",
+    directAnswerRoman:
+      "**PECA Act 2016 (Sec. 14, 16, 20, 21, 24)** ke tehat online blackmailing, photos leak karne ki dhamki, WhatsApp hacking aur online financial fraud par **5 se 7 saal qaid** ki saza hai. Saboot (screenshots/numbers) mehfooz rakhein aur foran **FIA Cybercrime Helpline 1991** par shikayat darj karwayein.",
+    directAnswerEn:
+      "Under **PECA 2016 (Sections 14, 16, 20, 21 & 24)**, online blackmail, non-consensual sharing of images, account hacking, and digital banking fraud carry **up to 5–7 years imprisonment**. Preserve all screenshots and report immediately to **FIA Cybercrime Helpline 1991** (`nr3c.gov.pk`).",
+    voiceUr:
+      "السلام علیکم۔ پیکا ایکٹ دو ہزار سولہ کے تحت آن لائن بلیک میلنگ، ہیکنگ، جعلی اکاؤنٹ یا آن لائن مالی فراڈ پر پانچ سے سات سال تک قید کی سزا ہے۔ آپ تمام اسکرین شاٹس محفوظ رکھیں اور فوری طور پر ایف آئی اے سائبر کرائم ہیلپ لائن انیس اکیانوے پر شکایت بھیجیں۔",
+  },
+];
+
+function findSpecificQaMatch(query: string): SpecificScenarioAnswer | null {
+  const lower = query.toLowerCase();
+  let bestMatch: SpecificScenarioAnswer | null = null;
+  let maxHits = 0;
+
+  for (const item of SPECIFIC_LEGAL_QA_BANK) {
+    let hits = 0;
+    for (const kw of item.matchKeywords) {
+      if (lower.includes(kw.toLowerCase())) {
+        hits += kw.includes(" ") ? 3 : 2;
+      }
+    }
+    if (hits > maxHits) {
+      maxHits = hits;
+      bestMatch = item;
+    }
+  }
+  return maxHits > 0 ? bestMatch : null;
+}
+
+function findMentionedConstitutionalArticle(query: string) {
+  const lower = query.toLowerCase();
+  // Check if user asked for a specific Article number e.g. "آرٹیکل 10", "article 25", "199"
+  const numMatch =
+    lower.match(/(?:article|آرٹیکل|ارٹیکل|دفعہ)\s*(\d+[a-z]?)/i) ||
+    lower.match(/\b(184|199|25a|10a|19a)\b/i);
+
+  if (numMatch && numMatch[1]) {
+    const num = numMatch[1].toUpperCase();
+    const found = CONSTITUTION_OF_PAKISTAN_1973.find((c) =>
+      c.article.toUpperCase().includes(`ARTICLE ${num}`)
+    );
+    if (found) return found;
+  }
+
+  if (
+    lower.includes("بنیادی حقوق") ||
+    lower.includes("آئین پاکستان") ||
+    lower.includes("fundamental rights") ||
+    lower.includes("bunyadi haqooq")
+  ) {
+    return CONSTITUTION_OF_PAKISTAN_1973[0];
+  }
+  return null;
+}
+
 export function extractFactsFromText(
   text: string,
   existing?: Partial<ExtractedUserFacts>,
@@ -137,7 +438,8 @@ export function extractFactsFromText(
   } else if (
     text.toLowerCase().includes("police") ||
     text.toLowerCase().includes("thana") ||
-    text.includes("پولیس")
+    text.includes("پولیس") ||
+    text.includes("تھانہ")
   ) {
     institution = "[Concerned Police Station (Thana) & District]";
   }
@@ -285,14 +587,6 @@ export async function generateHaqAIAnalysisAsync(params: {
 
   try {
     const genAI = new GoogleGenerativeAI(apiKey);
-    const model = genAI.getGenerativeModel({
-      model: "gemini-2.5-flash",
-      generationConfig: {
-        responseMimeType: "application/json",
-        temperature: 0.2,
-      },
-    });
-
     const constitutionContext = CONSTITUTION_OF_PAKISTAN_1973.map(
       (c) => `${c.article} (${c.title}): ${c.textSummary}`
     ).join("\n");
@@ -377,8 +671,29 @@ Return a JSON object matching this exact schema:
   "detectedInstitutionOrRespondent": "Name of respondent/department/person mentioned by user, or sensible placeholder"
 }`;
 
-    const response = await model.generateContent(prompt);
-    const rawJson = response.response.text();
+    let rawJson = "";
+    try {
+      const model = genAI.getGenerativeModel({
+        model: "gemini-2.5-flash",
+        generationConfig: {
+          responseMimeType: "application/json",
+          temperature: 0.2,
+        },
+      });
+      const response = await model.generateContent(prompt);
+      rawJson = response.response.text();
+    } catch {
+      const fallbackModel = genAI.getGenerativeModel({
+        model: "gemini-1.5-flash",
+        generationConfig: {
+          responseMimeType: "application/json",
+          temperature: 0.2,
+        },
+      });
+      const response = await fallbackModel.generateContent(prompt);
+      rawJson = response.response.text();
+    }
+
     const parsed = JSON.parse(rawJson);
 
     const updatedFacts: ExtractedUserFacts = {
@@ -424,7 +739,7 @@ Return a JSON object matching this exact schema:
     }
 
     const appUrl =
-      process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3001";
+      process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
 
     const whatsappReplyText =
       `🇵🇰 *HaqAI – Pakistan Legal Rights & Complaint Assistant*\n\n` +
@@ -501,6 +816,9 @@ export function generateHaqAIAnalysis(params: {
   const channel = params.channel || "website";
   const lang = detectLanguageFromInput(params.query, params.language);
   const entry = classifyLegalIssue(params.query);
+  const specificQa = findSpecificQaMatch(params.query);
+  const mentionedArticle = findMentionedConstitutionalArticle(params.query);
+
   const caseId =
     params.existingCaseId ||
     `HAQ-${Math.floor(100000 + Math.random() * 900000)}`;
@@ -523,6 +841,22 @@ export function generateHaqAIAnalysis(params: {
     summary: c.summary[lang],
   }));
 
+  if (
+    mentionedArticle &&
+    !constitutionalRights.some((c) => c.article === mentionedArticle.article)
+  ) {
+    constitutionalRights.unshift({
+      article: `${mentionedArticle.article} – Constitution of Pakistan (1973)`,
+      title: mentionedArticle.title,
+      summary:
+        lang === "ur" || lang === "pa"
+          ? mentionedArticle.urduSummary
+          : lang === "roman_ur"
+          ? mentionedArticle.romanUrduSummary
+          : mentionedArticle.textSummary,
+    });
+  }
+
   const statutoryLaws = entry.statutoryLaws.map((s) => ({
     law: s.law,
     section: s.section,
@@ -531,65 +865,99 @@ export function generateHaqAIAnalysis(params: {
 
   const nextSteps = entry.administrativeProcedures[lang];
   const followUpQuestions = entry.followUpQuestions[lang];
-  const appUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3001";
+  const appUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
+
+  const resolvedCategoryTitle = specificQa
+    ? lang === "ur" || lang === "pa"
+      ? specificQa.titleUr
+      : lang === "roman_ur"
+      ? specificQa.titleRoman
+      : specificQa.titleEn
+    : entry.title[lang];
 
   let replyText = "";
   let voiceSummaryText = "";
   let whatsappReplyText = "";
 
   if (lang === "roman_ur") {
-    replyText =
-      `Assalam-o-Alaikum **${facts.applicantName}** (Citizen ID: \`${haqId}\`)! Main ne Pakistan ke **1973 Constitution** aur **Pakistani Qawaneen** ke mutabiq aap ka masla check kar liya hai. Yeh **${entry.title.roman_ur}** se mutaliq hai.\n\n` +
-      `### ⚖️ Aap ke Aaeeni Haqooq (1973 Constitution):\n` +
-      constitutionalRights
-        .map((c) => `- **${c.article} (${c.title}):** ${c.summary}`)
-        .join("\n") +
-      `\n\n### 📜 Laago Pakistani Qanoon (Statutes):\n` +
-      statutoryLaws
-        .map((s) => `- **${s.law} (${s.section}):** ${s.explanation}`)
-        .join("\n") +
-      `\n\n### 🏛️ Mutaliqa Sarkari Idara:\n` +
-      `- **${primaryAuthority.name}** (${primaryAuthority.portalUrl} | Helpline: ${primaryAuthority.helpline})\n\n` +
-      `### ✅ Aap ki pre-saved details (\`${facts.cnic}\`, \`${facts.city}\`) ke sath Complaint tayyar hai:\n` +
-      `1. **Option 1 – Online Complaint Submit Karein (Edit & 1-Click Forward):** Apni tayyar complaint check/edit karein aur 1-Click mein **${primaryAuthority.shortName}** ko forward karein.\n` +
-      `2. **Option 2 – Mukammal Legal Guidance:** Neeche diye gaye qanooni steps parhein/sunein ya mazeed koi bhi qanooni sawal poochein.`;
+    const directSection = specificQa
+      ? `${specificQa.directAnswerRoman}\n\n`
+      : mentionedArticle
+      ? `**${mentionedArticle.article} (${mentionedArticle.title}):** ${mentionedArticle.romanUrduSummary}\n\n`
+      : `Aap ka sawal **${entry.title.roman_ur}** ke qawaneen ke tehat aata hai. ${statutoryLaws[0]?.explanation}\n\n`;
 
-    voiceSummaryText = `السلام علیکم ${facts.applicantName}۔ آپ کا مسئلہ ${entry.title.ur} سے متعلق ہے۔ ${entry.statutoryLaws[0]?.explanation.ur} آپ اس مسئلے کی شکایت ${primaryAuthority.name} کو کر سکتے ہیں۔ ہم نے آپ کی تمام تفصیلات کے ساتھ درخواست تیار کر دی ہے جسے آپ صرف ایک کلک پر متعلقہ ادارے کو بھیج سکتے ہیں۔`;
+    replyText =
+      `Assalam-o-Alaikum **${facts.applicantName}**!\n\n` +
+      `🎯 **Aap ke Sawal ka Qanooni Jawab:**\n${directSection}` +
+      `⚖️ **Aaeen-e-Pakistan (1973) ke Tehat Aap ke Haqooq:**\n` +
+      constitutionalRights
+        .map((c) => `• **${c.article} (${c.title}):** ${c.summary}`)
+        .join("\n") +
+      `\n\n📜 **Laago Pakistani Qawaneen (Statutes):**\n` +
+      statutoryLaws
+        .map((s) => `• **${s.law} (${s.section}):** ${s.explanation}`)
+        .join("\n") +
+      `\n\n✅ **Qanooni Tareeqa-e-Kar (Step-by-Step):**\n` +
+      nextSteps.map((step, i) => `${i + 1}. ${step}`).join("\n") +
+      `\n\n🏛️ **Mutaliqa Sarkari Idara:** **${primaryAuthority.name}** (Helpline: \`${primaryAuthority.helpline}\` | Portal: ${primaryAuthority.portalUrl})`;
+
+    voiceSummaryText = specificQa
+      ? specificQa.voiceUr
+      : `السلام علیکم۔ آپ کا مسئلہ ${entry.title.ur} سے متعلق ہے۔ ${entry.statutoryLaws[0]?.explanation.ur} آپ اس مسئلے کی شکایت ${primaryAuthority.name} کو کر سکتے ہیں۔ ہم نے آپ کی تفصیلات کے ساتھ قانونی درخواست تیار کر دی ہے جسے آپ ایک کلک پر متعلقہ ادارے کو بھیج سکتے ہیں۔`;
   } else if (lang === "ur" || lang === "pa") {
-    replyText =
-      `السلام علیکم **${facts.applicantName}** (شناختی آئی ڈی: \`${haqId}\`)! آئینِ پاکستان 1973 اور نافذ العمل قوانین کے مطابق آپ کا مسئلہ **${entry.title.ur}** سے متعلق ہے۔\n\n` +
-      `### ⚖️ آپ کے آئینی حقوق:\n` +
-      constitutionalRights
-        .map((c) => `- **${c.article}:** ${c.summary}`)
-        .join("\n") +
-      `\n\n### 📜 لاگو پاکستانی قوانین:\n` +
-      statutoryLaws.map((s) => `- **${s.law}:** ${s.explanation}`).join("\n") +
-      `\n\n### 🏛️ متعلقہ ادارہ:\n` +
-      `- **${primaryAuthority.name}** (${primaryAuthority.portalUrl} | ہیلپ لائن: ${primaryAuthority.helpline})`;
+    const directSection = specificQa
+      ? `${specificQa.directAnswerUr}\n\n`
+      : mentionedArticle
+      ? `**${mentionedArticle.article} (${mentionedArticle.title}):** ${mentionedArticle.urduSummary}\n\n`
+      : `آئینِ پاکستان 1973 اور نافذ العمل قوانین کے مطابق آپ کا مسئلہ **${entry.title.ur}** سے متعلق ہے۔ ${statutoryLaws[0]?.explanation}\n\n`;
 
-    voiceSummaryText = `السلام علیکم۔ آپ کا مسئلہ ${entry.title.ur} سے متعلق ہے۔ ${entry.statutoryLaws[0]?.explanation.ur} آپ کی تفصیلات کے ساتھ درخواست تیار کر دی گئی ہے جسے آپ ایک کلک پر متعلقہ ادارے کو بھیج سکتے ہیں۔`;
-  } else {
     replyText =
-      `Hello **${facts.applicantName}** (Citizen ID: \`${haqId}\`). Based on the **Constitution of Pakistan (1973)** and **Pakistani Statutory Law**, your issue falls under **${entry.title.en}**.\n\n` +
-      `### ⚖️ Constitutional Protections:\n` +
+      `السلام علیکم **${facts.applicantName}**!\n\n` +
+      `🎯 **آپ کے سوال کا براہِ راست قانونی جواب:**\n${directSection}` +
+      `⚖️ **آئینِ پاکستان (1973) کے تحت آپ کے حقوق:**\n` +
       constitutionalRights
-        .map((c) => `- **${c.article} (${c.title}):** ${c.summary}`)
+        .map((c) => `• **${c.article}:** ${c.summary}`)
         .join("\n") +
-      `\n\n### 📜 Applicable Pakistani Statutes:\n` +
+      `\n\n📜 **لاگو پاکستانی قوانین اور دفعات:**\n` +
       statutoryLaws
-        .map((s) => `- **${s.law} (${s.section}):** ${s.explanation}`)
+        .map((s) => `• **${s.law} (${s.section}):** ${s.explanation}`)
         .join("\n") +
-      `\n\n### 🏛️ Verified Complaint Authority:\n` +
-      `- **${primaryAuthority.name}** (${primaryAuthority.portalUrl} | Helpline: ${primaryAuthority.helpline})\n\n` +
-      `Your saved Citizen Profile details (\`${facts.cnic}\`, \`${facts.city}\`) have been automatically populated into your formal complaint.`;
+      `\n\n✅ **عملی قانونی طریقہ کار (Step-by-Step):**\n` +
+      nextSteps.map((step, i) => `${i + 1}. ${step}`).join("\n") +
+      `\n\n🏛️ **متعلقہ سرکاری ادارہ:** **${primaryAuthority.name}** (ہیلپ لائن: \`${primaryAuthority.helpline}\` | پورٹل: ${primaryAuthority.portalUrl})`;
 
-    voiceSummaryText = `Your issue involves ${entry.title.en}. Under ${constitutionalRights[0]?.article} and ${statutoryLaws[0]?.law}, ${statutoryLaws[0]?.explanation} Your formal complaint has been pre-filled with your citizen profile details for one-click forwarding to ${primaryAuthority.shortName}.`;
+    voiceSummaryText = specificQa
+      ? specificQa.voiceUr
+      : `السلام علیکم۔ آپ کا مسئلہ ${entry.title.ur} سے متعلق ہے۔ ${entry.statutoryLaws[0]?.explanation.ur} آپ کی تفصیلات کے ساتھ درخواست تیار کر دی گئی ہے جسے آپ ایک کلک پر ${primaryAuthority.name} کو بھیج سکتے ہیں۔`;
+  } else {
+    const directSection = specificQa
+      ? `${specificQa.directAnswerEn}\n\n`
+      : mentionedArticle
+      ? `**${mentionedArticle.article} (${mentionedArticle.title}):** ${mentionedArticle.textSummary}\n\n`
+      : `Under the **Constitution of Pakistan (1973)** and **Pakistani Statutory Law**, your query falls under **${entry.title.en}**. ${statutoryLaws[0]?.explanation}\n\n`;
+
+    replyText =
+      `Hello **${facts.applicantName}** (Citizen ID: \`${haqId}\`).\n\n` +
+      `🎯 **Direct Legal Answer:**\n${directSection}` +
+      `⚖️ **Constitutional Protections (1973 Constitution):**\n` +
+      constitutionalRights
+        .map((c) => `• **${c.article} (${c.title}):** ${c.summary}`)
+        .join("\n") +
+      `\n\n📜 **Applicable Pakistani Statutes:**\n` +
+      statutoryLaws
+        .map((s) => `• **${s.law} (${s.section}):** ${s.explanation}`)
+        .join("\n") +
+      `\n\n✅ **Step-by-Step Legal Procedure:**\n` +
+      nextSteps.map((step, i) => `${i + 1}. ${step}`).join("\n") +
+      `\n\n🏛️ **Verified Authority:** **${primaryAuthority.name}** (${primaryAuthority.portalUrl} | Helpline: ${primaryAuthority.helpline})`;
+
+    voiceSummaryText = `Your issue involves ${resolvedCategoryTitle}. Under ${constitutionalRights[0]?.article} and ${statutoryLaws[0]?.law}, ${statutoryLaws[0]?.explanation} Your formal complaint has been pre-filled with your citizen profile details for one-click forwarding to ${primaryAuthority.shortName}.`;
   }
 
   whatsappReplyText =
     `🇵🇰 *HaqAI – Citizen Rights & Complaint Assistant*\n\n` +
     `👤 *Citizen ID:* ${haqId}\n` +
-    `📌 *Issue:* ${entry.title.roman_ur}\n` +
+    `📌 *Issue:* ${resolvedCategoryTitle}\n` +
     `⚖️ *Pakistani Law:* ${constitutionalRights[0]?.article} & ${statutoryLaws[0]?.law}\n` +
     `🏛️ *Authority:* ${primaryAuthority.name} (Helpline: ${primaryAuthority.helpline})\n\n` +
     `👇 *Click Your Website Link Below (2 Citizen Options):*\n` +
@@ -607,7 +975,7 @@ export function generateHaqAIAnalysis(params: {
       stepNumber: 2,
       title: "Classify & Match Laws",
       status: "completed",
-      summary: entry.title.en,
+      summary: resolvedCategoryTitle,
     },
     {
       stepNumber: 3,
@@ -671,7 +1039,7 @@ export function generateHaqAIAnalysis(params: {
     aiEngineUsed: "verified-pakistan-rag",
     userQuery: params.query,
     categoryId: entry.id,
-    categoryTitle: entry.title[lang],
+    categoryTitle: resolvedCategoryTitle,
     replyText,
     whatsappReplyText,
     voiceSummaryText,
