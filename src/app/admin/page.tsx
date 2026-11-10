@@ -468,49 +468,53 @@ export default function AdminDashboardPage() {
         <button
           type="button"
           onClick={() => setActiveTab("citizens")}
-          className={`rounded-xl px-4 py-2.5 text-xs font-extrabold transition ${
+          className={`inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-xs font-extrabold transition ${
             activeTab === "citizens"
               ? "bg-[#01411C] text-[#D4AF37] shadow"
               : "bg-white border border-slate-200 text-slate-700 hover:bg-slate-50"
           }`}
         >
-          1. Registered Citizens ({profiles.length})
+          <Users className="h-4 w-4" />
+          <span>1. Registered Citizens ({profiles.length})</span>
         </button>
 
         <button
           type="button"
           onClick={() => setActiveTab("cases")}
-          className={`rounded-xl px-4 py-2.5 text-xs font-extrabold transition ${
+          className={`inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-xs font-extrabold transition ${
             activeTab === "cases"
               ? "bg-[#01411C] text-[#D4AF37] shadow"
               : "bg-white border border-slate-200 text-slate-700 hover:bg-slate-50"
           }`}
         >
-          2. Legal Cases ({cases.length})
+          <FileText className="h-4 w-4" />
+          <span>2. Legal Cases ({cases.length})</span>
         </button>
 
         <button
           type="button"
           onClick={() => setActiveTab("dispatches")}
-          className={`rounded-xl px-4 py-2.5 text-xs font-extrabold transition ${
+          className={`inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-xs font-extrabold transition ${
             activeTab === "dispatches"
               ? "bg-[#01411C] text-[#D4AF37] shadow"
               : "bg-white border border-slate-200 text-slate-700 hover:bg-slate-50"
           }`}
         >
-          3. Dispatched Complaints ({dispatches.length})
+          <Send className="h-4 w-4" />
+          <span>3. Dispatched Complaints ({dispatches.length})</span>
         </button>
 
         <button
           type="button"
           onClick={() => setActiveTab("helpers")}
-          className={`rounded-xl px-4 py-2.5 text-xs font-extrabold transition ${
+          className={`inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-xs font-extrabold transition ${
             activeTab === "helpers"
               ? "bg-[#01411C] text-[#D4AF37] shadow"
               : "bg-white border border-slate-200 text-slate-700 hover:bg-slate-50"
           }`}
         >
-          4. Card 9 Legal Volunteers ({helpers.length})
+          <HeartHandshake className="h-4 w-4" />
+          <span>4. Card 9 Legal Volunteers ({helpers.length})</span>
         </button>
       </div>
 

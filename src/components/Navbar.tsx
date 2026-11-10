@@ -9,6 +9,7 @@ import {
   FileCheck2,
   BookOpen,
   HeartHandshake,
+  ShieldAlert,
   UserCheck,
   Menu,
   X,
@@ -36,6 +37,12 @@ const NAV_ITEMS = [
     label: "Laws & Rights",
     sub: "قوانین",
     icon: BookOpen,
+  },
+  {
+    href: "/admin",
+    label: "Admin",
+    sub: "ایڈمن پینل",
+    icon: ShieldAlert,
   },
 ];
 

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="haqGrad" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0d9488" />
+      <stop offset="50%" stop-color="#059669" />
+      <stop offset="100%" stop-color="#01411C" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="url(#haqGrad)" />
+  <rect x="3" y="3" width="58" height="58" rx="13" stroke="#D4AF37" stroke-opacity="0.45" stroke-width="2" />
+  <!-- Scales of Justice Icon -->
+  <path d="M32 13V49" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" />
+  <path d="M22 49H42" stroke="#D4AF37" stroke-width="3.5" stroke-linecap="round" />
+  <path d="M16 21H48" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" />
+  <circle cx="32" cy="13" r="3" fill="#D4AF37" />
+  <!-- Left Scale Pan -->
+  <path d="M18 21L12 34H24L18 21Z" stroke="#ffffff" stroke-width="2.75" stroke-linejoin="round" fill="none" />
+  <path d="M11 34C11 37.5 14.1 40 18 40C21.9 40 25 37.5 25 34H11Z" fill="#D4AF37" />
+  <!-- Right Scale Pan -->
+  <path d="M46 21L40 34H52L46 21Z" stroke="#ffffff" stroke-width="2.75" stroke-linejoin="round" fill="none" />
+  <path d="M39 34C39 37.5 42.1 40 46 40C49.9 40 53 37.5 53 34H39Z" fill="#D4AF37" />
+</svg>
