@@ -256,32 +256,55 @@ function getAuthorityDirectory(): AuthorityInfo[] {
 }
 
 const LANGUAGE_INSTRUCTIONS: Record<SupportedLanguage, string> = {
-  ur: "Urdu written in Urdu script (اردو)",
-  pa: "Punjabi in Shahmukhi script, or simple Urdu script if unsure",
-  roman_ur: "Roman Urdu (Urdu written with English letters, e.g. 'Aap ka qanooni haq ye hai...')",
-  en: "simple, clear English",
+  ur: "clear, natural Pakistani Urdu written in Urdu script (اردو رسم الخط)",
+  pa: "authentic Pakistani Punjabi (Lahore/Faisalabad/Rawalpindi style) written STRICTLY in Urdu / Shahmukhi script (پنجابی - اردو رسم الخط، مثلاً: 'تہاڈا قانونی حق ایہہ اے کہ تسی متعلقہ تھانے یا عدالت وچ درخواست دے سکدے او'). NEVER use Gurmukhi (ਪੰਜਾਬੀ) or Hindi/Devanagari (हिंदी) script, and NEVER use Hindi/Sanskrit vocabulary (like adhikar, nyayalaya, kanooni karwai in Hindi). Always use Pakistani Punjabi & Urdu legal terminology (قانونی حق، عدالت، تھانہ، ایف آئی آر، درخواست، وفاقی محتسب، شناختی کارڈ)",
+  roman_ur:
+    "Pakistani Roman Urdu (Urdu written with English letters, e.g. 'Aap ka qanooni haq ye hai ke aap mutalliqa idaray ko darkhwast dein...')",
+  en: "simple, clear Pakistani legal English",
 };
 
+/** Strips any accidental Hindi/Devanagari or Gurmukhi characters from Urdu/Punjabi output */
+function sanitizePakistaniScript(text: string, lang: SupportedLanguage): string {
+  if (!text) return "";
+  if (lang === "ur" || lang === "pa") {
+    return text.replace(/[\u0900-\u097F\u0A00-\u0A7F]+/g, "").trim();
+  }
+  return text.trim();
+}
+
 const CONSTITUTION_REF = CONSTITUTION_OF_PAKISTAN_1973.map(
-  (c) => `- ${c.article} (${c.title}): ${c.textSummary}`
+  (c) => `- ${c.article} [${c.part} – ${c.title}]: ${c.textSummary}`
 ).join("\n");
 
 const LAWS_REF = PAKISTAN_LAWS_CORPUS.map(
-  (l) => `- ${l.lawName} [${l.keySections}]: ${l.description}`
+  (l) => `- ${l.lawName} (${l.year}) | Key Sections: ${l.keySections} | Rules: ${l.description} | Authority: ${l.authorityName} (Helpline: ${l.helpline})`
 ).join("\n");
 
-const SYSTEM_PROMPT = `You are HaqAI, an expert Pakistani legal-rights assistant for ordinary citizens of Pakistan.
+const SYSTEM_PROMPT = `You are HaqAI, an authoritative Pakistani Constitutional & Statutory Legal Rights Assistant trained on the complete Constitution of the Islamic Republic of Pakistan (1973, Articles 1 to 280 including up to the 26th Amendment) and all Federal and Provincial Statutes of Pakistan.
 
-Your job: answer the citizen's EXACT question accurately under the law of Pakistan, in plain language they can act on.
+Your duty: Give every citizen 100% legally accurate, section-verified answers strictly under the laws of Pakistan.
 
-Accuracy rules (most important):
-- Answer the specific question asked. Never give a generic answer about a different topic.
-- Cite ONLY Pakistani law (1973 Constitution of Pakistan, PPC 1860, CrPC 1898, CPC 1908, Qanun-e-Shahadat 1984, Muslim Family Laws Ordinance 1961, Family Courts Act 1964, Dissolution of Muslim Marriages Act 1939, Guardians and Wards Act 1890, Transfer of Property Act 1882, Specific Relief Act 1877, Illegal Dispossession Act 2005, Enforcement of Women's Property Rights Act 2020, PECA 2016, Protection against Harassment of Women at the Workplace Act 2010, Payment of Wages Act 1936, Consumer Protection Acts, provincial Rent laws, Police Order 2002, Wafaqi Mohtasib Order 1983, Right of Access to Information Act 2017).
-- NEVER cite Indian law (for example, in Pakistan cheque dishonour is Section 489-F PPC & Order 37 CPC, NOT Section 138 NI Act; FIR registration is Section 154 CrPC & Justice of Peace petition is Section 22-A/22-B CrPC).
-- If you are not certain of an exact section number, name the law without inventing a section number. Never fabricate laws, sections, case names, punishments or deadlines.
-- Mention provincial differences when they matter (Punjab, Sindh, KP, Balochistan, ICT).
-- Give practical next steps: which office/court to go to, what documents to bring, time limits, helplines.
-- For the authority, prefer an entry from the VERIFIED AUTHORITY DIRECTORY (return its id). Only if none fits, describe the correct real authority yourself.
+STRICT LEGAL ACCURACY & CITATION RULES:
+1. Answer the citizen's EXACT legal question directly in the first 1-2 sentences, then explain the exact Constitutional Articles, Statutory Sections, legal forum/authority, required documents, and step-by-step remedy.
+2. CITE ONLY PAKISTANI LAW. NEVER cite Indian laws, Indian courts, or Indian sections:
+   - Dishonoured / bounced cheque = Section 489-F Pakistan Penal Code (PPC) (criminal, up to 3 years prison) + Order 37 CPC (civil summary recovery suit before District & Sessions Judge). NEVER cite Section 138 NI Act.
+   - Police refusal to register FIR = Complaint to SP Complaints / DPO / IGP 1787 + Petition under Section 22-A & 22-B CrPC before the Sessions Judge (Ex-Officio Justice of Peace). Mandatory FIR registration for cognizable offence is Section 154 CrPC.
+   - Unlawful police detention / missing person in custody = Habeas Corpus petition under Section 491 CrPC before Sessions Judge or Article 199 before High Court; production before Magistrate within 24 hours is mandatory under Article 10 Constitution & Section 61 CrPC.
+   - Bail = Pre-arrest bail is Section 498 CrPC; Post-arrest bail is Section 497 CrPC.
+   - Depriving a woman of inheritance (Wirasat) = Section 498-A PPC (criminal offence, up to 10 years prison) + Enforcement of Women's Property Rights Act 2020 (Sections 4, 5, 7 — summary restoration within 60 days via Federal/Provincial Ombudsperson FOSPAH & Deputy Commissioner).
+   - Land grabbing / Qabza Mafia = Illegal Dispossession Act 2005 (Sections 3, 7, 8 — direct complaint before Sessions Court, up to 10 years prison + interim possession restoration).
+   - Property agreement to sell (Iqrar-nama / Bayana) breach = Suit for Specific Performance under Section 12 Specific Relief Act 1877 + Temporary Injunction (Stay Order) under Order 39 Rules 1 & 2 CPC.
+   - Landlord-Tenant eviction / rent disputes = Punjab Rented Premises Act 2009 (Sec. 15 before Special Judge Rent), Sindh Rented Premises Ordinance 1979, KP Urban Rent Restriction Ordinance, ICT Rent Restriction Ordinance 2001.
+   - Family / Khula / Maintenance / Custody = Muslim Family Laws Ordinance 1961 (Sec. 6 polygamy without permission, Sec. 7 Talaq notice, Sec. 9 maintenance), Family Courts Act 1964 (Sec. 10(4) Khula), Guardians and Wards Act 1890 (Sec. 12 interim custody, Sec. 17/25 welfare of minor).
+   - Online blackmail / morphing photos / hacking / fake profile / cyberstalking = Prevention of Electronic Crimes Act (PECA) 2016 (Sec. 14 electronic fraud, Sec. 16 identity theft, Sec. 20 dignity, Sec. 21 modesty/intimate images, Sec. 24 cyberstalking) via FIA Cybercrime / NCCIA (Helpline 1991).
+   - Withheld salary / unlawful termination = Section 15 Payment of Wages Act 1936 + Standing Order 12 (Industrial & Commercial Employment Standing Orders Ordinance 1968) + Labour Court grievance petition under Industrial Relations Act 2012.
+   - Workplace harassment = Protection Against Harassment of Women at the Workplace Act 2010 (amended 2022, Sec. 4 & 8) via FOSPAH.
+   - University withholding original documents / degree or fee refund = Section 10 HEC Ordinance 2002 + HEC National Fee Refund Policy + Article 25A & Article 4 Constitution + Wafaqi Mohtasib Order 1983 (Art. 9).
+   - NADRA blocking CNIC without notice = Violates Section 18 NADRA Ordinance 2000 & Article 10A/15 Constitution (remedy via Wafaqi Mohtasib or High Court Writ under Article 199).
+   - Defective products / faulty services = 15-day written legal notice followed by zero-court-fee claim in District Consumer Court under Provincial Consumer Protection Acts (Punjab 2005, Sindh 2014, KP 1997, ICT 1995).
+3. SCRIPT & LANGUAGE RULE (CRITICAL FOR PUNJABI & URDU):
+   - When the requested language is "pa" (Punjabi), write in authentic Pakistani Punjabi using ONLY the Urdu / Shahmukhi script (پنجابی - اردو رسم الخط، مثلاً: "تہاڈا قانونی حق ایہہ اے کہ...").
+   - NEVER output Gurmukhi (ਪੰਜਾਬੀ) or Hindi/Devanagari (हिंदी) characters, and NEVER use Sanskrit/Hindi words. Always use Pakistani Urdu/Punjabi script and legal vocabulary.
 
 VERIFIED CONSTITUTION OF PAKISTAN (1973) REFERENCE:
 ${CONSTITUTION_REF}
@@ -333,8 +356,15 @@ CITIZEN'S QUESTION:
 
 RESPONSE LANGUAGE: Write every human-readable field in ${langInstruction}. Law names and section numbers may stay in English.
 ${
+  lang === "pa"
+    ? 'CRITICAL PUNJABI SCRIPT RULE: Write ALL Punjabi text ("categoryTitle", "replyText", "voiceSummaryText", "constitutionalRights[].summary", "statutoryLaws[].explanation", "nextSteps", "followUpQuestions") in Pakistani Punjabi using ONLY Urdu / Shahmukhi script (پنجابی - اردو رسم الخط، مثلاً: "تہاڈا قانونی حق ایہہ اے کہ تسی..."). NEVER use Hindi/Devanagari or Gurmukhi script or Hindi words.'
+    : ""
+}
+${
   lang === "en"
     ? 'Write "voiceSummaryText" in English.'
+    : lang === "pa"
+    ? 'Write "voiceSummaryText" in Pakistani Punjabi using Urdu / Shahmukhi script (پنجابی - اردو رسم الخط) ONLY – no English letters, no Hindi/Gurmukhi, no markdown, numbers written as words – because it is read aloud by an Urdu/Punjabi voice.'
     : 'Write "voiceSummaryText" in Urdu script (اردو) ONLY – no English letters, no markdown, numbers written as words – because it is read aloud by an Urdu text-to-speech voice.'
 }
 
@@ -418,15 +448,33 @@ Return JSON with exactly these keys:
   const asArray = <T,>(v: unknown): T[] => (Array.isArray(v) ? (v as T[]) : []);
   const constitutionalRights = asArray<{ article: string; title: string; summary: string }>(
     parsed.constitutionalRights
-  );
+  ).map((c) => ({
+    article: sanitizePakistaniScript(String(c.article || ""), lang),
+    title: sanitizePakistaniScript(String(c.title || ""), lang),
+    summary: sanitizePakistaniScript(String(c.summary || ""), lang),
+  }));
   const statutoryLaws = asArray<{ law: string; section: string; explanation: string }>(
     parsed.statutoryLaws
+  ).map((s) => ({
+    law: sanitizePakistaniScript(String(s.law || ""), lang),
+    section: sanitizePakistaniScript(String(s.section || ""), lang),
+    explanation: sanitizePakistaniScript(String(s.explanation || ""), lang),
+  }));
+  const nextSteps = asArray<string>(parsed.nextSteps).map((s) =>
+    sanitizePakistaniScript(String(s), lang)
   );
-  const nextSteps = asArray<string>(parsed.nextSteps).map(String);
-  const followUpQuestions = asArray<string>(parsed.followUpQuestions).map(String);
-  const categoryTitle = String(parsed.categoryTitle || entry.title[lang]);
-  const replyText = parsed.replyText.trim();
-  const voiceSummaryText = String(parsed.voiceSummaryText || "").trim();
+  const followUpQuestions = asArray<string>(parsed.followUpQuestions).map((q) =>
+    sanitizePakistaniScript(String(q), lang)
+  );
+  const categoryTitle = sanitizePakistaniScript(
+    String(parsed.categoryTitle || entry.title[lang]),
+    lang
+  );
+  const replyText = sanitizePakistaniScript(parsed.replyText.trim(), lang);
+  const voiceSummaryText = sanitizePakistaniScript(
+    String(parsed.voiceSummaryText || "").trim(),
+    lang
+  );
 
   const appUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
   const whatsappReplyText =

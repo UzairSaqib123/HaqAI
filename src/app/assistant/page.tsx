@@ -30,7 +30,7 @@ const LANGUAGE_OPTIONS: {
 }[] = [
   { id: "ur", label: "اردو (Urdu)", speechLang: "ur-PK" },
   { id: "roman_ur", label: "Roman Urdu (آسان اردو)", speechLang: "ur-PK" },
-  { id: "pa", label: "پنجابی (Punjabi)", speechLang: "pa-PK" },
+  { id: "pa", label: "پنجابی (اردو)", speechLang: "ur-PK" },
   { id: "en", label: "English", speechLang: "en-US" },
 ];
 

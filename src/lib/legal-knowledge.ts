@@ -1468,12 +1468,19 @@ export function detectLanguageFromInput(
   text: string,
   preferred?: SupportedLanguage
 ): SupportedLanguage {
+  if (preferred === "pa") {
+    return "pa";
+  }
   if (/[\u0600-\u06FF]/.test(text)) {
     if (
       text.includes("تہاڈا") ||
+      text.includes("تہاڈی") ||
+      text.includes("تسی") ||
       text.includes("کیہ") ||
       text.includes("نوں") ||
-      text.includes("وچ")
+      text.includes("وچ") ||
+      text.includes("نال") ||
+      text.includes("لئی")
     ) {
       return "pa";
     }

@@ -307,7 +307,7 @@ export async function transcribeAudio(
         [
           { inlineData: { mimeType, data: base64Audio } },
           {
-            text: "Transcribe this voice note exactly as spoken (Urdu, Punjabi, Roman Urdu or English). If spoken in Urdu or Punjabi, write it in Urdu script. Return only the transcription.",
+            text: "Transcribe this voice note exactly as spoken (Urdu, Pakistani Punjabi, Roman Urdu or English). CRITICAL: If spoken in Urdu or Punjabi, write it strictly in Pakistani Urdu / Shahmukhi script (اردو رسم الخط). NEVER use Hindi/Devanagari or Gurmukhi script. Return only the transcription.",
           },
         ],
         false
