@@ -114,7 +114,7 @@ export async function POST(req: NextRequest) {
 
     const cleanAuthorityEmail = authorityEmail || "complaints@hec.gov.pk";
     const cleanSubject =
-      subject || `[Formal Citizen Complaint - ${caseId || dispatchId}]`;
+      subject || "Formal Application for Statutory & Administrative Redressal";
 
     const mailtoUrl = `mailto:${encodeURIComponent(
       cleanAuthorityEmail

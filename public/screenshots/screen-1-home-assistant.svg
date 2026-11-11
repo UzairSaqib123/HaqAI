@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" fill="none">
+  <rect width="960" height="560" rx="20" fill="#F8FAF9" stroke="#CBD5E1" stroke-width="2"/>
+  <!-- Top Browser Bar -->
+  <rect width="960" height="44" rx="20" fill="#0F172A"/>
+  <rect y="24" width="960" height="20" fill="#0F172A"/>
+  <circle cx="24" cy="22" r="6" fill="#EF4444"/>
+  <circle cx="44" cy="22" r="6" fill="#F59E0B"/>
+  <circle cx="64" cy="22" r="6" fill="#10B981"/>
+  <rect x="260" y="10" width="440" height="24" rx="8" fill="#1E293B"/>
+  <text x="480" y="26" text-anchor="middle" fill="#94A3B8" font-family="monospace" font-size="12">https://haqai.pk/assistant • Citizen ID: HAQ-PK-482910</text>
+
+  <!-- Navbar -->
+  <rect x="0" y="44" width="960" height="54" fill="#FFFFFF" stroke="#E2E8F0"/>
+  <rect x="28" y="55" width="32" height="32" rx="8" fill="#0D9488"/>
+  <text x="44" y="76" text-anchor="middle" fill="#FFFFFF" font-family="sans-serif" font-weight="bold" font-size="15">⚖</text>
+  <text x="70" y="76" fill="#0F172A" font-family="sans-serif" font-weight="800" font-size="18">HaqAI</text>
+  <rect x="132" y="61" width="68" height="20" rx="10" fill="#F0FDFA" stroke="#99F6E4"/>
+  <text x="166" y="75" text-anchor="middle" fill="#0F766E" font-family="sans-serif" font-weight="bold" font-size="10">حق اے آئی</text>
+
+  <!-- Nav Pills -->
+  <rect x="250" y="54" width="470" height="34" rx="12" fill="#F1F5F9"/>
+  <rect x="315" y="58" width="92" height="26" rx="8" fill="#FFFFFF"/>
+  <text x="280" y="75" text-anchor="middle" fill="#64748B" font-family="sans-serif" font-weight="bold" font-size="11">Home</text>
+  <text x="361" y="75" text-anchor="middle" fill="#0F766E" font-family="sans-serif" font-weight="bold" font-size="11">🎤 Ask AI</text>
+  <text x="468" y="75" text-anchor="middle" fill="#64748B" font-family="sans-serif" font-weight="bold" font-size="11">1-Click Complaint</text>
+  <text x="582" y="75" text-anchor="middle" fill="#64748B" font-family="sans-serif" font-weight="bold" font-size="11">Card 9 Switch</text>
+  <text x="678" y="75" text-anchor="middle" fill="#64748B" font-family="sans-serif" font-weight="bold" font-size="11">🛡 Admin</text>
+
+  <!-- Citizen Badge -->
+  <rect x="760" y="54" width="172" height="34" rx="10" fill="#F0FDFA" stroke="#99F6E4"/>
+  <text x="846" y="69" text-anchor="middle" fill="#0F172A" font-family="sans-serif" font-weight="bold" font-size="10">Uzair Saqib (Verified)</text>
+  <text x="846" y="82" text-anchor="middle" fill="#0D9488" font-family="monospace" font-weight="bold" font-size="10">HAQ-PK-482910</text>
+
+  <!-- Main Card -->
+  <rect x="32" y="114" width="896" height="190" rx="18" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/>
+  <rect x="52" y="130" width="180" height="22" rx="11" fill="#CCFBF1"/>
+  <text x="142" y="145" text-anchor="middle" fill="#115E59" font-family="sans-serif" font-weight="bold" font-size="11">Live AI Voice &amp; Legal Assistant</text>
+  <text x="52" y="174" fill="#0F172A" font-family="sans-serif" font-weight="800" font-size="19">Speak or Type Your Problem in Urdu, Roman Urdu, Punjabi, or English</text>
+
+  <!-- Big Mic Button -->
+  <rect x="52" y="190" width="856" height="46" rx="12" fill="#0D9488"/>
+  <text x="480" y="218" text-anchor="middle" fill="#FFFFFF" font-family="sans-serif" font-weight="bold" font-size="14">🎤 Tap Here to Speak — "Meri university meri original degree rok rahi hai..."</text>
+
+  <!-- Query Box -->
+  <rect x="52" y="246" width="670" height="42" rx="10" fill="#F8FAFC" stroke="#CBD5E1"/>
+  <text x="68" y="272" fill="#1E293B" font-family="sans-serif" font-size="12">"My university is withholding my original degree and demanding extra unapproved fees."</text>
+  <rect x="734" y="246" width="174" height="42" rx="10" fill="#0F172A"/>
+  <text x="821" y="272" text-anchor="middle" fill="#2DD4BF" font-family="sans-serif" font-weight="bold" font-size="12">Get Legal Solution →</text>
+
+  <!-- AI Legal Output Card -->
+  <rect x="32" y="318" width="896" height="222" rx="18" fill="#FFFFFF" stroke="#99F6E4" stroke-width="2"/>
+  <rect x="52" y="334" width="145" height="24" rx="8" fill="#01411C"/>
+  <text x="124" y="350" text-anchor="middle" fill="#D4AF37" font-family="monospace" font-weight="bold" font-size="11">Case: HAQ-739201</text>
+  <text x="210" y="351" fill="#0F172A" font-family="sans-serif" font-weight="800" font-size="16">Education &amp; University Rights • Authority: HEC Pakistan</text>
+  <rect x="738" y="332" width="170" height="28" rx="8" fill="#0D9488"/>
+  <text x="823" y="350" text-anchor="middle" fill="#FFFFFF" font-family="sans-serif" font-weight="bold" font-size="11">🔊 Listen in Urdu Audio</text>
+
+  <!-- Constitutional & Statutory Boxes -->
+  <rect x="52" y="370" width="420" height="84" rx="12" fill="#F0FDFA" stroke="#5EEAD4"/>
+  <text x="68" y="392" fill="#0F766E" font-family="sans-serif" font-weight="bold" font-size="12">⚖ Constitution of Pakistan (1973) — Articles 4, 18 &amp; 25A</text>
+  <text x="68" y="412" fill="#334155" font-family="sans-serif" font-size="11">No institution can unlawfully withhold a student's original educational</text>
+  <text x="68" y="428" fill="#334155" font-family="sans-serif" font-size="11">certificates or degrees once academic requirements are fulfilled.</text>
+  <text x="68" y="444" fill="#0F766E" font-family="sans-serif" font-weight="bold" font-size="10">Statutory Law: HEC Ordinance 2002 (Sec. 10) &amp; Wafaqi Mohtasib Order 1983</text>
+
+  <!-- 2 Action Option Cards -->
+  <rect x="488" y="370" width="204" height="84" rx="12" fill="#0D9488"/>
+  <text x="504" y="392" fill="#CCFBF1" font-family="sans-serif" font-weight="bold" font-size="10">OPTION 1 • 1-CLICK ACTION</text>
+  <text x="504" y="414" fill="#FFFFFF" font-family="sans-serif" font-weight="800" font-size="13">📝 1-Click Complaint</text>
+  <text x="504" y="434" fill="#E6FFFA" font-family="sans-serif" font-size="10">Pre-filled formal petition to</text>
+  <text x="504" y="447" fill="#FFFFFF" font-family="sans-serif" font-weight="bold" font-size="10">HEC &amp; Wafaqi Mohtasib →</text>
+
+  <rect x="704" y="370" width="204" height="84" rx="12" fill="#F8FAFC" stroke="#CBD5E1"/>
+  <text x="720" y="392" fill="#0F766E" font-family="sans-serif" font-weight="bold" font-size="10">OPTION 2 • FULL GUIDANCE</text>
+  <text x="720" y="414" fill="#0F172A" font-family="sans-serif" font-weight="800" font-size="13">📖 Step-by-Step Guide</text>
+  <text x="720" y="434" fill="#475569" font-family="sans-serif" font-size="10">Helpline: 051-111-119-432</text>
+  <text x="720" y="447" fill="#0F766E" font-family="sans-serif" font-weight="bold" font-size="10">Portal: onlinehelp.hec.gov.pk</text>
+
+  <!-- Bottom Summary Strip -->
+  <rect x="52" y="466" width="856" height="58" rx="12" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <text x="68" y="488" fill="#0F766E" font-family="sans-serif" font-weight="bold" font-size="11">🔊 Spoken Urdu Summary (Auto-Played):</text>
+  <text x="68" y="508" fill="#1E293B" font-family="sans-serif" font-size="12">"آئین پاکستان کے آرٹیکل 4 اور ایچ ای سی قوانین کے تحت کوئی یونیورسٹی آپ کی اصل ڈگری نہیں روک سکتی۔ اپنی تیار شدہ شکایت 1-کلک میں بھیجیں۔"</text>
+</svg>

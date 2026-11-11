@@ -21,6 +21,7 @@ import { SupportedLanguage } from "@/lib/legal-knowledge";
 import { CitizenProfile } from "@/lib/supabase";
 import { playHaqAITTS, stopHaqAITTS } from "@/lib/tts-player";
 import { saveClientCase, saveClientDispatch } from "@/lib/client-storage";
+import NearestStationFinder from "@/components/NearestStationFinder";
 
 const LANGUAGE_OPTIONS: {
   id: SupportedLanguage;
@@ -464,7 +465,7 @@ function AssistantContent() {
               </p>
             </div>
 
-            {/* Detailed Direct Answer Box */}
+              {/* Detailed Direct Answer Box */}
             <div className="rounded-2xl bg-white border border-slate-200 p-5 sm:p-6 space-y-2 shadow-sm">
               <div className="flex items-center justify-between">
                 <p className="text-xs font-bold uppercase tracking-wider text-teal-700">
@@ -478,6 +479,16 @@ function AssistantContent() {
                 {currentCase.replyText}
               </div>
             </div>
+
+            {/* Nearest Helping Station Finder (Location Permission + Turn-by-Turn Directions) */}
+            <NearestStationFinder
+              categoryId={currentCase.categoryId}
+              authorityName={currentCase.primaryAuthority.name}
+              citizenCity={
+                citizenProfile?.city ||
+                currentCase.generatedComplaint.facts.city
+              }
+            />
 
             {/* 2 Balanced Option Cards */}
             <div className="space-y-2.5">

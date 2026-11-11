@@ -12,7 +12,7 @@ export default function VolunteerSwitchPage() {
         <div className="max-w-3xl space-y-3 relative z-10">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-200 text-xs font-bold uppercase tracking-wider">
             <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-            TECHSOC Challenge • Card 9: The Availability Switch
+            Pro-Bono Legal Aid • The Availability Switch
           </div>
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
             The Availability Switch:{" "}

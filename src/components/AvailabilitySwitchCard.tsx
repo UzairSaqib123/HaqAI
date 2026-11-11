@@ -277,12 +277,12 @@ export default function AvailabilitySwitchCard({
 
   return (
     <div className="rounded-3xl bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-2 border-slate-900/15 dark:border-emerald-500/30 shadow-xl overflow-hidden transition-all">
-      {/* Top Card 9 Header */}
+      {/* Top Availability Switch Header */}
       <div className="bg-gradient-to-r from-slate-900 via-emerald-950 to-slate-900 text-white px-6 py-5 border-b border-emerald-500/20 flex flex-wrap items-center justify-between gap-4">
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-xs font-bold tracking-wider uppercase mb-2">
             <Sparkles className="w-3.5 h-3.5" />
-            CARD 9: THE AVAILABILITY SWITCH
+            THE AVAILABILITY SWITCH • قانونی مددگار
           </div>
           <h2 className="text-xl sm:text-2xl font-extrabold tracking-tight text-white flex items-center gap-2.5">
             <HeartHandshake className="w-6 h-6 text-emerald-400" />
@@ -294,15 +294,14 @@ export default function AvailabilitySwitchCard({
           </p>
         </div>
 
-        {/* TECHSOC Emblem */}
         <div className="flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm">
-          <Cpu className="w-6 h-6 text-amber-400" />
+          <Scale className="w-6 h-6 text-emerald-400" />
           <div className="text-right">
             <div className="text-xs font-black tracking-widest uppercase text-white">
-              TECHSOC
+              PRO-BONO NETWORK
             </div>
-            <div className="text-[11px] font-urdu text-amber-300">
-              ٹیک سوس • کارڈ 9
+            <div className="text-[11px] font-urdu text-emerald-300">
+              مفت قانونی معاونت
             </div>
           </div>
         </div>

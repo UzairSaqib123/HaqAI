@@ -29,6 +29,7 @@ import {
 } from "@/lib/ai-engine";
 import { CitizenProfile } from "@/lib/supabase";
 import { saveClientDispatch } from "@/lib/client-storage";
+import NearestStationFinder from "@/components/NearestStationFinder";
 
 function ComplaintStudioContent() {
   const searchParams = useSearchParams();
@@ -177,7 +178,7 @@ function ComplaintStudioContent() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `HaqAI-Complaint-${caseId || "Document"}.txt`;
+    a.download = `Formal-Legal-Application.txt`;
     a.click();
     URL.revokeObjectURL(url);
   }
@@ -206,7 +207,7 @@ function ComplaintStudioContent() {
           authorityEmail: primaryAuthority.email,
           portalUrl: primaryAuthority.portalUrl,
           finalComplaintText: complaintText,
-          subject: `${activeCategory.complaintTemplate.subjectPrefix} (${caseId})`,
+          subject: activeCategory.complaintTemplate.subjectPrefix,
         }),
       });
       const data = await res.json();
@@ -239,7 +240,13 @@ function ComplaintStudioContent() {
   }
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 space-y-8">
+    <>
+      {/* Dedicated Clean Printable Formal Petition (Only visible when printing) */}
+      <div id="printable-legal-petition" className="hidden">
+        {complaintText}
+      </div>
+
+      <div className="no-print mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 space-y-8">
       <div className="soft-card rounded-3xl bg-gradient-to-r from-teal-50/80 via-white to-emerald-50/60 p-6 sm:p-8">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
@@ -469,6 +476,12 @@ function ComplaintStudioContent() {
               </p>
             </div>
           </div>
+
+          <NearestStationFinder
+            categoryId={categoryId}
+            authorityName={primaryAuthority.name}
+            citizenCity={facts.city}
+          />
         </div>
 
         <div className="lg:col-span-7 space-y-5">
@@ -678,7 +691,8 @@ function ComplaintStudioContent() {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 }
 

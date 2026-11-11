@@ -283,7 +283,7 @@ export default function AdminDashboardPage() {
             </h1>
             <p className="text-xs text-slate-500">
               Enter the administrator password to access citizen records, legal
-              cases, 1-click complaint dispatches, and Card 9 volunteers.
+              cases, 1-click complaint dispatches, and legal aid volunteers.
             </p>
           </div>
 
@@ -340,7 +340,7 @@ export default function AdminDashboardPage() {
             </h1>
             <p className="mt-1 text-sm text-emerald-100/90">
               Monitor registered citizens, AI legal consultations, 1-click
-              dispatched complaints, and Card 9 Legal Aid Volunteers in real time.
+              dispatched complaints, and Pro-Bono Legal Aid Volunteers in real time.
             </p>
           </div>
           <div className="flex items-center gap-2 shrink-0">
@@ -455,7 +455,7 @@ export default function AdminDashboardPage() {
             </span>
           </div>
           <div className="flex items-center justify-between text-xs">
-            <span className="font-semibold">Card 9 Volunteers:</span>
+            <span className="font-semibold">Legal Volunteers:</span>
             <span className="rounded px-2 py-0.5 font-bold bg-emerald-100 text-emerald-800">
               {helpers.length} Registered
             </span>
@@ -514,7 +514,7 @@ export default function AdminDashboardPage() {
           }`}
         >
           <HeartHandshake className="h-4 w-4" />
-          <span>4. Card 9 Legal Volunteers ({helpers.length})</span>
+          <span>4. Legal Aid Volunteers ({helpers.length})</span>
         </button>
       </div>
 
@@ -795,12 +795,12 @@ export default function AdminDashboardPage() {
             </div>
           )}
 
-          {/* TAB 4: CARD 9 LEGAL VOLUNTEERS */}
+          {/* TAB 4: LEGAL AID VOLUNTEERS */}
           {activeTab === "helpers" && (
             <div className="space-y-4">
               {helpers.length === 0 ? (
                 <div className="soft-card rounded-2xl p-8 text-center text-sm text-slate-600">
-                  No volunteers have toggled the Card 9 Availability Switch yet.
+                  No volunteers have toggled the Availability Switch yet.
                   Visit{" "}
                   <Link
                     href="/volunteer"

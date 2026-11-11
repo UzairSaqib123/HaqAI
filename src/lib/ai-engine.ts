@@ -142,63 +142,94 @@ export function buildFormalComplaint(
   const reliefCit =
     customReliefParagraph || entry.complaintTemplate.requestedReliefParagraph;
 
-  const applicantName = facts.applicantName || "[Applicant Full Name]";
-  const cnic = facts.cnic || "[CNIC Number]";
-  const cityOrAddress = facts.address || facts.city || "[City / Address]";
-  const phone = facts.contactPhone || "[Mobile Number]";
-  const email = facts.contactEmail || "[Email Address]";
-  const haqIdLabel = facts.haqId || "Unregistered";
+  const applicantName = facts.applicantName || "___________________________";
+  const cnic = facts.cnic || "_____-_______-_";
+  const cityOrAddress = facts.address || facts.city || "___________________________";
+  const cityOnly = facts.city || "Pakistan";
+  const phone = facts.contactPhone || "___________________________";
+  const email = facts.contactEmail || "___________________________";
   const respondent =
-    facts.institutionOrRespondent || "[Concerned Department / Respondent]";
+    facts.institutionOrRespondent || "The Concerned Department / Respondent";
+  const statementText =
+    facts.rawStatement && facts.rawStatement.trim()
+      ? facts.rawStatement.trim()
+      : "The applicant is aggrieved by the unlawful action/inaction of the respondent and seeks immediate statutory redressal in accordance with law.";
 
-  const bodyText = `To,
-The Competent Authority / Grievance Redressal Cell,
-${primaryAuthority.name}
-Official Portal: ${primaryAuthority.portalUrl}
+  const bodyText = `BEFORE THE COMPETENT AUTHORITY
+${primaryAuthority.name.toUpperCase()}
+
+To,
+The Worthy Head of Institution / Grievance Redressal Authority,
+${primaryAuthority.name},
+${primaryAuthority.address || cityOnly}.
+
 Date: ${todayFormatted}
-HaqAI Citizen ID: ${haqIdLabel}
+
+IN THE MATTER OF:
+${applicantName} (Holder of CNIC No. ${cnic}),
+Resident of ${cityOrAddress}.
+                                                        ... APPLICANT / COMPLAINANT
+VERSUS
+${respondent}${
+    facts.referenceOrRollNo
+      ? ` (Reference / Roll / Account No.: ${facts.referenceOrRollNo})`
+      : ""
+  }
+                                                        ... RESPONDENT(S)
 
 SUBJECT: ${subject.toUpperCase()}
 
 Respected Sir / Madam,
 
-I, ${applicantName} (holding CNIC No. ${cnic}, resident of ${cityOrAddress}), respectfully submit this formal complaint and state the facts strictly as follows:
+MOST RESPECTFULLY SHEWETH:
 
-1. STATEMENT OF GRIEVANCE & FACTS:
-   - Aggrieved Citizen Statement: "${facts.rawStatement}"
-   - Concerned Institution / Respondent: ${respondent}
-   - City / Jurisdiction: ${facts.city || cityOrAddress}${
-     facts.referenceOrRollNo
-       ? `\n   - Reference / Roll No.: ${facts.referenceOrRollNo}`
-       : ""
-   }
-   - Date: ${facts.dateOfIncident}
+1. That the undersigned applicant is a law-abiding citizen of Pakistan holding CNIC No. ${cnic}, residing at ${cityOrAddress}, and is directly aggrieved by the matter stated herein.
 
-2. APPLICABLE CONSTITUTIONAL & STATUTORY LEGAL PROVISIONS (PAKISTAN):
+2. STATEMENT OF FACTS & GRIEVANCE:
+   That on or around ${facts.dateOfIncident}, the following grievance arose involving ${respondent}:
+   "${statementText}"${
+    facts.referenceOrRollNo
+      ? `\n   Relevant Reference / Registration / Account No.: ${facts.referenceOrRollNo}.`
+      : ""
+  }
+
+3. APPLICABLE CONSTITUTIONAL & STATUTORY LEGAL GROUNDS:
    ${legalCit}
 
-3. PRAYER / REQUESTED RELIEF:
+4. That the applicant has approached the concerned quarters for redressal; however, the grievance remains unresolved to date, leaving the applicant with no other efficacious remedy except to invoke the lawful jurisdiction of this Honourable Authority.
+
+5. PRAYER / RELIEF SOUGHT:
    ${reliefCit}
 
-I affirm that the facts stated above are true and accurate to the best of my knowledge. Copies of my CNIC (${cnic}) and relevant supporting documents are attached herewith.
+   It is, therefore, most respectfully prayed that this Honourable Authority may graciously be pleased to take immediate cognizance of this application, direct an impartial inquiry into the matter, and grant the relief prayed for above in accordance with law and principles of natural justice.
 
-Yours faithfully,
+Yours obediently,
+
 
 Signature: ___________________________
 Full Name: ${applicantName}
-HaqAI Citizen ID: ${haqIdLabel}
 CNIC No.: ${cnic}
-Address / City: ${cityOrAddress}
+Residential Address: ${cityOrAddress}
 Contact Phone: ${phone}
-Email: ${email}`;
+Email Address: ${email}
 
-  const emailBody = `Dear Grievance Redressal Officer (${primaryAuthority.shortName}),
+VERIFICATION:
+Verified at ${cityOnly} on this ${todayFormatted} that the contents of the above application are true and correct to the best of my knowledge and belief, and nothing material has been concealed therefrom.
 
-Please find below the formal citizen complaint submitted by ${applicantName} (HaqAI ID: ${haqIdLabel}, CNIC: ${cnic}) for urgent statutory action:
+Deponent / Applicant: ___________________________
 
---------------------------------------------------
+ENCLOSURES:
+1. Attested / Clear Copy of Applicant's CNIC (${cnic})
+2. Copies of Relevant Supporting Documents / Receipts / Evidence`;
+
+  const emailBody = `Respected Sir / Madam,
+${primaryAuthority.name},
+
+Please find below my formal written application submitted for urgent legal and administrative redressal:
+
+====================================================================
 ${bodyText}
---------------------------------------------------`;
+====================================================================`;
 
   return {
     subject,
@@ -206,9 +237,7 @@ ${bodyText}
     recipientAuthority: primaryAuthority,
     date: todayFormatted,
     bodyText,
-    emailSubject: `[Formal Citizen Complaint${
-      facts.haqId ? ` - ${facts.haqId}` : ""
-    }] ${subject}`,
+    emailSubject: `Formal Application: ${subject}`,
     emailBody,
     categoryId: entry.id,
     facts,

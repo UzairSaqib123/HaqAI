@@ -222,3 +222,30 @@ html.dark input::placeholder,
 html.dark textarea::placeholder {
   color: #64748b !important;
 }
+
+/* Clean Formal Legal Petition Printing */
+@media print {
+  header,
+  footer,
+  nav,
+  .no-print {
+    display: none !important;
+  }
+
+  body,
+  html.dark body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  #printable-legal-petition {
+    display: block !important;
+    font-family: "Times New Roman", Georgia, serif !important;
+    font-size: 12pt !important;
+    line-height: 1.65 !important;
+    color: #000000 !important;
+    background: #ffffff !important;
+    padding: 0.5in !important;
+    white-space: pre-wrap !important;
+  }
+}
