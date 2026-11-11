@@ -90,20 +90,97 @@ html.dark body {
 }
 
 .haq-animated-grid {
-  background-image: radial-gradient(rgba(13, 148, 136, 0.16) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(13, 148, 136, 0.18) 1px, transparent 1px);
   background-size: 32px 32px;
   animation: grid-pan 24s linear infinite;
 }
 
 html.dark .haq-animated-grid {
-  background-image: radial-gradient(rgba(45, 212, 191, 0.14) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(45, 212, 191, 0.16) 1px, transparent 1px);
+}
+
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradient-x {
+  0%, 100% {
+    background-size: 200% 200%;
+    background-position: left center;
+  }
+  50% {
+    background-size: 200% 200%;
+    background-position: right center;
+  }
+}
+
+@keyframes float-gentle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.35), 0 0 0 0 rgba(20, 184, 166, 0.3);
+  }
+  50% {
+    box-shadow: 0 14px 32px -4px rgba(16, 185, 129, 0.5), 0 0 0 8px rgba(20, 184, 166, 0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.delay-100 {
+  animation-delay: 100ms;
+}
+
+.delay-200 {
+  animation-delay: 200ms;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
+}
+
+.animate-gradient-x {
+  background-size: 200% auto;
+  animation: gradient-x 6s ease infinite;
+}
+
+.animate-float-gentle {
+  animation: float-gentle 4.5s ease-in-out infinite;
+}
+
+.animate-glow-cta {
+  animation: glow-pulse 3s ease-in-out infinite;
 }
 
 .soft-card {
-  background: #ffffff;
-  border: 1px solid rgba(226, 232, 240, 0.85);
-  box-shadow: 0 4px 24px -4px rgba(15, 23, 42, 0.05);
-  transition: background-color 0.2s ease, border-color 0.2s ease;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(203, 213, 225, 0.75);
+  box-shadow: 0 8px 30px -6px rgba(15, 23, 42, 0.06);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.28s ease,
+    background-color 0.2s ease;
+}
+
+.soft-card:hover {
+  box-shadow: 0 16px 36px -8px rgba(13, 148, 136, 0.14);
 }
 
 /* Comprehensive Dark Mode Theme Adaptation */
