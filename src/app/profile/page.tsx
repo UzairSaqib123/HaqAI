@@ -10,15 +10,9 @@ import {
   CheckCircle2,
   Mic,
   FileCheck2,
-  LogIn,
   ExternalLink,
 } from "lucide-react";
-import {
-  CitizenProfile,
-  generateHaqCitizenId,
-  isSupabaseConfigured,
-  supabase,
-} from "@/lib/supabase";
+import { CitizenProfile, generateHaqCitizenId } from "@/lib/supabase";
 import { saveClientProfile } from "@/lib/client-storage";
 
 const PROVINCES = [
@@ -43,7 +37,6 @@ export default function CitizenProfilePage() {
   const [occupation, setOccupation] = useState("");
   const [role, setRole] = useState<"citizen" | "admin">("citizen");
 
-  const [isGoogleAuthenticated, setIsGoogleAuthenticated] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
   const [savedSuccess, setSavedSuccess] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
@@ -63,7 +56,6 @@ export default function CitizenProfilePage() {
         setAddress(p.address || "");
         setOccupation(p.occupation || "");
         setRole(p.role || "citizen");
-        setIsGoogleAuthenticated(true);
         saveClientProfile(p);
         fetch("/api/profile", {
           method: "POST",
@@ -77,40 +69,7 @@ export default function CitizenProfilePage() {
     } catch {
       setHaqId(generateHaqCitizenId());
     }
-
-    if (isSupabaseConfigured && supabase) {
-      supabase.auth.getUser().then(({ data }) => {
-        if (data?.user) {
-          setIsGoogleAuthenticated(true);
-          setEmail(data.user.email || "");
-          if (data.user.user_metadata?.full_name) {
-            setFullName(data.user.user_metadata.full_name);
-          }
-        }
-      });
-    }
   }, []);
-
-  async function handleGoogleSignIn() {
-    setErrorMsg("");
-    if (isSupabaseConfigured && supabase) {
-      const { error } = await supabase.auth.signInWithOAuth({
-        provider: "google",
-        options: {
-          redirectTo: `${window.location.origin}/profile`,
-        },
-      });
-      if (error) {
-        setErrorMsg(error.message);
-      }
-      return;
-    }
-
-    setIsGoogleAuthenticated(true);
-    if (!haqId) {
-      setHaqId(generateHaqCitizenId());
-    }
-  }
 
   function handleGenerateNewId() {
     setHaqId(generateHaqCitizenId());
@@ -157,7 +116,6 @@ export default function CitizenProfilePage() {
       const data = await res.json();
       if (data.success && data.profile) {
         saveClientProfile(data.profile);
-        setIsGoogleAuthenticated(true);
         setSavedSuccess(true);
       } else {
         setErrorMsg(data.error || "Failed to save profile");
@@ -178,7 +136,7 @@ export default function CitizenProfilePage() {
               <UserCheck className="h-3.5 w-3.5" /> Citizen Profile &amp; Unique HaqAI ID
             </span>
             <h1 className="mt-2 text-2xl sm:text-3xl font-extrabold text-slate-900">
-              Citizen Login, Unique HaqAI ID &amp; Profile Setup
+              Citizen Profile, Unique HaqAI ID &amp; Setup
             </h1>
             <p className="mt-1 text-sm text-slate-600 max-w-2xl">
               Save your details (Name, CNIC, WhatsApp Number, City, Address) so
@@ -190,34 +148,6 @@ export default function CitizenProfilePage() {
 
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 items-start">
         <div className="lg:col-span-5 space-y-6">
-          {isSupabaseConfigured && (
-            <div className="soft-card rounded-2xl p-6 space-y-4">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
-                  Google Authentication (Supabase Auth)
-                </span>
-                {isGoogleAuthenticated && (
-                  <span className="inline-flex items-center gap-1 rounded-full bg-teal-100 px-2.5 py-0.5 text-xs font-bold text-teal-800">
-                    <CheckCircle2 className="h-3.5 w-3.5" /> Verified
-                  </span>
-                )}
-              </div>
-
-              <button
-                type="button"
-                onClick={handleGoogleSignIn}
-                className="w-full flex items-center justify-center gap-3 rounded-xl border border-slate-200 bg-white px-5 py-3.5 text-sm font-bold text-slate-900 shadow-sm hover:border-teal-500 transition"
-              >
-                <LogIn className="h-5 w-5 text-teal-600" />
-                <span>
-                  {isGoogleAuthenticated && email
-                    ? `Signed in (${email})`
-                    : "Continue with Google"}
-                </span>
-              </button>
-            </div>
-          )}
-
           <div className="soft-card rounded-3xl p-6 space-y-5">
             <div className="flex items-center justify-between border-b border-slate-100 pb-4">
               <div className="flex items-center gap-2.5">

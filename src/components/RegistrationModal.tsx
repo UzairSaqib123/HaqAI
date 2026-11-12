@@ -1,19 +1,8 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import {
-  UserCheck,
-  CheckCircle2,
-  ShieldCheck,
-  LogIn,
-  X,
-} from "lucide-react";
-import {
-  CitizenProfile,
-  generateHaqCitizenId,
-  isSupabaseConfigured,
-  supabase,
-} from "@/lib/supabase";
+import { UserCheck, ShieldCheck, X } from "lucide-react";
+import { CitizenProfile, generateHaqCitizenId } from "@/lib/supabase";
 import { saveClientProfile } from "@/lib/client-storage";
 
 export default function RegistrationModal() {
@@ -28,7 +17,6 @@ export default function RegistrationModal() {
   const [city, setCity] = useState("");
   const [province, setProvince] = useState("Punjab");
   const [address, setAddress] = useState("");
-  const [googleConnected, setGoogleConnected] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
 
@@ -46,7 +34,6 @@ export default function RegistrationModal() {
         setCity(parsed.city);
         setProvince(parsed.province || "Punjab");
         setAddress(parsed.address);
-        setGoogleConnected(true);
         setCanClose(true);
         setIsOpen(false);
         saveClientProfile(parsed);
@@ -66,18 +53,6 @@ export default function RegistrationModal() {
       setIsOpen(true);
     }
 
-    if (isSupabaseConfigured && supabase) {
-      supabase.auth.getUser().then(({ data }) => {
-        if (data?.user) {
-          setGoogleConnected(true);
-          if (data.user.email) setEmail(data.user.email);
-          if (data.user.user_metadata?.full_name) {
-            setFullName(data.user.user_metadata.full_name);
-          }
-        }
-      });
-    }
-
     function handleOpenModal() {
       setCanClose(true);
       setIsOpen(true);
@@ -89,22 +64,6 @@ export default function RegistrationModal() {
         handleOpenModal
       );
   }, []);
-
-  async function handleGoogleConnect() {
-    setErrorMsg("");
-    if (isSupabaseConfigured && supabase) {
-      const { error } = await supabase.auth.signInWithOAuth({
-        provider: "google",
-        options: {
-          redirectTo: window.location.origin,
-        },
-      });
-      if (error) setErrorMsg(error.message);
-      return;
-    }
-
-    setGoogleConnected(true);
-  }
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -191,29 +150,6 @@ export default function RegistrationModal() {
         </div>
 
         <form onSubmit={handleSubmit} className="p-6 space-y-4">
-          {isSupabaseConfigured && (
-            <button
-              type="button"
-              onClick={handleGoogleConnect}
-              className={`w-full flex items-center justify-center gap-2.5 rounded-xl border py-3 px-4 text-xs sm:text-sm font-semibold transition ${
-                googleConnected
-                  ? "border-teal-500 bg-teal-50/70 text-teal-900"
-                  : "border-slate-200 bg-slate-50 text-slate-800 hover:bg-slate-100"
-              }`}
-            >
-              {googleConnected ? (
-                <CheckCircle2 className="h-4 w-4 text-teal-600" />
-              ) : (
-                <LogIn className="h-4 w-4 text-teal-600" />
-              )}
-              <span>
-                {googleConnected
-                  ? `Google Account Linked (${email})`
-                  : "Continue with Google (گوگل سے لاگ ان کریں)"}
-              </span>
-            </button>
-          )}
-
           {errorMsg && (
             <div className="rounded-xl bg-rose-50 border border-rose-200 p-3 text-xs font-medium text-rose-700">
               {errorMsg}
