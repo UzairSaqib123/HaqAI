@@ -841,6 +841,37 @@ export default function AdminDashboardPage() {
                       <p className="text-xs text-slate-500">
                         Help Types: {h.helpTypes.join(", ")}
                       </p>
+                      {h.credentials ? (
+                        <div className="rounded-xl bg-emerald-50 border border-emerald-200 p-3 text-xs text-slate-700 space-y-0.5">
+                          <p className="font-bold text-emerald-900">
+                            {h.credentials.degree} • {h.credentials.university} (
+                            {h.credentials.graduationYear})
+                          </p>
+                          <p>
+                            {h.credentials.licenseNumber
+                              ? `${h.credentials.barCouncil} • Licence: ${h.credentials.licenseNumber}`
+                              : "Not enrolled with a Bar Council (student / paralegal)"}
+                            {h.credentials.experienceYears
+                              ? ` • ${h.credentials.experienceYears} yrs practice`
+                              : ""}
+                          </p>
+                          {h.credentials.specialization && (
+                            <p>Specialisation: {h.credentials.specialization}</p>
+                          )}
+                          {h.credentials.bio && (
+                            <p className="text-slate-500 italic">
+                              &ldquo;{h.credentials.bio}&rdquo;
+                            </p>
+                          )}
+                          <p className="text-slate-500">
+                            Contact: {h.email || h.phone || "—"}
+                          </p>
+                        </div>
+                      ) : (
+                        <p className="text-xs text-amber-700">
+                          No degree / licence details submitted.
+                        </p>
+                      )}
                     </div>
                   ))}
                 </div>

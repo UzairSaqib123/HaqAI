@@ -14,9 +14,13 @@ import {
   Phone,
   ArrowRight,
   Cpu,
+  GraduationCap,
+  ShieldCheck,
+  X,
 } from "lucide-react";
 import Link from "next/link";
 import {
+  AdvocateCredentials,
   AvailabilityTimeSlot,
   HelpTypeOption,
   LegalHelperAvailability,
@@ -76,6 +80,37 @@ const LEGAL_CATEGORIES: { id: LegalCategoryId; label: string }[] =
     label: cat.title.en,
   }));
 
+const DEGREE_OPTIONS = [
+  "LLB (5-Year)",
+  "LLB (3-Year)",
+  "LLM",
+  "Bar-at-Law",
+  "Law Student (LLB in progress)",
+  "Paralegal Certificate",
+];
+
+/** Degrees that are not yet enrolled advocates (no Bar licence required) */
+const NON_LICENSED_DEGREES = [
+  "Law Student (LLB in progress)",
+  "Paralegal Certificate",
+];
+
+const appLabel =
+  "block text-[11px] font-bold uppercase tracking-wide text-slate-600 dark:text-slate-400 mb-1";
+const appInput =
+  "w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm text-slate-900 dark:text-white focus:outline-none focus:border-emerald-600 transition";
+
+const BAR_COUNCILS = [
+  "Punjab Bar Council",
+  "Sindh Bar Council",
+  "Khyber Pakhtunkhwa Bar Council",
+  "Balochistan Bar Council",
+  "Islamabad Bar Council",
+  "Pakistan Bar Council (Supreme Court)",
+  "AJK Bar Council",
+  "Gilgit-Baltistan Bar Council",
+];
+
 export default function AvailabilitySwitchCard({
   compact = false,
 }: {
@@ -104,6 +139,25 @@ export default function AvailabilitySwitchCard({
   const [saving, setSaving] = useState(false);
   const [statusMessage, setStatusMessage] = useState<string | null>(null);
 
+  // Advocate application (degree & professional details) required before switching ON
+  const [credentials, setCredentials] = useState<AdvocateCredentials | null>(
+    null
+  );
+  const [showApplication, setShowApplication] = useState(false);
+  const [appForm, setAppForm] = useState({
+    degree: DEGREE_OPTIONS[0],
+    university: "",
+    graduationYear: "",
+    barCouncil: BAR_COUNCILS[0],
+    licenseNumber: "",
+    experienceYears: "",
+    specialization: "",
+    bio: "",
+  });
+  const [declaration, setDeclaration] = useState(false);
+  const [appError, setAppError] = useState<string | null>(null);
+  const needsLicence = !NON_LICENSED_DEGREES.includes(appForm.degree);
+
   // Citizen filter for Preference-Based Matching
   const [citizenNeedCategory, setCitizenNeedCategory] = useState<
     LegalCategoryId | "all"
@@ -130,7 +184,13 @@ export default function AvailabilitySwitchCard({
           savedHelperRaw
         ) as LegalHelperAvailability;
         setHelperId(parsedHelper.helperId || "");
-        setIsAvailable(Boolean(parsedHelper.isAvailable));
+        if (parsedHelper.credentials) {
+          setCredentials(parsedHelper.credentials);
+          setAppForm((prev) => ({ ...prev, ...parsedHelper.credentials }));
+        }
+        setIsAvailable(
+          Boolean(parsedHelper.isAvailable && parsedHelper.credentials)
+        );
         if (parsedHelper.fullName) setFullName(parsedHelper.fullName);
         if (parsedHelper.roleTitle) setRoleTitle(parsedHelper.roleTitle);
         if (parsedHelper.city) setCity(parsedHelper.city);
@@ -200,15 +260,27 @@ export default function AvailabilitySwitchCard({
     );
   }
 
-  async function handleSaveOrToggle(nextAvailableState: boolean) {
+  async function handleSaveOrToggle(
+    nextAvailableState: boolean,
+    submittedCredentials?: AdvocateCredentials,
+    roleOverride?: string
+  ) {
+    const activeCredentials = submittedCredentials || credentials;
+
+    // Switching ON by yourself requires the advocate application first
+    if (nextAvailableState && !activeCredentials) {
+      setAppError(null);
+      setShowApplication(true);
+      return;
+    }
+
     if (!fullName.trim()) {
       setStatusMessage(
-        "Please enter your Name below before switching on 'I can help'."
+        "Please enter your Name before switching on 'I can help'."
       );
       return;
     }
 
-    setIsAvailable(nextAvailableState);
     setSaving(true);
     setStatusMessage(null);
 
@@ -220,7 +292,7 @@ export default function AvailabilitySwitchCard({
           helperId: helperId || haqId || undefined,
           haqId: haqId || undefined,
           fullName,
-          roleTitle,
+          roleTitle: roleOverride || roleTitle,
           phone,
           email,
           city: city || "Pakistan",
@@ -228,21 +300,25 @@ export default function AvailabilitySwitchCard({
           timeSlot,
           helpTypes,
           legalCategories: selectedCategories,
+          credentials: activeCredentials || undefined,
         }),
       });
 
       const data = await res.json();
       if (res.ok && data.helper) {
+        setIsAvailable(nextAvailableState);
         setHelperId(data.helper.helperId);
+        if (data.helper.credentials) setCredentials(data.helper.credentials);
         saveClientHelper(data.helper);
         setHelpers(data.helpers || []);
         setMatches(data.matches || []);
         setStatusMessage(
           nextAvailableState
-            ? "Availability Switch ON: You are now live for Preference-Based Legal Matching!"
+            ? "Availability Switch ON: Your advocate details are on file and you are now live for Preference-Based Legal Matching!"
             : "Availability Switch OFF: Your status is paused."
         );
       } else {
+        if (data.requiresCredentials) setShowApplication(true);
         setStatusMessage(data.error || "Could not update availability.");
       }
     } catch {
@@ -250,6 +326,52 @@ export default function AvailabilitySwitchCard({
     } finally {
       setSaving(false);
     }
+  }
+
+  async function handleSubmitApplication(e: React.FormEvent) {
+    e.preventDefault();
+    setAppError(null);
+
+    if (!fullName.trim() || !city.trim() || !(email.trim() || phone.trim())) {
+      setAppError("Please enter your full name, city and a contact (email or phone).");
+      return;
+    }
+    if (!appForm.university.trim() || !appForm.graduationYear.trim()) {
+      setAppError("Please enter your university / law college and graduation year.");
+      return;
+    }
+    if (needsLicence && !appForm.licenseNumber.trim()) {
+      setAppError("Please enter your Bar Council licence / enrolment number.");
+      return;
+    }
+    if (!declaration) {
+      setAppError("Please confirm the declaration that your details are correct.");
+      return;
+    }
+
+    const submitted: AdvocateCredentials = {
+      degree: appForm.degree,
+      university: appForm.university.trim(),
+      graduationYear: appForm.graduationYear.trim(),
+      barCouncil: needsLicence ? appForm.barCouncil : "",
+      licenseNumber: needsLicence ? appForm.licenseNumber.trim() : "",
+      experienceYears: appForm.experienceYears.trim(),
+      specialization: appForm.specialization.trim(),
+      bio: appForm.bio.trim(),
+      submittedAt: credentials?.submittedAt || new Date().toISOString(),
+    };
+    let finalRole = roleTitle;
+    if (!roleTitle.trim() || roleTitle === "Advocate / Legal Aid Volunteer") {
+      finalRole = needsLicence
+        ? "Advocate"
+        : appForm.degree.startsWith("Law Student")
+        ? "Law Student Volunteer"
+        : "Paralegal Volunteer";
+      setRoleTitle(finalRole);
+    }
+    setCredentials(submitted);
+    setShowApplication(false);
+    await handleSaveOrToggle(true, submitted, finalRole);
   }
 
   const activeHelpers = helpers.filter((h) => {
@@ -318,7 +440,9 @@ export default function AvailabilitySwitchCard({
                 title: "Toggle: I can help",
                 sub: isAvailable
                   ? "Switch is ON — Ready to assist citizens"
-                  : "Turn on the switch when you are ready to volunteer",
+                  : credentials
+                  ? "Details on file — turn on the switch when ready"
+                  : "Turn it on yourself — submit your degree & details to apply",
                 active: step1Done,
               },
               {
@@ -441,7 +565,9 @@ export default function AvailabilitySwitchCard({
                   ? "Updating Switch..."
                   : isAvailable
                   ? "Switch ON: I Can Help"
-                  : "Switch OFF: Click to Help"}
+                  : credentials
+                  ? "Switch OFF: Click to Help"
+                  : "Switch OFF: Click to Apply"}
               </span>
             </div>
 
@@ -605,11 +731,293 @@ export default function AvailabilitySwitchCard({
                   ? "Saving Preferences..."
                   : isAvailable
                   ? "Update Preferences & Refresh Matches"
-                  : "Turn ON Availability & Match With Needs"}
+                  : credentials
+                  ? "Turn ON Availability & Match With Needs"
+                  : "Apply as Advocate & Turn ON Availability"}
               </button>
             </div>
           </div>
         </div>
+
+        {/* Advocate application: required the first time you switch ON */}
+        {showApplication && (
+          <form
+            onSubmit={handleSubmitApplication}
+            className="animate-fade-up rounded-3xl border-2 border-emerald-600/40 dark:border-emerald-500/40 bg-gradient-to-br from-emerald-50/80 via-white to-teal-50/70 dark:from-emerald-950/40 dark:via-slate-900 dark:to-teal-950/30 p-5 sm:p-6 space-y-4 shadow-lg"
+          >
+            <div className="flex flex-wrap items-start justify-between gap-3">
+              <div>
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-700 text-white text-[11px] font-bold uppercase tracking-wider">
+                  <GraduationCap className="w-3.5 h-3.5" />
+                  Advocate Application • وکیل کی درخواست
+                </span>
+                <h3 className="mt-2 text-lg font-extrabold text-slate-900 dark:text-white">
+                  Submit your degree &amp; details to switch ON
+                </h3>
+                <p className="text-xs text-slate-600 dark:text-slate-400 max-w-xl">
+                  Citizens trust volunteers with their legal problems, so we
+                  record your qualification and Bar Council enrolment before
+                  you appear in the pro-bono network.
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={() => setShowApplication(false)}
+                className="rounded-full p-1.5 text-slate-500 hover:bg-slate-200/70 dark:hover:bg-slate-800 transition"
+                aria-label="Close application"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div>
+                <label className={appLabel}>Full Name *</label>
+                <input
+                  type="text"
+                  value={fullName}
+                  onChange={(e) => setFullName(e.target.value)}
+                  placeholder="e.g., Adv. Bilal Ahmed"
+                  className={appInput}
+                />
+              </div>
+              <div>
+                <label className={appLabel}>City *</label>
+                <input
+                  type="text"
+                  value={city}
+                  onChange={(e) => setCity(e.target.value)}
+                  placeholder="e.g., Lahore"
+                  className={appInput}
+                />
+              </div>
+              <div>
+                <label className={appLabel}>Contact Email or Phone *</label>
+                <input
+                  type="text"
+                  value={email || phone}
+                  onChange={(e) => {
+                    const val = e.target.value;
+                    if (val.includes("@")) {
+                      setEmail(val);
+                      setPhone("");
+                    } else {
+                      setPhone(val);
+                      setEmail("");
+                    }
+                  }}
+                  placeholder="you@example.com / 03XX-XXXXXXX"
+                  className={appInput}
+                />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div>
+                <label className={appLabel}>Law Degree *</label>
+                <select
+                  value={appForm.degree}
+                  onChange={(e) =>
+                    setAppForm((p) => ({ ...p, degree: e.target.value }))
+                  }
+                  className={appInput}
+                >
+                  {DEGREE_OPTIONS.map((d) => (
+                    <option key={d} value={d}>
+                      {d}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div>
+                <label className={appLabel}>University / Law College *</label>
+                <input
+                  type="text"
+                  value={appForm.university}
+                  onChange={(e) =>
+                    setAppForm((p) => ({ ...p, university: e.target.value }))
+                  }
+                  placeholder="e.g., Punjab University Law College"
+                  className={appInput}
+                />
+              </div>
+              <div>
+                <label className={appLabel}>
+                  {needsLicence ? "Graduation Year *" : "Expected Year *"}
+                </label>
+                <input
+                  type="text"
+                  inputMode="numeric"
+                  maxLength={4}
+                  value={appForm.graduationYear}
+                  onChange={(e) =>
+                    setAppForm((p) => ({
+                      ...p,
+                      graduationYear: e.target.value.replace(/\D/g, ""),
+                    }))
+                  }
+                  placeholder="e.g., 2021"
+                  className={appInput}
+                />
+              </div>
+            </div>
+
+            {needsLicence && (
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div>
+                  <label className={appLabel}>Bar Council *</label>
+                  <select
+                    value={appForm.barCouncil}
+                    onChange={(e) =>
+                      setAppForm((p) => ({ ...p, barCouncil: e.target.value }))
+                    }
+                    className={appInput}
+                  >
+                    {BAR_COUNCILS.map((b) => (
+                      <option key={b} value={b}>
+                        {b}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <div>
+                  <label className={appLabel}>Licence / Enrolment No. *</label>
+                  <input
+                    type="text"
+                    value={appForm.licenseNumber}
+                    onChange={(e) =>
+                      setAppForm((p) => ({
+                        ...p,
+                        licenseNumber: e.target.value,
+                      }))
+                    }
+                    placeholder="e.g., PBC/LHR/12345"
+                    className={`${appInput} font-mono`}
+                  />
+                </div>
+                <div>
+                  <label className={appLabel}>Years of Practice</label>
+                  <input
+                    type="text"
+                    inputMode="numeric"
+                    maxLength={2}
+                    value={appForm.experienceYears}
+                    onChange={(e) =>
+                      setAppForm((p) => ({
+                        ...p,
+                        experienceYears: e.target.value.replace(/\D/g, ""),
+                      }))
+                    }
+                    placeholder="e.g., 5"
+                    className={appInput}
+                  />
+                </div>
+              </div>
+            )}
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label className={appLabel}>Area of Practice / Specialisation</label>
+                <input
+                  type="text"
+                  value={appForm.specialization}
+                  onChange={(e) =>
+                    setAppForm((p) => ({ ...p, specialization: e.target.value }))
+                  }
+                  placeholder="e.g., Family, Cyber Crime, Labour Law"
+                  className={appInput}
+                />
+              </div>
+              <div>
+                <label className={appLabel}>Short Introduction</label>
+                <input
+                  type="text"
+                  value={appForm.bio}
+                  maxLength={600}
+                  onChange={(e) =>
+                    setAppForm((p) => ({ ...p, bio: e.target.value }))
+                  }
+                  placeholder="How you would like to help citizens"
+                  className={appInput}
+                />
+              </div>
+            </div>
+
+            <label className="flex items-start gap-2.5 text-xs text-slate-700 dark:text-slate-300 cursor-pointer">
+              <input
+                type="checkbox"
+                checked={declaration}
+                onChange={(e) => setDeclaration(e.target.checked)}
+                className="mt-0.5 h-4 w-4 accent-emerald-700"
+              />
+              <span>
+                I declare that the above qualification and enrolment details
+                are true, and I agree to offer pro-bono help ethically.
+                (میں تصدیق کرتا/کرتی ہوں کہ دی گئی معلومات درست ہیں)
+              </span>
+            </label>
+
+            {appError && (
+              <div className="rounded-xl bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-800 p-3 text-xs font-medium text-rose-700 dark:text-rose-300">
+                {appError}
+              </div>
+            )}
+
+            <div className="flex flex-col sm:flex-row gap-2.5">
+              <button
+                type="submit"
+                disabled={saving}
+                className="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-emerald-700 to-teal-600 hover:from-emerald-800 hover:to-teal-700 text-white font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2"
+              >
+                <ShieldCheck className="w-4 h-4" />
+                {saving ? "Submitting..." : "Submit Details & Switch ON"}
+              </button>
+              <button
+                type="button"
+                onClick={() => setShowApplication(false)}
+                className="py-3 px-5 rounded-xl border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-semibold text-sm hover:bg-slate-100 dark:hover:bg-slate-800 transition"
+              >
+                Cancel
+              </button>
+            </div>
+          </form>
+        )}
+
+        {/* Credentials on file */}
+        {credentials && !showApplication && (
+          <div className="flex flex-wrap items-center justify-between gap-3 p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
+            <div className="flex items-center gap-3 min-w-0">
+              <div className="w-10 h-10 rounded-xl bg-emerald-700 text-white flex items-center justify-center shrink-0">
+                <GraduationCap className="w-5 h-5" />
+              </div>
+              <div className="min-w-0">
+                <div className="text-sm font-bold text-slate-900 dark:text-white truncate">
+                  {credentials.degree} • {credentials.university} (
+                  {credentials.graduationYear})
+                </div>
+                <div className="text-xs text-slate-500 dark:text-slate-400 truncate">
+                  {credentials.licenseNumber
+                    ? `${credentials.barCouncil} • Licence ${credentials.licenseNumber}`
+                    : "Volunteer (not yet enrolled with a Bar Council)"}
+                  {credentials.experienceYears
+                    ? ` • ${credentials.experienceYears} yrs practice`
+                    : ""}
+                </div>
+              </div>
+            </div>
+            <button
+              type="button"
+              onClick={() => {
+                setAppError(null);
+                setDeclaration(false);
+                setShowApplication(true);
+              }}
+              className="text-xs font-bold text-emerald-700 dark:text-emerald-400 hover:underline"
+            >
+              Edit details
+            </button>
+          </div>
+        )}
 
         {statusMessage && (
           <div className="p-3.5 rounded-2xl bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-300 dark:border-emerald-700 text-emerald-900 dark:text-emerald-200 text-xs sm:text-sm font-medium flex items-center justify-between gap-3">
@@ -708,6 +1116,15 @@ export default function AvailabilitySwitchCard({
                               <MapPin className="w-3 h-3" /> {h.city}
                             </span>
                           </div>
+                          {h.credentials && (
+                            <div className="mt-0.5 inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-700 dark:text-emerald-400">
+                              <GraduationCap className="w-3 h-3" />
+                              {h.credentials.degree}
+                              {h.credentials.barCouncil
+                                ? ` • ${h.credentials.barCouncil}`
+                                : ""}
+                            </div>
+                          )}
                         </div>
                         <span className="px-2 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-[11px] font-semibold text-slate-700 dark:text-slate-300">
                           {

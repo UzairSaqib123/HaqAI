@@ -39,6 +39,18 @@ export type HelpTypeOption =
   | "representation"
   | "verification";
 
+export interface AdvocateCredentials {
+  degree: string;
+  university: string;
+  graduationYear: string;
+  barCouncil: string;
+  licenseNumber: string;
+  experienceYears: string;
+  specialization: string;
+  bio: string;
+  submittedAt: string;
+}
+
 export interface LegalHelperAvailability {
   helperId: string;
   haqId: string;
@@ -52,6 +64,7 @@ export interface LegalHelperAvailability {
   helpTypes: HelpTypeOption[];
   legalCategories: LegalCategoryId[];
   matchedCaseIds: string[];
+  credentials?: AdvocateCredentials;
   updatedAt: string;
 }
 

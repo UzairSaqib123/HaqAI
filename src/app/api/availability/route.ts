@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import {
+  AdvocateCredentials,
   AvailabilityTimeSlot,
   getAllCases,
   getAllHelpers,
@@ -13,6 +14,34 @@ import {
 } from "@/lib/legal-knowledge";
 
 export const dynamic = "force-dynamic";
+
+/** Degrees that are not yet enrolled advocates (no Bar licence required) */
+const NON_LICENSED_DEGREES = ["Law Student (LLB in progress)", "Paralegal Certificate"];
+
+function sanitizeCredentials(raw: unknown): AdvocateCredentials | undefined {
+  if (!raw || typeof raw !== "object") return undefined;
+  const c = raw as Record<string, unknown>;
+  const s = (v: unknown) => String(v ?? "").trim();
+  const degree = s(c.degree);
+  const university = s(c.university);
+  const graduationYear = s(c.graduationYear);
+  const barCouncil = s(c.barCouncil);
+  const licenseNumber = s(c.licenseNumber);
+  if (!degree || !university || !graduationYear) return undefined;
+  const needsLicence = !NON_LICENSED_DEGREES.includes(degree);
+  if (needsLicence && (!barCouncil || !licenseNumber)) return undefined;
+  return {
+    degree,
+    university,
+    graduationYear,
+    barCouncil,
+    licenseNumber,
+    experienceYears: s(c.experienceYears),
+    specialization: s(c.specialization),
+    bio: s(c.bio).slice(0, 600),
+    submittedAt: s(c.submittedAt) || new Date().toISOString(),
+  };
+}
 
 export interface PreferenceMatch {
   matchId: string;
@@ -141,6 +170,7 @@ export async function POST(req: NextRequest) {
       timeSlot,
       helpTypes,
       legalCategories,
+      credentials,
     } = body;
 
     if (!fullName || !String(fullName).trim()) {
@@ -154,6 +184,24 @@ export async function POST(req: NextRequest) {
       helperId ||
       haqId ||
       `HLP-${Math.floor(100000 + Math.random() * 900000)}`;
+
+    // Advocate credentials: use newly submitted ones, otherwise keep what is on file
+    const existingHelper = getAllHelpers().find(
+      (h) => h.helperId === cleanHelperId
+    );
+    const finalCredentials = sanitizeCredentials(credentials) ||
+      existingHelper?.credentials;
+
+    if (Boolean(isAvailable) && !finalCredentials) {
+      return NextResponse.json(
+        {
+          error:
+            "Please submit your degree and professional details before switching ON the Availability Switch.",
+          requiresCredentials: true,
+        },
+        { status: 400 }
+      );
+    }
 
     const validTimeSlot: AvailabilityTimeSlot = [
       "immediate",
@@ -194,6 +242,7 @@ export async function POST(req: NextRequest) {
       helpTypes: validHelpTypes,
       legalCategories: validCategories,
       matchedCaseIds,
+      credentials: finalCredentials,
       updatedAt: new Date().toISOString(),
     });
 
